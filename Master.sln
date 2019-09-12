@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Master", "Master\Master.vcxproj", "{EB39B676-1E6C-492A-86C7-DB3B1AD8E805}"
 	ProjectSection(ProjectDependencies) = postProject
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C} = {A64CF039-6A3F-44EE-8CCD-9C04B48B984C}
 		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C} = {96FA8B54-EEEA-41FF-B51A-271E57B55E2C}
 		{64A80E64-2C56-4C7E-B0D0-74AFB689C566} = {64A80E64-2C56-4C7E-B0D0-74AFB689C566}
 	EndProjectSection
@@ -18,6 +19,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GDP2019_20", "..\Reference\GDP2019_20\GDP2019_20\GDP2019_20.vcxproj", "{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "week_02", "..\Reference\info6046\week_02\week_02.vcxproj", "{E8329268-E660-4C18-A8C1-33F1C9F5A1B1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glmLib", "External\glmLib\glmLib.vcxproj", "{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +70,14 @@ Global
 		{E8329268-E660-4C18-A8C1-33F1C9F5A1B1}.Release|x64.Build.0 = Release|x64
 		{E8329268-E660-4C18-A8C1-33F1C9F5A1B1}.Release|x86.ActiveCfg = Release|Win32
 		{E8329268-E660-4C18-A8C1-33F1C9F5A1B1}.Release|x86.Build.0 = Release|Win32
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Debug|x64.ActiveCfg = Debug|x64
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Debug|x64.Build.0 = Debug|x64
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Debug|x86.ActiveCfg = Debug|Win32
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Debug|x86.Build.0 = Debug|Win32
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Release|x64.ActiveCfg = Release|x64
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Release|x64.Build.0 = Release|x64
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Release|x86.ActiveCfg = Release|Win32
+		{A64CF039-6A3F-44EE-8CCD-9C04B48B984C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
