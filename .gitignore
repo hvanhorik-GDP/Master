@@ -33,3 +33,9 @@
 
 # .vs folder
 .vs/
+Debug/
+Release/
+.tlog
+.pdb
+.filters
+.user

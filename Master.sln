@@ -4,6 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Master", "Master\Master.vcxproj", "{EB39B676-1E6C-492A-86C7-DB3B1AD8E805}"
+	ProjectSection(ProjectDependencies) = postProject
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C} = {96FA8B54-EEEA-41FF-B51A-271E57B55E2C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL", "External\OpenGL\OpenGL.vcxproj", "{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9403C01-E33D-4B10-8279-A31C61915F9A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GDP2019_20", "External\GDP2019_20\GDP2019_20.vcxproj", "{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +30,22 @@ Global
 		{EB39B676-1E6C-492A-86C7-DB3B1AD8E805}.Release|x64.Build.0 = Release|x64
 		{EB39B676-1E6C-492A-86C7-DB3B1AD8E805}.Release|x86.ActiveCfg = Release|Win32
 		{EB39B676-1E6C-492A-86C7-DB3B1AD8E805}.Release|x86.Build.0 = Release|Win32
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Debug|x64.ActiveCfg = Debug|x64
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Debug|x64.Build.0 = Debug|x64
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Debug|x86.ActiveCfg = Debug|Win32
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Debug|x86.Build.0 = Debug|Win32
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Release|x64.ActiveCfg = Release|x64
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Release|x64.Build.0 = Release|x64
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Release|x86.ActiveCfg = Release|Win32
+		{96FA8B54-EEEA-41FF-B51A-271E57B55E2C}.Release|x86.Build.0 = Release|Win32
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Debug|x64.ActiveCfg = Debug|x64
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Debug|x64.Build.0 = Debug|x64
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Debug|x86.ActiveCfg = Debug|Win32
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Debug|x86.Build.0 = Debug|Win32
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Release|x64.ActiveCfg = Release|x64
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Release|x64.Build.0 = Release|x64
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Release|x86.ActiveCfg = Release|Win32
+		{AC89A0D6-36A9-4B42-948D-5A55BA436D9A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
