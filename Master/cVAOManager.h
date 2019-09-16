@@ -1,6 +1,6 @@
 #pragma once
 
-#include "OpenGL.h"
+#include "gl/GLCommon.h"		// glfw.h, etc. (openGL.h)
 
 // Will load the models and place them 
 // into the vertex and index buffers to be drawn

@@ -1,6 +1,6 @@
 #include "cShaderManager.h"
 
-#include "OpenGL.h"	// For all the OpenGL calls, etc.
+#include "gl/GLCommon.h"		// glfw.h, etc. (openGL.h)
 
 #include <fstream>
 #include <sstream>		// "string stream"
