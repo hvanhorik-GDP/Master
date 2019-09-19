@@ -113,7 +113,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir)inc\$(ProjectName)\*.*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir).inc\$(ProjectName)\*.*"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -132,7 +132,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir)inc\$(ProjectName)\*.*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir).inc\$(ProjectName)\*.*"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -155,7 +155,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir)inc\$(ProjectName)\*.*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir).inc\$(ProjectName)\*.*"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -178,7 +178,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir)inc\$(ProjectName)\*.*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)glm\*.*" "$(SolutionDir).inc\$(ProjectName)\*.*"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

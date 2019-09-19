@@ -33,8 +33,11 @@
 
 # .vs folder
 .vs/
+.inc/
 Debug/
 Release/
+x64/
+win32/
 .tlog
 .pdb
 .filters

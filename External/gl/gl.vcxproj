@@ -108,10 +108,10 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir)inc\$(ProjectName)\*.h"
-xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir)inc\glad\*.h"
-xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir)inc\GLFW\*.h"
-xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir)inc\KHR\*.h"
+      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir).inc\$(ProjectName)\*.h"
+xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir).inc\glad\*.h"
+xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir).inc\GLFW\*.h"
+xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir).inc\KHR\*.h"
 xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
     </PostBuildEvent>
@@ -130,10 +130,10 @@ xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(S
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir)inc\$(ProjectName)\*.h"
-xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir)inc\glad\*.h"
-xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir)inc\GLFW\*.h"
-xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir)inc\KHR\*.h"
+      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir).inc\$(ProjectName)\*.h"
+xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir).inc\glad\*.h"
+xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir).inc\GLFW\*.h"
+xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir).inc\KHR\*.h"
 xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
     </PostBuildEvent>
@@ -152,10 +152,10 @@ xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(S
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir)inc\$(ProjectName)\*.h"
-xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir)inc\glad\*.h"
-xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir)inc\GLFW\*.h"
-xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir)inc\KHR\*.h"
+      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir).inc\$(ProjectName)\*.h"
+xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir).inc\glad\*.h"
+xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir).inc\GLFW\*.h"
+xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir).inc\KHR\*.h"
 xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
     </PostBuildEvent>
@@ -178,10 +178,10 @@ xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(S
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir)inc\$(ProjectName)\*.h"
-xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir)inc\glad\*.h"
-xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir)inc\GLFW\*.h"
-xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir)inc\KHR\*.h"
+      <Command>xcopy /S /D /Y "$(ProjectDir)*.h" "$(SolutionDir).inc\$(ProjectName)\*.h"
+xcopy /S /D /Y "$(ProjectDir)glad\*.h" "$(SolutionDir).inc\glad\*.h"
+xcopy /S /D /Y "$(ProjectDir)GLFW\*.h" "$(SolutionDir).inc\GLFW\*.h"
+xcopy /S /D /Y "$(ProjectDir)KHR\*.h" "$(SolutionDir).inc\KHR\*.h"
 xcopy /S /D /Y "$(ProjectDir)GLFW\libraries\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
     </PostBuildEvent>

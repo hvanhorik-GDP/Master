@@ -81,7 +81,7 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)include\;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(ProjectDir)include\;$(ProjectDir);$(IncludePath)</IncludePath>
@@ -91,7 +91,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(ProjectDir)include\;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -108,10 +108,11 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)include\*" "$(SolutionDir)inc\*"</Command>
+      <Command>xcopy /S /D /Y "$(ProjectDir)boost\*" "$(SolutionDir).inc\boost\*"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -125,10 +126,11 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)boost\*" "$(SolutionDir)inc\boost\*"</Command>
+      <Command>xcopy /S /D /Y "$(ProjectDir)boost\*" "$(SolutionDir).inc\boost\*"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,10 +144,11 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)boost\*" "$(SolutionDir)inc\boost\*"</Command>
+      <Command>xcopy /S /D /Y "$(ProjectDir)boost\*" "$(SolutionDir).inc\boost\*"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -163,10 +166,11 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)include\*" "$(SolutionDir)inc\*"</Command>
+      <Command>xcopy /S /D /Y "$(ProjectDir)boost\*" "$(SolutionDir).inc\boost\*"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
