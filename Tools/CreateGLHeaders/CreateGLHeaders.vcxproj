@@ -175,13 +175,10 @@
   <ItemGroup>
     <Text Include="defines.txt" />
     <Text Include="input.txt" />
-    <Text Include="prototypes pname.txt" />
-    <Text Include="prototypes program.txt" />
     <Text Include="prototypes.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CreateGLHeaders.h" />
-    <ClInclude Include="rawheader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

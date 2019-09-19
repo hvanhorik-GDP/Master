@@ -170,9 +170,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="glfw_raw_prototypes.h" />
+    <ClInclude Include="gl_raw_defines.h" />
+    <ClInclude Include="gl_raw_prototypes.h" />
+    <ClInclude Include="glfw_raw_defines.h" />
     <ClInclude Include="OpenGL.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="gflw_raw_Cursor.cpp" />
+    <ClCompile Include="glfw_raw_Key.cpp" />
+    <ClCompile Include="glfw_raw_System.cpp" />
     <ClCompile Include="OpenGL.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -32,19 +32,10 @@
     <Text Include="prototypes.txt">
       <Filter>assets</Filter>
     </Text>
-    <Text Include="prototypes pname.txt">
-      <Filter>assets</Filter>
-    </Text>
-    <Text Include="prototypes program.txt">
-      <Filter>assets</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CreateGLHeaders.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rawheader.txt">
-      <Filter>assets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

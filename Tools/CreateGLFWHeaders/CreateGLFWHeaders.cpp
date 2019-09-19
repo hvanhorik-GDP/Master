@@ -10,9 +10,15 @@
 #include <memory>
 #include <algorithm>
 
+#ifdef __WIN32__
+#include <winsock2.h>
+#else
+#include <winsock2.h>
+#endif
+
 #include <map>
 
-#include "CreateGLHeaders.h"
+#include "CreateGLFWHeaders.h"
 
 enum {
 	one = 1,
@@ -58,6 +64,14 @@ std::string FirstToUpper(const std::string& in)
 	return out;
 }
 
+string replace_str(string& str, const string& from, const string& to)
+{
+	while (str.find(from) != string::npos)
+		str.replace(str.find(from), from.length(), to);
+	return str;
+}
+
+
 template<class T>
 void TestVec(const T &in)
 {
@@ -94,51 +108,26 @@ int main(int argc, char** argv)
 	map<string, lines> search_defines;
 	lines other_gl_defines;
 
-	search_defines["INVALID"] = lines();
-	search_defines["TEXTURE"] = lines();
-	search_defines["MAX"] = lines();
-	search_defines["STENCIL"] = lines();
-	search_defines["MAX"] = lines();
-	search_defines["PIXEL"] = lines();
-	search_defines["LINE"] = lines();
-	search_defines["LIGHT"] = lines();
-	search_defines["SHADE"] = lines();
-	search_defines["CLIP"] = lines();
-	search_defines["POLYGON"] = lines();	
-	search_defines["UNIFORM"] = lines();
-	search_defines["UNPACK"] = lines();
-	search_defines["VERSION"] = lines();
-	search_defines["VERTEX"] = lines();
-	search_defines["VIEW"] = lines();
-	search_defines["ZOOM"] = lines();
-	search_defines["UNPACK"] = lines();
-	search_defines["TRIANGLES"] = lines();
-	search_defines["TRANSFORM"] = lines();
-	search_defines["TESS"] = lines();
-	search_defines["SHADER"] = lines();
-	search_defines["SAMPLER"] = lines();
-	search_defines["SAMPLE"] = lines();
-	search_defines["RENDERBUFFER"] = lines();
-	search_defines["QUERY"] = lines();
-	search_defines["PROGRAM"] = lines();
-	search_defines["PRIMITIVES"] = lines();
-	search_defines["POINT"] = lines();
-	search_defines["PACK"] = lines();
-	search_defines["INTERNALFORMAT"] = lines();
-	search_defines["FRAMEBUFFER"] = lines();
-	search_defines["FOG"] = lines();
-	search_defines["DRAW"] = lines();
-	search_defines["DEPTH"] = lines();
-	search_defines["CURRENT"] = lines();
-	search_defines["CONTEXT"] = lines();
-	search_defines["COLOR"] = lines();
-	search_defines["BUFFER"] = lines();
-	search_defines["ATOMIC"] = lines();
+	//search_defines["MOUSE"] = lines();
+	//search_defines["CONTEXT"] = lines();
+	//search_defines["DEPTH"] = lines();
+	//search_defines["INVALID"] = lines();
+	//search_defines["STENCIL"] = lines();
+	//search_defines["VERSION"] = lines();
+	//search_defines["ACCUM"] = lines();
+	//search_defines["CURSOR"] = lines();
+	//search_defines["JOYSTICK"] = lines();
+	//search_defines["KEY"] = lines();
+	//search_defines["MOD"] = lines();	
+	//search_defines["MOUSE"] = lines();
+	//search_defines["OPENGL"] = lines();
+	//search_defines["RELEASE"] = lines();
 
 	map<string, lines> search_names;
 	lines other_names;
+	lines typedefs;
 
-	search_names["program"] = lines();
+	/*search_names["program"] = lines();
 	search_names["pname"] = lines();
 	search_names["shader"] = lines();
 	search_names["light"] = lines();
@@ -171,15 +160,14 @@ int main(int argc, char** argv)
 	search_names["buffer"] = lines();
 	search_names["xfb"] = lines();
 	search_names["readFramebuffer"] = lines();
-	search_names["shadertype"] = lines();
-	
+	search_names["shadertype"] = lines();*/
 
 	while (!in.eof())
 	{
 		std::string line;
 		getline(in, line);
 		vector <string> tokens;
-		std::string delimiters = " \t();";
+		std::string delimiters = " \t;";
 		Tokens(line, tokens, delimiters);
 		if (tokens.size() >= 3)
 		{
@@ -197,7 +185,7 @@ int main(int argc, char** argv)
 
 				vector<string> wordTokens;
 				Tokens(tokens[1], wordTokens, "_");
-				if (wordTokens[0] == "GL")
+				if (wordTokens[0] == "GLFW")
 				{
 					wordTokens[0].clear();
 					std::string newWord;
@@ -220,43 +208,30 @@ int main(int argc, char** argv)
 			}
 			else
 			{
-				if (tokens[0] == "typedef" && tokens[2] == "APIENTRYP")
+				if (tokens[0] == "GLFWAPI" )
 				{
 					// Grab the function prototypes from
-					//	 typedef void (APIENTRYP PFNGLCOLORMATERIALPROC)(GLenum face, GLenum mode);
-					//	 GLAPI PFNGLCOLORMATERIALPROC glad_glColorMaterial;
-#					//   #define glColorMaterial glad_glColorMaterial
+					//	 GLFWAPI GLFWdropfun glfwSetDropCallback(GLFWwindow* window, GLFWdropfun cbfun);
 					// to
-					//	 void ColorMaterial(GLenum face, GLenum mode);
+					//	 glfwSetDropCallback(GLFWwindow* window, GLFWdropfun cbfun);
 					// Sort them into groups
 					// and Sort all of the functions within each group
 
-					std::string line2;
-					getline(in, line2);
-					getline(in, line2);
-					vector <string> tokens2;
-					Tokens(line2, tokens2, delimiters);
-					string newline = "\t" + tokens[1] + " " + tokens2[1].substr(2) + "(";
-					for (auto i = 4; i < tokens.size(); ++i)
-						newline += " " + tokens[i];
-					newline += ");\n";
-					
-					//out2 << line;
-					if (tokens.size() > 5)
+					string newline;
+					for (auto i = 1; i < tokens.size(); ++i)
 					{
-						auto pos = tokens[5].find(",");
-						string strip = (pos == string::npos) ?
-							tokens[5] :
-							tokens[5].substr(0, tokens[5].size() - 1);
-						if (search_names.find(strip) != search_names.end())
-						{
-							search_names[strip].push_back(newline);
-						}
-						else
-							other_names.push_back(newline);
+						std::string temp = replace_str(tokens[i], "glfw", "");
+						temp = replace_str(temp, "GLFW", "");
+						newline += " " + temp;
 					}
-					else
-						other_names.push_back(newline);
+					
+					newline += ";\n";
+					other_names.push_back(newline);
+				}
+				else if (tokens[0] == "typedef")
+				{
+					std::string newline = replace_str(line, "GLFW", "");
+					typedefs.push_back(newline);
 				}
 			}
 		}
@@ -273,7 +248,7 @@ int main(int argc, char** argv)
 		ofstream out1("defines.txt", std::ios::out);
 		for (auto i : search_defines)
 		{
-			std::sort(i.second.begin(), i.second.end());
+//			std::sort(i.second.begin(), i.second.end());
 			out1 << "//\n// " << ::FirstToUpper(i.first) << "\n//\n";
 			out1 << "enum e" << ::FirstToUpper(i.first) << "\n";
 			out1 << "{\n";
@@ -284,7 +259,7 @@ int main(int argc, char** argv)
 			out1 << "} e" << ::FirstToUpper(i.first) << ";\t// e" << ::FirstToUpper(i.first) <<  "\n\n";
 		}
 
-		std::sort(other_gl_defines.begin(), other_gl_defines.end());
+//		std::sort(other_gl_defines.begin(), other_gl_defines.end());
 		out1 << "//\n// " << "eOther GL defines" << "\n//\n";
 		out1 << "enum " << "eOther" << "\n";
 		out1 << "{\n";
@@ -300,7 +275,12 @@ int main(int argc, char** argv)
 			//             list of prototypes containing name (sorted)
 			//      }} // name
 
+
 		ofstream out2("prototypes.txt", std::ios::out);
+		for (auto i : typedefs)
+		{
+			out2 << i << endl;
+		}
 		for (auto i : search_names)
 		{
 			std::sort(i.second.begin(), i.second.end());
