@@ -1,4 +1,4 @@
-#include "glfw_raw_prototypes.h"
+#include "gflw_raw_Cursor.h"
 #include <gl/GlCommon.h>
 #include <cassert>
 
@@ -17,12 +17,17 @@ namespace glfw
 			assert(untested);
 			assert(image != NULL);
 			GLFWimage newimage = { image->width, image->height, image->pixels };
-			return glfwCreateCursor(&newimage, xhot, yhot);
+			cursor* ret = glfwCreateCursor(&newimage, xhot, yhot);
+			assert(ret != NULL);
+			return ret;
 		}
 		cursor* Cursor::CreateStandardCursor(eShape shape)
 		{
 			assert(untested);
-			return glfwCreateStandardCursor(shape);
+			 
+			cursor* ret = glfwCreateStandardCursor(shape);
+			assert(ret != NULL);
+			return ret;
 		}
 	}
 }
