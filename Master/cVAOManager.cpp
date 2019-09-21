@@ -29,7 +29,7 @@ sModelDrawInfo::sModelDrawInfo()
 	glm::vec3 maxValues;
 	glm::vec3 minValues;
 
-	//	scale = 5.0/maxExtent;		-> 5x5x5
+//	scale = 5.0/maxExtent;		-> 5x5x5
 	float maxExtent;
 
 	return;
@@ -37,10 +37,10 @@ sModelDrawInfo::sModelDrawInfo()
 
 
 bool cVAOManager::LoadModelIntoVAO(
-	std::string fileName,
-	cMesh& theMesh,					// NEW
-	sModelDrawInfo& drawInfo,
-	unsigned int shaderProgramID)
+		std::string fileName, 
+		cMesh& theMesh,					// NEW
+		sModelDrawInfo &drawInfo,
+	    unsigned int shaderProgramID)
 
 {
 	// Write some code to copy the infomation from cMesh& theMesh
@@ -71,7 +71,7 @@ bool cVAOManager::LoadModelIntoVAO(
 
 	unsigned int indexTri = 0;
 	unsigned int indexIndex = 0;
-	for (; indexTri != drawInfo.numberOfTriangles; indexTri++, indexIndex += 3)
+	for ( ; indexTri != drawInfo.numberOfTriangles; indexTri++, indexIndex += 3 )
 	{
 		drawInfo.pIndices[indexIndex + 0] = theMesh.vecTriangles[indexTri].vert_index_1;
 		drawInfo.pIndices[indexIndex + 1] = theMesh.vecTriangles[indexTri].vert_index_2;
@@ -92,7 +92,7 @@ bool cVAOManager::LoadModelIntoVAO(
 	//	from this buffer...
 
 	// Ask OpenGL for a new buffer ID...
-	glGenVertexArrays(1, &(drawInfo.VAO_ID));
+	glGenVertexArrays( 1, &(drawInfo.VAO_ID) );
 	// "Bind" this buffer:
 	// - aka "make this the 'current' VAO buffer
 	glBindVertexArray(drawInfo.VAO_ID);
@@ -104,27 +104,27 @@ bool cVAOManager::LoadModelIntoVAO(
 
 	// NOTE: OpenGL error checks have been omitted for brevity
 //	glGenBuffers(1, &vertex_buffer);
-	glGenBuffers(1, &(drawInfo.VertexBufferID));
+	glGenBuffers(1, &(drawInfo.VertexBufferID) );
 
-	//	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
+//	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, drawInfo.VertexBufferID);
 	// sVert vertices[3]
-	glBufferData(GL_ARRAY_BUFFER,
-		sizeof(sVertex) * drawInfo.numberOfVertices,	// ::g_NumberOfVertsToDraw,	// sizeof(vertices), 
-		(GLvoid*)drawInfo.pVertices,							// pVertices,			//vertices, 
-		GL_STATIC_DRAW);
+	glBufferData( GL_ARRAY_BUFFER, 
+				  sizeof(sVertex) * drawInfo.numberOfVertices,	// ::g_NumberOfVertsToDraw,	// sizeof(vertices), 
+				  (GLvoid*) drawInfo.pVertices,							// pVertices,			//vertices, 
+				  GL_STATIC_DRAW );
 
 
 	// Copy the index buffer into the video card, too
 	// Create an index buffer.
-	glGenBuffers(1, &(drawInfo.IndexBufferID));
+	glGenBuffers( 1, &(drawInfo.IndexBufferID) );
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, drawInfo.IndexBufferID);
 
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER,			// Type: Index element array
-		sizeof(unsigned int) * drawInfo.numberOfIndices,
-		(GLvoid*)drawInfo.pIndices,
-		GL_STATIC_DRAW);
+	glBufferData( GL_ELEMENT_ARRAY_BUFFER,			// Type: Index element array
+	              sizeof( unsigned int ) * drawInfo.numberOfIndices, 
+	              (GLvoid*) drawInfo.pIndices,
+                  GL_STATIC_DRAW );
 
 	// Set the vertex attributes.
 
@@ -133,16 +133,16 @@ bool cVAOManager::LoadModelIntoVAO(
 
 	// Set the vertex attributes for this shader
 	glEnableVertexAttribArray(vpos_location);	// vPos
-	glVertexAttribPointer(vpos_location, 3,		// vPos
-		GL_FLOAT, GL_FALSE,
-		sizeof(float) * 6,
-		(void*)0);
+	glVertexAttribPointer( vpos_location, 3,		// vPos
+						   GL_FLOAT, GL_FALSE,
+						   sizeof(float) * 6, 
+						   ( void* )0);
 
 	glEnableVertexAttribArray(vcol_location);	// vCol
-	glVertexAttribPointer(vcol_location, 3,		// vCol
-		GL_FLOAT, GL_FALSE,
-		sizeof(float) * 6,
-		(void*)(sizeof(float) * 3));
+	glVertexAttribPointer( vcol_location, 3,		// vCol
+						   GL_FLOAT, GL_FALSE,
+						   sizeof(float) * 6, 
+						   ( void* )( sizeof(float) * 3 ));
 
 	// Now that all the parts are set up, set the VAO to zero
 	glBindVertexArray(0);
@@ -155,7 +155,7 @@ bool cVAOManager::LoadModelIntoVAO(
 
 
 	// Store the draw information into the map
-	this->m_map_ModelName_to_VAOID[drawInfo.meshName] = drawInfo;
+	this->m_map_ModelName_to_VAOID[ drawInfo.meshName ] = drawInfo;
 
 
 	return true;
@@ -164,15 +164,15 @@ bool cVAOManager::LoadModelIntoVAO(
 
 // We don't want to return an int, likely
 bool cVAOManager::FindDrawInfoByModelName(
-	std::string filename,
-	sModelDrawInfo& drawInfo)
+		std::string filename,
+		sModelDrawInfo &drawInfo) 
 {
 	std::map< std::string /*model name*/,
-		sModelDrawInfo /* info needed to draw*/ >::iterator
-		itDrawInfo = this->m_map_ModelName_to_VAOID.find(filename);
+			sModelDrawInfo /* info needed to draw*/ >::iterator 
+		itDrawInfo = this->m_map_ModelName_to_VAOID.find( filename );
 
 	// Find it? 
-	if (itDrawInfo == this->m_map_ModelName_to_VAOID.end())
+	if ( itDrawInfo == this->m_map_ModelName_to_VAOID.end() )
 	{
 		// Nope
 		return false;

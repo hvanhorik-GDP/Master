@@ -47,8 +47,6 @@ namespace glfw
 			void GetMonitorPos(monitor* monitor, int* xpos, int* ypos);
 			void SetGamma(monitor* monitor, float gamma);
 			void SetGammaRamp(monitor* monitor, const gammaramp* ramp);
-			window* CreateWindow(int width, int height, const char* title, monitor* monitor, window* share);
-			window* GetCurrentContext(void);
 		}	// Monitor
 	}
 }

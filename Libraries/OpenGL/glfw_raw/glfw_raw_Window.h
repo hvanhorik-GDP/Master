@@ -143,7 +143,6 @@ namespace glfw
 			int GetMouseButton(window* window, int button);
 			int GetWindowAttrib(window* window, int attrib);
 			int WindowShouldClose(window* window);
-			void DefaultWindowHints(void);
 			void DestroyWindow(window* window);
 			void FocusWindow(window* window);
 			void GetCursorPos(window* window, double* xpos, double* ypos);
@@ -172,7 +171,6 @@ namespace glfw
 			void ShowWindow(window* window);
 			void SwapBuffers(window* window);
 			void* GetWindowUserPointer(window* window);
-			void WindowHint(int hint, int value);
 		} // Window
 	}
 }

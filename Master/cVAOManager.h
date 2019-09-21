@@ -1,6 +1,7 @@
-#pragma once
+#ifndef _cVAOManager_HG_
+#define _cVAOManager_HG_
 
-#include "gl/GLCommon.h"		// glfw.h, etc. (openGL.h)
+#include "GLCommon.h"
 
 // Will load the models and place them 
 // into the vertex and index buffers to be drawn
@@ -14,14 +15,14 @@
 // So dictated from THE SHADER
 struct sVertex
 {
-	float x, y, z;
+	float x, y, z;		
 	float r, g, b;
 };
 
 
 struct sModelDrawInfo
 {
-	sModelDrawInfo();
+	sModelDrawInfo(); 
 
 	std::string meshName;
 
@@ -39,7 +40,7 @@ struct sModelDrawInfo
 	// The "local" (i.e. "CPU side" temporary array)
 	sVertex* pVertices;	//  = 0;
 	// The index buffer (CPU side)
-	unsigned int* pIndices;
+	unsigned int* pIndices;		
 };
 
 
@@ -48,22 +49,23 @@ class cVAOManager
 public:
 
 	// Takes a cMesh object and copies it into the GPU (as a VOA)
-	bool LoadModelIntoVAO(std::string fileName,
-		cMesh& theMesh,				// NEW
-		sModelDrawInfo& drawInfo,
-		unsigned int shaderProgramID);
+	bool LoadModelIntoVAO(std::string fileName, 
+						  cMesh &theMesh,				// NEW
+						  sModelDrawInfo &drawInfo, 
+						  unsigned int shaderProgramID);
 
 	// We don't want to return an int, likely
 	bool FindDrawInfoByModelName(std::string filename,
-		sModelDrawInfo& drawInfo);
+								 sModelDrawInfo &drawInfo);
 
 	std::string getLastError(bool bAndClear = true);
 
 private:
 
 	std::map< std::string /*model name*/,
-		sModelDrawInfo /* info needed to draw*/ >
+		      sModelDrawInfo /* info needed to draw*/ >
 		m_map_ModelName_to_VAOID;
 
 };
 
+#endif	// _cVAOManager_HG_

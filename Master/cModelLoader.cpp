@@ -19,12 +19,12 @@ cModelLoader::~cModelLoader()			// destructor
 // Returns by ref the mesh
 bool cModelLoader::LoadPlyModel(
 	std::string filename,
-	cMesh& theMesh)				// Note the "&"
+	cMesh &theMesh)				// Note the "&"
 {
 
-	std::ifstream theFile(filename.c_str());
-	if (!theFile.is_open())
-	{
+	std::ifstream theFile( filename.c_str() );
+	if ( ! theFile.is_open() )
+	{	
 		// On no! Where's the file??? 
 		return false;
 	}
@@ -32,15 +32,15 @@ bool cModelLoader::LoadPlyModel(
 	// Scan the file until I get to "vertex", and stop
 	std::string temp;
 	//theFile >> temp;
-	while (theFile >> temp)
+	while ( theFile >> temp ) 
 	{
 		// Have it hit the word "vertex"?
-		if (temp == "vertex")
+		if ( temp == "vertex" )
 		{
 			break;		// Exit the while loop
 		}
 	}// while ( theFile >> temp ) 
-
+	
 	unsigned int numberOfVertices;
 	theFile >> numberOfVertices;
 
@@ -79,7 +79,7 @@ bool cModelLoader::LoadPlyModel(
 
 		// Add this temp vertex to the vector of vertices
 		// (cMesh &theMesh)
-		theMesh.vecVertices.push_back(tempVertex);
+		theMesh.vecVertices.push_back( tempVertex );
 	}
 
 	for (unsigned int index = 0; index != numberOfTriangles; index++)
@@ -88,8 +88,8 @@ bool cModelLoader::LoadPlyModel(
 		int discardThis;
 		sPlyTriangle tempTriangle;
 
-		theFile >> discardThis
-			>> tempTriangle.vert_index_1
+		theFile >> discardThis 
+			>> tempTriangle.vert_index_1 
 			>> tempTriangle.vert_index_2
 			>> tempTriangle.vert_index_3;
 

@@ -2,21 +2,54 @@
 //
 #include "Master.h"
 
-#include <iostream>
+#include "glfw_raw/glfw_raw_Common.h"
+#include "glfw_raw/glfw_raw_System.h"
+#include "glfw_raw/glfw_raw_Window.h"
 
-int main()
+#include "GLCommon.h"
+
+#include <glm/glm.hpp>
+#include <glm/vec3.hpp> // glm::vec3
+#include <glm/vec4.hpp> // glm::vec4
+#include <glm/mat4x4.hpp> // glm::mat4
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+
+#include <cstdlib>		// c libs
+#include <cstdio>		// c libs
+
+#include <iostream>		// C++ IO standard stuff
+
+#include "Callbacks.h"
+
+using namespace std;
+
+int main(int argc, char** argv)
 {
-    std::cout << "Hello World!\n";
+	cout << "Hello World!" << endl;
+
+	glfw::raw::window* window;
+	//GLuint vertex_buffer, vertex_shader, fragment_shader, program;
+	GLint mvp_location;
+
+	glfw::raw::Error::SetErrorCallback(error_callback);
+	if (!glfw::raw::System::Init())
+	{
+		exit(EXIT_FAILURE);
+	}
+
+	glfw::raw::System::WindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+	glfw::raw::System::WindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+
+	window = glfw::raw::System::CreateWindow(640, 480, "Simple example", NULL, NULL);
+	if (!window)
+	{
+		glfw::raw::System::Terminate();
+		exit(EXIT_FAILURE);
+	}
+
+	glfw::raw::Window::SetKeyCallback(window, key_callback);
+	glfw::raw::Window::MakeContextCurrent(window);
+	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+	glfw::raw::System::SwapInterval(1);
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
-// Test

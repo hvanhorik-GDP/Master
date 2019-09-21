@@ -114,6 +114,35 @@ namespace glfw
 				assert(untested);
 				glfwWaitEventsTimeout(timeout);
 			}
+
+			void DefaultWindowHints(void)
+			{
+				assert(untested);
+				glfwDefaultWindowHints();
+			}
+
+			void WindowHint(int hint, int value)
+			{
+				//				assert(untested);
+				glfwWindowHint(hint, value);
+			}
+
+			window* CreateWindow(int width, int height, const char* title, monitor* monitor, window* share)
+			{
+				//				assert(untested);
+				GLFWwindow* ret = glfwCreateWindow(width, height, title, monitor, share);
+				assert(ret != NULL);
+				return ret;
+
+			}
+
+			window* GetCurrentContext(void)
+			{
+				assert(untested);
+				GLFWwindow* ret = glfwGetCurrentContext();
+				assert(ret != NULL);
+				return ret;
+			}
 		}
 	}
 }

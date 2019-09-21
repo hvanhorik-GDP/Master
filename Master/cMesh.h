@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _cMesh_HG_
+#define _cMesh_HG_
 
 #include <vector>		// "smart array"
 
@@ -28,3 +29,5 @@ public:
 	std::vector<sPlyTriangle> vecTriangles;
 
 };
+
+#endif 

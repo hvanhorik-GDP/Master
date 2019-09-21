@@ -164,22 +164,7 @@ namespace glfw
 				glfwSetGammaRamp(monitor, uData.glfw);
 			}
 
-			window* CreateWindow(int width, int height, const char* title, monitor* monitor, window* share)
-			{
-//				assert(untested);
-				GLFWwindow* ret = glfwCreateWindow(width, height, title, monitor, share);
-				assert(ret != NULL);
-				return ret;
 
-			}
-
-			window* GetCurrentContext(void)
-			{
-				assert(untested);
-				GLFWwindow* ret = glfwGetCurrentContext();
-				assert(ret != NULL);
-				return ret;
-			}
 
 		}
 	}

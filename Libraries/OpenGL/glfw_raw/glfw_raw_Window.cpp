@@ -52,12 +52,6 @@ namespace glfw
 
 			}
 
-			void DefaultWindowHints(void)
-			{
-				assert(untested);
-				glfwDefaultWindowHints();
-			}
-
 			void DestroyWindow(window* window)
 			{
 				assert(window);
@@ -274,12 +268,6 @@ namespace glfw
 				assert(ret);
 				return ret;
 
-			}
-
-			void WindowHint(int hint, int value)
-			{
-//				assert(untested);
-				glfwWindowHint(hint, value);
 			}
 
 			//charmodsfun SetCharModsCallback(window* window, charmodsfun cbfun);

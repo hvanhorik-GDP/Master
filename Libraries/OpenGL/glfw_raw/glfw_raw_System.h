@@ -29,6 +29,11 @@ namespace glfw
 			void Terminate(void);
 			void WaitEvents(void);
 			void WaitEventsTimeout(double timeout);
+			void WindowHint(int hint, int value);
+			void DefaultWindowHints(void);
+			window* CreateWindow(int width, int height, const char* title, monitor* monitor, window* share);
+			window* GetCurrentContext(void);
+
 		}	 // System
 	}
 }
