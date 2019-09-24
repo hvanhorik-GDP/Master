@@ -50,6 +50,6 @@ int main(int argc, char** argv)
 
 	glfw::raw::Window::SetKeyCallback(window, key_callback);
 	glfw::raw::Window::MakeContextCurrent(window);
-	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+	gladLoadGLLoader((GLADloadproc)glfw::raw::System::GetProcAddress);
 	glfw::raw::System::SwapInterval(1);
 }

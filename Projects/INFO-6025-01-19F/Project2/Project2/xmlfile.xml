@@ -1,0 +1,21 @@
+
+<GameLibrary>
+  <Platform name ="Steam">
+    <Game name ="Bioshock">
+      <Genre>FPS</Genre>
+      <Review>Amazing!</Review>
+    </Game>
+    <Game name ="Super Meat Boy">
+      <Genre>Platformer</Genre>
+      <Review>Sucks!</Review>
+    </Game>
+    <Game name ="I Wanna be a cowboy">
+      <Genre>Huckster</Genre>
+      <Review>Awsome!</Review>
+    </Game>
+  </Platform>
+  <Platform name ="Nintendo">
+  </Platform>
+  <Platform name ="Gameboy">
+  </Platform>
+</GameLibrary>
