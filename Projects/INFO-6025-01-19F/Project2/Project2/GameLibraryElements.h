@@ -7,31 +7,33 @@ namespace gamelibrary
 	class GameName : public XMLNodeSingleBase
 	{
 	public:
-		GameName() : XMLNodeSingleBase() {}
-		GameName(spXMLNode& parent)
-			: XMLNodeSingleBase(parent, GetName()) {}
+		GameName(rapidxml::xml_node<>* parent)
+			: XMLNodeSingleBase(parent) {}
+		virtual const std::string& GetName() const { return gName; };
 	private:
-		const std::string GetName() { return std::string("GameName"); }
+		static const std::string gName;
 	};
 
 	class GameLevel : public XMLNodeSingleBase
 	{
 	public:
-		GameLevel() : XMLNodeSingleBase() {}
-		GameLevel(spXMLNode& parent)
-			: XMLNodeSingleBase(parent, GetName()) {}
+		GameLevel(rapidxml::xml_node<>* parent)
+		: XMLNodeSingleBase(parent) {}
+		virtual const std::string& GetName() const { return gName; };
+
 	private:
-		const std::string GetName() { return std::string("GameLevel"); }
+		static const std::string gName;
 	};
 
 	class DMName : public XMLNodeSingleBase
 	{
 	public:
-		DMName() : XMLNodeSingleBase() {}
-		DMName(spXMLNode& parent)
-			: XMLNodeSingleBase(parent, GetName()) {}
+		DMName(rapidxml::xml_node<>* parent)
+			: XMLNodeSingleBase(parent) {}
+		virtual const std::string& GetName() const { return gName; };
+
 	private:
-		const std::string GetName() { return std::string("DMName"); }
+		static const std::string gName;
 	};
 
 }

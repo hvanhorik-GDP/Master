@@ -1,12 +1,10 @@
 #pragma once
 #include "XMLNodeBase.h"
 #include "XMLNodeSingleBase.h"
+#include "GameLibraryElements.h"
 
 namespace gamelibrary
 {
-	class GameName;
-	class GameLevel;
-	class DMName;
 
 	class GameLibrary :
 		public XMLNodeBase
@@ -14,13 +12,14 @@ namespace gamelibrary
 	public:
 		GameLibrary();
 		virtual ~GameLibrary() final {}
-		GameLibrary(rapidxml::xml_node<>* node, const std::string& name);
-		virtual void Load(XMLNodeBase::spXMLNode &me) final;
+		GameLibrary(rapidxml::xml_node<>* node);
+		GameName GetGameName();
+		GameLevel GetGameLevel();
+		DMName GetDMName();
+		virtual const std::string& GetName() const { return gName; };
 
 	private:
-		boost::shared_ptr<GameName> spGameName;
-		boost::shared_ptr<GameLevel> spGameLevel;
-		boost::shared_ptr<DMName> spDMName;
+		static const std::string gName;
 	};
 }
 

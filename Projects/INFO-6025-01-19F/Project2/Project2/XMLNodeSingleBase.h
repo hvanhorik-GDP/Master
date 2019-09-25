@@ -7,8 +7,8 @@ class XMLNodeSingleBase :
 public:
 	XMLNodeSingleBase() {};
 	virtual ~XMLNodeSingleBase() {};
-	XMLNodeSingleBase(spXMLNode &parent, const std::string& name);
+	XMLNodeSingleBase(rapidxml::xml_node<>* parent);
+	virtual const std::string& GetName() const;
 private:
-	virtual void Load(spXMLNode& parent) { assert(false); };
 };
 

@@ -3,15 +3,11 @@
 
 XMLNodeBase::XMLNodeBase()
 	: pNode(NULL)
-	, spParent()
-	, sName()
 {
 }
 
-XMLNodeBase::XMLNodeBase(rapidxml::xml_node<>* node, const spXMLNode& parent, const std::string& name)
+XMLNodeBase::XMLNodeBase(rapidxml::xml_node<>* node)
 	: pNode(node)
-	, spParent(parent)
-	, sName(name)
 {
 }
 
@@ -22,26 +18,43 @@ bool XMLNodeBase::isValid() const
 
 bool XMLNodeBase::hasParent() const
 {
-	return (spParent) ? true : false;
+	assert(pNode);
+	return (pNode) ? (pNode->parent() != NULL) : false;
 } 
 
-void XMLNodeBase::Remove()
+std::string XMLNodeBase::GetValue() const
 {
-	if (isValid())
+	return (pNode) ? pNode->value() : std::string();
+}
+
+void XMLNodeBase::SetValue(const std::string& value)
+{
+	assert(pNode);
+	if (pNode)
 	{
-		auto parent = GetParent();
-		if (spParent->isValid())
-			spParent->Remove(*this);
+		auto doc = pNode->document();
+		auto newstring = doc->allocate_string(value.c_str());	// Must let rapidxml hold the strings
+		pNode->value(newstring);
 	}
 }
 
-void XMLNodeBase::Remove(XMLNodeBase& child)
+
+rapidxml::xml_node<>* XMLNodeBase::GetParent() const
 {
+	assert(pNode);
+	return (pNode) ? pNode->parent() : NULL;
+}
+
+void XMLNodeBase::Remove()
+{
+	assert(false);	// Todo
+	assert(pNode);
 	if (isValid())
 	{
-		if (child.isValid())
-		{
+		auto parent = GetParent();
+		assert(parent);
+		// Remove this node from the parent and invalidate this node
 
-		}
+//		if (parent
 	}
 }

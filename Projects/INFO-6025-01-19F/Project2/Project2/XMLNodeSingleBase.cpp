@@ -1,16 +1,22 @@
 #include "XMLNodeSingleBase.h"
 
-XMLNodeSingleBase::XMLNodeSingleBase(spXMLNode& parent, const std::string& name)
+XMLNodeSingleBase::XMLNodeSingleBase(rapidxml::xml_node<>* parent)
 	: XMLNodeBase()
 {
-	if (parent->isValid())
+	assert(parent);
+	if (parent)
 	{
-		rapidxml::xml_node<>* node = parent->GetNode()->first_node(name.c_str());
+		rapidxml::xml_node<>* node = parent->first_node(GetName().c_str());
 		if (node)
 		{
 			SetNode(node);
-			SetParent(parent);
-			SetName(name);
 		}
 	}
+}
+
+const std::string& XMLNodeSingleBase::GetName() const
+{
+	assert(false);
+	static std::string fake;
+	return fake;
 }

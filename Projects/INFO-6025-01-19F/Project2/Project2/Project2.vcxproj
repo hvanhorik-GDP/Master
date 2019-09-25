@@ -189,14 +189,18 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="GameLibrary.cpp" />
     <ClCompile Include="GameLibraryElements.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="XMLDocument.cpp" />
     <ClCompile Include="XMLNodeBase.cpp" />
     <ClCompile Include="XMLNodeSingleBase.cpp" />
+    <ClCompile Include="XMLStringCache.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLibrary.h" />
     <ClInclude Include="GameLibraryElements.h" />
+    <ClInclude Include="XMLDocument.h" />
     <ClInclude Include="XMLNodeBase.h" />
     <ClInclude Include="XMLNodeSingleBase.h" />
+    <ClInclude Include="XMLStringCache.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

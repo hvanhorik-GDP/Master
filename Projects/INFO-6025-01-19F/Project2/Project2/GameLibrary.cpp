@@ -4,20 +4,32 @@
 
 namespace gamelibrary
 {
-	GameLibrary::GameLibrary(rapidxml::xml_node<>* node, const std::string& name)
-		: XMLNodeBase(node, XMLNodeBase::spXMLNode(), name)
+	const std::string GameLibrary::gName = "GameLibrary";
+
+	GameLibrary::GameLibrary()
+		: XMLNodeBase()
 	{
 	}
 
-	void GameLibrary::Load(XMLNodeBase::spXMLNode &me)
+	GameLibrary::GameLibrary(rapidxml::xml_node<>* node)
+		: XMLNodeBase(node)
+	{
+	}
+
+	GameName GameLibrary::GetGameName()
 	{
 		assert(isValid());
-		assert(!hasParent());			// Root so no parent
-		if (!isValid())
-		{
-			spGameName = boost::make_shared<GameName>(GameName(me));
-			spGameLevel = boost::make_shared<GameLevel>(GameLevel(me));
-			spDMName = boost::make_shared<DMName>(DMName(me));
-		}
+		return GameName(GetNode());
+	}
+	GameLevel GameLibrary::GetGameLevel()
+	{
+		assert(isValid());
+		return GameLevel(GetNode());
+	}
+
+	DMName GameLibrary::GetDMName()
+	{
+		assert(isValid());
+		return DMName(GetNode());
 	}
 }

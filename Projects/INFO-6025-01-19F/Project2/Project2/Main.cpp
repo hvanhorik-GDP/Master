@@ -2,7 +2,7 @@
 #include <rapidxml/rapidxml_utils.hpp>
 
 #include "GameLibrary.h"
-#include <boost/make_shared.hpp>
+#include "XMLDocument.h"
 
 #include <fstream>
 #include <iostream>
@@ -13,30 +13,49 @@
 using namespace std;
 using namespace rapidxml;
 using namespace gamelibrary;
-using namespace boost;
 
 void ReadDnDFile()
 {
-	xml_document<> document;
-	xml_node<>* root_node;
+	XMLDocument document;
+	document.Read("DnD.xml");
+	//xml_document<> document;
+	//xml_node<>* root_node;
 
 	// read
-	ifstream gamelibrary("DnD.xml");
+//	ifstream gamelibrary("DnD.xml");
 
 	//	stringstream ss;
 	//	ss << gamelibrary.read;
 
 		// Copy file contents into our buffer
-	vector<char> buffer((istreambuf_iterator<char>
-		(gamelibrary)), istreambuf_iterator<char>());
-	buffer.push_back('\0');
+	//vector<char> buffer((istreambuf_iterator<char>
+	//	(gamelibrary)), istreambuf_iterator<char>());
+	//buffer.push_back('\0');
 
-	//	document.parse<0>(ss.str());
-	document.parse<0>(&buffer[0]);
+	////	document.parse<0>(ss.str());
+	//document.parse<0>(&buffer[0]);
 
-	root_node = document.first_node("GameLibrary");
-	XMLNodeBase::spXMLNode root = boost::make_shared<GameLibrary>(GameLibrary(root_node, string("GameLibrary")));
-	root->Load(root);
+//	GameLibrary gameLib;
+//	document.GetRoot(gameLib);
+	auto document_node = document.GetDocument();
+	auto root_node = document.GetRoot(GameLibrary().GetName());
+	GameLibrary gameLib(root_node);
+	cout << "Library Name: " << gameLib.GetValue() << endl;
+
+	GameName gameName(gameLib.GetGameName());
+	cout << "Game Name: " << gameName.GetValue() << endl;
+	{
+		string newone("A new String");
+		gameName.SetValue(newone);
+	}
+	cout << "Game Name changed to: " << gameName.GetValue() << endl;
+
+	GameLevel level(gameLib.GetGameLevel());
+	cout << "Game Level: " << level.GetValue() << endl;
+
+	DMName dmName(gameLib.GetDMName());
+	cout << "Dungeon Master Name: " << dmName.GetValue() << endl;
+
 
 #if 0
 	root_node = document.first_node("Game");
