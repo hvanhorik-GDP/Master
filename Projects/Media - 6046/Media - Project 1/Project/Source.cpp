@@ -14,7 +14,8 @@
 #include <exception>
 
 #include <stdio.h>  /* defines FILENAME_MAX */
-
+#include <conio.h>
+#include <windows.h>
 
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -30,6 +31,9 @@ using namespace std;
 using namespace rapidxml;
 using namespace gamelibrary;
 
+cAssetManager gAssetManager;
+
+
 void ReadGameLibrary(const std::string &name)
 {
 	std::string workingDir = GetCurrentWorkingDir();
@@ -39,119 +43,285 @@ void ReadGameLibrary(const std::string &name)
 	document.Read(name);
 
 	GameLibrary gameLib(document.GetDocument());
-//	cout << "Library Name: " << gameLib << endl;
 
 	AssetGroups assets = gameLib.GetAssetGroups();
-	cAssetManager manager;
-	manager.LoadAssets(gameLib.GetNode());
-
-	audioFMOD::initFMOD();
-	auto baseManager = manager.GetAssetManager("audios");
-	cAudioAssetManager* audioManger = dynamic_cast<cAudioAssetManager*>(baseManager);
-	audioManger->PlaySomething();
-
-	//auto gameName = gameLib.GetGameName();
-	//cout << "Game Name: " << gameName << endl;
-	//{
-	//	string newone("A new String");
-	//	gameName.SetValue(newone);
-	//}
-	//cout << "Game Name changed to: " << gameName << endl;
-
-	//auto assets = gameLib.GetGameAssets();
-	//cout << " Game Assets all: " << assets << endl;
-
-	//GameAsset_type type(assets.GetNode());
-	//cout << "Game Asset Type: " << type.GetValue() << endl;
-	
-	//GameAsset_open open(assets.GetNode());
-	//cout << "Game Asset Open: " << open.GetValue() << endl;
+	gAssetManager.LoadAssets(gameLib.GetNode());
 
 
-
-	//for (xml_node<>* player_node = gameLib.GetNode()->first_node("GameAsset");
-	//	player_node;
-	//	player_node = player_node->next_sibling())
-	//{
-	//	cout << "player_node - Type: " << 
-	//		player_node->first_attribute("type")->value()  << " Open: " <<
-	//		player_node->first_attribute("open")-> value() <<
-	//		endl;
-	//	xml_node<>* namep = player_node->first_node("AssetRoot");
-	//	if (namep)
-	//		cout << "AssetRoot: " << namep->value() << endl;
-	//}
-
-	//DMName dmName(gameLib);
-	//cout << "Dungeon Master Name: " << dmName << endl;
-
-	//player::Player rootPlayer(gameLib.GetPlayers());
-	//cout << "Players: " << rootPlayer << endl;
-	//{
-	//	player::PlayerName playerName(rootPlayer.GetPlayerName());
-	//	cout << "   Player Name: " << playerName << endl;
-
-	//	player::Description Description(rootPlayer.GetDescription());
-	//	cout << "   Player Description: " << Description << endl;
-
-	//	player::HeightCM HeightCM(rootPlayer.GetHeightCM());
-	//	cout << "   Player HeightCM: " << HeightCM << endl;
-
-	//	player::WeightKG WeightKG(rootPlayer.GetWeightKG());
-	//	cout << "   Player WeightKG: " << WeightKG << endl;
-	//}
-
-
-#if 0
-	root_node = document.first_node("Game");
-
-	xml_node<>* name = root_node->first_node("Name");
-	if (name)
-		cout << "Name: " << name->value() << endl;
-
-	xml_node<>* level = root_node->first_node("Level");
-	if (level)
-		cout << "Game Level: " << level->value() << endl;
-
-	xml_node<>* dmName = root_node->first_node("DMName");
-	if (level)
-		cout << "DM Name: " << dmName->value() << endl;
-
-	for (xml_node<>* player_node = root_node->first_node("Player");
-		player_node;
-		player_node = player_node->next_sibling())
-	{
-		//		cout << "player_node " << player_node->first_attribute("name")->value() << endl;
-		xml_node<>* namep = player_node->first_node("Name");
-		if (namep)
-			cout << "Name: " << namep->value() << endl;
-
-		xml_node<>* description = player_node->first_node("Description");
-		if (description)
-			cout << "Description: " << description->value() << endl;
-
-	}
-	for (xml_node<>* game_node = platform_node->first_node("Game");
-		game_node;
-		game_node = game_node->next_sibling())
-	{
-		cout << "Game Node: " << game_node->first_attribute("name")->value() << endl;
-		xml_node<>* genre = game_node->first_node("Genre");
-		if (genre)
-			cout << "Genre: " << genre->value() << endl;
-		xml_node<>* review = game_node->first_node("Review");
-		if (review)
-			cout << "Review: " << review->value() << endl;
-	}
 }
-#endif
+
+void clear() {
+	// CSI[2J clears screen, CSI[H moves the cursor to top-left corner
+	for (int i = 0; i < 20; ++i)
+		cout << endl;
+//	std::cout << "\x1B[2J\x1B[H";
 }
 
 int main(int arg, char** argv)
 {
 	try
 	{
+		using namespace audioFMOD;
 		ReadGameLibrary("./assets/GameLibrary.xml");
+
+		initFMOD();
+
+		auto baseManager = gAssetManager.GetAssetManager("audios");
+		cAudioAssetManager* audioManger = dynamic_cast<cAudioAssetManager*>(baseManager);
+//		audioManger->PlaySomething();
+		cAudioAssetManager::vecAudioItems& items = audioManger->GetAudioItems();
+
+		// Treat everything as an indexed group
+		std::vector<std::vector<std::string>> groups;
+
+		// We have speakers with individual songs
+		std::vector<std::string> speaker1;
+		speaker1.push_back("That's Amore");
+
+		std::vector<std::string> speaker2;
+		speaker2.push_back("Auld Lang Syne");
+
+		std::vector<std::string> speaker3;
+		speaker3.push_back("Hello, Dolly");
+
+		std::vector<std::string> speaker4;
+		speaker4.push_back("Spanish Flea");
+
+		// Pushback our speakers
+		groups.push_back(speaker1);
+		groups.push_back(speaker2);
+		groups.push_back(speaker3);
+		groups.push_back(speaker4);
+		int numberOfSpeakers = 4;
+
+		std::vector<std::string> oldman;
+		oldman.push_back("let me guess");
+		oldman.push_back("Just An Old Man");
+		oldman.push_back("Let Me Get My Wheelchair");
+		oldman.push_back("One Good Looking Young Lady");
+		oldman.push_back("Telling You Right");
+		oldman.push_back("Way Too Fast");
+		groups.push_back(oldman);
+
+		std::vector<std::string> oldwoman1;
+		oldwoman1.push_back("walk that dog");
+		oldwoman1.push_back("blackboard");
+		groups.push_back(oldwoman1);
+
+		std::vector<std::string> oldwoman2;
+		oldwoman2.push_back("He Was So");
+		oldwoman2.push_back("I am not Dead");
+		oldwoman2.push_back("I had all These Plans");
+		groups.push_back(oldwoman2);
+		int numberOfPeople = 3;
+
+		int totalSize = numberOfPeople + numberOfSpeakers;
+		for (auto i : groups)
+		{
+			for (auto j : i)
+			{
+				auto audioItem = items[j];
+				clear();
+				std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+				audioItem->create_and_play_sound(true);
+				audioItem->set_is_paused(true);
+			}
+		}
+
+		stringstream help;
+		help << "Commands are: " << endl;
+		help << "    (space) or (tab) - Move between speakers or people" << endl;
+		help << "     u/d             - volume up/down by 5%" << endl;
+		help << "     i/o             - pitch up/down by 5%" << endl;
+		help << "     b/v             - balance left/right by .05" << endl;
+		help << "                        *** NOTE - Pan does not work in speaker mode" << endl;
+		help << "     0, 1, 2, 3, 4   - Get a response from active person" << endl;
+		help << "     r               - replay track" << endl;
+		help << "     ?               - Information on current track" << endl;
+		help << "     (esc)           - To Exit" << endl;
+		help << endl << endl << endl;
+		help << " Hit a key: ";
+
+
+		cout << help.str();
+		int currentGroupNumber = 0;
+		auto currentGroup = groups[currentGroupNumber][0];
+		auto currentItem = items[currentGroup];
+		currentItem->set_is_paused(false);
+		int point = 0;
+		bool shouldExit = false;
+		
+		while (!shouldExit) 
+		{
+			if (_kbhit())
+			{
+				char cur = _getch();
+				if (point > 511)
+					point = 511;
+				switch (cur)
+				{
+				case ' ':
+				case '\t':
+				{
+					currentItem->set_is_paused(true);
+					currentGroupNumber++;
+					clear();
+					if (currentGroupNumber < numberOfSpeakers)
+					{
+						cout << "Switching to: next speaker: " << endl;
+					}
+					else if (currentGroupNumber < totalSize)
+					{
+						cout << "Switching to next person:" << endl;
+					}
+					else
+					{
+						currentGroupNumber = 0;
+						cout << "Wrapping around to first speaker: " << endl;
+					}
+					currentGroup = groups[currentGroupNumber][0];
+					currentItem = items[currentGroup];
+					currentItem->replay();
+					currentItem->set_is_paused(false);
+					cout << "Audio File : " << currentItem->name << " : " << currentItem->path << std::endl;
+					break;
+				}
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				{
+					int index = cur - '0';
+					size_t number = groups[currentGroupNumber].size();
+					if (index < number)
+					{
+						currentGroup = groups[currentGroupNumber][index];
+						currentItem = items[currentGroup];
+						currentItem->replay();
+						currentItem->set_is_paused(false);
+						clear();
+						cout << "Audio File : " << currentItem->name << " : " << currentItem->path << std::endl;
+					}
+					break;
+				}
+				case '?':
+				{
+					// Information
+					AudioItem::format format = currentItem->get_format();
+					clear();
+					cout << "Audio file information:" << endl << endl;
+					cout << "  Name:      " << currentItem->get_name() << endl;
+					cout << "  Type:      " << currentItem->get_type_string(format.type) << endl;
+					cout << "  Format:    " << currentItem->get_format_string(format.format) << endl;
+					cout << "  Channels:  " << format.channels << endl;
+					cout << "  Bits:      " << format.bits << endl;
+					cout << "  Pitch:      " << currentItem->get_pitch() << endl;
+					cout << "  Volume:      " << currentItem->get_volume() << endl;
+					cout << "  Position:      " << currentItem->get_position() << endl;
+					break;
+				}
+				case 'u':
+				{
+					// Up volume
+					clear();
+					cout << "Increasing volume by 5%";
+					float current = currentItem->get_volume();
+					currentItem->set_volume(current * 1.05);
+					float newvolume = currentItem->get_volume();
+					cout << " Old: " << current << " New: " << newvolume << endl;;
+					break;
+				}
+				case 'd':
+				{
+					// Up volume
+					clear();
+					cout << "Decreasing volume by 5%";
+					float current = currentItem->get_volume();
+					currentItem->set_volume(current * .95);
+					float newvolume = currentItem->get_volume();
+					cout << " Old: " << current << " New: " << newvolume << endl;
+					break;
+				}
+				case 'r':
+				{
+					// Up volume
+					clear();
+					cout << "Replay Track: " << endl;
+					cout << currentItem->name << " : " << currentItem->path << std::endl;
+					currentItem->replay();
+					break;
+				}
+				case 'b':
+				{
+					// balance up
+					clear();
+					cout << "Increasing pan by .05";
+					float current = currentItem->get_pan();
+					currentItem->set_pan(current +.05);
+					float newvolume = currentItem->get_pan();
+					cout << " Old: " << current << " New: " << newvolume << endl;
+					break;
+				}
+				case 'v':
+				{
+					// balance down
+					clear();
+					cout << "Decreasing pan by .05%";
+					float current = currentItem->get_pan();
+					currentItem->set_pan(current - .05);
+					float newvolume = currentItem->get_pan();
+					cout << " Old: " << current << " New: " << newvolume << endl;
+					break;
+				}
+				case 'i':
+				{
+					// pitch up
+					clear();
+					cout << "Increasing pitch by 5%";
+					float current = currentItem->get_pitch();
+					currentItem->set_pitch(current * 1.05);
+					float newvolume = currentItem->get_pitch();
+					cout << " Old: " << current << " New: " << newvolume << endl;
+					break;
+				}
+				case 'p':
+				{
+					clear();
+					bool pause = currentItem->get_is_paused();
+					std::string s = (pause) ? "Resuming" : "Pausing";
+					cout << s << " - The Stream" << endl;
+					currentItem->set_is_paused(!pause);
+					break;
+				}
+
+				case 'o':
+				{
+					// pitch down
+					clear();
+					cout << "Decreasing pan by 5%";
+					float current = currentItem->get_pitch();
+					currentItem->set_pitch(current * .95);
+					float newvolume = currentItem->get_pitch();
+					cout << " Old: " << current << " New: " << newvolume << endl;
+					break;
+				}
+				case 27: //ESC key pressed
+				{
+					shouldExit = true;
+					break;
+				}
+				default:
+				{
+					clear();
+					cout << "Unknown item " << cur << endl;
+					// We want to play another audio sound
+				}
+				}
+				cout << help.str();
+				Sleep(10);
+			}
+		}
 	}
 	catch (std::exception ex)
 	{
@@ -161,6 +331,5 @@ int main(int arg, char** argv)
 	{
 		cout << "Unknown Exception";
 	}
-	system("pause");
 	return 0;
 }

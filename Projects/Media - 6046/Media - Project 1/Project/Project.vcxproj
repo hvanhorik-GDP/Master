@@ -226,6 +226,10 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="AssetManager\cAudioAssetManager.cpp" />
     <ClCompile Include="AssetManager\iAssetManager.cpp" />
     <ClCompile Include="AssetManager\impl_AssetManager.cpp" />
+    <ClCompile Include="ObjectManagers\cAudioObjectManager.cpp" />
+    <ClCompile Include="ObjectManagers\cObjectManager.cpp" />
+    <ClCompile Include="ObjectManagers\impl_ObjectManager.cpp" />
+    <ClCompile Include="ObjectManagers\iObjectManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="XML\AssetGroups.cpp" />
     <ClCompile Include="XML\GameLibrary.cpp" />
@@ -239,6 +243,10 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="AssetManager\cAudioAssetManager.h" />
     <ClInclude Include="AssetManager\iAssetManager.h" />
     <ClInclude Include="AssetManager\impl_AssetManager.h" />
+    <ClInclude Include="ObjectManagers\cAudioObjectManager.h" />
+    <ClInclude Include="ObjectManagers\cObjectManager.h" />
+    <ClInclude Include="ObjectManagers\impl_ObjectManager.h" />
+    <ClInclude Include="ObjectManagers\iObjectManager.h" />
     <ClInclude Include="XML\AssetGroups.h" />
     <ClInclude Include="XML\GameLibrary.h" />
     <ClInclude Include="XML\XMLArrayBase.h" />

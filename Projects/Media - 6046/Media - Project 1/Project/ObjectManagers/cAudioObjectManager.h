@@ -1,9 +1,10 @@
 #pragma once
-#include "iAssetManager.h"
+#include "iObjectManager.h"
+#include "AssetManager/iAssetManager.h"
 #include <fmod/fmod.hpp>
 #include <map>
 
-namespace audioFMOD
+namespace audioFMOD_old
 {
 	//FMOD functions
 	void errorCheck(FMOD_RESULT result);
@@ -39,52 +40,33 @@ namespace audioFMOD
 		//constructor
 		AudioItem();
 		bool create_and_play_sound(bool is_streamed_sound);
-		void replay();
 		std::string get_name();
 		float get_volume();
-		void set_volume(float value);
 		void set_path(std::string new_path);
 		bool get_is_paused();
 		void set_is_paused(bool new_is_paused);
 		bool get_is_playing();
 		int get_position();
 		unsigned int get_length();
-		float get_pitch();
-		void set_pitch(float in);
-		float get_pan();
-		void set_pan(float in);
 
-		struct format
-		{
-			FMOD_SOUND_TYPE type;
-			FMOD_SOUND_FORMAT format;
-			int channels;
-			int bits;
-		};
-
-		std::string get_format_string(FMOD_SOUND_FORMAT in);
-		std::string get_type_string(FMOD_SOUND_TYPE type);
-
-		format get_format();
 		std::string get_info();
 
 	};
 
 }
-class cAudioAssetManager : public iAssetManager
+
+class cAudioObjectManager :
+	public iObjectManager
 {
-
 public:
-	typedef std::map<std::string, audioFMOD::AudioItem*> vecAudioItems;
+	typedef std::map<std::string, audioFMOD_old::AudioItem> vecAudioItems;
 
-	cAudioAssetManager();
-	virtual ~cAudioAssetManager();
+	class cAudioObjectManager();
+	virtual ~cAudioObjectManager();
 
 	// Root Node of XML document which has assets
-	virtual void LoadAssets(rapidxml::xml_node<>* parent);
-	vecAudioItems& GetAudioItems();
-	friend std::ostream& operator<<(std::ostream& stream, const cAudioAssetManager& val);
-
+	virtual void LoadObjects(rapidxml::xml_node<>* parent, cAssetManager* objectManager);
+	friend std::ostream& operator<<(std::ostream& stream, const cAudioObjectManager& val);
 	void PlaySomething();
 protected:
 	vecAudioItems m_vec_Items;

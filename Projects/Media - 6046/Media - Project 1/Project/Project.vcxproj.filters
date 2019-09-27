@@ -25,6 +25,9 @@
     <Filter Include="AssetManager">
       <UniqueIdentifier>{897b28ab-5cab-4463-8532-82d7ece92209}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ObjectManager">
+      <UniqueIdentifier>{958808e6-88d8-4be6-a29f-858db908e5df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\audios\effects\A man says don-t tell me- let me guess -southern accent- ol.mpeg">
@@ -168,6 +171,18 @@
     <ClCompile Include="AssetManager\cAudioAssetManager.cpp">
       <Filter>AssetManager</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManagers\cAudioObjectManager.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\cObjectManager.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\iObjectManager.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\impl_ObjectManager.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XML\GameLibrary.h">
@@ -199,6 +214,18 @@
     </ClInclude>
     <ClInclude Include="AssetManager\cAudioAssetManager.h">
       <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\cAudioObjectManager.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\cObjectManager.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\iObjectManager.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\impl_ObjectManager.h">
+      <Filter>ObjectManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

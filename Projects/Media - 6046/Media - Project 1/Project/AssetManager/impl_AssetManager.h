@@ -11,10 +11,12 @@ public:
 
 	// Root Node of XML document which has assets
 	virtual void LoadAssets(rapidxml::xml_node<>* parent);
-	iAssetManager* GetAssetManager(const std::string& name);
 	friend std::ostream& operator<<(std::ostream& stream, const impl_AssetManager& val);
+
+	// Hack now to get at the underlying AssetManagers
+	iAssetManager* GetAssetManager(const std::string& name);
 protected:
-	typedef std::map<std::string, iAssetManager*>  mapManagers;
-	mapManagers m_Managers;
+	typedef std::map<std::string, iAssetManager*>  mapAssetManagers;
+	mapAssetManagers m_AssetManagers;
 };
 

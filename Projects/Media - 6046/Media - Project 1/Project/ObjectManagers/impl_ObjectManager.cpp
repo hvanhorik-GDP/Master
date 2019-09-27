@@ -1,35 +1,36 @@
-#include "impl_AssetManager.h"
+#include "impl_ObjectManager.h"
+
+#include "impl_ObjectManager.h"
 #include "XML/AssetGroups.h"
-#include "cAudioAssetManager.h"
+#include "cAudioObjectManager.h"
 #include <iostream>
 #include <stdio.h> 
 
-impl_AssetManager::impl_AssetManager()
+impl_ObjectManager::impl_ObjectManager()
 {
 }
 
-impl_AssetManager::~impl_AssetManager()
+impl_ObjectManager::~impl_ObjectManager()
 {
 	// Cleanup managers
-	for (auto in : m_AssetManagers)
+	for (auto in : m_ObjectManagers)
 	{
 		delete in.second;
 	}
 }
-
-iAssetManager* impl_AssetManager::GetAssetManager(const std::string& name)
+iObjectManager* impl_ObjectManager::GetObjectManager(const std::string& name)
 {
-	auto manager = m_AssetManagers[name];
+	auto manager = m_ObjectManagers[name];
 	assert(manager != NULL);
 	return manager;
 }
 
 // Root Node of XML document which has assets
-void impl_AssetManager::LoadAssets(rapidxml::xml_node<>* parent)
+void impl_ObjectManager::LoadObjects(rapidxml::xml_node<>* parent, cAssetManager* assetManager)
 {
 	// This loop is non sensical. Each valid manager should just do the same loop
 	// to check for assets and read any that are relevent for them
-	//cAudioAssetManager* audio = new cAudioAssetManager();
+	//cAudioObjectManager* audio = new cAudioObjectManager();
 	//m_Managers["audios"] = audio;
 	//audio->LoadAssets(parent);
 
@@ -44,11 +45,11 @@ void impl_AssetManager::LoadAssets(rapidxml::xml_node<>* parent)
 			if (type.GetValue() == "audios")
 			{
 				// The Manager should handle duplicates properly
-				if (m_AssetManagers.find("audios") == m_AssetManagers.end())
+				if (m_ObjectManagers.find("audios") == m_ObjectManagers.end())
 				{
-					cAudioAssetManager* audio = new cAudioAssetManager();
-					m_AssetManagers["audios"] = audio;
-					audio->LoadAssets(parent);
+					cAudioObjectManager* audio = new cAudioObjectManager();
+					m_ObjectManagers["audios"] = audio;
+					audio->LoadObjects(parent, assetManager);
 				}
 			}
 			else
@@ -58,17 +59,17 @@ void impl_AssetManager::LoadAssets(rapidxml::xml_node<>* parent)
 				//			"shaders"
 				//			"models"
 				//			"fonts"
-				std::cout << "Unimplemented AssetManager: (Ignored): " << type.GetValue() << std::endl;
+				std::cout << "Unimplemented ObjectManager: (Ignored): " << type.GetValue() << std::endl;
 			}
 		}
 	}
 
 }
 
-std::ostream& operator<<(std::ostream& stream, const impl_AssetManager& val)
+std::ostream& operator<<(std::ostream& stream, const impl_ObjectManager& val)
 {
-	stream << "In impl_AssetManager" << std::endl;
-	for (auto in : val.m_AssetManagers)
+	stream << "In impl_ObjectManager" << std::endl;
+	for (auto in : val.m_ObjectManagers)
 	{
 		auto manager = in.second;
 		stream << *(manager);

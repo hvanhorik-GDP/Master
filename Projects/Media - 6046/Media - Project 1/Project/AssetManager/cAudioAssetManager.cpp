@@ -19,7 +19,7 @@ namespace audioFMOD
 		path = "";
 		volume = 0.5f;
 		pitch = 0.0f;//check documentation for pitch allowed values
-		pan = 0.0f; //chec documentation for pan allowed values
+		pan = 0.0f; //check documentation for pan allowed values
 		is_paused = true;
 		is_playing = false;
 		sound = 0;
@@ -44,14 +44,114 @@ namespace audioFMOD
 		return false;
 	}
 
+	void AudioItem::replay()
+	{
+		result = _system->playSound(sound, 0, is_paused, &channel);
+		errorCheck(result);
+	}
+
 	std::string AudioItem::get_name() {
 		char buf[1024];
 		if (sound) {
 			result = sound->getName(buf, 1024);
 			errorCheck(result);
 		}
-		return std::string(buf);
+		std::string ret(buf);
+		return ret;
 	}
+
+	std::string AudioItem::get_format_string(FMOD_SOUND_FORMAT in)
+	{
+		switch (in)
+		{
+		case FMOD_SOUND_FORMAT_NONE:
+			return std::string("None");
+		case FMOD_SOUND_FORMAT_PCM8:
+			return std::string("PCM8");
+		case FMOD_SOUND_FORMAT_PCM16:
+			return std::string("PCM16");
+
+		case FMOD_SOUND_FORMAT_PCM24:
+			return std::string("PCM24");
+		case FMOD_SOUND_FORMAT_PCM32:
+			return std::string("PCM32");
+		case FMOD_SOUND_FORMAT_PCMFLOAT:
+			return std::string("PCMFLOAT");
+		case FMOD_SOUND_FORMAT_BITSTREAM:
+			return std::string("BitStream");
+		default:
+			return std::string("Unknown format");
+		}
+	}
+	std::string  AudioItem::get_type_string(FMOD_SOUND_TYPE type)
+	{
+		switch (type)
+		{
+		case FMOD_SOUND_TYPE_UNKNOWN:
+			return ("Unknown");
+		case FMOD_SOUND_TYPE_AIFF:
+			return ("AIFF");
+		case FMOD_SOUND_TYPE_ASF:
+			return ("ASF");
+		case FMOD_SOUND_TYPE_DLS:
+			return ("DSL");
+		case FMOD_SOUND_TYPE_FLAC:
+			return ("FLAC");
+		case FMOD_SOUND_TYPE_FSB:
+			return ("FSB");
+		case FMOD_SOUND_TYPE_IT:
+			return ("IT");
+		case FMOD_SOUND_TYPE_MIDI:
+			return ("MIDI");
+		case FMOD_SOUND_TYPE_MOD:
+			return ("MOD");
+		case FMOD_SOUND_TYPE_MPEG:
+			return ("MPEG");
+		case FMOD_SOUND_TYPE_OGGVORBIS:
+			return ("OGGVORBIS");
+		case FMOD_SOUND_TYPE_PLAYLIST:
+			return ("Playlist");
+		case FMOD_SOUND_TYPE_RAW:
+			return ("raw");
+		case FMOD_SOUND_TYPE_S3M:
+			return ("S3M");
+		case FMOD_SOUND_TYPE_USER:
+			return ("User");
+		case FMOD_SOUND_TYPE_WAV:
+			return ("WAV");
+		case FMOD_SOUND_TYPE_XM:
+			return ("XM");
+		case FMOD_SOUND_TYPE_XMA:
+			return ("XMA");
+		case FMOD_SOUND_TYPE_AUDIOQUEUE:
+			return ("AUDIOQUE");
+		case FMOD_SOUND_TYPE_AT9:
+			return ("AT9");
+		case FMOD_SOUND_TYPE_VORBIS:
+			return ("VORBIS");
+		case FMOD_SOUND_TYPE_MEDIA_FOUNDATION:
+			return ("media Foundation");
+		case FMOD_SOUND_TYPE_MEDIACODEC:
+			return ("MEDIACODEC");
+		case FMOD_SOUND_TYPE_FADPCM:
+			return ("FADPCM");
+
+		default:
+			return std::string("Unknown type");
+		}
+
+	}
+
+	AudioItem::format AudioItem::get_format() {
+		format out;
+		if (sound) {
+			result = sound->getFormat(&out.type, &out.format, &out.channels, &out.bits);
+			errorCheck(result);
+		}
+		return out;
+	}
+
+	//getFormat(FMOD_SOUND_TYPE* type, FMOD_SOUND_FORMAT* format, int* channels, int* bits);
 
 	float AudioItem::get_volume() {
 		if (channel) {
@@ -60,6 +160,48 @@ namespace audioFMOD
 		}
 
 		return volume;
+	}
+
+	void AudioItem::set_volume(float newVol) {
+		if (channel) {
+			volume = newVol;
+			result = channel->setVolume(volume);
+			errorCheck(result);
+		}
+	}
+
+	float AudioItem::get_pitch() {
+		if (channel) {
+			result = channel->getPitch(&pitch);
+			errorCheck(result);
+		}
+
+		return pitch;
+	}
+
+	void AudioItem::set_pitch(float in) {
+		if (channel) {
+			pitch = in;
+			result = channel->setPitch(pitch);
+			errorCheck(result);
+		}
+	}
+
+	float AudioItem::get_pan() {
+		return pan;
+	}
+
+	void AudioItem::set_pan(float in) 
+	{
+		if (channel) {
+			if (pan < -1)
+				pan = -1;
+			if (pan > 1)
+				pan = 1;
+			pan = in;
+			result = channel->setPitch(pan);
+			errorCheck(result);
+		}
 	}
 
 	void AudioItem::set_path(std::string new_path) {
@@ -73,6 +215,7 @@ namespace audioFMOD
 		}
 		return is_paused;
 	}
+
 	void AudioItem::set_is_paused(bool new_is_paused) {
 		if (channel) {
 			is_paused = new_is_paused;
@@ -202,17 +345,17 @@ void cAudioAssetManager::LoadAssets(rapidxml::xml_node<>* parent)
 						std::string fullPath = rootPath + fileName.GetValue();
 						std::cout << fullPath << std::endl;
 
-						audioFMOD::AudioItem item;
-						item.path = fullPath;
-						item.name = assetName.GetValue();
-						item.index = i;
-						item.parent = file.GetParent();
+						audioFMOD::AudioItem* item = new audioFMOD::AudioItem();
+						item->path = fullPath;
+						item->name = assetName.GetValue();
+						item->index = i;
+						item->parent = file.GetParent();
 						auto val = subtype.GetValue();
 						if (val == "music")
-							item.m_subtype = audioFMOD::AudioItem::subtype::music;
+							item->m_subtype = audioFMOD::AudioItem::subtype::music;
 						if (val == "effects")
-							item.m_subtype = audioFMOD::AudioItem::subtype::effects;
-						m_vec_Items[item.name] = item;
+							item->m_subtype = audioFMOD::AudioItem::subtype::effects;
+						m_vec_Items[item->name] = item;
 					}
 				}
 			}
@@ -229,6 +372,11 @@ void cAudioAssetManager::LoadAssets(rapidxml::xml_node<>* parent)
 	}
 }
 
+cAudioAssetManager::vecAudioItems& cAudioAssetManager::GetAudioItems()
+{
+	return m_vec_Items;
+}
+
 std::ostream& operator<<(std::ostream& stream, const cAudioAssetManager& val)
 {
 	return stream;
@@ -239,18 +387,18 @@ void cAudioAssetManager::PlaySomething()
 	for (auto item : m_vec_Items)
 	{
 		auto audioItem = item.second;
-		std::cout << "Playing Audio File: " << audioItem.name << ": " << audioItem.path << std::endl;
-		audioItem.create_and_play_sound(true);
-		audioItem.set_is_paused(false);
+		std::cout << "Playing Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+		audioItem->create_and_play_sound(true);
+		audioItem->set_is_paused(false);
 		bool is_playing = true;
 		while (is_playing)
 		{
 			Sleep(100);
-			bool is_paused = audioItem.get_is_paused();
-			is_playing = audioItem.get_is_playing();
-			unsigned int pos = audioItem.get_position();
-			unsigned int length = audioItem.get_length();
-			std::string name = audioItem.get_name();
+			bool is_paused = audioItem->get_is_paused();
+			is_playing = audioItem->get_is_playing();
+			unsigned int pos = audioItem->get_position();
+			unsigned int length = audioItem->get_length();
+			std::string name = audioItem->get_name();
 			std::cout << name << " length: " << length << " pos: " << pos << std::endl;
 		}
 	}
