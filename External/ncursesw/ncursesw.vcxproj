@@ -108,7 +108,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir)inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir).inc\$(ProjectName)\*"
 xcopy /S /D /Y "$(ProjectDir)lib\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
@@ -129,7 +129,7 @@ xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir)inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir).inc\$(ProjectName)\*"
 xcopy /S /D /Y "$(ProjectDir)lib\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
@@ -150,7 +150,7 @@ xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir)inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir).inc\$(ProjectName)\*"
 xcopy /S /D /Y "$(ProjectDir)lib\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>
@@ -175,7 +175,7 @@ xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir)inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)inc\*" "$(SolutionDir).inc\$(ProjectName)\*"
 xcopy /S /D /Y "$(ProjectDir)lib\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 xcopy /S /D /Y "$(ProjectDir)bin\$(Platform)\$(Configuration)\*" "$(SolutionDir)$(Platform)\$(Configuration)\*"
 </Command>

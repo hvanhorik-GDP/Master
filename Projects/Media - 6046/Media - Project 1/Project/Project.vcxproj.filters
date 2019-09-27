@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{9bc77ce9-4103-40d3-9379-25ec4f4a8701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\audios">
+      <UniqueIdentifier>{0ade24f2-2bc5-4915-b7d3-91ed4ef1d98f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\shaders">
+      <UniqueIdentifier>{24fa7c42-a729-4f3b-9e30-c93001c78468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\audios\effets">
+      <UniqueIdentifier>{d6194326-53aa-4bcd-be9a-ba221d064015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\audios\music">
+      <UniqueIdentifier>{1c4a1eed-4e65-42dc-9de2-082dfc8e72cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\models">
+      <UniqueIdentifier>{7f7d67d7-3235-4aae-9690-234d6b55d0d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{47803c49-b2b0-463a-ab03-223c2b18c8b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AssetManager">
+      <UniqueIdentifier>{897b28ab-5cab-4463-8532-82d7ece92209}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\audios\effects\A man says don-t tell me- let me guess -southern accent- ol.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\A woman says chester- walk that dog -old woman- cartoon-_Ni.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\A woman says like nails on a blackboard -jewish accent- old.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\A_L Ploaroid Old Woman - He Was So 01.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\A_L Ploaroid Old Woman - I am not Dead 01.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\A_L Ploaroid Old Woman - I had all These Plans 01.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\A_L Ploaroid Old Woman - Wasnt My Fault 01.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\BellAlarmclockringfarINT02-MS.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Grandpa I-m Just An Old Man.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Grandpa Let Me Get My Wheelchair.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Grandpa Now That-s One Good Looking Young Lady.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Grandpa Woo Doggy I-m Telling You Right Now.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Grandpa You-re Going Way Too Fast.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Old Man Cry 3.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Cartoon Old Man Pain 1.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Mature woman sensual giggly laughter 01.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Mature woman sensual giggly laughter 02.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Old male belly laughter.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Old man says baseball umpire strike three you-re out_BLASTW.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Old man says goal_BLASTWAVEFX_16176.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\effects\Tinnitus Pulsating Tone Rising Falling.mp3.mpeg">
+      <Filter>Assets\audios\effets</Filter>
+    </None>
+    <None Include="assets\audios\music\Beer Barrel Polka.flac">
+      <Filter>Assets\audios\music</Filter>
+    </None>
+    <None Include="assets\audios\music\Herb Alpert%27s Tijuana Brass - Hello, Dolly!.ogg">
+      <Filter>Assets\audios\music</Filter>
+    </None>
+    <None Include="assets\models\BigFlatTerrain_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\bun_zipper_res2_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\bun_zipper_res3_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\bun_zipper_res4_XYZ_N.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\bun_zipper_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\Cube_1_Unit_from_origin_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\Sky_Pirate_Combined_xyz_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\models\Terrain_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="assets\shaders\fragmentShader01.glsl">
+      <Filter>Assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\fragmentSimple_text.glsl">
+      <Filter>Assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\vertexShader01.glsl">
+      <Filter>Assets\shaders</Filter>
+    </None>
+    <None Include="assets\shaders\vertextSimple_text.glsl">
+      <Filter>Assets\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="XML\GameLibrary.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLArrayBase.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLDocument.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLNodeBase.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLAttribute.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\iAssetManager.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\impl_AssetManager.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\AssetGroups.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAudioAssetManager.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XML\GameLibrary.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLArrayBase.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLDocument.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLNodeBase.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLAttribute.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\iAssetManager.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\impl_AssetManager.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\AssetGroups.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAudioAssetManager.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\audios\music\Dean Martin - That%27s Amore.mp3">
+      <Filter>Assets\audios\music</Filter>
+    </Media>
+    <Media Include="assets\audios\music\Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp4">
+      <Filter>Assets\audios\music</Filter>
+    </Media>
+    <Media Include="assets\audios\music\Spanish Flea.wav">
+      <Filter>Assets\audios\music</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\GameLibrary.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
