@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{9a1f41d3-41e3-4179-b3e4-92afdea00040}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Master.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cModelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,10 +30,16 @@
     <ClCompile Include="cVAOManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="Callbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Callbacks.cpp">
+    <ClCompile Include="Source_Audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source-GL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,5 +62,16 @@
     <ClInclude Include="cVAOManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="glad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\assets\GameLibrary.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="output.xml">
+      <Filter>Assets</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

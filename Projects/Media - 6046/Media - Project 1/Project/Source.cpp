@@ -71,21 +71,54 @@ int main(int arg, char** argv)
 //		audioManger->PlaySomething();
 		cAudioAssetManager::vecAudioItems& items = audioManger->GetAudioItems();
 
+		cout << "Would you like Raw Files:";
+		bool shouldExit = false;
+		bool raw = false;
+		while (!shouldExit)
+		{
+			if (_kbhit())
+			{
+				char cur = _getch();
+				if (cur == 'y')
+					shouldExit = raw = true;
+				else if (cur == 'n')
+				{
+					shouldExit = true;
+					raw = false;
+				}
+			}
+		}
+
+
 		// Treat everything as an indexed group
 		std::vector<std::vector<std::string>> groups;
 
 		// We have speakers with individual songs
 		std::vector<std::string> speaker1;
-		speaker1.push_back("That's Amore");
+		if (raw)
+			speaker1.push_back("That's Amore wav");
+		else
+			speaker1.push_back("That's Amore");
 
 		std::vector<std::string> speaker2;
-		speaker2.push_back("Auld Lang Syne");
+		if (raw)
+			speaker2.push_back("Auld Lang Syne wav");
+		else
+			speaker2.push_back("Auld Lang Syne");
+
 
 		std::vector<std::string> speaker3;
-		speaker3.push_back("Hello, Dolly");
+		if (raw)
+			speaker3.push_back("Hello, Dolly wav");
+		else
+			speaker3.push_back("Hello, Dolly");
 
 		std::vector<std::string> speaker4;
-		speaker4.push_back("Spanish Flea");
+		if (raw)
+			speaker4.push_back("Spanish Flea wav");
+		else
+			speaker4.push_back("Spanish Flea");
+
 
 		// Pushback our speakers
 		groups.push_back(speaker1);
@@ -121,7 +154,6 @@ int main(int arg, char** argv)
 			for (auto j : i)
 			{
 				auto audioItem = items[j];
-				clear();
 				std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
 				audioItem->create_and_play_sound(true);
 				audioItem->set_is_paused(true);
@@ -138,6 +170,12 @@ int main(int arg, char** argv)
 		help << "     0, 1, 2, 3, 4   - Get a response from active person" << endl;
 		help << "     r               - replay track" << endl;
 		help << "     ?               - Information on current track" << endl;
+		help << "Character interactions: (Case sensitive)" << endl;
+		help << "     S               - Seduce" << endl;
+		help << "     J               - Tell Joke" << endl;
+		help << "     W               - Go for a walk" << endl;
+		help << "     D               - Walk the dog" << endl;
+		help << "     M               - Watch Monty Python" << endl;
 		help << "     (esc)           - To Exit" << endl;
 		help << endl << endl << endl;
 		help << " Hit a key: ";
@@ -149,8 +187,8 @@ int main(int arg, char** argv)
 		auto currentItem = items[currentGroup];
 		currentItem->set_is_paused(false);
 		int point = 0;
-		bool shouldExit = false;
-		
+		shouldExit = false;
+
 		while (!shouldExit) 
 		{
 			if (_kbhit())
@@ -220,6 +258,109 @@ int main(int arg, char** argv)
 					cout << "  Volume:      " << currentItem->get_volume() << endl;
 					cout << "  Position:      " << currentItem->get_position() << endl;
 					break;
+				}
+				case 'S':		// - Seduce" << endl;
+				{
+					auto audioItem = items["One Good Looking Young Lady"];
+					std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+					if (audioItem->channel == 0)
+						audioItem->create_and_play_sound(true);
+					else
+						audioItem->replay();
+
+					audioItem->set_is_paused(false);
+
+					auto audioItem2 = items["sensual giggly laughter"];
+					std::cout << "Loading Audio File: " << audioItem2->name << ": " << audioItem2->path << std::endl;
+					if (audioItem2->channel == 0)
+						audioItem2->create_and_play_sound(true);
+					else
+						audioItem2->replay();
+
+					// Wait for first to finish
+					while (audioItem->get_is_playing())
+						Sleep(10);
+					audioItem2->set_volume(audioItem2->get_volume() * 3);
+					audioItem2->set_is_paused(false);
+					break;
+				}
+				case 'J':         //      - Tell Joke" << endl;
+				{
+					auto audioItem = items["belly laughter"];
+					std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+					if (audioItem->channel == 0)
+						audioItem->create_and_play_sound(true);
+					else
+						audioItem->replay();
+					audioItem->set_is_paused(false);
+
+					auto audioItem2 = items["sensual giggly laughter"];
+					std::cout << "Loading Audio File: " << audioItem2->name << ": " << audioItem2->path << std::endl;
+					if (audioItem2->channel == 0)
+						audioItem2->create_and_play_sound(true);
+					else
+						audioItem2->replay();
+					audioItem2->set_volume(audioItem2->get_volume() * 3);
+					audioItem2->set_is_paused(false);
+					break;
+				}
+				case 'W':          //     - Go for a walk" << endl;
+				{
+					auto audioItem = items["Let Me Get My Wheelchair"];
+					std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+					if (audioItem->channel == 0)
+						audioItem->create_and_play_sound(true);
+					else
+						audioItem->replay();
+					audioItem->set_is_paused(false);
+					// Wait for first to finish
+					while (audioItem->get_is_playing())
+						Sleep(10);
+
+					auto audioItem2 = items["Way Too Fast"];
+					std::cout << "Loading Audio File: " << audioItem2->name << ": " << audioItem2->path << std::endl;
+					if (audioItem2->channel == 0)
+						audioItem2->create_and_play_sound(true);
+					else
+						audioItem2->replay();
+					audioItem2->set_is_paused(false);
+					// Wait for first to finish
+					while (audioItem2->get_is_playing())
+						Sleep(10);
+
+					auto audioItem3 = items["Just An Old Man"];
+					std::cout << "Loading Audio File: " << audioItem3->name << ": " << audioItem3->path << std::endl;
+					if (audioItem3->channel == 0)
+						audioItem3->create_and_play_sound(true);
+					else
+						audioItem3->replay();
+					audioItem3->set_is_paused(false);
+					break;
+				}
+				case 'D':          //     - walk that dog" << endl;
+				{
+					auto audioItem = items["walk that dog"];
+					std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+					if (audioItem->channel == 0)
+						audioItem->create_and_play_sound(true);
+					else
+						audioItem->replay();
+					audioItem->set_is_paused(false);
+					break;
+				}
+				case 'M':             //  - Watch Monty Python" << endl;
+				{
+					
+					auto audioItem = items["I am not Dead"];
+					std::cout << "Loading Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
+					if (audioItem->channel == 0)
+						audioItem->create_and_play_sound(true);
+					else
+						audioItem->replay();
+					audioItem->set_volume(audioItem->get_volume() * 3);
+					audioItem->set_is_paused(false);
+					break;
+
 				}
 				case 'u':
 				{

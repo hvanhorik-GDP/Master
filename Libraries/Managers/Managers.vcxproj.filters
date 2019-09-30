@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="AssetManager">
+      <UniqueIdentifier>{765924de-61f4-4a49-b760-6a18140de840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectManager">
+      <UniqueIdentifier>{38a0b843-cac0-4bac-9efb-51d070ad5d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{9441b536-8e1e-4de1-abbb-369a37fbafee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLibrary">
+      <UniqueIdentifier>{e0ab0f6f-1539-4492-b57e-920e0179033b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{5b73f31c-f0c5-4d73-841d-524d00684995}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssetManager\cAssetManager.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\iAssetManager.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\cObjectManager.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\iObjectManager.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\AssetGroups.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\GameLibrary.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\GameLibraryElements.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLArrayBase.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLAttribute.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLDocument.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLNodeBase.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_impl.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\cObjectManager_impl.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagers\cObjectManager_Audio.cpp">
+      <Filter>ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_Audios.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_Fonts.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_Images.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_Models.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_Shaders.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cAssetManager_Videos.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Audio.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Common.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Font.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Image.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Model.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Shader.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\cItem_Video.cpp">
+      <Filter>AssetManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssetManager\cAssetManager.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\iAssetManager.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\cObjectManager.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\iObjectManager.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\AssetGroups.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\GameLibrary.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\GameLibraryElements.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLArrayBase.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLAttribute.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLDocument.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLNodeBase.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_impl.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\cObjectManager_impl.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagers\cObjectManager_Audio.h">
+      <Filter>ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_Audios.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_Fonts.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_Images.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_Models.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_Shaders.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cAssetManager_Videos.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Audio.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Common.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Font.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Image.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Model.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Shader.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\cItem_Video.h">
+      <Filter>AssetManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="assets\GameLibrary.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

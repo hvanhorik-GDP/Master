@@ -39,14 +39,26 @@
     <Asset name= "That's Amore">
       <AssetFile>music/Dean Martin - That's Amore.mp3</AssetFile>
     </Asset>
+    <Asset name= "That's Amore wav">
+      <AssetFile>music/Dean Martin - That's Amore.wav</AssetFile>
+    </Asset>
     <Asset name= "Auld Lang Syne">
       <AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp3</AssetFile>
+    </Asset>
+    <Asset name= "Auld Lang Syne wav">
+      <AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).wav</AssetFile>
     </Asset>
     <Asset name= "Hello, Dolly">
       <AssetFile>music/Herb Alpert's Tijuana Brass - Hello, Dolly!.ogg</AssetFile>
     </Asset>
-    <Asset name= "Spanish Flea">
+    <Asset name= "Hello, Dolly wav">
+      <AssetFile>music/Herb Alpert's Tijuana Brass - Hello, Dolly!.wav</AssetFile>
+    </Asset>
+    <Asset name= "Spanish Flea wav">
       <AssetFile>music/Spanish Flea.wav</AssetFile>
+    </Asset>
+    <Asset name= "Spanish Flea">
+      <AssetFile>music/Spanish Flea.mp3</AssetFile>
     </Asset>
   </AssetGroup>
   <AssetGroup type = "audios" open = "all" subdir = "true" subtype="effects">

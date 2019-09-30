@@ -1,0 +1,35 @@
+#include "cAssetManager.h"
+#include "cAssetManager_impl.h"
+#include <cassert>
+
+cAssetManager::cAssetManager()
+{
+	if (!m_cAssetManager_impl)
+		m_cAssetManager_impl = new cAssetManager_impl();
+};
+
+void cAssetManager::LoadAssets(rapidxml::xml_node<>* parent)
+{
+	assert(m_cAssetManager_impl);
+	m_cAssetManager_impl->LoadAssets(parent);
+}
+
+// Retrieve the item information
+iAssetManager::iItems_map* cAssetManager::GetItems(const std::string& name)
+{
+	assert(m_cAssetManager_impl);
+	return m_cAssetManager_impl->GetItems(name);
+}
+
+std::ostream& operator<<(std::ostream& stream, const cAssetManager& val)
+{
+	assert(val.m_cAssetManager_impl != NULL);
+	stream << val.m_cAssetManager_impl;
+	return stream;
+}
+
+iAssetManager* cAssetManager::GetAssetManager(const std::string& name)
+{
+	assert(m_cAssetManager_impl);
+	return m_cAssetManager_impl->GetAssetManager(name);
+}

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2019 (https://www.liquid-technologies.com) -->
+<GameLibrary>
+  <GameName>Project 1 Audio Test</GameName>
+  <!-- open AssetAttributes: all, select, none -->
+  <AssetGroup type = "shaders" open = "none">
+    <AssetRoot>./assets/shaders/</AssetRoot>
+    <Asset name="fragmentShader01">
+      <AssetFile>fragmentShader01.glsl</AssetFile>
+      <Property name ="type" value="fragment"/>
+      <Property name ="test" value="456"/>
+    </Asset>
+    <Asset name="vertexShader01">
+      <AssetFile>vertexShader01.glsl</AssetFile>
+      <Property type ="type" value="vertex"/>
+      <Property type ="test" value="456"/>
+      <Property type ="property2" value="two"/>
+      <Property type ="property3" value="three"/>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type = "models" open = "none">
+    <AssetRoot>./assets/models/</AssetRoot>
+    <Asset name="BigFlatTerrain_XYZ_n">
+      <AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
+      <Property type ="type" value="ply"/>
+      <Property type ="format" value="ascii"/>
+      <Property type ="vertex" value="66049"/>
+      <Property type="float" value="x"/>
+      <Property type="float" value ="y"/>
+      <Property type="float" value ="z"/>  
+      <Property type="float" value ="nx"/>
+      <Property type="float" value="ny" />
+      <Property type="float" value = "nz"/>
+      <Property type="face" value = "131072"/>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type = "audios" open = "all" subdir = "true" subtype="music">
+    <AssetRoot>../assets/audios/</AssetRoot>
+    <Asset name= "That's Amore">
+      <AssetFile>music/Dean Martin - That's Amore.mp3</AssetFile>
+    </Asset>
+    <Asset name= "That's Amore wav">
+      <AssetFile>music/Dean Martin - That's Amore.wav</AssetFile>
+    </Asset>
+    <Asset name= "Auld Lang Syne">
+      <AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp3</AssetFile>
+    </Asset>
+    <Asset name= "Auld Lang Syne wav">
+      <AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).wav</AssetFile>
+    </Asset>
+    <Asset name= "Hello, Dolly">
+      <AssetFile>music/Herb Alpert's Tijuana Brass - Hello, Dolly!.ogg</AssetFile>
+    </Asset>
+    <Asset name= "Hello, Dolly wav">
+      <AssetFile>music/Herb Alpert's Tijuana Brass - Hello, Dolly!.wav</AssetFile>
+    </Asset>
+    <Asset name= "Spanish Flea wav">
+      <AssetFile>music/Spanish Flea.wav</AssetFile>
+    </Asset>
+    <Asset name= "Spanish Flea">
+      <AssetFile>music/Spanish Flea.mp3</AssetFile>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type = "audios" open = "all" subdir = "true" subtype="effects">
+    <AssetRoot>../assets/audios/</AssetRoot>
+     <Asset name = "let me guess">
+      <AssetFile>effects/A man says don-t tell me- let me guess -southern accent- ol.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "walk that dog">
+      <AssetFile>effects/A woman says chester- walk that dog -old woman- cartoon-_Ni.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "blackboard">
+      <AssetFile>effects/A woman says like nails on a blackboard -jewish accent- old.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "He Was So">
+      <AssetFile>effects/A_L Ploaroid Old Woman - He Was So 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "I am not Dead">
+      <AssetFile>effects/A_L Ploaroid Old Woman - I am not Dead 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "I had all These Plans">
+      <AssetFile>effects/A_L Ploaroid Old Woman - I had all These Plans 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Wasnt My Fault">
+      <AssetFile>effects/A_L Ploaroid Old Woman - Wasnt My Fault 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Just An Old Man">
+      <AssetFile>effects/Cartoon Grandpa I-m Just An Old Man.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Let Me Get My Wheelchair">
+      <AssetFile>effects/Cartoon Grandpa Let Me Get My Wheelchair.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "One Good Looking Young Lady">
+      <AssetFile>effects/Cartoon Grandpa Now That-s One Good Looking Young Lady.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Telling You Right">
+      <AssetFile>effects/Cartoon Grandpa Woo Doggy I-m Telling You Right Now.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Way Too Fast">
+      <AssetFile>effects/Cartoon Grandpa You-re Going Way Too Fast.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Old Man Cry">
+      <AssetFile>effects/Cartoon Old Man Cry 3.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Old Man Pain">
+      <AssetFile>effects/Cartoon Old Man Pain 1.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "sensual giggly laughter">
+      <AssetFile>effects/Mature woman sensual giggly laughter 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "belly laughter">
+      <AssetFile>effects/Old male belly laughter.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "strike three">
+      <AssetFile>effects/Old man says baseball umpire strike three you-re out_BLASTW.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "goal">
+      <AssetFile>effects/Old man says goal_BLASTWAVEFX_16176.mpeg</AssetFile>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type = "videos" open = "none">
+    <AssetRoot>../assets/videos/</AssetRoot>
+  </AssetGroup>
+  <AssetGroup type = "images" open = "none">
+    <AssetRoot>../assets/images/</AssetRoot>
+  </AssetGroup>
+  <AssetGroup type = "fonts" open = "none">
+    <AssetRoot>../assets/fonts/</AssetRoot>
+  </AssetGroup>
+</GameLibrary>

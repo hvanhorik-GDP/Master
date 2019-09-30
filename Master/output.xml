@@ -1,0 +1,258 @@
+<GameLibrary>
+	<GameName>Project 1 Audio Test</GameName>
+	<AssetGroup type="shaders" open="none">
+		<AssetRoot>./assets/shaders/</AssetRoot>
+		<Asset name="fragmentShader01">
+			<AssetFile>fragmentShader01.glsl</AssetFile>
+			<Property name="type" value="fragment"/>
+			<Property name="test" value="456"/>
+		</Asset>
+		<Asset name="vertexShader01">
+			<AssetFile>vertexShader01.glsl</AssetFile>
+			<Property type="type" value="vertex"/>
+			<Property type="test" value="456"/>
+			<Property type="property2" value="two"/>
+			<Property type="property3" value="three"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="models" open="none">
+		<AssetRoot>./assets/models/</AssetRoot>
+		<Asset name="BigFlatTerrain_XYZ_n">
+			<AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="66049"/>
+			<Property type="float" value="x"/>
+			<Property type="float" value="y"/>
+			<Property type="float" value="z"/>
+			<Property type="float" value="nx"/>
+			<Property type="float" value="ny"/>
+			<Property type="float" value="nz"/>
+			<Property type="face" value="131072"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
+		<AssetRoot>../assets/audios/</AssetRoot>
+		<Asset name="That's Amore">
+			<Property type="length" value="187010"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Dean Martin - That&apos;s Amore.mp3</AssetFile>
+		</Asset>
+		<Asset name="That's Amore wav">
+			<Property type="length" value="186984"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Dean Martin - That&apos;s Amore.wav</AssetFile>
+		</Asset>
+		<Asset name="Auld Lang Syne">
+			<Property type="length" value="129384"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp3</AssetFile>
+		</Asset>
+		<Asset name="Auld Lang Syne wav">
+			<Property type="length" value="129358"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).wav</AssetFile>
+		</Asset>
+		<Asset name="Hello, Dolly">
+			<Property type="length" value="115419"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_OGGVORBIS"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Herb Alpert&apos;s Tijuana Brass - Hello, Dolly!.ogg</AssetFile>
+		</Asset>
+		<Asset name="Hello, Dolly wav">
+			<Property type="length" value="115406"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Herb Alpert&apos;s Tijuana Brass - Hello, Dolly!.wav</AssetFile>
+		</Asset>
+		<Asset name="Spanish Flea wav">
+			<Property type="length" value="126873"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Spanish Flea.wav</AssetFile>
+		</Asset>
+		<Asset name="Spanish Flea">
+			<Property type="length" value="126873"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>music/Spanish Flea.mp3</AssetFile>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="audios" open="all" subdir="true" subtype="effects">
+		<AssetRoot>../assets/audios/</AssetRoot>
+		<Asset name="let me guess">
+			<Property type="length" value="2455"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A man says don-t tell me- let me guess -southern accent- ol.mpeg</AssetFile>
+		</Asset>
+		<Asset name="walk that dog">
+			<Property type="length" value="3056"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="1"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A woman says chester- walk that dog -old woman- cartoon-_Ni.mpeg</AssetFile>
+		</Asset>
+		<Asset name="blackboard">
+			<Property type="length" value="2586"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="1"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A woman says like nails on a blackboard -jewish accent- old.mpeg</AssetFile>
+		</Asset>
+		<Asset name="He Was So">
+			<Property type="length" value="3186"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A_L Ploaroid Old Woman - He Was So 01.mpeg</AssetFile>
+		</Asset>
+		<Asset name="I am not Dead">
+			<Property type="length" value="1828"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A_L Ploaroid Old Woman - I am not Dead 01.mpeg</AssetFile>
+		</Asset>
+		<Asset name="I had all These Plans">
+			<Property type="length" value="2142"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A_L Ploaroid Old Woman - I had all These Plans 01.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Wasnt My Fault">
+			<Property type="length" value="2168"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/A_L Ploaroid Old Woman - Wasnt My Fault 01.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Just An Old Man">
+			<Property type="length" value="2690"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Grandpa I-m Just An Old Man.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Let Me Get My Wheelchair">
+			<Property type="length" value="2142"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Grandpa Let Me Get My Wheelchair.mpeg</AssetFile>
+		</Asset>
+		<Asset name="One Good Looking Young Lady">
+			<Property type="length" value="3134"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Grandpa Now That-s One Good Looking Young Lady.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Telling You Right">
+			<Property type="length" value="3892"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Grandpa Woo Doggy I-m Telling You Right Now.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Way Too Fast">
+			<Property type="length" value="2220"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Grandpa You-re Going Way Too Fast.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Old Man Cry">
+			<Property type="length" value="1933"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Old Man Cry 3.mpeg</AssetFile>
+		</Asset>
+		<Asset name="Old Man Pain">
+			<Property type="length" value="835"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Cartoon Old Man Pain 1.mpeg</AssetFile>
+		</Asset>
+		<Asset name="sensual giggly laughter">
+			<Property type="length" value="18076"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="1"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Mature woman sensual giggly laughter 01.mpeg</AssetFile>
+		</Asset>
+		<Asset name="belly laughter">
+			<Property type="length" value="10553"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="1"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Old male belly laughter.mpeg</AssetFile>
+		</Asset>
+		<Asset name="strike three">
+			<Property type="length" value="2168"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Old man says baseball umpire strike three you-re out_BLASTW.mpeg</AssetFile>
+		</Asset>
+		<Asset name="goal">
+			<Property type="length" value="1097"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="channels" value="2"/>
+			<Property type="bits" value="16"/>
+			<AssetFile>effects/Old man says goal_BLASTWAVEFX_16176.mpeg</AssetFile>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="videos" open="none">
+		<AssetRoot>../assets/videos/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="images" open="none">
+		<AssetRoot>../assets/images/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="fonts" open="none">
+		<AssetRoot>../assets/fonts/</AssetRoot>
+	</AssetGroup>
+</GameLibrary>
+
