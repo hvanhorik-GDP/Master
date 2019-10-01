@@ -12,7 +12,9 @@ cAudio_System::cAudio_System()
 
 cAudio_System::~cAudio_System()
 {
-	delete g_Audio_System_impl;
+	//if (g_Audio_System_impl)
+	//	delete g_Audio_System_impl;
+	//g_Audio_System_impl
 }
 
 // Init/Close.
@@ -26,7 +28,8 @@ void cAudio_System::Close()
 {
 	assert(g_Audio_System_impl);
 	g_Audio_System_impl->Close();
-
+	delete g_Audio_System_impl;
+	g_Audio_System_impl = 0;
 }
 
 void cAudio_System::Update()

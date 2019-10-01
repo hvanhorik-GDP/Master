@@ -1,248 +1,585 @@
 <GameLibrary>
 	<GameName>Project 1 Audio Test</GameName>
 	<AssetGroup type="shaders" open="none">
-		<AssetRoot>./assets/shaders/</AssetRoot>
-		<Asset name="fragmentShader01">
+		<AssetRoot>../assets/shaders/</AssetRoot>
+		<Asset name="fragmentShader01" type="fragment">
 			<AssetFile>fragmentShader01.glsl</AssetFile>
-			<Property name="type" value="fragment"/>
-			<Property name="test" value="456"/>
+			<Property type="isValid" value="1"/>
 		</Asset>
-		<Asset name="vertexShader01">
+		<Asset name="vertexShader01" type="vertex">
 			<AssetFile>vertexShader01.glsl</AssetFile>
-			<Property type="type" value="vertex"/>
-			<Property type="test" value="456"/>
-			<Property type="property2" value="two"/>
-			<Property type="property3" value="three"/>
+			<Property type="isValid" value="1"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="programs" open="none">
+		<Asset name="main">
+			<AssetPart>fragmentShader01</AssetPart>
+			<AssetPart>vertexShader01</AssetPart>
+			<Property type="isValid" value="1"/>
+			<Property type="Attribute" value=" id = 3 index = 2 type = 35666 size = 1 m_name = vNormal"/>
+			<Property type="Attribute" value=" id = 3 index = 2 type = 35666 size = 1 m_name = vPosition"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35676 size = 1 m_name = matModel"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35676 size = 1 m_name = matProj"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35676 size = 1 m_name = matView"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35670 size = 1 m_name = bDoNotLight"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = debugColour"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = diffuseColour"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = eyeLocation"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = specularColour"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].position"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].diffuse"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].specular"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].atten"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].direction"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].param1"/>
+			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].param2"/>
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="models" open="none">
-		<AssetRoot>./assets/models/</AssetRoot>
+		<AssetRoot>../assets/models/</AssetRoot>
 		<Asset name="BigFlatTerrain_XYZ_n">
 			<AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
 			<Property type="type" value="ply"/>
 			<Property type="format" value="ascii"/>
 			<Property type="vertex" value="66049"/>
-			<Property type="float" value="x"/>
-			<Property type="float" value="y"/>
-			<Property type="float" value="z"/>
-			<Property type="float" value="nx"/>
-			<Property type="float" value="ny"/>
-			<Property type="float" value="nz"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
 			<Property type="face" value="131072"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="bun_zipper_XYZ_n">
+			<AssetFile>bun_zipper_XYZ_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="35947"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="69451"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="bun_zipper_res2_XYZ">
+			<AssetFile>bun_zipper_res2_XYZ.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="8171"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="16301"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="Cube_1_Unit_from_origin_XYZ_n">
+			<AssetFile>Cube_1_Unit_from_origin_XYZ_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="26"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="12"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="bun_zipper_res2_XYZ_n">
+			<AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="8171"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="16301"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="Sky_Pirate_Combined_xyz">
+			<AssetFile>Sky_Pirate_Combined_xyz.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="97658"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="59066"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="Sky_Pirate_Combined_xyz_n">
+			<AssetFile>Sky_Pirate_Combined_xyz_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="97658"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="59066"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="Sphere_Radius_1_XYZ_n">
+			<AssetFile>Sphere_Radius_1_XYZ_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="642"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="1280"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="Terrain_XYZ_n">
+			<AssetFile>Terrain_XYZ_n.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="66049"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="131072"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="bun_zipper_XYZ">
+			<AssetFile>bun_zipper_XYZ.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="35947"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="69451"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="0"/>
+		</Asset>
+		<Asset name="12953_ChocolateRabbit_v1">
+			<AssetFile>./Bunnies/12953_ChocolateRabbit_v1.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="12234"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="24464"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="17505_Finger_puppet_rabbit_V1">
+			<AssetFile>./Bunnies/17505_Finger_puppet_rabbit_V1.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="46366"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="92720"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="10037_Rabbit_v1_L3">
+			<AssetFile>./Bunnies/10037_Rabbit_v1_L3.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="38354"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="76704"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="Bravil">
+			<AssetFile>./Castles/Bravil.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="598236"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="832827"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="10083_Small Castle_v3_L3">
+			<AssetFile>./Castles/10083_Small Castle_v3_L3.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="17218"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="33996"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="Castle (2)">
+			<AssetFile>./Castles/Castle (2).ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="74451"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="137962"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="Castle OBJ">
+			<AssetFile>./Castles/Castle OBJ.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="5777"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="property" value="last  list uchar float texcoord"/>
+			<Property type="face" value="8479"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
+		</Asset>
+		<Asset name="Hogwarts">
+			<AssetFile>./Castles/Hogwarts.ply</AssetFile>
+			<Property type="type" value="ply"/>
+			<Property type="format" value="ascii"/>
+			<Property type="vertex" value="358676"/>
+			<Property type="property" value="float x"/>
+			<Property type="property" value="float y"/>
+			<Property type="property" value="float z"/>
+			<Property type="property" value="float nx"/>
+			<Property type="property" value="float ny"/>
+			<Property type="property" value="float nz"/>
+			<Property type="property" value="uchar red"/>
+			<Property type="property" value="uchar green"/>
+			<Property type="property" value="uchar blue"/>
+			<Property type="property" value="uchar alpha"/>
+			<Property type="property" value="last  list uchar int vertex_indices"/>
+			<Property type="face" value="581774"/>
+			<Property type="valid" value="1"/>
+			<Property type="normals" value="1"/>
+			<Property type="colours" value="1"/>
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
 		<AssetRoot>../assets/audios/</AssetRoot>
 		<Asset name="That's Amore">
-			<Property type="length" value="187010"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Dean Martin - That&apos;s Amore.mp3</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="187010"/>
 		</Asset>
 		<Asset name="That's Amore wav">
-			<Property type="length" value="186984"/>
-			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Dean Martin - That&apos;s Amore.wav</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="length" value="186984"/>
 		</Asset>
 		<Asset name="Auld Lang Syne">
-			<Property type="length" value="129384"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp3</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="129384"/>
 		</Asset>
 		<Asset name="Auld Lang Syne wav">
-			<Property type="length" value="129358"/>
-			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).wav</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="length" value="129358"/>
 		</Asset>
 		<Asset name="Hello, Dolly">
-			<Property type="length" value="115419"/>
-			<Property type="type" value="FMOD_SOUND_TYPE_OGGVORBIS"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Herb Alpert&apos;s Tijuana Brass - Hello, Dolly!.ogg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_OGGVORBIS"/>
+			<Property type="length" value="115419"/>
 		</Asset>
 		<Asset name="Hello, Dolly wav">
-			<Property type="length" value="115406"/>
-			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Herb Alpert&apos;s Tijuana Brass - Hello, Dolly!.wav</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="length" value="115406"/>
 		</Asset>
 		<Asset name="Spanish Flea wav">
-			<Property type="length" value="126873"/>
-			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Spanish Flea.wav</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="length" value="126873"/>
 		</Asset>
 		<Asset name="Spanish Flea">
-			<Property type="length" value="126873"/>
-			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>music/Spanish Flea.mp3</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="FMOD_SOUND_TYPE_WAV"/>
+			<Property type="length" value="126873"/>
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="audios" open="all" subdir="true" subtype="effects">
 		<AssetRoot>../assets/audios/</AssetRoot>
 		<Asset name="let me guess">
-			<Property type="length" value="2455"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A man says don-t tell me- let me guess -southern accent- ol.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2455"/>
 		</Asset>
 		<Asset name="walk that dog">
-			<Property type="length" value="3056"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="1"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A woman says chester- walk that dog -old woman- cartoon-_Ni.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="1"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="3056"/>
 		</Asset>
 		<Asset name="blackboard">
-			<Property type="length" value="2586"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="1"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A woman says like nails on a blackboard -jewish accent- old.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="1"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2586"/>
 		</Asset>
 		<Asset name="He Was So">
-			<Property type="length" value="3186"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A_L Ploaroid Old Woman - He Was So 01.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="3186"/>
 		</Asset>
 		<Asset name="I am not Dead">
-			<Property type="length" value="1828"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A_L Ploaroid Old Woman - I am not Dead 01.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="1828"/>
 		</Asset>
 		<Asset name="I had all These Plans">
-			<Property type="length" value="2142"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A_L Ploaroid Old Woman - I had all These Plans 01.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2142"/>
 		</Asset>
 		<Asset name="Wasnt My Fault">
-			<Property type="length" value="2168"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/A_L Ploaroid Old Woman - Wasnt My Fault 01.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2168"/>
 		</Asset>
 		<Asset name="Just An Old Man">
-			<Property type="length" value="2690"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Grandpa I-m Just An Old Man.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2690"/>
 		</Asset>
 		<Asset name="Let Me Get My Wheelchair">
-			<Property type="length" value="2142"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Grandpa Let Me Get My Wheelchair.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2142"/>
 		</Asset>
 		<Asset name="One Good Looking Young Lady">
-			<Property type="length" value="3134"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Grandpa Now That-s One Good Looking Young Lady.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="3134"/>
 		</Asset>
 		<Asset name="Telling You Right">
-			<Property type="length" value="3892"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Grandpa Woo Doggy I-m Telling You Right Now.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="3892"/>
 		</Asset>
 		<Asset name="Way Too Fast">
-			<Property type="length" value="2220"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Grandpa You-re Going Way Too Fast.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2220"/>
 		</Asset>
 		<Asset name="Old Man Cry">
-			<Property type="length" value="1933"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Old Man Cry 3.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="1933"/>
 		</Asset>
 		<Asset name="Old Man Pain">
-			<Property type="length" value="835"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Cartoon Old Man Pain 1.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="835"/>
 		</Asset>
 		<Asset name="sensual giggly laughter">
-			<Property type="length" value="18076"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="1"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Mature woman sensual giggly laughter 01.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="1"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="18076"/>
 		</Asset>
 		<Asset name="belly laughter">
-			<Property type="length" value="10553"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="1"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Old male belly laughter.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="1"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="10553"/>
 		</Asset>
 		<Asset name="strike three">
-			<Property type="length" value="2168"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Old man says baseball umpire strike three you-re out_BLASTW.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="2168"/>
 		</Asset>
 		<Asset name="goal">
-			<Property type="length" value="1097"/>
-			<Property type="type" value="MPEG"/>
-			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
-			<Property type="channels" value="2"/>
-			<Property type="bits" value="16"/>
 			<AssetFile>effects/Old man says goal_BLASTWAVEFX_16176.mpeg</AssetFile>
+			<Property type="bits" value="16"/>
+			<Property type="channels" value="2"/>
+			<Property type="format" value="FMOD_SOUND_FORMAT_PCM16"/>
+			<Property type="type" value="MPEG"/>
+			<Property type="length" value="1097"/>
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="videos" open="none">
@@ -254,5 +591,22 @@
 	<AssetGroup type="fonts" open="none">
 		<AssetRoot>../assets/fonts/</AssetRoot>
 	</AssetGroup>
+	<Object type="audio" name="sensual giggly laughter" id="xxxx">
+		<AssetId name="sensual giggly laughter"/>
+		<Property name="type" type="string" value="mpeg"/>
+		<Property name="volume" type="int" value="10"/>
+		<Property name="pitch" type="double" value="1"/>
+		<Property name="offset" type="int" value="0"/>
+		<Property name="position" type="vec3" value="1,2,3"/>
+		<Property name="color" type="vec4" value="255,0,0,0"/>
+	</Object>
+	<Object type="group" name="group1" id="xxxy">
+		<ObjectID name="sensual giggly laughter"/>
+		<Property name="position" type="vec3" value="1,2,3"/>
+	</Object>
+	<Object type="group" name="group2" id="xxxz">
+		<ObjectID name="group1"/>
+		<Property name="position" type="vec3" value="1,2,3"/>
+	</Object>
 </GameLibrary>
 

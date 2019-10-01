@@ -3,6 +3,7 @@
 #include "cAssetManager_Audios.h"
 #include "cAssetManager_Videos.h"
 #include "cAssetManager_Shaders.h"
+#include "cAssetManager_Programs.h"
 #include "cAssetManager_Images.h"
 #include "cAssetManager_Fonts.h"
 #include "cAssetManager_Models.h"
@@ -78,13 +79,20 @@ void cAssetManager_impl::LoadAssets(rapidxml::xml_node<>* parent)
 					manager->LoadAssets(parent);
 				}
 			}
-			else if (type.GetValue() == "shaders")
+			else if (type.GetValue() == "shaders" || type.GetValue() == "programs")
 			{
 				// The Manager should handle duplicates properly
 				if (m_AssetManagers.find("shaders") == m_AssetManagers.end())
 				{
 					auto manager = new cAssetManager_Shaders();
 					m_AssetManagers["shaders"] = manager;
+					manager->LoadAssets(parent);
+				}
+				// (shaders and groups go together so need proper ordering
+				if (m_AssetManagers.find("programs") == m_AssetManagers.end())
+				{
+					auto manager = new cAssetManager_Programs();
+					m_AssetManagers["programs"] = manager;
 					manager->LoadAssets(parent);
 				}
 			}
@@ -107,7 +115,8 @@ void cAssetManager_impl::LoadAssets(rapidxml::xml_node<>* parent)
 					m_AssetManagers["fonts"] = manager;
 					manager->LoadAssets(parent);
 				}
-			}
+			} 
+			else
 			{
 				std::cout << "Unimplemented AssetManager: (Ignored): " << type.GetValue() << std::endl;
 			}

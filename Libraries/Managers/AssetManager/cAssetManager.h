@@ -21,5 +21,4 @@ public:
 	// Hack now to get at the underlying AssetManagers
 	iAssetManager* GetAssetManager(const std::string& name);
 protected:
-	cAssetManager_impl* m_cAssetManager_impl;
 };

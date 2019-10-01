@@ -16,30 +16,27 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{9a1f41d3-41e3-4179-b3e4-92afdea00040}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\models">
+      <UniqueIdentifier>{e1c3e6cd-7989-4f19-b800-244dd1d66d77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cModelLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cShaderManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cVAOManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Callbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source_Audio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source-GL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test_Audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="open_gl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,15 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cModelLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cShaderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cVAOManager.h">
@@ -73,5 +61,54 @@
     <Xml Include="output.xml">
       <Filter>Assets</Filter>
     </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_res2_XYZ.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_res2_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_res3_XYZ.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_res3_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_res4_XYZ.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_res4_XYZ_N.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_XYZ.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\bun_zipper_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Cube_1_Unit_from_origin_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Sky_Pirate_Combined_xyz.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Sky_Pirate_Combined_xyz_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Terrain_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\assets\models\foo.txt">
+      <Filter>Assets</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -72,24 +72,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries\gl_OpenGL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries\gl_OpenGL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries\gl_OpenGL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries\gl_OpenGL;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -187,6 +187,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="AssetManager\cAssetManager_Fonts.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Images.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Models.cpp" />
+    <ClCompile Include="AssetManager\cAssetManager_Programs.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Shaders.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Videos.cpp" />
     <ClCompile Include="AssetManager\cItem_Audio.cpp" />
@@ -194,6 +195,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="AssetManager\cItem_Font.cpp" />
     <ClCompile Include="AssetManager\cItem_Image.cpp" />
     <ClCompile Include="AssetManager\cItem_Model.cpp" />
+    <ClCompile Include="AssetManager\cItem_Program.cpp" />
     <ClCompile Include="AssetManager\cItem_Shader.cpp" />
     <ClCompile Include="AssetManager\cItem_Video.cpp" />
     <ClCompile Include="AssetManager\iAssetManager.cpp" />
@@ -201,10 +203,16 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="GameLibrary\AssetGroups.cpp" />
     <ClCompile Include="GameLibrary\GameLibrary.cpp" />
     <ClCompile Include="GameLibrary\GameLibraryElements.cpp" />
+    <ClCompile Include="Models\cModelLoader.cpp" />
     <ClCompile Include="ObjectManagers\cObjectManager_Audio.cpp" />
     <ClCompile Include="ObjectManagers\cObjectManager.cpp" />
     <ClCompile Include="ObjectManagers\cObjectManager_impl.cpp" />
     <ClCompile Include="ObjectManagers\iObjectManager.cpp" />
+    <ClCompile Include="Shaders\cShader.cpp" />
+    <ClCompile Include="Shaders\cProgramLoader.cpp" />
+    <ClCompile Include="Shaders\cShaderLoader.cpp" />
+    <ClCompile Include="Shaders\cShaderManager.cpp" />
+    <ClCompile Include="Shaders\sUniform.cpp" />
     <ClCompile Include="XML\XMLArrayBase.cpp" />
     <ClCompile Include="XML\XMLAttribute.cpp" />
     <ClCompile Include="XML\XMLDocument.cpp" />
@@ -216,6 +224,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="AssetManager\cAssetManager_Fonts.h" />
     <ClInclude Include="AssetManager\cAssetManager_Images.h" />
     <ClInclude Include="AssetManager\cAssetManager_Models.h" />
+    <ClInclude Include="AssetManager\cAssetManager_Programs.h" />
     <ClInclude Include="AssetManager\cAssetManager_Shaders.h" />
     <ClInclude Include="AssetManager\cAssetManager_Videos.h" />
     <ClInclude Include="AssetManager\cItem_Audio.h" />
@@ -223,6 +232,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="AssetManager\cItem_Font.h" />
     <ClInclude Include="AssetManager\cItem_Image.h" />
     <ClInclude Include="AssetManager\cItem_Model.h" />
+    <ClInclude Include="AssetManager\cItem_Program.h" />
     <ClInclude Include="AssetManager\cItem_Shader.h" />
     <ClInclude Include="AssetManager\cItem_Video.h" />
     <ClInclude Include="AssetManager\iAssetManager.h" />
@@ -230,17 +240,20 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="GameLibrary\AssetGroups.h" />
     <ClInclude Include="GameLibrary\GameLibrary.h" />
     <ClInclude Include="GameLibrary\GameLibraryElements.h" />
+    <ClInclude Include="Models\cMesh.h" />
+    <ClInclude Include="Models\cModelLoader.h" />
     <ClInclude Include="ObjectManagers\cObjectManager_Audio.h" />
     <ClInclude Include="ObjectManagers\cObjectManager.h" />
     <ClInclude Include="ObjectManagers\cObjectManager_impl.h" />
     <ClInclude Include="ObjectManagers\iObjectManager.h" />
+    <ClInclude Include="Shaders\cProgramLoader.h" />
+    <ClInclude Include="Shaders\cShaderLoader.h" />
+    <ClInclude Include="Shaders\cShaderManager.h" />
+    <ClInclude Include="Shaders\sUniform.h" />
     <ClInclude Include="XML\XMLArrayBase.h" />
     <ClInclude Include="XML\XMLAttribute.h" />
     <ClInclude Include="XML\XMLDocument.h" />
     <ClInclude Include="XML\XMLNodeBase.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="assets\GameLibrary.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

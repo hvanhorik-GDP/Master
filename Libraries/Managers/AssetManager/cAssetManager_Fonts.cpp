@@ -45,7 +45,7 @@ void cAssetManager_Fonts::LoadAssets(rapidxml::xml_node<>* parent)
 			}
 			else
 			{
-				std::cout << "cAssetManager_Fonts - Ignoring: " << type.GetValue() << std::endl;
+//				std::cout << "cAssetManager_Fonts - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}

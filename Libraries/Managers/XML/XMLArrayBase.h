@@ -12,6 +12,7 @@ public:
 		, m_index(index) {}
 	virtual ~XMLArrayBase() {};
 	std::size_t GetSize() const;
+	void Insert();
 	virtual rapidxml::xml_node<>* GetNode() const;
 protected:
 	virtual const std::string& GetName() const { return gName; };

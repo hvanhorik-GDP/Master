@@ -45,7 +45,7 @@ void cAssetManager_Images::LoadAssets(rapidxml::xml_node<>* parent)
 			}
 			else
 			{
-				std::cout << "cAssetManager_Images - Ignoring: " << type.GetValue() << std::endl;
+//				std::cout << "cAssetManager_Images - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}

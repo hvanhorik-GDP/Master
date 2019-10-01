@@ -14,10 +14,6 @@ XMLNodeBase::XMLNodeBase()
 {
 }
 
-//XMLNodeBase::XMLNodeBase(const XMLNodeBase& parent)
-//	: m_parent(node)
-//{
-//}
 
 std::string XMLNodeBase::GetNodeName() const
 {
@@ -115,7 +111,7 @@ void XMLNodeBase::Add(const std::string& value, bool insert)
 		auto newValue = document->allocate_string(value.c_str());	// Must let rapidxml hold the strings
 		auto newName = document->allocate_string(GetName().c_str());	// Must let rapidxml hold the strings
 		rapidxml::xml_node<> *node = document->allocate_node( rapidxml::node_element, newName, newValue);
-		m_parent->prepend_node(node);								// Put at the beginning for ease of use
+		m_parent->append_node(node);								// Put at the end
 	}
 }
 

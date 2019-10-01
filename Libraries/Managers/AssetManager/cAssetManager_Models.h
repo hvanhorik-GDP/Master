@@ -1,5 +1,6 @@
 #pragma once
 #include "iAssetManager.h"
+
 class cAssetManager_Models : public iAssetManager
 {
 private:

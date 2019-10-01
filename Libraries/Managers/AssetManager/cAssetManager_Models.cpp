@@ -1,6 +1,7 @@
 #include "cAssetManager_Models.h"
-
-#include "GAmeLibrary/AssetGroups.h"
+#include "cItem_Model.h"
+#include "GameLibrary/AssetGroups.h"
+#include "../Models/cModelLoader.h"
 #include <iostream>
 #include <sstream>
 
@@ -39,13 +40,38 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 						AssetFile fileName = file.GetAssetFile();
 						std::string fullPath = rootPath + fileName.GetValue();
 						std::cout << fullPath << std::endl;
-						std::cout << __FILE__ << __LINE__ << "Found an asset TODO" << std::endl;
+						//std::cout << __FILE__ << __LINE__ << "Found an asset" << std::endl;
+	
+						std::string id = assetName.GetValue();
+						auto parent = file.GetParent();
+						cItem_Model* item = new cItem_Model(id, fullPath, parent, i);
+						auto val = subtype.GetValue();
+						m_map_items[item->GetAssetID()] = item;
+
+						// TODO - merge mesh and cItem_Model
+						cMesh mesh;
+						cModelLoader loader;
+						// Just load the header for speed
+						bool ok = loader.LoadPlyModelInfo(fullPath, mesh);
+						// Write the properties to the xml file
+						Properties prop = file.GetProperties();
+						prop.AddProperty("type", mesh.m_type);
+						prop.AddProperty("format", mesh.m_format);
+						prop.AddProperty("vertex", std::to_string(mesh.m_vertices));
+						for (auto in : mesh.m_vecProperties)
+						{
+							prop.AddProperty("property", in.first + " " + in.second);
+						}
+						prop.AddProperty("face", std::to_string(mesh.m_faces));
+						prop.AddProperty("valid", std::to_string(mesh.m_isValid));
+						prop.AddProperty("normals", std::to_string(mesh.m_hasNormals));
+						prop.AddProperty("colours", std::to_string(mesh.m_hasColor));
 					}
 				}
 			}
 			else
 			{
-				std::cout << "cAssetManager_Models - Ignoring: " << type.GetValue() << std::endl;
+//				std::cout << "cAssetManager_Models - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}

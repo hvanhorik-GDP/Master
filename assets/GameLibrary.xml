@@ -2,38 +2,86 @@
 <!-- Created with Liquid Studio 2019 (https://www.liquid-technologies.com) -->
 <GameLibrary>
   <GameName>Project 1 Audio Test</GameName>
-  <!-- open AssetAttributes: all, select, none -->
+
+  <!-- Shaders -->
   <AssetGroup type = "shaders" open = "none">
-    <AssetRoot>./assets/shaders/</AssetRoot>
-    <Asset name="fragmentShader01">
+    <AssetRoot>../assets/shaders/</AssetRoot>
+    <Asset name="fragmentShader01" type ="fragment">
       <AssetFile>fragmentShader01.glsl</AssetFile>
-      <Property name ="type" value="fragment"/>
-      <Property name ="test" value="456"/>
     </Asset>
-    <Asset name="vertexShader01">
+    <Asset name="vertexShader01" type="vertex">
       <AssetFile>vertexShader01.glsl</AssetFile>
-      <Property type ="type" value="vertex"/>
-      <Property type ="test" value="456"/>
-      <Property type ="property2" value="two"/>
-      <Property type ="property3" value="three"/>
     </Asset>
   </AssetGroup>
+  
+  <!-- Program - Link the shaders together as a single asset-->
+  <AssetGroup type = "programs" open = "none">
+    <Asset name="main">
+      <AssetPart>fragmentShader01</AssetPart>
+      <AssetPart>vertexShader01</AssetPart>
+    </Asset>
+  </AssetGroup>
+
+  <!-- Models -->
   <AssetGroup type = "models" open = "none">
-    <AssetRoot>./assets/models/</AssetRoot>
+    <AssetRoot>../assets/models/</AssetRoot>
     <Asset name="BigFlatTerrain_XYZ_n">
       <AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
-      <Property type ="type" value="ply"/>
-      <Property type ="format" value="ascii"/>
-      <Property type ="vertex" value="66049"/>
-      <Property type="float" value="x"/>
-      <Property type="float" value ="y"/>
-      <Property type="float" value ="z"/>  
-      <Property type="float" value ="nx"/>
-      <Property type="float" value="ny" />
-      <Property type="float" value = "nz"/>
-      <Property type="face" value = "131072"/>
+    </Asset>
+    <Asset name="bun_zipper_XYZ_n">
+      <AssetFile>bun_zipper_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res2_XYZ">
+      <AssetFile>bun_zipper_res2_XYZ.ply</AssetFile>
+    </Asset>
+    <Asset name="Cube_1_Unit_from_origin_XYZ_n">
+      <AssetFile>Cube_1_Unit_from_origin_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res2_XYZ_n">
+      <AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Sky_Pirate_Combined_xyz">
+      <AssetFile>Sky_Pirate_Combined_xyz.ply</AssetFile>
+    </Asset>
+    <Asset name="Sky_Pirate_Combined_xyz_n">
+      <AssetFile>Sky_Pirate_Combined_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Sphere_Radius_1_XYZ_n">
+      <AssetFile>Sphere_Radius_1_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Terrain_XYZ_n">
+      <AssetFile>Terrain_XYZ_n.ply</AssetFile>
+    </Asset>
+   <Asset name="bun_zipper_XYZ">
+      <AssetFile>bun_zipper_XYZ.ply</AssetFile>
+    </Asset>
+    <Asset name="12953_ChocolateRabbit_v1">
+      <AssetFile>./Bunnies/12953_ChocolateRabbit_v1.ply</AssetFile>
+    </Asset>
+    <Asset name="17505_Finger_puppet_rabbit_V1">
+      <AssetFile>./Bunnies/17505_Finger_puppet_rabbit_V1.ply</AssetFile>
+    </Asset>
+    <Asset name="10037_Rabbit_v1_L3">
+      <AssetFile>./Bunnies/10037_Rabbit_v1_L3.ply</AssetFile>
+    </Asset>
+    <Asset name="Bravil">
+      <AssetFile>./Castles/Bravil.ply</AssetFile>
+    </Asset>
+    <Asset name="10083_Small Castle_v3_L3">
+      <AssetFile>./Castles/10083_Small Castle_v3_L3.ply</AssetFile>
+    </Asset>
+    <Asset name="Castle (2)">
+      <AssetFile>./Castles/Castle (2).ply</AssetFile>
+    </Asset>
+    <Asset name="Castle OBJ">
+      <AssetFile>./Castles/Castle OBJ.ply</AssetFile>
+    </Asset>
+    <Asset name="Hogwarts">
+      <AssetFile>./Castles/Hogwarts.ply</AssetFile>
     </Asset>
   </AssetGroup>
+
+  <!-- Audio files -->
   <AssetGroup type = "audios" open = "all" subdir = "true" subtype="music">
     <AssetRoot>../assets/audios/</AssetRoot>
     <Asset name= "That's Amore">
@@ -61,6 +109,8 @@
       <AssetFile>music/Spanish Flea.mp3</AssetFile>
     </Asset>
   </AssetGroup>
+  
+  <!-- More Audio Files -->
   <AssetGroup type = "audios" open = "all" subdir = "true" subtype="effects">
     <AssetRoot>../assets/audios/</AssetRoot>
      <Asset name = "let me guess">
@@ -118,13 +168,42 @@
       <AssetFile>effects/Old man says goal_BLASTWAVEFX_16176.mpeg</AssetFile>
     </Asset>
   </AssetGroup>
+
+  <!-- Video files -->
   <AssetGroup type = "videos" open = "none">
     <AssetRoot>../assets/videos/</AssetRoot>
   </AssetGroup>
+  
+  <!-- Image files -->
+
   <AssetGroup type = "images" open = "none">
     <AssetRoot>../assets/images/</AssetRoot>
   </AssetGroup>
+  
+  <!-- Font files -->
+
   <AssetGroup type = "fonts" open = "none">
     <AssetRoot>../assets/fonts/</AssetRoot>
   </AssetGroup>
+
+  <!-- Game Objects -->
+
+  <Object type = "audio" name ="sensual giggly laughter" id = "xxxx">
+  <AssetId name = "sensual giggly laughter"/>
+  <Property name = "type"  type = "string" value="mpeg"/>
+  <Property name = "volume" type ="int" value ="10"/>
+  <Property name = "pitch" type ="double" value ="1" />
+  <Property name = "offset" type ="int" value = "0" />
+  <Property name = "position" type ="vec3" value="1,2,3"/>
+  <Property name ="color" type="vec4" value="255,0,0,0"/>
+  </Object>
+  <Object type ="group" name ="group1" id ="xxxy">
+    <ObjectID name ="sensual giggly laughter"/>
+    <Property name = "position" type ="vec3" value="1,2,3"/>
+  </Object>
+  <Object type ="group" name ="group2" id ="xxxz">
+    <ObjectID name ="group1"/>
+    <Property name = "position" type ="vec3" value="1,2,3"/>
+  </Object>
+
 </GameLibrary>

@@ -2,6 +2,8 @@
 #include "cAssetManager_impl.h"
 #include <cassert>
 
+cAssetManager_impl* m_cAssetManager_impl;		// The one and only
+
 cAssetManager::cAssetManager()
 {
 	if (!m_cAssetManager_impl)
@@ -23,8 +25,7 @@ iAssetManager::iItems_map* cAssetManager::GetItems(const std::string& name)
 
 std::ostream& operator<<(std::ostream& stream, const cAssetManager& val)
 {
-	assert(val.m_cAssetManager_impl != NULL);
-	stream << val.m_cAssetManager_impl;
+	stream << *m_cAssetManager_impl;
 	return stream;
 }
 

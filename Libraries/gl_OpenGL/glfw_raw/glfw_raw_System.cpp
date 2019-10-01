@@ -33,7 +33,6 @@ namespace glfw
 			glproc GetProcAddress(const char* procname)
 			{
 				assert(procname != NULL);
-				assert(untested);
 				return glfwGetProcAddress(procname);
 			}
 

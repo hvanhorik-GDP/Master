@@ -7,7 +7,7 @@ using namespace glfw::raw;
 using namespace glfw::raw::Key;
 using namespace std;
 
-static void key_callback(window* window, int key, int scancode, int action, int mods)
+void key_callback(window* window, int key, int scancode, int action, int mods)
 {
 	// Move the camera (A & D for left and right, along the x axis)
 	switch (key)
@@ -103,7 +103,7 @@ static void key_callback(window* window, int key, int scancode, int action, int 
 
 }
 
-static void error_callback(glfw::raw::Error::eError error, const char* description)
+void error_callback(glfw::raw::Error::eError error, const char* description)
 {
 	cout << "Error: " << error << ", Description:" << description << endl;
 }

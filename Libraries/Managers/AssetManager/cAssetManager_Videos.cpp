@@ -44,7 +44,7 @@ void cAssetManager_Videos::LoadAssets(rapidxml::xml_node<>* parent)
 			}
 			else
 			{
-				std::cout << "cAssetManager_Videos - Ignoring: " << type.GetValue() << std::endl;
+//				std::cout << "cAssetManager_Videos - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}

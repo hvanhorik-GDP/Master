@@ -85,13 +85,13 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 						prop.AddProperty("length", std::to_string(length));
 
 						sound.Release();
-						std::cout << file << std::endl;
+//						std::cout << file << std::endl;
 					}
 				}
 			}
 			else
 			{
-				std::cout << "cAssetManager_Audios - Ignoring: " << type.GetValue() << std::endl;
+//				std::cout << "cAssetManager_Audios - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}
@@ -110,25 +110,3 @@ std::ostream& operator<<(std::ostream& stream, const cAssetManager_Audios& val)
 	stream << "std::ostream& operator<<(std::ostream& stream, const cAssetManager_Audios& val)" << "Not Implemented" << std::endl;
 	return stream;
 }
-
-//void cAssetManager_Audios::PlaySomething()
-//{
-//	for (auto item : m_vec_Items)
-//	{
-//		auto audioItem = item.second;
-//		std::cout << "Playing Audio File: " << audioItem->name << ": " << audioItem->path << std::endl;
-//		audioItem->create_and_play_sound(true);
-//		audioItem->set_is_paused(false);
-//		bool is_playing = true;
-//		while (is_playing)
-//		{
-//			Sleep(100);
-//			bool is_paused = audioItem->get_is_paused();
-//			is_playing = audioItem->get_is_playing();
-//			unsigned int pos = audioItem->get_position();
-//			unsigned int length = audioItem->get_length();
-//			std::string name = audioItem->get_name();
-//			std::cout << name << " length: " << length << " pos: " << pos << std::endl;
-//		}
-//	}
-//}

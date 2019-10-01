@@ -46,16 +46,16 @@ bool cVAOManager::LoadModelIntoVAO(
 	// Write some code to copy the infomation from cMesh& theMesh
 	//  to the sModelDrawInfo& drawInfo...
 
-	drawInfo.numberOfVertices = theMesh.vecVertices.size();
+	drawInfo.numberOfVertices = theMesh.m_vecVertices.size();
 	// Allocate an array big enought
 	drawInfo.pVertices = new sVertex[drawInfo.numberOfVertices];
 
 	// Copy the data from the vecVertices...
 	for (unsigned int index = 0; index != drawInfo.numberOfVertices; index++)
 	{
-		drawInfo.pVertices[index].x = theMesh.vecVertices[index].x;
-		drawInfo.pVertices[index].y = theMesh.vecVertices[index].y;
-		drawInfo.pVertices[index].z = theMesh.vecVertices[index].z;
+		drawInfo.pVertices[index].x = theMesh.m_vecVertices[index].x;
+		drawInfo.pVertices[index].y = theMesh.m_vecVertices[index].y;
+		drawInfo.pVertices[index].z = theMesh.m_vecVertices[index].z;
 
 		drawInfo.pVertices[index].r = 1.0f;
 		drawInfo.pVertices[index].g = 1.0f;
@@ -63,8 +63,8 @@ bool cVAOManager::LoadModelIntoVAO(
 	}
 
 	// Now copy the index information, too
-	drawInfo.numberOfTriangles = theMesh.vecTriangles.size();
-	drawInfo.numberOfIndices = theMesh.vecTriangles.size() * 3;
+	drawInfo.numberOfTriangles = theMesh.m_vecTriangles.size();
+	drawInfo.numberOfIndices = theMesh.m_vecTriangles.size() * 3;
 
 	// Allocate the index array
 	drawInfo.pIndices = new unsigned int[drawInfo.numberOfIndices];
@@ -73,9 +73,9 @@ bool cVAOManager::LoadModelIntoVAO(
 	unsigned int indexIndex = 0;
 	for ( ; indexTri != drawInfo.numberOfTriangles; indexTri++, indexIndex += 3 )
 	{
-		drawInfo.pIndices[indexIndex + 0] = theMesh.vecTriangles[indexTri].vert_index_1;
-		drawInfo.pIndices[indexIndex + 1] = theMesh.vecTriangles[indexTri].vert_index_2;
-		drawInfo.pIndices[indexIndex + 2] = theMesh.vecTriangles[indexTri].vert_index_3;
+		drawInfo.pIndices[indexIndex + 0] = theMesh.m_vecTriangles[indexTri].vert_index_1;
+		drawInfo.pIndices[indexIndex + 1] = theMesh.m_vecTriangles[indexTri].vert_index_2;
+		drawInfo.pIndices[indexIndex + 2] = theMesh.m_vecTriangles[indexTri].vert_index_3;
 	}
 
 

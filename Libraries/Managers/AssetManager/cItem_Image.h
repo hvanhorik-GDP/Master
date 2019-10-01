@@ -1,6 +1,5 @@
 #pragma once
 #include "cItem_Common.h"
-#include <fmod/fmod.hpp>
 
 class cItem_Image : public cItem_Common
 {

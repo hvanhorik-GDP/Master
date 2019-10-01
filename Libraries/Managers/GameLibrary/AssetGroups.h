@@ -76,6 +76,18 @@ namespace gamelibrary
 		static const std::string gName;
 	};
 
+	class Assets_type : public XMLAttribute
+	{
+	public:
+		Assets_type() {};
+		virtual ~Assets_type() final {}
+		Assets_type(rapidxml::xml_node<>* node) : XMLAttribute(node) {}
+		virtual const std::string& GetName() const { return gName; };
+
+	private:
+		static const std::string gName;
+	};
+
 	class AssetFile : public XMLNodeBase
 	{
 	public:
@@ -85,6 +97,7 @@ namespace gamelibrary
 	private:
 		static const std::string gName;
 	};
+
 
 	class Properties_type : public XMLAttribute
 	{
@@ -123,6 +136,19 @@ namespace gamelibrary
 		static const std::string gName;
 	};
 
+	class AssetParts : public XMLArrayBase
+	{
+	public:
+		AssetParts(rapidxml::xml_node<>* parent, std::size_t index = 0)
+			: XMLArrayBase(parent, index) {}
+//		friend std::ostream& operator << (std::ostream& out, const AssetParts& node);
+		Properties GetProperties() const { return Properties(GetNode()); }
+	protected:
+		virtual const std::string& GetName() const { return gName; };
+	private:
+		static const std::string gName;
+	};
+
 	class Assets : public XMLArrayBase
 	{
 	public:
@@ -131,6 +157,7 @@ namespace gamelibrary
 		friend std::ostream& operator << (std::ostream& out, const Assets& node);
 		AssetFile GetAssetFile() const { return AssetFile(GetNode()); }
 		Properties GetProperties() const { return Properties(GetNode()); }
+		AssetParts GetAssetPart() { return AssetParts(GetNode()); }
 	protected:
 		virtual const std::string& GetName() const { return gName; };
 	private:

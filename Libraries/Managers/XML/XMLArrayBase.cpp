@@ -22,3 +22,9 @@ const std::string XMLArrayBase::gName =  "";
 	 }
 	 return i;
  }
+
+ void XMLArrayBase::Insert()
+ {
+	 Add("", true);
+	 m_index = GetSize() - 1;			// Appened to the end
+ }

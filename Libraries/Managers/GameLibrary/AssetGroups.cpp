@@ -8,7 +8,7 @@ namespace gamelibrary
 
 	void Properties::AddProperty(const std::string& newtype, const std::string& newvalue)
 	{
-		Add("", true);
+		Insert();
 		Properties_type type(GetNode());
 		type.SetValue(newtype);
 		Properties_value value(GetNode());
@@ -81,7 +81,9 @@ namespace gamelibrary
 	const std::string GameAsset_subdir::gName = "subdir";
 	const std::string GameAsset_subtype::gName = "subtype";
 	const std::string Assets_name::gName = "name";
+	const std::string Assets_type::gName = "type";
 	const std::string Assets::gName = "Asset";
+	const std::string AssetParts::gName = "AssetPart";
 	const std::string Properties_type::gName = "type";
 	const std::string Properties_value::gName = "value";
 	const std::string Properties::gName = "Property";
