@@ -1,10 +1,12 @@
 #pragma once
 #include "XML/XMLArrayBase.h"
 #include "XML/XMLAttribute.h"
+#include "AssestRoot.h"
+#include "Assets.h"
+
 
 namespace gamelibrary
 {
-	
 	
 	class GameAsset_subdir : public XMLAttribute
 	{
@@ -54,16 +56,6 @@ namespace gamelibrary
 		static const std::string gName;
 	};
 
-	class AssetRoot : public XMLNodeBase
-	{
-	public:
-		AssetRoot(rapidxml::xml_node<>* parent) : XMLNodeBase(parent) {}
-	protected:
-		virtual const std::string& GetName() const { return gName; };
-	private:
-		static const std::string gName;
-	};
-
 	class Assets_name : public XMLAttribute
 	{
 	public:
@@ -88,82 +80,6 @@ namespace gamelibrary
 		static const std::string gName;
 	};
 
-	class AssetFile : public XMLNodeBase
-	{
-	public:
-		AssetFile(rapidxml::xml_node<>* parent) : XMLNodeBase(parent) {}
-	protected:
-		virtual const std::string& GetName() const { return gName; };
-	private:
-		static const std::string gName;
-	};
-
-
-	class Properties_type : public XMLAttribute
-	{
-	public:
-		Properties_type() {};
-		virtual ~Properties_type() final {}
-		Properties_type(rapidxml::xml_node<>* node) : XMLAttribute(node) {}
-		virtual const std::string& GetName() const { return gName; };
-
-	private:
-		static const std::string gName;
-	};
-
-	class Properties_value : public XMLAttribute
-	{
-	public:
-		Properties_value() {};
-		virtual ~Properties_value() final {}
-		Properties_value(rapidxml::xml_node<>* node) : XMLAttribute(node) {}
-		virtual const std::string& GetName() const { return gName; };
-
-	private:
-		static const std::string gName;
-	};
-
-	class Properties : public XMLArrayBase
-	{
-	public:
-		Properties(rapidxml::xml_node<>* parent, std::size_t index = 0)
-			: XMLArrayBase(parent, index) {}
-		void AddProperty(const std::string& type, const std::string& value);
-		friend std::ostream& operator << (std::ostream& out, const Properties& node);
-	protected:
-		virtual const std::string& GetName() const { return gName; };
-	private:
-		static const std::string gName;
-	};
-
-	class AssetParts : public XMLArrayBase
-	{
-	public:
-		AssetParts(rapidxml::xml_node<>* parent, std::size_t index = 0)
-			: XMLArrayBase(parent, index) {}
-//		friend std::ostream& operator << (std::ostream& out, const AssetParts& node);
-		Properties GetProperties() const { return Properties(GetNode()); }
-	protected:
-		virtual const std::string& GetName() const { return gName; };
-	private:
-		static const std::string gName;
-	};
-
-	class Assets : public XMLArrayBase
-	{
-	public:
-		Assets(rapidxml::xml_node<>* parent, std::size_t index = 0)
-			: XMLArrayBase(parent, index) {}
-		friend std::ostream& operator << (std::ostream& out, const Assets& node);
-		AssetFile GetAssetFile() const { return AssetFile(GetNode()); }
-		Properties GetProperties() const { return Properties(GetNode()); }
-		AssetParts GetAssetPart() { return AssetParts(GetNode()); }
-	protected:
-		virtual const std::string& GetName() const { return gName; };
-	private:
-		static const std::string gName;
-	};
-
 	class AssetGroups : public XMLArrayBase
 	{
 	public:
@@ -181,6 +97,4 @@ namespace gamelibrary
 	private:
 		static const std::string gName;
 	};
-
-
 }

@@ -64,27 +64,36 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 							item->m_subtype = cItem_Audio::subtype::effects;
 						m_map_items[item->GetAssetID()] = item;
 
-						cAudio_Sound_FMOD sound;
-						FMOD_MODE mode = FMOD_CREATESTREAM;
-						implFMOD->CreateSound(sound, fullPath, mode);
+						try {
+							cAudio_Sound_FMOD sound;
+							FMOD_MODE mode = FMOD_CREATESTREAM;
+							implFMOD->CreateSound(sound, fullPath, mode);
+							cAudio_Sound_FMOD::format format = sound.GetFormat();
+							item->m_format.bits = format.bits;
+							item->m_format.channels = format.channels;
+							item->m_format.format = format.format;
+							item->m_format.type = format.type;
 
-						cAudio_Sound_FMOD::format format = sound.GetFormat();
-						item->m_format.bits = format.bits;
-						item->m_format.channels = format.channels;
-						item->m_format.format = format.format;
-						item->m_format.type = format.type;
+							// Write the properties to the xml file
+							Properties prop = file.GetProperties();
+							prop.AddProperty("exists", std::to_string(true));
+							prop.AddProperty("bits", std::to_string(format.bits));
+							prop.AddProperty("channels", std::to_string(format.channels));
+							prop.AddProperty("format", cAudio_Sound_FMOD::get_format_string(format.format));
+							prop.AddProperty("type", cAudio_Sound_FMOD::get_type_string(format.type));
 
-						// Write the properties to the xml file
-						Properties prop = file.GetProperties();
-						prop.AddProperty("bits", std::to_string(format.bits));
-						prop.AddProperty("channels", std::to_string(format.channels));
-						prop.AddProperty("format", cAudio_Sound_FMOD::get_format_string(format.format));
-						prop.AddProperty("type", cAudio_Sound_FMOD::get_type_string(format.type));
-
-						unsigned int length = sound.GetLength();
-						prop.AddProperty("length", std::to_string(length));
-
-						sound.Release();
+							unsigned int length = sound.GetLength();
+							prop.AddProperty("length", std::to_string(length));
+							sound.Release();
+						}
+						catch (std::exception& ex)
+						{
+							// Error
+							// Write the properties to the xml file
+							Properties prop = file.GetProperties();
+							prop.AddProperty("exists", std::to_string(false));
+							prop.AddProperty("Error", ex.what());
+						}
 //						std::cout << file << std::endl;
 					}
 				}

@@ -175,6 +175,7 @@
     <ClCompile Include="test_Audio.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Callbacks.h" />
     <ClInclude Include="cVAOManager.h" />
     <ClInclude Include="glad.h" />
     <ClInclude Include="Master.h" />

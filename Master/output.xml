@@ -2,6 +2,9 @@
 	<GameName>Project 1 Audio Test</GameName>
 	<AssetGroup type="shaders" open="none">
 		<AssetRoot>../assets/shaders/</AssetRoot>
+		<Asset name="NonExistant Shader" type="fragment">
+			<AssetFile>NonExistant2.glsl</AssetFile>
+		</Asset>
 		<Asset name="fragmentShader01" type="fragment">
 			<AssetFile>fragmentShader01.glsl</AssetFile>
 			<Property type="isValid" value="1"/>
@@ -16,27 +19,37 @@
 			<AssetPart>fragmentShader01</AssetPart>
 			<AssetPart>vertexShader01</AssetPart>
 			<Property type="isValid" value="1"/>
-			<Property type="Attribute" value=" id = 3 index = 2 type = 35666 size = 1 m_name = vNormal"/>
-			<Property type="Attribute" value=" id = 3 index = 2 type = 35666 size = 1 m_name = vPosition"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35676 size = 1 m_name = matModel"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35676 size = 1 m_name = matProj"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35676 size = 1 m_name = matView"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35670 size = 1 m_name = bDoNotLight"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = debugColour"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = diffuseColour"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = eyeLocation"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = specularColour"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].position"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].diffuse"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].specular"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].atten"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].direction"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].param1"/>
-			<Property type="Uniform" value=" id = 3 index = 15 type = 35666 size = 1 m_name = theLights[0].param2"/>
+			<Property type="Attribute" value=" id = 4 index = 2 type = 35666 size = 1 m_name = vNormal"/>
+			<Property type="Attribute" value=" id = 4 index = 2 type = 35666 size = 1 m_name = vPosition"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35676 size = 1 m_name = matModel"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35676 size = 1 m_name = matProj"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35676 size = 1 m_name = matView"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35670 size = 1 m_name = bDoNotLight"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = debugColour"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = diffuseColour"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = eyeLocation"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = specularColour"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].position"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].diffuse"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].specular"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].atten"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].direction"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].param1"/>
+			<Property type="Uniform" value=" id = 4 index = 15 type = 35666 size = 1 m_name = theLights[0].param2"/>
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="models" open="none">
 		<AssetRoot>../assets/models/</AssetRoot>
+		<Asset name="NonExistant File">
+			<AssetFile>NonExistant.ply</AssetFile>
+			<Property type="type" value="unknown"/>
+			<Property type="format" value="unknown"/>
+			<Property type="vertex" value="0"/>
+			<Property type="face" value="0"/>
+			<Property type="valid" value="0"/>
+			<Property type="normals" value="0"/>
+			<Property type="colours" value="0"/>
+		</Asset>
 		<Asset name="BigFlatTerrain_XYZ_n">
 			<AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
 			<Property type="type" value="ply"/>
@@ -370,6 +383,11 @@
 	</AssetGroup>
 	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
 		<AssetRoot>../assets/audios/</AssetRoot>
+		<Asset name="NonExistant File2">
+			<AssetFile>NonExistant2.mp3</AssetFile>
+			<Property type="exists" value="0"/>
+			<Property type="Error" value="FMOD exception: Value = 18"/>
+		</Asset>
 		<Asset name="That's Amore">
 			<AssetFile>music/Dean Martin - That&apos;s Amore.mp3</AssetFile>
 			<Property type="bits" value="16"/>

@@ -6,6 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project2", "Project2\Project2.vcxproj", "{57416765-2221-4E5F-9D88-7B3572ACCB08}"
 	ProjectSection(ProjectDependencies) = postProject
 		{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4} = {75B70322-8ACB-4C4C-B54E-AF62B0EF45C4}
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF} = {99D668DF-DE65-43FD-9723-9F6CA53817EF}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{2C8BE4B1-5F4F-454F-A7CB-3E3B401241B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{8337B566-35C8-47BD-A096-30E9F9784DF6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XML", "Libraries\XML\XML.vcxproj", "{99D668DF-DE65-43FD-9723-9F6CA53817EF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4} = {75B70322-8ACB-4C4C-B54E-AF62B0EF45C4}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rapidxml", "External\rapidxml\rapidxml.vcxproj", "{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4}"
@@ -26,6 +36,14 @@ Global
 		{57416765-2221-4E5F-9D88-7B3572ACCB08}.Release|x64.Build.0 = Release|x64
 		{57416765-2221-4E5F-9D88-7B3572ACCB08}.Release|x86.ActiveCfg = Release|Win32
 		{57416765-2221-4E5F-9D88-7B3572ACCB08}.Release|x86.Build.0 = Release|Win32
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Debug|x64.ActiveCfg = Debug|x64
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Debug|x64.Build.0 = Debug|x64
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Debug|x86.ActiveCfg = Debug|Win32
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Debug|x86.Build.0 = Debug|Win32
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Release|x64.ActiveCfg = Release|x64
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Release|x64.Build.0 = Release|x64
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Release|x86.ActiveCfg = Release|Win32
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF}.Release|x86.Build.0 = Release|Win32
 		{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4}.Debug|x64.ActiveCfg = Debug|x64
 		{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4}.Debug|x64.Build.0 = Debug|x64
 		{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4}.Debug|x86.ActiveCfg = Debug|Win32
@@ -37,6 +55,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99D668DF-DE65-43FD-9723-9F6CA53817EF} = {8337B566-35C8-47BD-A096-30E9F9784DF6}
+		{75B70322-8ACB-4C4C-B54E-AF62B0EF45C4} = {2C8BE4B1-5F4F-454F-A7CB-3E3B401241B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6330758-1870-4FBA-9C88-CE67DD1D12BB}

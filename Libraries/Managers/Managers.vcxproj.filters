@@ -43,9 +43,6 @@
     <ClCompile Include="GameLibrary\GameLibrary.cpp">
       <Filter>GameLibrary</Filter>
     </ClCompile>
-    <ClCompile Include="GameLibrary\GameLibraryElements.cpp">
-      <Filter>GameLibrary</Filter>
-    </ClCompile>
     <ClCompile Include="XML\XMLArrayBase.cpp">
       <Filter>XML</Filter>
     </ClCompile>
@@ -136,6 +133,21 @@
     <ClCompile Include="Shaders\sUniform.cpp">
       <Filter>Shaders</Filter>
     </ClCompile>
+    <ClCompile Include="GameLibrary\AssetParts.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\Assets.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\Properties.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\AssetFile.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibrary\AssestRoot.cpp">
+      <Filter>GameLibrary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjectManagers\cObjectManager.h">
@@ -148,9 +160,6 @@
       <Filter>GameLibrary</Filter>
     </ClInclude>
     <ClInclude Include="GameLibrary\GameLibrary.h">
-      <Filter>GameLibrary</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLibrary\GameLibraryElements.h">
       <Filter>GameLibrary</Filter>
     </ClInclude>
     <ClInclude Include="XML\XMLArrayBase.h">
@@ -242,6 +251,21 @@
     </ClInclude>
     <ClInclude Include="Shaders\sUniform.h">
       <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\AssetParts.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\Assets.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\Properties.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\AssetFile.h">
+      <Filter>GameLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLibrary\AssestRoot.h">
+      <Filter>GameLibrary</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
