@@ -1,6 +1,6 @@
 <GameLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///F:/SourceCode/External/Liquid/XSD%20Test/DnD.xsd">
 	<Configuration>
-		<Property id="15" name="Language" value="pig"/>
+		<Property id="15" name="Language" value="english"/>
 	</Configuration>
 	<Player name="henry">
 		<Property id="1" name="Player" value="Henry Van Horik"/>
@@ -42,7 +42,7 @@
 	<Language name="english">
 		<Translation id="1" name="Player Name"/>
 		<Translation id="2" name="Level"/>
-		<Translation id="3" name="Plauer Description"/>
+		<Translation id="3" name="Player Description"/>
 		<Translation id="4" name="Height (CM)"/>
 		<Translation id="5" name="Player Weight (KG)"/>
 		<Translation id="6" name="Level"/>

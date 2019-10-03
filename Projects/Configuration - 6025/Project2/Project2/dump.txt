@@ -1,0 +1,8 @@
+¿Realmente esperabas que te ayudara?
+Los comandos válidos son: 
+     help - Este mensaje
+     language - Establecer idioma en {Value}
+     hit - Hit Player {Player}
+     info - Obtenga información sobre el jugador {jugador}
+     talk - Di algo profano
+     end - Fin del juego

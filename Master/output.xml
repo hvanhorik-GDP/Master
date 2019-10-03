@@ -609,6 +609,8 @@
 	<AssetGroup type="fonts" open="none">
 		<AssetRoot>../assets/fonts/</AssetRoot>
 	</AssetGroup>
+  
+  
 	<Object type="audio" name="sensual giggly laughter" id="xxxx">
 		<AssetId name="sensual giggly laughter"/>
 		<Property name="type" type="string" value="mpeg"/>

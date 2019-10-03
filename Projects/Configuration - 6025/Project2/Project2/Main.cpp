@@ -11,6 +11,7 @@
 #include <map>
 #include <locale.h>
 #include <algorithm>
+#include <windows.h>
 
 using namespace std;
 using namespace rapidxml;
@@ -419,6 +420,7 @@ int main(int arg, char** argv)
 	rapidxml::xml_node<>* ref;
 	ref = 0;
 
+//	SetConsoleOutputCP(CP_UTF8);
 	XMLDocument document;
 	document.Read("gamedata.xml");
 	document.Write("gamedata_backup.xml");
@@ -433,7 +435,7 @@ int main(int arg, char** argv)
 	auto languages = gameLibrary.m_mapLanguages;
 	auto lang = GetProperty(config.m_mapProperties, "Language");
 	auto currentLanguage = lang.m_value;
-	//currentLanguage = "french";
+	//currentLanguage = "french";		// Test
 	//setlocale(LC_ALL, "french");
 
 	if (!HasLanguage(languages, currentLanguage))
@@ -446,9 +448,6 @@ int main(int arg, char** argv)
 
 	std::ofstream fs("dump.txt");
 	fs << helpText;
-
-	auto wide = toWstring(helpText);
-	wcout << wide;
 
 	//<Translation id = "20" name = "Welcome to the super duper Dungeons and Dragons Dungeon Master helper" / >
 	std::string welcome = Translate("20", languages, currentLanguage);

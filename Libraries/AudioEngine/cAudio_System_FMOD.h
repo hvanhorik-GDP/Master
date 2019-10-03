@@ -3,6 +3,11 @@
 #include "iAudio_System.h"
 #include "cAudio_Sound_FMOD.h"
 #include "cAudio_Channel_FMOD.h"
+#include "cAudio_ChannelGroup_FMOD.h"
+#include "cAudio_SoundGroup_FMOD.h"
+#include "cAudio_Geometry_FMOD.h"
+#include "cAudio_Reverb3D_FMOD.h"
+#include "cAudio_DSP_FMOD.h"
 #include <string>
 #include <ostream>
 
@@ -30,6 +35,29 @@ public:
 	typedef FMOD_MODE Mode;
 	void CreateSound(cAudio_Sound_FMOD& sound, const std::string path, FMOD_MODE mode);
 	void PlaySound(const cAudio_Sound_FMOD& sound, cAudio_Channel_FMOD &channel);
+
+	void CreateDSP(cAudio_DSP_FMOD& dsp, const std::string path, FMOD_MODE mode);
+
+	//FMOD_RESULT F_API createChannelGroup(const char* name, ChannelGroup** channelgroup);
+	void CreateChannelGroup(const std::string& name, cAudio_ChannelGroup_FMOD& group);
+
+	//FMOD_RESULT F_API createSoundGroup(const char* name, SoundGroup** soundgroup);
+	void CreateSoundGroup(const std::string& name, cAudio_SoundGroup_FMOD& group);
+
+	//FMOD_RESULT F_API createReverb3D(Reverb3D** reverb);
+	void CreateReverb3D(cAudio_Reverb3D_FMOD& reverb);
+
+	//FMOD_RESULT F_API playDSP(DSP* dsp, ChannelGroup* channelgroup, bool paused, Channel** channel);
+	void PlayDSP(const cAudio_DSP_FMOD& dsp, const cAudio_ChannelGroup_FMOD& group, bool, cAudio_Channel_FMOD& outChannel);
+
+	//FMOD_RESULT F_API getChannel(int channelid, Channel** channel);
+	void GetChannel(int id, cAudio_Channel_FMOD& out);
+
+	//FMOD_RESULT F_API getMasterChannelGroup(ChannelGroup** channelgroup);
+	void GetMasterChannelGroup(cAudio_ChannelGroup_FMOD& out);
+
+	//FMOD_RESULT F_API getMasterSoundGroup(SoundGroup** soundgroup);
+	void GetMasterSoundGroup(cAudio_SoundGroup_FMOD& out);
 
 	bool IsInit() { return m_isInit;  }
 

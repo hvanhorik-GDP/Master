@@ -21,12 +21,12 @@ Valid Languages are: english, french, pig, spanish, yoda
 
 What is does based on the project specifications:
 
-Creates xml with 20+ settings
-Reads and displays the xml
-loads 4+ languages
-Allows the user to select the language
-Saves language selection to the xml file for the next startup
-Bonus - single file with languages
+1 - Creates xml with 20+ settings
+2 - Reads and displays the xml
+3 - loads 4+ languages
+4 - Allows the user to select the language
+5 - Saves language selection to the xml file for the next startup (xm is only saved on end command)
+6 - Bonus - single file with languages
 
 XML file format:
 	<Player name="henry">
@@ -50,5 +50,5 @@ Issues - rapidxml does not store strings passed into it when you set a value or 
 pool avaiable from the xml_document<>
 
 Wasted huge amounts of time trying to get the windows console to print french characters. "Capacités maximales"
-Every suggestion i found online failed. Piece of junk.
+Every suggestion i found online failed. Piece of junk. I finally gave up on it.
 	

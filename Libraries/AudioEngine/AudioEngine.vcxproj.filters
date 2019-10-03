@@ -33,10 +33,34 @@
     <ClCompile Include="cAudio_Channel_FMOD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Audio_Exception_FMOD.cpp">
+    <ClCompile Include="cAudio_Sound_FMOD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cAudio_Sound_FMOD.cpp">
+    <ClCompile Include="cAudio_ChannelControl_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_ChannelGroup_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_DSP_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_SoundGroup_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gAudio_System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_DSPConnection_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_Geometry_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_Reverb3D_FMOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_Exception_FMOD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,7 +86,28 @@
     <ClInclude Include="cAudio_Sound_FMOD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="c_Audio_Exception_FMOD.h">
+    <ClInclude Include="cAudio_ChannelControl_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_ChannelGroup_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_DSP_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_SoundGroup_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_DSPConnection_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Geometry_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Reverb3D_FMOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Exception_FMOD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

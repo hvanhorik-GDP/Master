@@ -1,5 +1,5 @@
 #include "cAudio_Sound_FMOD.h"
-#include "c_Audio_Exception_FMOD.h"
+#include "cAudio_Exception_FMOD.h"
 
 cAudio_Sound_FMOD::cAudio_Sound_FMOD()
 {
@@ -29,7 +29,7 @@ cAudio_Sound_FMOD::format cAudio_Sound_FMOD::GetFormat() const
 
 	if (m_sound) {
 		m_result = m_sound->getFormat(&out.type, &out.format, &out.channels, &out.bits);
-		c_Audio_Exception_FMOD::throwIfError(m_result);
+		cAudio_Exception_FMOD::throwIfError(m_result);
 	}
 	return out;
 }
@@ -63,7 +63,7 @@ unsigned int cAudio_Sound_FMOD::GetLength() const
 	if (m_sound)
 	{
 		m_result = m_sound->getLength(&length, FMOD_TIMEUNIT_MS);
-		c_Audio_Exception_FMOD::throwIfError(m_result);
+		cAudio_Exception_FMOD::throwIfError(m_result);
 	}
 	return length;
 }
