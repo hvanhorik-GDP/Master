@@ -5,7 +5,7 @@ const std::string XMLArrayBase::gName =  "";
  rapidxml::xml_node<>* XMLArrayBase::GetNode() const
 {
 	 auto node = GetParent()->first_node(GetName().c_str());
-	 for (int i = 0; i < m_index && (node != NULL); ++i)
+	 for (std::size_t i = 0; i < m_index && (node != NULL); ++i)
 	 {
 		 node = node->next_sibling();
 	 }

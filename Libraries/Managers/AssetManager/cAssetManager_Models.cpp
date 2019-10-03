@@ -1,5 +1,5 @@
 #include "cAssetManager_Models.h"
-#include "cItem_Model.h"
+#include "../AssetItems/cItem_Model.h"
 #include "GameLibrary/AssetGroups.h"
 #include "../Models/cModelLoader.h"
 #include <iostream>

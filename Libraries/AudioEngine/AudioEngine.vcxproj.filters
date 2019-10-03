@@ -1,114 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="System">
+      <UniqueIdentifier>{5fae85d0-2925-4af9-9ace-713cd1024563}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{e397e9c5-8f05-4ff5-bbd4-49d2325c3e4f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{4252d216-8dd1-4198-9dd8-b12994101fec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DSP">
+      <UniqueIdentifier>{c6e1ac95-56cf-4f49-b849-b223c79a7f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reverb3D">
+      <UniqueIdentifier>{6a0a0fb2-5933-4660-b0f8-0ea00491aad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Channel">
+      <UniqueIdentifier>{dade2fd6-26a2-4064-af98-701e0383844a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cEngineFMOD.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="cAudio_Exception_FMOD.cpp">
+      <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="cAudio_System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="iAudio_System.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="cAudio_System_FMOD.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="cAudio_System_impl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cAudio_Channel_FMOD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cAudio_Sound_FMOD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cAudio_ChannelControl_FMOD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cAudio_ChannelGroup_FMOD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cAudio_DSP_FMOD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cAudio_SoundGroup_FMOD.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="gAudio_System.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="iAudio_System.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_Channel_FMOD.cpp">
+      <Filter>Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_ChannelControl_FMOD.cpp">
+      <Filter>Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_ChannelGroup_FMOD.cpp">
+      <Filter>Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_DSP_FMOD.cpp">
+      <Filter>DSP</Filter>
     </ClCompile>
     <ClCompile Include="cAudio_DSPConnection_FMOD.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>DSP</Filter>
     </ClCompile>
     <ClCompile Include="cAudio_Geometry_FMOD.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Geometry</Filter>
     </ClCompile>
     <ClCompile Include="cAudio_Reverb3D_FMOD.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Reverb3D</Filter>
     </ClCompile>
-    <ClCompile Include="cAudio_Exception_FMOD.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="cAudio_Sound_FMOD.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="cAudio_SoundGroup_FMOD.cpp">
+      <Filter>Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cEngineFMOD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cAudio_System.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="iAudio_System.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cAudio_System_FMOD.h">
-      <Filter>Header Files</Filter>
+      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="cAudio_System_impl.h">
-      <Filter>Header Files</Filter>
+      <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="cAudio_Channel_FMOD.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="cAudio_System_FMOD.h">
+      <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="cAudio_Sound_FMOD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cAudio_ChannelControl_FMOD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cAudio_ChannelGroup_FMOD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cAudio_DSP_FMOD.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="cAudio_System.h">
+      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="cAudio_SoundGroup_FMOD.h">
-      <Filter>Header Files</Filter>
+      <Filter>Sound</Filter>
     </ClInclude>
-    <ClInclude Include="cAudio_DSPConnection_FMOD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cAudio_Geometry_FMOD.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="cAudio_Sound_FMOD.h">
+      <Filter>Sound</Filter>
     </ClInclude>
     <ClInclude Include="cAudio_Reverb3D_FMOD.h">
-      <Filter>Header Files</Filter>
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_DSPConnection_FMOD.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_DSP_FMOD.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Geometry_FMOD.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_ChannelControl_FMOD.h">
+      <Filter>Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Channel_FMOD.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_ChannelGroup_FMOD.h">
+      <Filter>Channel</Filter>
     </ClInclude>
     <ClInclude Include="cAudio_Exception_FMOD.h">
-      <Filter>Header Files</Filter>
+      <Filter>System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

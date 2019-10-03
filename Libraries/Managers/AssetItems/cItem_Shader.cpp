@@ -40,6 +40,21 @@ std::string cItem_Shader::cItem_Shader::GetTypeString(void) const
 	return "unknown";
 }
 
+const cItem_Shader::vecPlyVerteciesXYZ& cItem_Shader::GetPlyVerteciesXYZ() const
+{
+	return m_vecVertices;
+}
+
+const cItem_Shader::vecPlyTriangles& cItem_Shader::GetPlyTriangles() const
+{
+	return m_vecTriangles;
+}
+
+//cItem_Shader::vecProperties& cItem_Shader::GetProperties()
+//{
+//	return m_vecPropertiesz;
+//}
+
 
 // For debugging purposes - dumps the contents in human readable form
 std::ostream& operator<<(std::ostream& stream, const cItem_Shader& val)

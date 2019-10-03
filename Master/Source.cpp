@@ -14,6 +14,7 @@
 #include <streambuf>
 #include <sstream>
 #include <exception>
+#include <experimental/filesystem>
 
 #include <stdio.h>  /* defines FILENAME_MAX */
 #include <conio.h>
@@ -59,6 +60,13 @@ void ReadGameLibrary(const std::string& name)
 
 int main(int arg, char** argv)
 {
+	experimental::filesystem::create_directories("sandbox/a/b");
+	std::ofstream("sandbox/file1.txt");
+	std::ofstream("sandbox/file2.txt");
+	for (auto& p : experimental::filesystem::directory_iterator("sandbox"))
+		std::cout << p.path() << '\n';
+	experimental::filesystem::remove_all("sandbox");
+
 	cAudio_System gAudioSystem;
 	gAudioSystem.Init(100);
 

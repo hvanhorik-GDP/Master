@@ -182,6 +182,15 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetItems\cItem_Audio.cpp" />
+    <ClCompile Include="AssetItems\cItem_Common.cpp" />
+    <ClCompile Include="AssetItems\cItem_Font.cpp" />
+    <ClCompile Include="AssetItems\cItem_Image.cpp" />
+    <ClCompile Include="AssetItems\cItem_Model.cpp" />
+    <ClCompile Include="AssetItems\cItem_Program.cpp" />
+    <ClCompile Include="AssetItems\cItem_Shader.cpp" />
+    <ClCompile Include="AssetItems\cItem_Video.cpp" />
+    <ClCompile Include="AssetItems\iItem.cpp" />
     <ClCompile Include="AssetManager\cAssetManager.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Audios.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Fonts.cpp" />
@@ -190,14 +199,6 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="AssetManager\cAssetManager_Programs.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Shaders.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_Videos.cpp" />
-    <ClCompile Include="AssetManager\cItem_Audio.cpp" />
-    <ClCompile Include="AssetManager\cItem_Common.cpp" />
-    <ClCompile Include="AssetManager\cItem_Font.cpp" />
-    <ClCompile Include="AssetManager\cItem_Image.cpp" />
-    <ClCompile Include="AssetManager\cItem_Model.cpp" />
-    <ClCompile Include="AssetManager\cItem_Program.cpp" />
-    <ClCompile Include="AssetManager\cItem_Shader.cpp" />
-    <ClCompile Include="AssetManager\cItem_Video.cpp" />
     <ClCompile Include="AssetManager\iAssetManager.cpp" />
     <ClCompile Include="AssetManager\cAssetManager_impl.cpp" />
     <ClCompile Include="GameLibrary\AssestRoot.cpp" />
@@ -216,13 +217,22 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="Shaders\cProgramLoader.cpp" />
     <ClCompile Include="Shaders\cShaderLoader.cpp" />
     <ClCompile Include="Shaders\cShaderManager.cpp" />
-    <ClCompile Include="Shaders\sUniform.cpp" />
+    <ClCompile Include="Shaders\sUniform_old.cpp" />
     <ClCompile Include="XML\XMLArrayBase.cpp" />
     <ClCompile Include="XML\XMLAttribute.cpp" />
     <ClCompile Include="XML\XMLDocument.cpp" />
     <ClCompile Include="XML\XMLNodeBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetItems\cItem_Audio.h" />
+    <ClInclude Include="AssetItems\cItem_Common.h" />
+    <ClInclude Include="AssetItems\cItem_Font.h" />
+    <ClInclude Include="AssetItems\cItem_Image.h" />
+    <ClInclude Include="AssetItems\cItem_Model.h" />
+    <ClInclude Include="AssetItems\cItem_Program.h" />
+    <ClInclude Include="AssetItems\cItem_Shader.h" />
+    <ClInclude Include="AssetItems\cItem_Video.h" />
+    <ClInclude Include="AssetItems\iItem.h" />
     <ClInclude Include="AssetManager\cAssetManager.h" />
     <ClInclude Include="AssetManager\cAssetManager_Audios.h" />
     <ClInclude Include="AssetManager\cAssetManager_Fonts.h" />
@@ -231,14 +241,6 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="AssetManager\cAssetManager_Programs.h" />
     <ClInclude Include="AssetManager\cAssetManager_Shaders.h" />
     <ClInclude Include="AssetManager\cAssetManager_Videos.h" />
-    <ClInclude Include="AssetManager\cItem_Audio.h" />
-    <ClInclude Include="AssetManager\cItem_Common.h" />
-    <ClInclude Include="AssetManager\cItem_Font.h" />
-    <ClInclude Include="AssetManager\cItem_Image.h" />
-    <ClInclude Include="AssetManager\cItem_Model.h" />
-    <ClInclude Include="AssetManager\cItem_Program.h" />
-    <ClInclude Include="AssetManager\cItem_Shader.h" />
-    <ClInclude Include="AssetManager\cItem_Video.h" />
     <ClInclude Include="AssetManager\iAssetManager.h" />
     <ClInclude Include="AssetManager\cAssetManager_impl.h" />
     <ClInclude Include="GameLibrary\AssestRoot.h" />
@@ -248,7 +250,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="GameLibrary\Assets.h" />
     <ClInclude Include="GameLibrary\GameLibrary.h" />
     <ClInclude Include="GameLibrary\Properties.h" />
-    <ClInclude Include="Models\cMesh.h" />
+    <ClInclude Include="Models\cMesh_old.h" />
     <ClInclude Include="Models\cModelLoader.h" />
     <ClInclude Include="ObjectManagers\cObjectManager_Audio.h" />
     <ClInclude Include="ObjectManagers\cObjectManager.h" />
@@ -257,7 +259,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="Shaders\cProgramLoader.h" />
     <ClInclude Include="Shaders\cShaderLoader.h" />
     <ClInclude Include="Shaders\cShaderManager.h" />
-    <ClInclude Include="Shaders\sUniform.h" />
+    <ClInclude Include="Shaders\sUniform_old.h" />
     <ClInclude Include="XML\XMLArrayBase.h" />
     <ClInclude Include="XML\XMLAttribute.h" />
     <ClInclude Include="XML\XMLDocument.h" />

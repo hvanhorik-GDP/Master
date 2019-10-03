@@ -6,7 +6,22 @@
 class cItem_Program : public cItem_Common
 {
 public:
-	typedef std::vector<iAssetManager::iItem*> vecShaders;
+
+
+	struct sUniform
+	{
+		unsigned int m_ID;
+		int m_index;
+		unsigned int m_type;
+		int m_size;
+		std::string m_name;
+	};
+
+	typedef sUniform sAttribute;
+	typedef std::vector<sUniform> vecUniforms;
+	typedef std::vector<sAttribute> vecAttributes;
+
+	typedef std::vector<iItem*> vecShaders;
 
 	cItem_Program(std::string id,
 		std::string path,
@@ -24,8 +39,11 @@ private:
 
 	unsigned int m_ID = 0;
 	bool m_valid;
-	vecShaders m_vecShaders;
 	std::string m_error;
+
+	vecShaders m_vecShaders;
+	vecUniforms m_vecUniforms;
+	vecAttributes m_vecAttributes;
 
 	friend class cAssetManager_Programs;
 	friend class cProgramLoader;

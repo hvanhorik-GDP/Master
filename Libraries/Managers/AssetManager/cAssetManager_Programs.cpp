@@ -1,7 +1,7 @@
 #include "cAssetManager_Programs.h"
 #include "GAmeLibrary/AssetGroups.h"
 #include "../Shaders/cProgramLoader.h"
-#include "cItem_Shader.h"
+#include "../AssetItems/cItem_Shader.h"
 #include "cAssetManager.h"
 #include <iostream>
 #include <sstream>
@@ -45,7 +45,7 @@ void cAssetManager_Programs::LoadAssets(rapidxml::xml_node<>* parent)
 						m_map_items[program->GetAssetID()] = program;
 
 						AssetParts parts = asset.GetAssetPart();
-						for (auto j = 0; j < parts.GetSize(); ++j)
+						for (std::size_t j = 0; j < parts.GetSize(); ++j)
 						{
 							AssetParts part(parts.GetParent(), j);
 							std::string partName = part.GetValue();
@@ -68,8 +68,8 @@ void cAssetManager_Programs::LoadAssets(rapidxml::xml_node<>* parent)
 						// Write the properties to the xml file
 						Properties prop = asset.GetProperties();
 						prop.AddProperty("isValid", std::to_string(program->m_valid));
-						vecAttributes* vecAtt = loader.GetAttributes();
-						for (auto att : *vecAtt)
+						cItem_Program::vecAttributes &vecAtt = program->m_vecAttributes;
+						for (auto att : vecAtt)
 						{
 							std::stringstream ss;
 							ss << " id = " << att.m_ID
@@ -79,8 +79,8 @@ void cAssetManager_Programs::LoadAssets(rapidxml::xml_node<>* parent)
 								<< " m_name = " << att.m_name;
 							prop.AddProperty("Attribute", ss.str());
 						}
-						vecUniforms* vecUnif = loader.GetUniforms();
-						for (auto unif : *vecUnif)
+						cItem_Program::vecUniforms& vecUnif = program->m_vecUniforms;
+						for (auto unif : vecUnif)
 						{
 							std::stringstream ss;
 							ss << " id = " << unif.m_ID

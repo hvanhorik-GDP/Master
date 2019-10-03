@@ -4,21 +4,12 @@
 #include <string>
 #include <rapidxml/rapidxml.hpp>
 
+class iItem;
+
 
 class iAssetManager
 {
 public:
-
-	// A way to pass items around
-	class iItem
-	{
-	public:
-		iItem() {};
-		virtual ~iItem() {}
-		
-		// For debugging purposes - dumps the contents in human readable form
-		friend std::ostream& operator<<(std::ostream& stream, const iItem& val);
-	};
 
 	// Items are stored in a map so they can be looked up by string name
 	typedef std::map<std::string, iItem*> iItems_map;

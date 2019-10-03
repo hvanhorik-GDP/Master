@@ -64,28 +64,6 @@ void cAssetManager_Shaders::LoadAssets(rapidxml::xml_node<>* parent)
 						// Write the properties to the xml file
 						Properties prop = file.GetProperties();
 						prop.AddProperty("isValid", std::to_string(item->m_valid));
-						vecAttributes *vecAtt = loader.GetAttributes();
-						for (auto att : *vecAtt)
-						{
-							std::stringstream ss;
-							ss << " id = " << att.m_ID
-								<< " index = " << att.m_index
-								<< " type = " << att.m_type
-								<< " size = " << att.m_size
-								<< " m_name = " << att.m_name;
-							prop.AddProperty("Attribute", ss.str());
-						}
-						vecUniforms* vecUnif = loader.GetUniforms();
-						for (auto unif : *vecUnif)
-						{
-							std::stringstream ss;
-							ss << " id = " << unif.m_ID
-								<< " index = " << unif.m_index
-								<< " type = " << unif.m_type
-								<< " size = " << unif.m_size
-								<< " m_name = " << unif.m_name;
-							prop.AddProperty("Uniform", ss.str());
-						}
 					}
 				}
 			}

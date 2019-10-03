@@ -1,5 +1,5 @@
 #include "cProgramLoader.h"
-#include "../AssetManager/cItem_Shader.h"
+#include "../AssetItems/cItem_Shader.h"
 
 
 #include "GLCommon.h"	// For all the OpenGL calls, etc.
@@ -127,13 +127,13 @@ void cProgramLoader::GetAttributes(cItem_Program &info)
 		GLint size;
 		GLenum type;
 		glGetActiveAttrib(info.m_ID, i, bufSize, &length, &size, &type, name);
-		sAttribute att;
+		cItem_Program::sAttribute att;
 		att.m_ID = info.m_ID;
 		att.m_index = count;
 		att.m_size = size;
 		att.m_type = type;
 		att.m_name = name;
-		m_vecAttributes.push_back(att);
+		info.m_vecAttributes.push_back(att);
 
 		printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
 	}
@@ -153,24 +153,14 @@ void cProgramLoader::GetUniforms(cItem_Program& info)
 		GLint size;
 		GLenum type;
 		glGetActiveUniform(info.m_ID, i, bufSize, &length, &size, &type, name);
-		sUniform unif;
+		cItem_Program::sUniform unif;
 		unif.m_ID = info.m_ID;
 		unif.m_index = count;
 		unif.m_size = size;
 		unif.m_type = type;
 		unif.m_name = name;
-		m_vecUniforms.push_back(unif);
+		info.m_vecUniforms.push_back(unif);
 
 		printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
 	}
-}
-
-vecAttributes* cProgramLoader::GetAttributes()
-{
-	return &m_vecAttributes;
-}
-
-vecUniforms* cProgramLoader::GetUniforms()
-{
-	return &m_vecUniforms;
 }

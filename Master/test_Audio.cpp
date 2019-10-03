@@ -5,6 +5,7 @@
 #include "XML/XMLDocument.h"
 #include "AssetManager/cAssetManager.h"
 #include "AssetManager/cAssetManager_Audios.h"
+#include "AssetItems/cItem_Audio.h"
 #include "cAudio_System.h"
 #include "cAudio_System_FMOD.h"
 
@@ -217,7 +218,7 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 				case '3':
 				case '4':
 				{
-					int index = cur - '0';
+					size_t index = cur - '0';
 					size_t number = groups[currentGroupNumber].size();
 					if (index < number)
 					{

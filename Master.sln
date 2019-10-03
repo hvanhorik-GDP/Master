@@ -71,6 +71,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protobuf", "External\protob
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rapidxml", "External\rapidxml\rapidxml.vcxproj", "{9D20B6D0-C902-4C3A-A87E-D449831334E9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileSystem", "Libraries\FileSystem\FileSystem.vcxproj", "{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -247,6 +249,14 @@ Global
 		{9D20B6D0-C902-4C3A-A87E-D449831334E9}.Release|x64.Build.0 = Release|x64
 		{9D20B6D0-C902-4C3A-A87E-D449831334E9}.Release|x86.ActiveCfg = Release|Win32
 		{9D20B6D0-C902-4C3A-A87E-D449831334E9}.Release|x86.Build.0 = Release|Win32
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Debug|x64.ActiveCfg = Debug|x64
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Debug|x64.Build.0 = Debug|x64
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Debug|x86.ActiveCfg = Debug|Win32
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Debug|x86.Build.0 = Debug|Win32
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Release|x64.ActiveCfg = Release|x64
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Release|x64.Build.0 = Release|x64
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Release|x86.ActiveCfg = Release|Win32
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,6 +281,7 @@ Global
 		{C0DD5091-2338-4999-B4EE-31A48A5756CC} = {B559CB85-A0D9-4471-8598-37A0BD1CAE23}
 		{D08A8719-CB1C-43B5-8586-8CA3FFBD5ABC} = {B559CB85-A0D9-4471-8598-37A0BD1CAE23}
 		{9D20B6D0-C902-4C3A-A87E-D449831334E9} = {B559CB85-A0D9-4471-8598-37A0BD1CAE23}
+		{B6A9D290-9D98-4F73-BE4D-CE3BE5891292} = {BF40E9F7-952E-4B5B-8205-39951CF0FA7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E58139F6-A48E-4F2C-B54F-DD7E7FABD63F}

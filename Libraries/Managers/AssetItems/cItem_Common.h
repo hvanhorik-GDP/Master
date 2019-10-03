@@ -1,9 +1,9 @@
 #pragma once
-#include "iAssetManager.h"
+#include "iItem.h"
 #include <rapidxml/rapidxml.hpp>
 #include <string>
 
-class cItem_Common : public iAssetManager::iItem
+class cItem_Common : public iItem
 {
 public:
 	cItem_Common(	std::string id,

@@ -2,6 +2,7 @@
 #include "GAmeLibrary/AssetGroups.h"
 #include "../../AudioEngine/cAudio_System.h"
 #include "../../AudioEngine/cAudio_System_FMOD.h"
+#include "..//AssetItems/cItem_Audio.h"
 #include <iostream>
 #include <sstream>
 

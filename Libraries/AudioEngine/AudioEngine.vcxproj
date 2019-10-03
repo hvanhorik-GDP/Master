@@ -193,7 +193,6 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="cAudio_System.cpp" />
     <ClCompile Include="cAudio_System_impl.cpp" />
     <ClCompile Include="cAudio_Channel_FMOD.cpp" />
-    <ClCompile Include="cEngineFMOD.cpp" />
     <ClCompile Include="cAudio_Sound_FMOD.cpp" />
     <ClCompile Include="cAudio_Exception_FMOD.cpp" />
     <ClCompile Include="gAudio_System.cpp" />
@@ -211,7 +210,6 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="cAudio_System.h" />
     <ClInclude Include="cAudio_System_impl.h" />
     <ClInclude Include="cAudio_Channel_FMOD.h" />
-    <ClInclude Include="cEngineFMOD.h" />
     <ClInclude Include="cAudio_Sound_FMOD.h" />
     <ClInclude Include="cAudio_Exception_FMOD.h" />
     <ClInclude Include="iAudio_System.h" />

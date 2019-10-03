@@ -1,6 +1,5 @@
 #pragma once
-#include "../AssetManager/cItem_Program.h"
-#include "sUniform.h"
+#include "../AssetItems/cItem_Program.h"
 
 class cProgramLoader
 {
@@ -9,9 +8,6 @@ public:
 	~cProgramLoader();
 	bool Load(cItem_Program& info);
 
-	vecAttributes* GetAttributes();
-	vecUniforms* GetUniforms();
-
 	std::string GetLastError();
 private:
 	bool WasThereALinkError(unsigned int programID, std::string& errorText);
@@ -19,8 +15,6 @@ private:
 	void GetAttributes(cItem_Program& info);
 	void GetUniforms(cItem_Program& info);
 
-	vecAttributes m_vecAttributes;
-	vecUniforms m_vecUniforms;
 	std::string m_lastError;
 };
 

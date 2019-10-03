@@ -88,9 +88,6 @@ bool cShaderLoader::Load(cItem_Shader& shader)
 		return false;
 	}
 
-	GetAttributes(shader);
-	GetUniforms(shader);
-
 	return true;
 }
 
@@ -209,65 +206,4 @@ bool cShaderLoader::WasThereACompileError(unsigned int shaderID, std::string& er
 		return true;	// There WAS an error
 	}
 	return false; // There WASN'T an error
-}
-
-void cShaderLoader::GetAttributes(cItem_Shader &info)
-{
-	GLint count = 0;
-	glGetShaderiv(info.m_ID, GL_ACTIVE_ATTRIBUTES, &count);
-	printf("Active Attributes: %d\n", count);
-
-	for (auto i = 0; i < count; i++)
-	{
-		const unsigned int bufSize = 1024;
-		GLchar name[bufSize];
-		GLsizei length;
-		GLint size;
-		GLenum type;
-		glGetActiveAttrib(info.m_ID, i, bufSize, &length, &size, &type, name);
-		sAttribute att;
-		att.m_ID = info.m_ID;
-		att.m_index = count;
-		att.m_size = size;
-		att.m_type = type;
-		att.m_name = name;
-		m_vecAttributes.push_back(att);
-		printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
-	}
-}
-
-void cShaderLoader::GetUniforms(cItem_Shader& info)
-{
-	GLint count = 0;
-	glGetShaderiv(info.m_ID, GL_ACTIVE_UNIFORMS, &count);
-	printf("Active Uniforms: %d\n", count);
-
-	for (auto i = 0; i < count; i++)
-	{
-		const unsigned int bufSize = 1024;
-		GLchar name[bufSize];
-		GLsizei length;
-		GLint size;
-		GLenum type;
-		glGetActiveUniform(info.m_ID, i, bufSize, &length, &size, &type, name);
-		sUniform unif;
-		unif.m_ID = info.m_ID;
-		unif.m_index = count;
-		unif.m_size = size;
-		unif.m_type = type;
-		unif.m_name = name;
-		m_vecUniforms.push_back(unif);
-
-		printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
-	}
-}
-
-vecAttributes* cShaderLoader::GetAttributes()
-{
-	return &m_vecAttributes;
-}
-
-vecUniforms* cShaderLoader::GetUniforms()
-{
-	return &m_vecUniforms;
 }
