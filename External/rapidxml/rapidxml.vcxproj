@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{75b70322-8acb-4c4c-b54e-af62b0ef45c4}</ProjectGuid>
+    <ProjectGuid>{9d20b6d0-c902-4c3a-a87e-d449831334e9}</ProjectGuid>
     <RootNamespace>rapidxml</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -72,24 +72,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -108,11 +108,11 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>Copy header files</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -126,11 +126,11 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>Copy header files</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,11 +144,11 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>Copy header files</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -166,19 +166,14 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy include files if needed - Turn me on</Message>
+      <Message>Copy header files</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="includes\rapidxml.hpp" />
-    <ClInclude Include="includes\rapidxml_ext.hpp" />
-    <ClInclude Include="includes\rapidxml_iterators.hpp" />
-    <ClInclude Include="includes\rapidxml_print.hpp" />
-    <ClInclude Include="includes\rapidxml_utils.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
