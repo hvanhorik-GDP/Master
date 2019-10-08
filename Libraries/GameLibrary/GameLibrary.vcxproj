@@ -20,10 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{2d3d0115-32b9-4677-a789-6f664f406f75}</ProjectGuid>
-    <RootNamespace>AudioEngine</RootNamespace>
+    <ProjectGuid>{33d9b587-e3c0-4e34-b858-b1dba2f63f2e}</ProjectGuid>
+    <RootNamespace>GameLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Audio_Engine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -183,37 +182,22 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cAudio_ChannelControl_FMOD.cpp" />
-    <ClCompile Include="cAudio_ChannelGroup_FMOD.cpp" />
-    <ClCompile Include="cAudio_DSPConnection_FMOD.cpp" />
-    <ClCompile Include="cAudio_DSP_FMOD.cpp" />
-    <ClCompile Include="cAudio_Geometry_FMOD.cpp" />
-    <ClCompile Include="cAudio_Reverb3D_FMOD.cpp" />
-    <ClCompile Include="cAudio_SoundGroup_FMOD.cpp" />
-    <ClCompile Include="cAudio_System.cpp" />
-    <ClCompile Include="cAudio_System_impl.cpp" />
-    <ClCompile Include="cAudio_Channel_FMOD.cpp" />
-    <ClCompile Include="cAudio_Sound_FMOD.cpp" />
-    <ClCompile Include="cAudio_Exception_FMOD.cpp" />
-    <ClCompile Include="gAudio_System.cpp" />
-    <ClCompile Include="iAudio_System.cpp" />
-    <ClCompile Include="cAudio_System_FMOD.cpp" />
+    <ClCompile Include="AssestRoot.cpp" />
+    <ClCompile Include="AssetFile.cpp" />
+    <ClCompile Include="AssetGroups.cpp" />
+    <ClCompile Include="AssetParts.cpp" />
+    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="GameLibrary.cpp" />
+    <ClCompile Include="Properties.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cAudio_ChannelControl_FMOD.h" />
-    <ClInclude Include="cAudio_ChannelGroup_FMOD.h" />
-    <ClInclude Include="cAudio_DSPConnection_FMOD.h" />
-    <ClInclude Include="cAudio_DSP_FMOD.h" />
-    <ClInclude Include="cAudio_Geometry_FMOD.h" />
-    <ClInclude Include="cAudio_Reverb3D_FMOD.h" />
-    <ClInclude Include="cAudio_SoundGroup_FMOD.h" />
-    <ClInclude Include="cAudio_System.h" />
-    <ClInclude Include="cAudio_System_impl.h" />
-    <ClInclude Include="cAudio_Channel_FMOD.h" />
-    <ClInclude Include="cAudio_Sound_FMOD.h" />
-    <ClInclude Include="cAudio_Exception_FMOD.h" />
-    <ClInclude Include="iAudio_System.h" />
-    <ClInclude Include="cAudio_System_FMOD.h" />
+    <ClInclude Include="AssestRoot.h" />
+    <ClInclude Include="AssetFile.h" />
+    <ClInclude Include="AssetGroups.h" />
+    <ClInclude Include="AssetParts.h" />
+    <ClInclude Include="Assets.h" />
+    <ClInclude Include="GameLibrary.h" />
+    <ClInclude Include="Properties.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

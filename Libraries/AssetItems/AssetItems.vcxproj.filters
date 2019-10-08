@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cItem_Audio.cpp" />
+    <ClCompile Include="cItem_Common.cpp" />
+    <ClCompile Include="cItem_Font.cpp" />
+    <ClCompile Include="cItem_Image.cpp" />
+    <ClCompile Include="cItem_Model.cpp" />
+    <ClCompile Include="cItem_Program.cpp" />
+    <ClCompile Include="cItem_Shader.cpp" />
+    <ClCompile Include="cItem_Video.cpp" />
+    <ClCompile Include="iItem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cItem_Audio.h" />
+    <ClInclude Include="cItem_Common - Copy.h" />
+    <ClInclude Include="cItem_Common.h" />
+    <ClInclude Include="cItem_Font.h" />
+    <ClInclude Include="cItem_Image.h" />
+    <ClInclude Include="cItem_Model.h" />
+    <ClInclude Include="cItem_Program.h" />
+    <ClInclude Include="cItem_Shader.h" />
+    <ClInclude Include="cItem_Video.h" />
+    <ClInclude Include="iItem.h" />
+  </ItemGroup>
+</Project>

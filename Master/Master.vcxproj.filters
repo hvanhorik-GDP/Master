@@ -64,6 +64,9 @@
     <Xml Include="output.xml">
       <Filter>Assets</Filter>
     </Xml>
+    <Xml Include="..\assets\GameLibrary - Copy.xml">
+      <Filter>Assets</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply">

@@ -2,6 +2,8 @@
 
 #include "iAudio_System.h"
 
+#pragma comment(lib , "Audio_Engine.lib")
+
 class cAudio_System : public iAudio_System
 {
 public:

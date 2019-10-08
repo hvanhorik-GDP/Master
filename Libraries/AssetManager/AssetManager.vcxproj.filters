@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cAssetManager.cpp" />
+    <ClCompile Include="cAssetManager_Audios.cpp" />
+    <ClCompile Include="cAssetManager_Fonts.cpp" />
+    <ClCompile Include="cAssetManager_Images.cpp" />
+    <ClCompile Include="cAssetManager_impl.cpp" />
+    <ClCompile Include="cAssetManager_Models.cpp" />
+    <ClCompile Include="cAssetManager_Programs.cpp" />
+    <ClCompile Include="cAssetManager_Shaders.cpp" />
+    <ClCompile Include="cAssetManager_Videos.cpp" />
+    <ClCompile Include="iAssetManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cAssetManager.h" />
+    <ClInclude Include="cAssetManager_Audios.h" />
+    <ClInclude Include="cAssetManager_Fonts.h" />
+    <ClInclude Include="cAssetManager_Images.h" />
+    <ClInclude Include="cAssetManager_impl.h" />
+    <ClInclude Include="cAssetManager_Models.h" />
+    <ClInclude Include="cAssetManager_Programs.h" />
+    <ClInclude Include="cAssetManager_Shaders.h" />
+    <ClInclude Include="cAssetManager_Videos.h" />
+    <ClInclude Include="iAssetManager.h" />
+  </ItemGroup>
+</Project>

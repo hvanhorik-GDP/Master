@@ -20,10 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{2d3d0115-32b9-4677-a789-6f664f406f75}</ProjectGuid>
-    <RootNamespace>AudioEngine</RootNamespace>
+    <ProjectGuid>{99af3542-4350-414f-9510-87fac18740cf}</ProjectGuid>
+    <RootNamespace>Shaders</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Audio_Engine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -183,37 +182,17 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cAudio_ChannelControl_FMOD.cpp" />
-    <ClCompile Include="cAudio_ChannelGroup_FMOD.cpp" />
-    <ClCompile Include="cAudio_DSPConnection_FMOD.cpp" />
-    <ClCompile Include="cAudio_DSP_FMOD.cpp" />
-    <ClCompile Include="cAudio_Geometry_FMOD.cpp" />
-    <ClCompile Include="cAudio_Reverb3D_FMOD.cpp" />
-    <ClCompile Include="cAudio_SoundGroup_FMOD.cpp" />
-    <ClCompile Include="cAudio_System.cpp" />
-    <ClCompile Include="cAudio_System_impl.cpp" />
-    <ClCompile Include="cAudio_Channel_FMOD.cpp" />
-    <ClCompile Include="cAudio_Sound_FMOD.cpp" />
-    <ClCompile Include="cAudio_Exception_FMOD.cpp" />
-    <ClCompile Include="gAudio_System.cpp" />
-    <ClCompile Include="iAudio_System.cpp" />
-    <ClCompile Include="cAudio_System_FMOD.cpp" />
+    <ClCompile Include="cProgramLoader.cpp" />
+    <ClCompile Include="cShader.cpp" />
+    <ClCompile Include="cShaderLoader.cpp" />
+    <ClCompile Include="cShaderManager.cpp" />
+    <ClCompile Include="sUniform_old.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cAudio_ChannelControl_FMOD.h" />
-    <ClInclude Include="cAudio_ChannelGroup_FMOD.h" />
-    <ClInclude Include="cAudio_DSPConnection_FMOD.h" />
-    <ClInclude Include="cAudio_DSP_FMOD.h" />
-    <ClInclude Include="cAudio_Geometry_FMOD.h" />
-    <ClInclude Include="cAudio_Reverb3D_FMOD.h" />
-    <ClInclude Include="cAudio_SoundGroup_FMOD.h" />
-    <ClInclude Include="cAudio_System.h" />
-    <ClInclude Include="cAudio_System_impl.h" />
-    <ClInclude Include="cAudio_Channel_FMOD.h" />
-    <ClInclude Include="cAudio_Sound_FMOD.h" />
-    <ClInclude Include="cAudio_Exception_FMOD.h" />
-    <ClInclude Include="iAudio_System.h" />
-    <ClInclude Include="cAudio_System_FMOD.h" />
+    <ClInclude Include="cProgramLoader.h" />
+    <ClInclude Include="cShaderLoader.h" />
+    <ClInclude Include="cShaderManager.h" />
+    <ClInclude Include="sUniform_old.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

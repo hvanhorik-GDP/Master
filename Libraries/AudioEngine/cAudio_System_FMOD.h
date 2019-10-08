@@ -11,6 +11,8 @@
 #include <string>
 #include <ostream>
 
+#pragma comment (lib, "fmod_vc.lib")
+
 class cAudio_System_FMOD: public iAudio_System
 {
 public:

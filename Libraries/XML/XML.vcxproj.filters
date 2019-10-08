@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="XMLArrayBase.cpp" />
+    <ClCompile Include="XMLAttribute.cpp" />
+    <ClCompile Include="XMLDocument.cpp" />
+    <ClCompile Include="XMLNodeBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XMLArrayBase.h" />
+    <ClInclude Include="XMLAttribute.h" />
+    <ClInclude Include="XMLDocument.h" />
+    <ClInclude Include="XMLNodeBase.h" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AssestRoot.cpp" />
+    <ClCompile Include="AssetFile.cpp" />
+    <ClCompile Include="AssetGroups.cpp" />
+    <ClCompile Include="AssetParts.cpp" />
+    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="GameLibrary.cpp" />
+    <ClCompile Include="Properties.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssestRoot.h" />
+    <ClInclude Include="AssetFile.h" />
+    <ClInclude Include="AssetGroups.h" />
+    <ClInclude Include="AssetParts.h" />
+    <ClInclude Include="Assets.h" />
+    <ClInclude Include="GameLibrary.h" />
+    <ClInclude Include="Properties.h" />
+  </ItemGroup>
+</Project>

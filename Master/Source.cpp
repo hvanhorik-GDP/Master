@@ -23,6 +23,7 @@
 
 #include <direct.h>
 
+#pragma comment (lib, "gl_OpenGL.lib")
 
 using namespace std;
 using namespace rapidxml;

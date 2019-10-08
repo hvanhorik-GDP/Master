@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2019 (https://www.liquid-technologies.com) -->
+<GameLibrary>
+  <GameName>Project 1 Audio Test</GameName>
+
+  <!-- Shaders -->
+  <AssetGroup type = "shaders" open = "none">
+    <AssetRoot path="../assets/shaders/"/>
+    <Asset name="NonExistant Shader" type ="fragment">
+      <AssetFile path="NonExistant2.glsl"/>
+    </Asset>
+    <Asset name="fragmentShader01" type ="fragment">
+      <AssetFile path="fragmentShader01.glsl"/>
+    </Asset>
+    <Asset name="vertexShader01" type="vertex">
+      <AssetFile path="vertexShader01.glsl"/>
+    </Asset>
+  </AssetGroup>
+  
+  <!-- Program - Link the shaders together as a single asset-->
+  <AssetGroup type = "programs" open = "none">
+    <Asset name="main">
+      <AssetPart name="fragmentShader01"/>
+      <AssetPart name="vertexShader01"/>
+    </Asset>
+  </AssetGroup>
+
+  <!-- Models -->
+  <AssetGroup type = "models" open = "none">
+    <AssetRoot path="../assets/models/"/>
+    <Asset name="NonExistant File">
+      <AssetFile path="NonExistant.ply"/>
+    </Asset>
+    <Asset name="BigFlatTerrain_XYZ_n">
+      <AssetFile path="BigFlatTerrain_XYZ_n.ply"/>
+    </Asset>
+    <Asset name="bun_zipper_XYZ_n">
+      <AssetFile path="bun_zipper_XYZ_n.ply"/>
+    </Asset>
+    <Asset name="bun_zipper_res2_XYZ">
+      <AssetFile path="bun_zipper_res2_XYZ.ply"/>
+    </Asset>
+    <Asset name="Cube_1_Unit_from_origin_XYZ_n">
+      <AssetFile path="Cube_1_Unit_from_origin_XYZ_n.ply"/>
+    </Asset>
+    <Asset name="bun_zipper_res2_XYZ_n">
+      <AssetFile path="bun_zipper_res2_XYZ_n.ply"/>
+    </Asset>
+    <Asset name="Sky_Pirate_Combined_xyz">
+      <AssetFile path="Sky_Pirate_Combined_xyz.ply"/>
+    </Asset>
+    <Asset name="Sky_Pirate_Combined_xyz_n">
+      <AssetFile path="Sky_Pirate_Combined_xyz_n.ply"/>
+    </Asset>
+    <Asset name="Sphere_Radius_1_XYZ_n">
+      <AssetFile path="Sphere_Radius_1_XYZ_n.ply"/>
+    </Asset>
+    <Asset name="Terrain_XYZ_n">
+      <AssetFile path="Terrain_XYZ_n.ply"/>
+    </Asset>
+   <Asset name="bun_zipper_XYZ">
+      <AssetFile path="bun_zipper_XYZ.ply"/>
+    </Asset>
+    <Asset name="12953_ChocolateRabbit_v1">
+      <AssetFile path="./Bunnies/12953_ChocolateRabbit_v1.ply"/>
+    </Asset>
+    <Asset name="17505_Finger_puppet_rabbit_V1">
+      <AssetFile path="./Bunnies/17505_Finger_puppet_rabbit_V1.ply"/>
+    </Asset>
+    <Asset name="10037_Rabbit_v1_L3">
+      <AssetFile path="./Bunnies/10037_Rabbit_v1_L3.ply"/>
+    </Asset>
+    <Asset name="Bravil">
+      <AssetFile path="./Castles/Bravil.ply"/>
+    </Asset>
+    <Asset name="10083_Small Castle_v3_L3">
+      <AssetFile path="./Castles/10083_Small Castle_v3_L3.ply"/>
+    </Asset>
+    <Asset name="Castle (2)">
+      <AssetFile path="./Castles/Castle (2).ply"/>
+    </Asset>
+    <Asset name="Castle OBJ">
+      <AssetFile path="./Castles/Castle OBJ.ply"/>
+    </Asset>
+    <Asset name="Hogwarts">
+      <AssetFile path="./Castles/Hogwarts.ply"/>
+    </Asset>
+  </AssetGroup>
+
+  <!-- Audio files -->
+  <AssetGroup type = "audios" open = "all" subdir = "true" subtype="music">
+    <AssetRoot path="../assets/audios/"/>
+    <Asset name="NonExistant File2">
+      <AssetFile path="NonExistant2.mp3"/>
+    </Asset>
+    <Asset name= "That's Amore">
+      <AssetFile path="music/Dean Martin - That's Amore.mp3"/>
+    </Asset>
+    <Asset name= "That's Amore wav">
+      <AssetFile path="music/Dean Martin - That's Amore.wav"/>
+    </Asset>
+    <Asset name= "Auld Lang Syne">
+      <AssetFile path="music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp3"/>
+    </Asset>
+    <Asset name= "Auld Lang Syne wav">
+      <AssetFile path="music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).wav"/>
+    </Asset>
+    <Asset name= "Hello, Dolly">
+      <AssetFile path="music/Herb Alpert's Tijuana Brass - Hello, Dolly!.ogg"/>
+    </Asset>
+    <Asset name= "Hello, Dolly wav">
+      <AssetFile path="music/Herb Alpert's Tijuana Brass - Hello, Dolly!.wav"/>
+    </Asset>
+    <Asset name= "Spanish Flea wav">
+      <AssetFile path="music/Spanish Flea.wav"/>
+    </Asset>
+    <Asset name= "Spanish Flea">
+      <AssetFile path="music/Spanish Flea.mp3"/>
+    </Asset>
+  </AssetGroup>
+  
+  <!-- More Audio Files -->
+  <AssetGroup type = "audios" open = "all" subdir = "true" subtype="effects">
+    <AssetRoot path="../assets/audios/"/>
+     <Asset name = "let me guess">
+      <AssetFile path="effects/A man says don-t tell me- let me guess -southern accent- ol.mpeg"/>
+    </Asset>
+    <Asset name = "walk that dog">
+      <AssetFile path="effects/A woman says chester- walk that dog -old woman- cartoon-_Ni.mpeg"/>
+    </Asset>
+    <Asset name = "blackboard">
+      <AssetFile path="effects/A woman says like nails on a blackboard -jewish accent- old.mpeg"/>
+    </Asset>
+    <Asset name = "He Was So">
+      <AssetFile path="effects/A_L Ploaroid Old Woman - He Was So 01.mpeg"/>
+    </Asset>
+    <Asset name = "I am not Dead">
+      <AssetFile path="effects/A_L Ploaroid Old Woman - I am not Dead 01.mpeg"/>
+    </Asset>
+    <Asset name = "I had all These Plans">
+      <AssetFile path="effects/A_L Ploaroid Old Woman - I had all These Plans 01.mpeg"/>
+    </Asset>
+    <Asset name = "Wasnt My Fault">
+      <AssetFile path="effects/A_L Ploaroid Old Woman - Wasnt My Fault 01.mpeg"/>
+    </Asset>
+    <Asset name = "Just An Old Man">
+      <AssetFile path="effects/Cartoon Grandpa I-m Just An Old Man.mpeg"/>
+    </Asset>
+    <Asset name = "Let Me Get My Wheelchair">
+      <AssetFile path="effects/Cartoon Grandpa Let Me Get My Wheelchair.mpeg"/>
+    </Asset>
+    <Asset name = "One Good Looking Young Lady">
+      <AssetFile path="effects/Cartoon Grandpa Now That-s One Good Looking Young Lady.mpeg"/>
+    </Asset>
+    <Asset name = "Telling You Right">
+      <AssetFile path="effects/Cartoon Grandpa Woo Doggy I-m Telling You Right Now.mpeg"/>
+    </Asset>
+    <Asset name = "Way Too Fast">
+      <AssetFile path="effects/Cartoon Grandpa You-re Going Way Too Fast.mpeg"/>
+    </Asset>
+    <Asset name = "Old Man Cry">
+      <AssetFile path="effects/Cartoon Old Man Cry 3.mpeg"/>
+    </Asset>
+    <Asset name = "Old Man Pain">
+      <AssetFile path="effects/Cartoon Old Man Pain 1.mpeg"/>
+    </Asset>
+    <Asset name = "sensual giggly laughter">
+      <AssetFile path="effects/Mature woman sensual giggly laughter 01.mpeg"/>
+    </Asset>
+    <Asset name = "belly laughter">
+      <AssetFile path="effects/Old male belly laughter.mpeg"/>
+    </Asset>
+    <Asset name = "strike three">
+      <AssetFile path="effects/Old man says baseball umpire strike three you-re out_BLASTW.mpeg"/>
+    </Asset>
+    <Asset name = "goal">
+      <AssetFile path="effects/Old man says goal_BLASTWAVEFX_16176.mpeg"/>
+    </Asset>
+  </AssetGroup>
+
+  <!-- Video files -->
+  <AssetGroup type = "videos" open = "none">
+    <AssetRoot path="../assets/videos/"/>
+  </AssetGroup>
+  
+  <!-- Image files -->
+
+  <AssetGroup type = "images" open = "none">
+    <AssetRoot path="../assets/images/"/>
+  </AssetGroup>
+  
+  <!-- Font files -->
+
+  <AssetGroup type = "fonts" open = "none">
+    <AssetRoot path="../assets/fonts/"/>
+  </AssetGroup>
+
+  <!-- Game Objects -->
+
+  <Object type = "audio" name ="sensual giggly laughter" id = "xxxx">
+  <AssetId name = "sensual giggly laughter"/>
+  <Property name = "type"  type = "string" value="mpeg"/>
+  <Property name = "volume" type ="int" value ="10"/>
+  <Property name = "pitch" type ="double" value ="1" />
+  <Property name = "offset" type ="int" value = "0" />
+  <Property name = "position" type ="vec3" value="1,2,3"/>
+  <Property name ="color" type="vec4" value="255,0,0,0"/>
+  </Object>
+  <Object type ="group" name ="group1" id ="xxxy">
+    <ObjectID name ="sensual giggly laughter"/>
+    <Property name = "position" type ="vec3" value="1,2,3"/>
+  </Object>
+  <Object type ="group" name ="group2" id ="xxxz">
+    <ObjectID name ="group1"/>
+    <Property name = "position" type ="vec3" value="1,2,3"/>
+  </Object>
+</GameLibrary>

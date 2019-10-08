@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cProgramLoader.cpp" />
+    <ClCompile Include="cShader.cpp" />
+    <ClCompile Include="cShaderLoader.cpp" />
+    <ClCompile Include="cShaderManager.cpp" />
+    <ClCompile Include="sUniform_old.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cProgramLoader.h" />
+    <ClInclude Include="cShaderLoader.h" />
+    <ClInclude Include="cShaderManager.h" />
+    <ClInclude Include="sUniform_old.h" />
+  </ItemGroup>
+</Project>

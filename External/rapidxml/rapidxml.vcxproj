@@ -108,7 +108,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -126,7 +126,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -144,7 +144,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -166,7 +166,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)*"
+      <Command>xcopy /S /D /Y "$(ProjectDir)includes\*" "$(SolutionDir).inc\$(ProjectName)\*"
 </Command>
     </PostBuildEvent>
     <PostBuildEvent>

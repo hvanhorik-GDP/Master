@@ -20,10 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{2d3d0115-32b9-4677-a789-6f664f406f75}</ProjectGuid>
-    <RootNamespace>AudioEngine</RootNamespace>
+    <ProjectGuid>{0f75a4a6-ca71-4656-a1d1-af2d9d8c080a}</ProjectGuid>
+    <RootNamespace>Models</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Audio_Engine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -73,24 +72,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)/Libraries;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)/Libraries;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)/Libraries;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(ProjectDir);$(ProjectDir)include;$(SolutionDir)/Libraries;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -183,37 +182,11 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cAudio_ChannelControl_FMOD.cpp" />
-    <ClCompile Include="cAudio_ChannelGroup_FMOD.cpp" />
-    <ClCompile Include="cAudio_DSPConnection_FMOD.cpp" />
-    <ClCompile Include="cAudio_DSP_FMOD.cpp" />
-    <ClCompile Include="cAudio_Geometry_FMOD.cpp" />
-    <ClCompile Include="cAudio_Reverb3D_FMOD.cpp" />
-    <ClCompile Include="cAudio_SoundGroup_FMOD.cpp" />
-    <ClCompile Include="cAudio_System.cpp" />
-    <ClCompile Include="cAudio_System_impl.cpp" />
-    <ClCompile Include="cAudio_Channel_FMOD.cpp" />
-    <ClCompile Include="cAudio_Sound_FMOD.cpp" />
-    <ClCompile Include="cAudio_Exception_FMOD.cpp" />
-    <ClCompile Include="gAudio_System.cpp" />
-    <ClCompile Include="iAudio_System.cpp" />
-    <ClCompile Include="cAudio_System_FMOD.cpp" />
+    <ClInclude Include="cMesh_old.h" />
+    <ClInclude Include="cModelLoader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cAudio_ChannelControl_FMOD.h" />
-    <ClInclude Include="cAudio_ChannelGroup_FMOD.h" />
-    <ClInclude Include="cAudio_DSPConnection_FMOD.h" />
-    <ClInclude Include="cAudio_DSP_FMOD.h" />
-    <ClInclude Include="cAudio_Geometry_FMOD.h" />
-    <ClInclude Include="cAudio_Reverb3D_FMOD.h" />
-    <ClInclude Include="cAudio_SoundGroup_FMOD.h" />
-    <ClInclude Include="cAudio_System.h" />
-    <ClInclude Include="cAudio_System_impl.h" />
-    <ClInclude Include="cAudio_Channel_FMOD.h" />
-    <ClInclude Include="cAudio_Sound_FMOD.h" />
-    <ClInclude Include="cAudio_Exception_FMOD.h" />
-    <ClInclude Include="iAudio_System.h" />
-    <ClInclude Include="cAudio_System_FMOD.h" />
+    <ClCompile Include="cModelLoader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
