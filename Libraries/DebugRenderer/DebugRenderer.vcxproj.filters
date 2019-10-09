@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cDebugRenderer.cpp" />
+    <ClCompile Include="cDebugRenderer_BuiltInShapes.cpp" />
+    <ClCompile Include="CErrorLog.cpp" />
+    <ClCompile Include="cGLRenderStateHelper.cpp" />
+    <ClCompile Include="COpenGLError.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cDebugRenderer.h" />
+    <ClInclude Include="CErrorLog.h" />
+    <ClInclude Include="cGLRenderStateHelper.h" />
+    <ClInclude Include="COpenGLError.h" />
+    <ClInclude Include="iDebugRenderer.h" />
+  </ItemGroup>
+</Project>

@@ -1,7 +1,7 @@
 #include "cAssetManager_Models.h"
 #include "./AssetItems/cItem_Model.h"
 #include "GameLibrary/AssetGroups.h"
-#include "../Models/cModelLoader.h"
+#include "../Models/cPlyLoader.h"
 #include <iostream>
 #include <sstream>
 
@@ -41,7 +41,7 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 						std::string fullPath = rootPath + fileName.GetValue();
 						std::cout << fullPath << std::endl;
 						//std::cout << __FILE__ << __LINE__ << "Found an asset" << std::endl;
-	
+
 						std::string id = assetName.GetValue();
 						auto parent = file.GetParent();
 						cItem_Model* item = new cItem_Model(id, fullPath, parent, i);
@@ -49,23 +49,28 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 						m_map_items[item->GetAssetID()] = item;
 
 						// TODO - merge mesh and cItem_Model
-						cMesh mesh;
-						cModelLoader loader;
+						cMyMesh mesh;
+						cPlyLoader loader;
 						// Just load the header for speed
 						bool ok = loader.LoadPlyModelInfo(fullPath, mesh);
-						// Write the properties to the xml file
 						Properties prop = file.GetProperties();
-						prop.AddProperty("type", "enum", mesh.m_type);
-						prop.AddProperty("format", "string", mesh.m_format);
-						prop.AddProperty("vertex", "int", std::to_string(mesh.m_vertices));
-						for (auto in : mesh.m_vecProperties)
-						{
-							prop.AddProperty("property", in.first, in.second);
-						}
-						prop.AddProperty("face", "int", std::to_string(mesh.m_faces));
+						prop.AddProperty("exists", "bool", std::to_string(mesh.m_fileExists));
 						prop.AddProperty("valid", "bool", std::to_string(mesh.m_isValid));
-						prop.AddProperty("normals", "bool", std::to_string(mesh.m_hasNormals));
-						prop.AddProperty("colours", "bool", std::to_string(mesh.m_hasColor));
+						if (ok)
+						{
+							// Write the properties to the xml file
+							prop.AddProperty("type", "enum", mesh.m_type);
+							prop.AddProperty("format", "string", mesh.m_format);
+							prop.AddProperty("vertex", "int", std::to_string(mesh.m_vertices));
+							for (auto in : mesh.m_vecProperties)
+							{
+								prop.AddProperty("property", in.type, in.name);
+							}
+							prop.AddProperty("face", "int", std::to_string(mesh.m_faces));
+							prop.AddProperty("valid", "bool", std::to_string(mesh.m_isValid));
+							prop.AddProperty("normals", "bool", std::to_string(mesh.m_hasNormals));
+							prop.AddProperty("colours", "bool", std::to_string(mesh.m_hasColor));
+						}
 					}
 				}
 			}

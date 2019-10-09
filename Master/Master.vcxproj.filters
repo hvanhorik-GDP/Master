@@ -1,70 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Assets">
       <UniqueIdentifier>{9a1f41d3-41e3-4179-b3e4-92afdea00040}</UniqueIdentifier>
     </Filter>
     <Filter Include="Assets\models">
       <UniqueIdentifier>{e1c3e6cd-7989-4f19-b800-244dd1d66d77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{367be525-4c8f-4a4d-85fd-2a47cf3c3703}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="test_Audio.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Tests</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="test_GDP2019.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
-    <ClCompile Include="open_gl.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="test_gl.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
-    <ClCompile Include="Callbacks.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Master.cpp" />
+    <ClCompile Include="GFLW_Callbacks.cpp" />
+    <ClCompile Include="test_filesystem.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
-    <ClCompile Include="cVAOManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="test_AudioEngine.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Master.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Master.h" />
+    <ClInclude Include="globalStuff.h" />
+    <ClInclude Include="test_Audio.h">
+      <Filter>Tests</Filter>
     </ClInclude>
-    <ClInclude Include="vGameObject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="test_GDP2019.h">
+      <Filter>Tests</Filter>
     </ClInclude>
-    <ClInclude Include="cVAOManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="test_gl.h">
+      <Filter>Tests</Filter>
     </ClInclude>
-    <ClInclude Include="glad.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GFLW_Callbacks.h" />
+    <ClInclude Include="test_filesystem.h">
+      <Filter>Tests</Filter>
     </ClInclude>
-    <ClInclude Include="Callbacks.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="test_AudioEngine.h">
+      <Filter>Tests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GameLibrary.xml">
-      <Filter>Assets</Filter>
-    </Xml>
     <Xml Include="output.xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\GameLibrary - Copy.xml">
+    <Xml Include="..\assets\GameLibrary   copy.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\GameLibrary.xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>
@@ -111,10 +104,5 @@
     <None Include="..\assets\models\Terrain_XYZ_n.ply">
       <Filter>Assets\models</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\assets\models\foo.txt">
-      <Filter>Assets</Filter>
-    </Text>
   </ItemGroup>
 </Project>

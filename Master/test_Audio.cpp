@@ -6,8 +6,8 @@
 #include "AssetManager/cAssetManager.h"
 #include "AssetManager/cAssetManager_Audios.h"
 #include "AssetItems/cItem_Audio.h"
-#include "cAudio_System.h"
-#include "cAudio_System_FMOD.h"
+#include "AudioEngine/cAudio_System.h"
+#include "AudioEngine/cAudio_System_FMOD.h"
 
 #include <fstream>
 #include <iostream>
@@ -24,28 +24,23 @@
 #include <direct.h>
 
 
-using namespace std;
-using namespace rapidxml;
-using namespace gamelibrary;
-
-
 
 void clear() {
 	// CSI[2J clears screen, CSI[H moves the cursor to top-left corner
 	for (int i = 0; i < 20; ++i)
-		std::cout << endl;
+		std::cout << std::endl;
 	//	std::cout << "\x1B[2J\x1B[H";
 }
 
 
-void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
+void test_Audio(cAssetManager &assetManager)
 {
 	try
 	{
-		//		auto baseManager = gAssetManager.GetAssetManager("audios");
+		auto baseManager = assetManager.GetAssetManager("audios");
 		iAssetManager::iItems_map* items = assetManager.GetItems("audios");
 
-		cAudio_System_FMOD* audioSystem = dynamic_cast<cAudio_System_FMOD*>(gAudioSystem.Get_impl());
+		cAudio_System_FMOD* audioSystem = dynamic_cast<cAudio_System_FMOD*>(baseManager);
 		assert(audioSystem);
 
 		std::cout << "Would you like Raw Files:";
@@ -146,28 +141,28 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 			}
 		}
 
-		stringstream help;
-		help << "Commands are: " << endl;
-		help << "    (space) or (tab) - Move between speakers or people" << endl;
-		help << "     u/d             - volume up/down by 5%" << endl;
-		help << "     i/o             - pitch up/down by 5%" << endl;
-		help << "     b/v             - balance left/right by .05" << endl;
-		help << "                        *** NOTE - Pan does not work in speaker mode" << endl;
-		help << "     0, 1, 2, 3, 4   - Get a response from active person" << endl;
-		help << "     r               - replay track" << endl;
-		help << "     ?               - Information on current track" << endl;
-		help << "Character interactions: (Case sensitive)" << endl;
-		help << "     S               - Seduce" << endl;
-		help << "     J               - Tell Joke" << endl;
-		help << "     W               - Go for a walk" << endl;
-		help << "     D               - Walk the dog" << endl;
-		help << "     M               - Watch Monty Python" << endl;
-		help << "     (esc)           - To Exit" << endl;
-		help << endl << endl << endl;
+		std::stringstream help;
+		help << "Commands are: " << std::endl;
+		help << "    (space) or (tab) - Move between speakers or people" << std::endl;
+		help << "     u/d             - volume up/down by 5%" << std::endl;
+		help << "     i/o             - pitch up/down by 5%" << std::endl;
+		help << "     b/v             - balance left/right by .05" << std::endl;
+		help << "                        *** NOTE - Pan does not work in speaker mode" << std::endl;
+		help << "     0, 1, 2, 3, 4   - Get a response from active person" << std::endl;
+		help << "     r               - replay track" << std::endl;
+		help << "     ?               - Information on current track" << std::endl;
+		help << "Character interactions: (Case sensitive)" << std::endl;
+		help << "     S               - Seduce" << std::endl;
+		help << "     J               - Tell Joke" << std::endl;
+		help << "     W               - Go for a walk" << std::endl;
+		help << "     D               - Walk the dog" << std::endl;
+		help << "     M               - Watch Monty Python" << std::endl;
+		help << "     (esc)           - To Exit" << std::endl;
+		help << std::endl << std::endl << std::endl;
 		help << " Hit a key: ";
 
 
-		cout << help.str();
+		std::cout << help.str();
 		int currentGroupNumber = 0;
 		auto currentGroup = groups[currentGroupNumber][0];
 		auto baseItem = (*items)[currentGroup];
@@ -193,23 +188,23 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 					clear();
 					if (currentGroupNumber < numberOfSpeakers)
 					{
-						cout << "Switching to: next speaker: " << endl;
+						std::cout << "Switching to: next speaker: " << std::endl;
 					}
 					else if (currentGroupNumber < totalSize)
 					{
-						cout << "Switching to next person:" << endl;
+						std::cout << "Switching to next person:" << std::endl;
 					}
 					else
 					{
 						currentGroupNumber = 0;
-						cout << "Wrapping around to first speaker: " << endl;
+						std::cout << "Wrapping around to first speaker: " << std::endl;
 					}
 					currentGroup = groups[currentGroupNumber][0];
 					auto baseItem = (*items)[currentGroup];
 					currentItem = dynamic_cast<cItem_Audio*>(baseItem);
 					currentItem->GetChannel()->SetPosition(0);
 					currentItem->GetChannel()->Pause(false);
-					cout << "Audio File : " << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
+					std::cout << "Audio File : " << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
 					break;
 				}
 				case '0':
@@ -228,7 +223,7 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 						currentItem->GetChannel()->SetPosition(0);
 						currentItem->GetChannel()->Pause(false);
 						clear();
-						cout << "Audio File : " << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
+						std::cout << "Audio File : " << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
 					}
 					break;
 				}
@@ -237,15 +232,15 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 					// Information
 					cItem_Audio::format format = currentItem->GetFormat();
 					clear();
-					cout << "Audio file information:" << endl << endl;
-					cout << "  Name:      " << currentItem->GetRelativeName() << endl;
-					cout << "  Type:      " << currentItem->get_type_string() << endl;
-					cout << "  Format:    " << currentItem->get_format_string() << endl;
-					cout << "  Channels:  " << format.channels << endl;
-					cout << "  Bits:      " << format.bits << endl;
-					cout << "  Pitch:      " << currentItem->GetChannel()->GetPitch() << endl;
-					cout << "  Volume:      " << currentItem->GetChannel()->GetVolume() << endl;
-					cout << "  Position:      " << currentItem->GetChannel()->GetPosition() << endl;
+					std::cout << "Audio file information:" << std::endl << std::endl;
+					std::cout << "  Name:      " << currentItem->GetRelativeName() << std::endl;
+					std::cout << "  Type:      " << currentItem->get_type_string() << std::endl;
+					std::cout << "  Format:    " << currentItem->get_format_string() << std::endl;
+					std::cout << "  Channels:  " << format.channels << std::endl;
+					std::cout << "  Bits:      " << format.bits << std::endl;
+					std::cout << "  Pitch:      " << currentItem->GetChannel()->GetPitch() << std::endl;
+					std::cout << "  Volume:      " << currentItem->GetChannel()->GetVolume() << std::endl;
+					std::cout << "  Position:      " << currentItem->GetChannel()->GetPosition() << std::endl;
 					break;
 				}
 				case 'S':		// - Seduce" << endl;
@@ -416,30 +411,30 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 				{
 					// Up volume
 					clear();
-					cout << "Increasing volume by 5%";
+					std::cout << "Increasing volume by 5%";
 					float current = currentItem->GetChannel()->GetVolume();
 					currentItem->GetChannel()->SetVolume(current * 1.05f);
 					float newvolume = currentItem->GetChannel()->GetVolume();
-					cout << " Old: " << current << " New: " << newvolume << endl;;
+					std::cout << " Old: " << current << " New: " << newvolume << std::endl;;
 					break;
 				}
 				case 'd':
 				{
 					// Up volume
 					clear();
-					cout << "Decreasing volume by 5%";
+					std::cout << "Decreasing volume by 5%";
 					float current = currentItem->GetChannel()->GetVolume();
 					currentItem->GetChannel()->SetVolume(current * .95f);
 					float newvolume = currentItem->GetChannel()->GetVolume();
-					cout << " Old: " << current << " New: " << newvolume << endl;
+					std::cout << " Old: " << current << " New: " << newvolume << std::endl;
 					break;
 				}
 				case 'r':
 				{
 					// Up volume
 					clear();
-					cout << "Replay Track: " << endl;
-					cout << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
+					std::cout << "Replay Track: " << std::endl;
+					std::cout << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
 					currentItem->GetChannel()->SetPitch(0);
 					break;
 				}
@@ -469,11 +464,11 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 				{
 					// pitch up
 					clear();
-					cout << "Increasing pitch by 5%";
+					std::cout << "Increasing pitch by 5%";
 					float current = currentItem->GetChannel()->GetPitch();
 					currentItem->GetChannel()->SetPitch(current * 1.05f);
 					float newvolume = currentItem->GetChannel()->GetPitch();
-					cout << " Old: " << current << " New: " << newvolume << endl;
+					std::cout << " Old: " << current << " New: " << newvolume << std::endl;
 					break;
 				}
 				case 'p':
@@ -481,7 +476,7 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 					clear();
 					bool pause = currentItem->GetChannel()->isPaused();
 					std::string s = (pause) ? "Resuming" : "Pausing";
-					cout << s << " - The Stream" << endl;
+					std::cout << s << " - The Stream" << std::endl;
 					currentItem->GetChannel()->Pause(!pause);
 					break;
 				}
@@ -490,11 +485,11 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 				{
 					// pitch down
 					clear();
-					cout << "Decreasing pan by 5%";
+					std::cout << "Decreasing pan by 5%";
 					float current = currentItem->GetChannel()->GetPitch();
 					currentItem->GetChannel()->SetPitch(current * 0.95f);
 					float newvolume = currentItem->GetChannel()->GetPitch();
-					cout << " Old: " << current << " New: " << newvolume << endl;
+					std::cout << " Old: " << current << " New: " << newvolume << std::endl;
 					break;
 				}
 				case 27: //ESC key pressed
@@ -505,11 +500,11 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 				default:
 				{
 					clear();
-					cout << "Unknown item " << cur << endl;
+					std::cout << "Unknown item " << cur << std::endl;
 					// We want to play another audio sound
 				}
 				}
-				cout << help.str();
+				std::cout << help.str();
 				Sleep(10);
 			}
 			Sleep(10);
@@ -522,6 +517,6 @@ void test_Audio(cAssetManager &assetManager, cAudio_System& gAudioSystem)
 	}
 	catch (...)
 	{
-		cout << "Unknown Exception";
+		std::cout << "Unknown Exception";
 	}
 }

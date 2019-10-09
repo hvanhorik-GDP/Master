@@ -5,11 +5,22 @@
     <ClCompile Include="cObjectManager_Audio.cpp" />
     <ClCompile Include="cObjectManager_impl.cpp" />
     <ClCompile Include="iObjectManager.cpp" />
+    <ClCompile Include="cGameObject.cpp">
+      <Filter>Reference</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cObjectManager_Audio.h" />
     <ClInclude Include="cObjectManager_impl.h" />
     <ClInclude Include="iObjectManager.h" />
+    <ClInclude Include="cGameObject.h">
+      <Filter>Reference</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Reference">
+      <UniqueIdentifier>{574e3283-2a6f-4810-be0f-8e8f04e5b464}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

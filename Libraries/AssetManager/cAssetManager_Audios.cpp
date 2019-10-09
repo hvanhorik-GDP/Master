@@ -86,7 +86,7 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 
 								// Write the properties to the xml file
 								Properties prop = file.GetProperties();
-								prop.AddProperty("exists", "bool", std::to_string(false));
+								prop.AddProperty("exists", "bool", std::to_string(true));
 								prop.AddProperty("bits", "int", std::to_string(format.bits));
 								prop.AddProperty("channels", "int", std::to_string(format.channels));
 								prop.AddProperty("format", "string", cAudio_Sound_FMOD::get_format_string(format.format));

@@ -72,26 +72,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries\gl_OpenGL;$(SolutionDir)Libraries\Managers;$(SolutionDir)Libraries\AudioEngine;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries\gl_OpenGL;$(SolutionDir)Libraries\Managers;$(SolutionDir)Libraries\AudioEngine;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries\gl_OpenGL;$(SolutionDir)Libraries\Managers;$(SolutionDir)Libraries\AudioEngine;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries\gl_OpenGL;$(SolutionDir)Libraries\Managers;$(SolutionDir)Libraries\AudioEngine;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -103,6 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,6 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,6 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,6 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,22 +171,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Callbacks.cpp" />
-    <ClCompile Include="cVAOManager.cpp" />
-    <ClCompile Include="glad.c" />
-    <ClCompile Include="open_gl.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="GFLW_Callbacks.cpp" />
+    <ClCompile Include="test_AudioEngine.cpp" />
+    <ClCompile Include="test_filesystem.cpp" />
+    <ClCompile Include="test_GDP2019.cpp" />
+    <ClCompile Include="test_gl.cpp" />
+    <ClCompile Include="Master.cpp" />
     <ClCompile Include="test_Audio.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Callbacks.h" />
-    <ClInclude Include="cVAOManager.h" />
-    <ClInclude Include="glad.h" />
+    <ClInclude Include="GFLW_Callbacks.h" />
+    <ClInclude Include="globalStuff.h" />
     <ClInclude Include="Master.h" />
-    <ClInclude Include="vGameObject.h" />
+    <ClInclude Include="test_Audio.h" />
+    <ClInclude Include="test_AudioEngine.h" />
+    <ClInclude Include="test_filesystem.h" />
+    <ClInclude Include="test_GDP2019.h" />
+    <ClInclude Include="test_gl.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GameLibrary - Copy.xml" />
+    <Xml Include="..\assets\GameLibrary   copy.xml" />
     <Xml Include="..\assets\GameLibrary.xml" />
     <Xml Include="output.xml" />
   </ItemGroup>
@@ -201,9 +209,6 @@
     <None Include="..\assets\models\Sky_Pirate_Combined_xyz_n.ply" />
     <None Include="..\assets\models\Sphere_Radius_1_XYZ_n.ply" />
     <None Include="..\assets\models\Terrain_XYZ_n.ply" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\assets\models\foo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

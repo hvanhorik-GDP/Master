@@ -34,17 +34,44 @@
     <Asset name="BigFlatTerrain_XYZ_n">
       <AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
     </Asset>
+     <Asset name="bun_zipper_XYZ">
+      <AssetFile>bun_zipper_XYZ.ply</AssetFile>
+    </Asset>
     <Asset name="bun_zipper_XYZ_n">
       <AssetFile>bun_zipper_XYZ_n.ply</AssetFile>
     </Asset>
     <Asset name="bun_zipper_res2_XYZ">
       <AssetFile>bun_zipper_res2_XYZ.ply</AssetFile>
     </Asset>
+    <Asset name="bun_zipper_res2_XYZ_n">
+      <AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res3_XYZ">
+      <AssetFile>bun_zipper_res3_XYZ.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res3_XYZ_n">
+      <AssetFile>bun_zipper_res3_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res4_XYZ">
+      <AssetFile>bun_zipper_res4_XYZ.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res4_XYZ_n">
+      <AssetFile>bun_zipper_res4_XYZ_n.ply</AssetFile>
+    </Asset>
     <Asset name="Cube_1_Unit_from_origin_XYZ_n">
       <AssetFile>Cube_1_Unit_from_origin_XYZ_n.ply</AssetFile>
     </Asset>
-    <Asset name="bun_zipper_res2_XYZ_n">
-      <AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
+    <Asset name="cube_Low_Hi_xyz_n">
+      <AssetFile>cube_Low_Hi_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="cube_Low_Res_xyz_n">
+      <AssetFile>cube_Low_Res_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Entire_Babbage_Space_Station_xyz_n">
+      <AssetFile>Entire_Babbage_Space_Station_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Large_Physics_Bunny_XYZ_N">
+      <AssetFile>Large_Physics_Bunny_XYZ_N.ply</AssetFile>
     </Asset>
     <Asset name="Sky_Pirate_Combined_xyz">
       <AssetFile>Sky_Pirate_Combined_xyz.ply</AssetFile>
@@ -57,9 +84,6 @@
     </Asset>
     <Asset name="Terrain_XYZ_n">
       <AssetFile>Terrain_XYZ_n.ply</AssetFile>
-    </Asset>
-   <Asset name="bun_zipper_XYZ">
-      <AssetFile>bun_zipper_XYZ.ply</AssetFile>
     </Asset>
     <Asset name="12953_ChocolateRabbit_v1">
       <AssetFile>./Bunnies/12953_ChocolateRabbit_v1.ply</AssetFile>
