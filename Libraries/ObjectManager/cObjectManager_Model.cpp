@@ -39,9 +39,7 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 			std::string type = PropertyType.GetValue();
 			std::string name = PropertyName.GetValue();
 			std::string value = PropertyValue.GetValue();
-			if (name == "meshName")
-				object->meshName = value;
-			else if (name == "positionXYZ")
+			if (name == "positionXYZ")
 				object->positionXYZ = cFormat::LoadVec3(value);
 			else if (name == "rotationXYZ")
 				object->rotationXYZ = cFormat::LoadVec3(value);
@@ -151,7 +149,7 @@ void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* 
 	// Write all of the properties
 //	gamelibrary::Properties properties(node);
 
-	libObject.AddProperty("meshName", "string", object->meshName);
+//	libObject.AddProperty("meshName", "string", object->meshName);
 	libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(object->positionXYZ));
 	libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(object->rotationXYZ));
 	libObject.AddProperty("scale", "float", cFormat::PackFloat(object->scale));

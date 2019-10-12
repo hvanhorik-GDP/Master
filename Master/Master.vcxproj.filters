@@ -32,6 +32,14 @@
     <ClCompile Include="test_AudioEngine.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
+    <ClCompile Include="LoadGLFW.cpp" />
+    <ClCompile Include="globalStuff.cpp" />
+    <ClCompile Include="pFindObjectByFriendlyName.cpp" />
+    <ClCompile Include="LightDebugSheres.cpp" />
+    <ClCompile Include="save stuff.cpp" />
+    <ClCompile Include="HandleDebugBallPhysics.cpp" />
+    <ClCompile Include="HandleDebugPirate.cpp" />
+    <ClCompile Include="HandleDebugLights.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Master.h" />
@@ -52,6 +60,12 @@
     <ClInclude Include="test_AudioEngine.h">
       <Filter>Tests</Filter>
     </ClInclude>
+    <ClInclude Include="LoadGLFW.h" />
+    <ClInclude Include="pFindObjectByFriendlyName.h" />
+    <ClInclude Include="LightDebugSheres.h" />
+    <ClInclude Include="HandleDebugBallPhysics.h" />
+    <ClInclude Include="HandleDebugPirate.h" />
+    <ClInclude Include="HandleDebugLights.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\output.xml">
@@ -61,6 +75,9 @@
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary xxxx.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\GameLibrary ddd.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary.xml">

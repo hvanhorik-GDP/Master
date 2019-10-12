@@ -172,6 +172,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GFLW_Callbacks.cpp" />
+    <ClCompile Include="globalStuff.cpp" />
+    <ClCompile Include="HandleDebugBallPhysics.cpp" />
+    <ClCompile Include="HandleDebugLights.cpp" />
+    <ClCompile Include="HandleDebugPirate.cpp" />
+    <ClCompile Include="LightDebugSheres.cpp" />
+    <ClCompile Include="LoadGLFW.cpp" />
+    <ClCompile Include="pFindObjectByFriendlyName.cpp" />
+    <ClCompile Include="save stuff.cpp" />
     <ClCompile Include="test_AudioEngine.cpp" />
     <ClCompile Include="test_filesystem.cpp" />
     <ClCompile Include="test_GDP2019.cpp" />
@@ -182,7 +190,13 @@
   <ItemGroup>
     <ClInclude Include="GFLW_Callbacks.h" />
     <ClInclude Include="globalStuff.h" />
+    <ClInclude Include="HandleDebugBallPhysics.h" />
+    <ClInclude Include="HandleDebugLights.h" />
+    <ClInclude Include="HandleDebugPirate.h" />
+    <ClInclude Include="LightDebugSheres.h" />
+    <ClInclude Include="LoadGLFW.h" />
     <ClInclude Include="Master.h" />
+    <ClInclude Include="pFindObjectByFriendlyName.h" />
     <ClInclude Include="test_Audio.h" />
     <ClInclude Include="test_AudioEngine.h" />
     <ClInclude Include="test_filesystem.h" />
@@ -193,6 +207,7 @@
     <Xml Include="..\assets\GameLibrary xxxx.xml" />
     <Xml Include="..\assets\output.xml" />
     <Xml Include="..\assets\GameLibrary xxx.xml" />
+    <Xml Include="..\assets\GameLibrary ddd.xml" />
     <Xml Include="..\assets\GameLibrary.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -9,9 +9,11 @@
 			<AssetFile>fragmentShader01.glsl</AssetFile>
 			<Property name="isValid" type="bool" value="1"/>
 			<Property name="isValid" type="bool" value="1"/>
+			<Property name="isValid" type="bool" value="1"/>
 		</Asset>
 		<Asset name="vertexShader01" type="vertex">
 			<AssetFile>vertexShader01.glsl</AssetFile>
+			<Property name="isValid" type="bool" value="1"/>
 			<Property name="isValid" type="bool" value="1"/>
 			<Property name="isValid" type="bool" value="1"/>
 		</Asset>
@@ -493,6 +495,8 @@
 		<AssetRoot>../assets/audios/</AssetRoot>
 		<Asset name="NonExistant File2">
 			<AssetFile>NonExistant2.mp3</AssetFile>
+			<Property name="exists" type="bool" value="0"/>
+			<Property name="Error" type="string" value="File does not exists"/>
 			<Property name="exists" type="bool" value="0"/>
 			<Property name="Error" type="string" value="File does not exists"/>
 			<Property name="exists" type="bool" value="0"/>
@@ -1010,6 +1014,27 @@
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="debug_sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="meshName" type="string" value="sphere"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.100000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 0 0 0"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="true"/>
+			<Property name="debugColour" type="vec4" value="0 1 0 1"/>
+			<Property name="isVisible" type="bool" value="false"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>

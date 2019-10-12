@@ -1,5 +1,9 @@
 #include "cPhysics.h"
 
+// glm::translate, glm::rotate, glm::scale, glm::perspective
+#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+
+
 cPhysics::cPhysics()
 {
 	// This is a typical Earth gravity value. 
@@ -273,4 +277,53 @@ void cPhysics::CalculateTransformedMesh(cItem_Model& originalMesh, glm::mat4 mat
 	}
 
 	return;
+}
+
+
+// This is JUST the transformation lines from the DrawObject call
+glm::mat4 cPhysics::calculateWorldMatrix(cObject_Model& pCurrentObject)
+{
+
+	glm::mat4 matWorld = glm::mat4(1.0f);
+
+
+	// ******* TRANSLATION TRANSFORM *********
+	glm::mat4 matTrans
+		= glm::translate(glm::mat4(1.0f),
+			glm::vec3(pCurrentObject.positionXYZ.x,
+				pCurrentObject.positionXYZ.y,
+				pCurrentObject.positionXYZ.z));
+	matWorld = matWorld * matTrans;
+	// ******* TRANSLATION TRANSFORM *********
+
+
+	// ******* ROTATION TRANSFORM *********
+	//mat4x4_rotate_Z(m, m, (float) glfwGetTime());
+	glm::mat4 rotateZ = glm::rotate(glm::mat4(1.0f),
+		pCurrentObject.rotationXYZ.z,					// Angle 
+		glm::vec3(0.0f, 0.0f, 1.0f));
+	matWorld = matWorld * rotateZ;
+
+	glm::mat4 rotateY = glm::rotate(glm::mat4(1.0f),
+		pCurrentObject.rotationXYZ.y,	//(float)glfwGetTime(),					// Angle 
+		glm::vec3(0.0f, 1.0f, 0.0f));
+	matWorld = matWorld * rotateY;
+
+	glm::mat4 rotateX = glm::rotate(glm::mat4(1.0f),
+		pCurrentObject.rotationXYZ.x,	// (float)glfwGetTime(),					// Angle 
+		glm::vec3(1.0f, 0.0f, 0.0f));
+	matWorld = matWorld * rotateX;
+	// ******* ROTATION TRANSFORM *********
+
+
+
+	// ******* SCALE TRANSFORM *********
+	glm::mat4 scale = glm::scale(glm::mat4(1.0f),
+		glm::vec3(pCurrentObject.scale,
+			pCurrentObject.scale,
+			pCurrentObject.scale));
+	matWorld = matWorld * scale;
+	// ******* SCALE TRANSFORM *********
+
+	return matWorld;
 }

@@ -67,7 +67,7 @@ public:
 	void CalculateTransformedMesh(cItem_Model &originalMesh, glm::mat4 matWorld,
 		cItem_Model &mesh_transformedInWorld );
 
-
+	static glm::mat4 calculateWorldMatrix(cObject_Model& pCurrentObject);
 private:
 
 	// Does collision test and returns collision information

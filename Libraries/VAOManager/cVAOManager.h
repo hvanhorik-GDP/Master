@@ -2,13 +2,16 @@
 #define _cVAOManager_HG_
 
 #include "GLCommon.h"
+#include <glm/glm.hpp>
+
 
 // Will load the models and place them 
 // into the vertex and index buffers to be drawn
 
 #include <string>
 #include <map>
-#include "../AssetItems/cItem_Model.h"
+#include "AssetItems/cItem_Model.h"
+#include "ObjectItems/cObject_Model.h"
 
 #pragma comment(lib, "VAOManager.lib")
 
@@ -64,8 +67,7 @@ class cVAOManager
 public:
 
 	// Takes a cMesh object and copies it into the GPU (as a VOA)
-	bool LoadModelIntoVAO(std::string fileName, 
-						  cItem_Model &theMesh,				// NEW
+	bool LoadModelIntoVAO(cItem_Model &theMesh,				// NEW
 						  sModelDrawInfo &drawInfo, 
 						  unsigned int shaderProgramID);
 
@@ -74,6 +76,10 @@ public:
 								 sModelDrawInfo &drawInfo);
 
 	std::string getLastError(bool bAndClear = true);
+	
+	void DrawObject(glm::mat4 m,
+		cObject_Model* pCurrentObject,
+		GLint shaderProgID);
 
 private:
 

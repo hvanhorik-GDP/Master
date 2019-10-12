@@ -38,7 +38,7 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 
 	friend class cObjectManager_Model;
 	// Used to draw this mesh
-	std::string meshName;			//"Pirate"
+//	std::string meshName;			//"Pirate"  - Now uses the asset_id
 
 	// Values that we can assign and then look for them
 	unsigned int friendlyIDNumber;

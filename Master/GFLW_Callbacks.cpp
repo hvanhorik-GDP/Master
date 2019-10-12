@@ -6,6 +6,7 @@
 #include <glm/vec4.hpp>
 
 #include "globalStuff.h"			// for find object
+#include "pFindObjectByFriendlyName.h"
 
 #include <stdio.h>		// for fprintf()
 
