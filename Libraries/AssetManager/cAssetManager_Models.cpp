@@ -1,7 +1,8 @@
 #include "cAssetManager_Models.h"
-#include "./AssetItems/cItem_Model.h"
+#include "AssetItems/cItem_Model.h"
 #include "GameLibrary/AssetGroups.h"
-#include "../Models/cPlyLoader.h"
+#include "Models/cPlyLoader.h"
+#include "Utilities/cFormat.h"
 #include <iostream>
 #include <sstream>
 
@@ -40,36 +41,31 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 						AssetFile fileName = file.GetAssetFile();
 						std::string fullPath = rootPath + fileName.GetValue();
 						std::cout << fullPath << std::endl;
-						//std::cout << __FILE__ << __LINE__ << "Found an asset" << std::endl;
 
 						std::string id = assetName.GetValue();
 						auto parent = file.GetParent();
 						cItem_Model* item = new cItem_Model(id, fullPath, parent, i);
 						auto val = subtype.GetValue();
 						m_map_items[item->GetAssetID()] = item;
-
-						// TODO - merge mesh and cItem_Model
-						cMyMesh mesh;
 						cPlyLoader loader;
 						// Just load the header for speed
-						bool ok = loader.LoadPlyModelInfo(fullPath, mesh);
-						Properties prop = file.GetProperties();
-						prop.AddProperty("exists", "bool", std::to_string(mesh.m_fileExists));
-						prop.AddProperty("valid", "bool", std::to_string(mesh.m_isValid));
+						bool ok = loader.LoadPlyModelInfo(fullPath, *item);
+						file.AddProperty("exists", "bool", std::to_string(item->m_fileExists));
+						file.AddProperty("valid", "bool", std::to_string(item->m_isValid));
 						if (ok)
 						{
 							// Write the properties to the xml file
-							prop.AddProperty("type", "enum", mesh.m_type);
-							prop.AddProperty("format", "string", mesh.m_format);
-							prop.AddProperty("vertex", "int", std::to_string(mesh.m_vertices));
-							for (auto in : mesh.m_vecProperties)
+							file.AddProperty("type", "enum", item->m_type);
+							file.AddProperty("format", "string", item->m_format);
+							file.AddProperty("vertex", "int", cFormat::PackInt(item->m_vertices));
+							for (auto in : item->m_vecProperties)
 							{
-								prop.AddProperty("property", in.type, in.name);
+								file.AddProperty(in.name, in.type, "" );
 							}
-							prop.AddProperty("face", "int", std::to_string(mesh.m_faces));
-							prop.AddProperty("valid", "bool", std::to_string(mesh.m_isValid));
-							prop.AddProperty("normals", "bool", std::to_string(mesh.m_hasNormals));
-							prop.AddProperty("colours", "bool", std::to_string(mesh.m_hasColor));
+							file.AddProperty("face", "int", cFormat::PackInt(item->m_faces));
+							file.AddProperty("valid", "bool", cFormat::PackBool(item->m_isValid));
+							file.AddProperty("normals", "bool", cFormat::PackBool(item->m_hasNormals));
+							file.AddProperty("colours", "bool", cFormat::PackBool(item->m_hasColor));
 						}
 					}
 				}

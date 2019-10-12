@@ -8,8 +8,7 @@
 
 #include <string>
 #include <map>
-#include "..//Models/cMesh.h"
-//#include "cMesh.h"				// File as loaded from the file
+#include "../AssetItems/cItem_Model.h"
 
 #pragma comment(lib, "VAOManager.lib")
 
@@ -66,7 +65,7 @@ public:
 
 	// Takes a cMesh object and copies it into the GPU (as a VOA)
 	bool LoadModelIntoVAO(std::string fileName, 
-						  cMesh &theMesh,				// NEW
+						  cItem_Model &theMesh,				// NEW
 						  sModelDrawInfo &drawInfo, 
 						  unsigned int shaderProgramID);
 

@@ -3,7 +3,7 @@
 #include <cassert>
 
 
-cAssetManager_impl* m_cAssetManager_impl;		// The one and only
+cAssetManager_impl* m_cAssetManager_impl = NULL;		// The one and only
 
 cAssetManager::cAssetManager()
 {

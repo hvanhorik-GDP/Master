@@ -1,11 +1,12 @@
 #pragma once
 
 //#include "cGameObject.h"
-#include "..//Libraries/ObjectManager/cGameObject.h"
+//#include "../Libraries/ObjectManager/cGameObject.h"
+#include "../Libraries/ObjectItems/cObject_Model.h"
 
 // returns NULL (0) if we didn't find it.
-cGameObject* pFindObjectByFriendlyName( std::string name );
-cGameObject* pFindObjectByFriendlyNameMap( std::string name );
+cObject_Model* pFindObjectByFriendlyName( std::string name );
+//cObject_Model* pFindObjectByFriendlyNameMap( std::string name );
 
 
 // These are defined in theMain.cpp

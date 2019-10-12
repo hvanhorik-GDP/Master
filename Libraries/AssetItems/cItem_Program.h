@@ -14,6 +14,7 @@ public:
 		int m_index;
 		unsigned int m_type;
 		int m_size;
+		int m_location;
 		std::string m_name;
 	};
 

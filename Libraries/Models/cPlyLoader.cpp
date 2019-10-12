@@ -16,7 +16,7 @@ cPlyLoader::~cPlyLoader()			// destructor
 	return;
 }
 
-bool LoadThePlyHeader(std::istream& theFile, cMyMesh& theMesh)
+bool cPlyLoader::LoadThePlyHeader(std::istream& theFile, cItem_Model& theMesh)
 {
 	// Scan the file until I get to "vertex", and stop
 	std::string temp;
@@ -25,7 +25,6 @@ bool LoadThePlyHeader(std::istream& theFile, cMyMesh& theMesh)
 	theFile >> temp;
 	while (temp != "end_header")
 	{
-		std::cout << temp;
 		if (temp == "ply")
 			theMesh.m_type = temp;
 		if (temp == "format")
@@ -38,17 +37,17 @@ bool LoadThePlyHeader(std::istream& theFile, cMyMesh& theMesh)
 		{
 			if (theMesh.m_faces == 0)
 			{
-				cMyMesh::property v;
+				cItem_Model::property v;
 				theFile >> v.type >> v.name;
 				theMesh.m_vecProperties.push_back(v);
 			}
-			else
-			{
-				std::getline(theFile, temp);
-				cMyMesh::property v;
-				v.type = "last";
-				theMesh.m_vecProperties.push_back(v);
-			}
+			//else
+			//{
+			//	std::getline(theFile, temp);
+			//	cItem_Model::property v;
+			//	v.type = "last";
+			//	theMesh.m_vecProperties.push_back(v);
+			//}
 		}
 		theFile >> temp;
 	}
@@ -66,7 +65,6 @@ bool LoadThePlyHeader(std::istream& theFile, cMyMesh& theMesh)
 	{
 		if (prop.name == "x")
 		{
-//			theMesh.m_hasNormals = true;
 			total += 3;
 		}
 		if (prop.name == "nx")
@@ -91,13 +89,13 @@ bool LoadThePlyHeader(std::istream& theFile, cMyMesh& theMesh)
 }
 
 
-bool LoadThePlyBody(std::istream& theFile, cMyMesh& theMesh)
+bool cPlyLoader::LoadThePlyBody(std::istream& theFile, cItem_Model& theMesh)
 {
 	// Read all the vertices
 	for (unsigned int index = 0; index != theMesh.m_vertices; index++)
 	{
 		// -0.0312216 0.126304 0.00514924
-		sPlyVertexXYZ tempVertex;
+		cItem_Model::sPlyVertexXYZ tempVertex;
 
 		theFile >> tempVertex.x >> tempVertex.y >> tempVertex.z;
 
@@ -118,7 +116,7 @@ bool LoadThePlyBody(std::istream& theFile, cMyMesh& theMesh)
 	{
 		// 3 166 210 265 
 		int discardThis;
-		sPlyTriangle tempTriangle;
+		cItem_Model::sPlyTriangle tempTriangle;
 
 		theFile >> discardThis
 			>> tempTriangle.vert_index_1
@@ -133,7 +131,7 @@ bool LoadThePlyBody(std::istream& theFile, cMyMesh& theMesh)
 }
 
 bool cPlyLoader::LoadPlyModelInfo(const std::string& filename,
-	cMyMesh& theMesh)
+	cItem_Model& theMesh)
 {
 
 	std::ifstream theFile(filename.c_str());
@@ -152,7 +150,7 @@ bool cPlyLoader::LoadPlyModelInfo(const std::string& filename,
 // Returns by ref the mesh
 bool cPlyLoader::LoadPlyModel(
 	const std::string& filename,
-	cMyMesh& theMesh)
+	cItem_Model& theMesh)
 {
 	std::ifstream theFile(filename.c_str());
 	if (!theFile.is_open())

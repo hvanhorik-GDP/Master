@@ -22,16 +22,15 @@ glm::vec3 cPhysics::getGravity(void)
 }
 
 
-void cPhysics::IntegrationStep(std::vector<cGameObject*>& vec_pGameObjects, float deltaTime)
+void cPhysics::IntegrationStep(iObjectManager::iObject_map& map_pGameObjects, float deltaTime)
 {
 
 
-	for (unsigned int index = 0;
-		 index != vec_pGameObjects.size(); index++)
+	for (auto object : map_pGameObjects)
 	{
 		// Get a pointer to the current object (makes the code a little clearer)
-		cGameObject* pCurObj = vec_pGameObjects[index];
-
+		cObject_Model* pCurObj = dynamic_cast<cObject_Model*>(object.second);
+		assert(pCurObj);
 		if (pCurObj->inverseMass != 0.0f)
 		{
 
@@ -64,7 +63,7 @@ void cPhysics::IntegrationStep(std::vector<cGameObject*>& vec_pGameObjects, floa
 
 
 // Returns all the triangles and the closest points
-void cPhysics::GetClosestTriangleToPoint(Point pointXYZ, cMesh& mesh, glm::vec3& closestPoint, sPhysicsTriangle& closestTriangle)
+void cPhysics::GetClosestTriangleToPoint(Point pointXYZ, cItem_Model& mesh, glm::vec3& closestPoint, sPhysicsTriangle& closestTriangle)
 {
 
 	// Assume the closest distance is REALLY far away
@@ -72,15 +71,15 @@ void cPhysics::GetClosestTriangleToPoint(Point pointXYZ, cMesh& mesh, glm::vec3&
 
 
 	for (unsigned int triIndex = 0;
-		 triIndex != mesh.vecTriangles.size();
+		 triIndex != mesh.m_vecTriangles.size();
 		 triIndex++)
 	{
-		sPlyTriangle& curTriangle = mesh.vecTriangles[triIndex];
+		cItem_Model::sPlyTriangle& curTriangle = mesh.m_vecTriangles[triIndex];
 
 		// Get the vertices of the triangle
-		sPlyVertexXYZ_N triVert1 = mesh.vecVertices[curTriangle.vert_index_1];
-		sPlyVertexXYZ_N triVert2 = mesh.vecVertices[curTriangle.vert_index_2];
-		sPlyVertexXYZ_N triVert3 = mesh.vecVertices[curTriangle.vert_index_3];
+		cItem_Model::sPlyVertexXYZ triVert1 = mesh.m_vecVertices[curTriangle.vert_index_1];
+		cItem_Model::sPlyVertexXYZ triVert2 = mesh.m_vecVertices[curTriangle.vert_index_2];
+		cItem_Model::sPlyVertexXYZ triVert3 = mesh.m_vecVertices[curTriangle.vert_index_3];
 
 		Point triVertPoint1;
 		triVertPoint1.x = triVert1.x;
@@ -139,7 +138,7 @@ void cPhysics::GetClosestTriangleToPoint(Point pointXYZ, cMesh& mesh, glm::vec3&
 
 // Will return the closest triangles that are within the range "distanceRange".
 // This can be used as a "closest triangles to sphere"
-void cPhysics::GetClosestTrianglesToSphere(cGameObject& testSphere, float distanceRange, cMesh& mesh, std::vector<sPhysicsTriangle>& vecClosestTriangles)
+void cPhysics::GetClosestTrianglesToSphere(cObject_Model& testSphere, float distanceRange, cItem_Model& mesh, std::vector<sPhysicsTriangle>& vecClosestTriangles)
 {
 
 
@@ -147,62 +146,64 @@ void cPhysics::GetClosestTrianglesToSphere(cGameObject& testSphere, float distan
 }
 
 // Test each object with every other object
-void cPhysics::TestForCollisions(std::vector<cGameObject*>& vec_pGameObjects)
+void cPhysics::TestForCollisions(iObjectManager::iObject_map& map_pGameObjects)
 {
 	// This will store all the collisions in this frame
 	std::vector<sCollisionInfo> vecCollisions;
 
 	sCollisionInfo collisionInfo;
 
-	for (unsigned int outerLoopIndex = 0;
-		 outerLoopIndex != vec_pGameObjects.size(); outerLoopIndex++)
+	// Set up loop so we don't compare against ourselves or check objects twice
+//	auto outer = map_pGameObjects.begin();
+	auto outerend = map_pGameObjects.end();
+	outerend--;
+	//auto inner = outer;
+	//inner++;
+//	auto innerend = map_pGameObjects.end();
+
+	for (auto outerObject = map_pGameObjects.begin(); outerObject != outerend; ++outerObject)
 	{
-		for (unsigned int innerLoopIndex = 0;
-			 innerLoopIndex != vec_pGameObjects.size(); innerLoopIndex++)
-		{ 
-			cGameObject* pA = vec_pGameObjects[outerLoopIndex];
-			cGameObject* pB = vec_pGameObjects[innerLoopIndex];
+		// Get a pointer to the current object (makes the code a little clearer)
+		auto inner = outerObject;
+		inner++;
+		for (auto innerObject = inner; innerObject != map_pGameObjects.end(); ++innerObject)
+		{
+			cObject_Model* pA = dynamic_cast<cObject_Model*>(outerObject->second);
+			cObject_Model* pB = dynamic_cast<cObject_Model*>(innerObject->second);
 
-
-
-			// Note that if you don't respond to the 
-			// collision here, then you will get the same
-			// result twice (Object "A" with "B" and later, 
-			//   object "B" with "A" - but it's the same collison
-
-			// Compare the two objects:
-			// Either a sphere-sphere or sphere-mesh
-			// An I testing the object with itself? 
-			//if (pA == pB)
-			if ( pA->getUniqueID() == pB->getUniqueID() )
-			{	
-				// It's the same object
-				// Do nothing
-			}
-			else if (pA->physicsShapeType == SPHERE &&
-				pB->physicsShapeType == SPHERE)
+			if (pA == pB)
+				assert(false);		// huh
+			if (pA->physicsShapeType == cObject_Model::SPHERE &&
+				pB->physicsShapeType == cObject_Model::SPHERE)
 			{
 				if (DoSphereSphereCollisionTest(pA, pB, collisionInfo))
 				{
 					vecCollisions.push_back(collisionInfo);
 				}
 			}
-			else if (pA->physicsShapeType == SPHERE &&
-					 pB->physicsShapeType == MESH)
+			else if (pA->physicsShapeType == cObject_Model::SPHERE &&
+					 pB->physicsShapeType == cObject_Model::MESH)
 			{
 				if (DoShphereMeshCollisionTest(pA, pB, collisionInfo))
 				{
 					vecCollisions.push_back(collisionInfo);
 				}
 			}
+			else if (pA->physicsShapeType == cObject_Model::MESH &&
+				pB->physicsShapeType == cObject_Model::SPHERE)
+			{
+				// Backwards this time.
+				if (DoShphereMeshCollisionTest(pB, pA, collisionInfo))
+				{
+					vecCollisions.push_back(collisionInfo);
+				}
+			}
 		
-		
-		}//for (unsigned int innerLoopIndex = 0;
-	}//for (unsigned int outerLoopIndex = 0;
-
+		} //for (auto innerObject = inner; innerObject != innerend; ++innerObject)
+	} //for (auto outerObject = outer; outerObject != outerend; ++outerObject)
 }
 
-bool cPhysics::DoSphereSphereCollisionTest(cGameObject* pA, cGameObject* pB,
+bool cPhysics::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model* pB,
 								 sCollisionInfo& collisionInfo)
 {
 	// TODO: 
@@ -212,7 +213,7 @@ bool cPhysics::DoSphereSphereCollisionTest(cGameObject* pA, cGameObject* pB,
 
 	return false;
 }
-bool cPhysics::DoShphereMeshCollisionTest(cGameObject* pA, cGameObject* pB,
+bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pA, cObject_Model* pB,
 								sCollisionInfo& collisionInfo)
 {
 	// TODO: Do the sphere-Mesh collision test
@@ -224,8 +225,8 @@ bool cPhysics::DoShphereMeshCollisionTest(cGameObject* pA, cGameObject* pB,
 }
 
 // Takes a mesh in "model space" and converts it into "world space"
-void cPhysics::CalculateTransformedMesh(cMesh& originalMesh, glm::mat4 matWorld,
-										cMesh& mesh_transformedInWorld)
+void cPhysics::CalculateTransformedMesh(cItem_Model& originalMesh, glm::mat4 matWorld,
+										cItem_Model& mesh_transformedInWorld)
 {
 	// Make a copy of the mesh...
 
@@ -238,8 +239,8 @@ void cPhysics::CalculateTransformedMesh(cMesh& originalMesh, glm::mat4 matWorld,
 	// fVertWorldLocation = matModel * vec4(vertPosition.xyz, 1.0);
 	//
 
-	for (std::vector<sPlyVertexXYZ_N>::iterator itVert = mesh_transformedInWorld.vecVertices.begin();
-		 itVert != mesh_transformedInWorld.vecVertices.end(); itVert++)
+	for (std::vector<cItem_Model::sPlyVertexXYZ>::iterator itVert = mesh_transformedInWorld.m_vecVertices.begin();
+		 itVert != mesh_transformedInWorld.m_vecVertices.end(); itVert++)
 	{
 		glm::vec4 vertex = glm::vec4(itVert->x, itVert->y, itVert->z, 1.0f);
 

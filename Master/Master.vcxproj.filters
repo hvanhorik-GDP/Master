@@ -10,6 +10,9 @@
     <Filter Include="Tests">
       <UniqueIdentifier>{367be525-4c8f-4a4d-85fd-2a47cf3c3703}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\shaders">
+      <UniqueIdentifier>{ed592962-3f94-4b87-a466-6e6a4dfd0435}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_Audio.cpp">
@@ -51,13 +54,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="output.xml">
-      <Filter>Assets</Filter>
-    </Xml>
     <Xml Include="..\assets\GameLibrary   copy.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\output2.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\output.xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>
@@ -65,34 +71,19 @@
     <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply">
       <Filter>Assets\models</Filter>
     </None>
-    <None Include="..\assets\models\bun_zipper_res2_XYZ.ply">
-      <Filter>Assets\models</Filter>
-    </None>
     <None Include="..\assets\models\bun_zipper_res2_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\bun_zipper_res3_XYZ.ply">
       <Filter>Assets\models</Filter>
     </None>
     <None Include="..\assets\models\bun_zipper_res3_XYZ_n.ply">
       <Filter>Assets\models</Filter>
     </None>
-    <None Include="..\assets\models\bun_zipper_res4_XYZ.ply">
-      <Filter>Assets\models</Filter>
-    </None>
     <None Include="..\assets\models\bun_zipper_res4_XYZ_N.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\bun_zipper_XYZ.ply">
       <Filter>Assets\models</Filter>
     </None>
     <None Include="..\assets\models\bun_zipper_XYZ_n.ply">
       <Filter>Assets\models</Filter>
     </None>
     <None Include="..\assets\models\Cube_1_Unit_from_origin_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\Sky_Pirate_Combined_xyz.ply">
       <Filter>Assets\models</Filter>
     </None>
     <None Include="..\assets\models\Sky_Pirate_Combined_xyz_n.ply">
@@ -104,5 +95,37 @@
     <None Include="..\assets\models\Terrain_XYZ_n.ply">
       <Filter>Assets\models</Filter>
     </None>
+    <None Include="..\assets\shaders\vertexShader01.glsl">
+      <Filter>Assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\fragmentShader01.glsl">
+      <Filter>Assets\shaders</Filter>
+    </None>
+    <None Include="..\assets\models\cube_Low_Hi_xyz_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\cube_Low_Res_xyz_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Entire_Babbage_Space_Station_xyz_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Large_Physics_Bunny_XYZ_n.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\15982_Great_Pyramids_v1.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\pyramid.ply">
+      <Filter>Assets\models</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\assets\keys.txt">
+      <Filter>Assets</Filter>
+    </Text>
   </ItemGroup>
 </Project>

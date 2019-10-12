@@ -1,6 +1,7 @@
 #pragma once
 #include "./XML/XMLNodeBase.h"
 #include "AssetGroups.h"
+#include "Objects.h"
 #include <ostream>
 
 #pragma comment (lib, "GameLibrary.lib")
@@ -30,6 +31,7 @@ namespace gamelibrary
 		// Methods for elements
 		GameName GetGameName() const { return GameName(GetNode()); }
 		AssetGroups GetAssetGroups() const { return AssetGroups(GetNode()); }
+		Objects GetObjects() const;
 	private:
 		static const std::string gName;
 	};

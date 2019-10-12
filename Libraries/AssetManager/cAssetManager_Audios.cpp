@@ -1,8 +1,9 @@
 #include "cAssetManager_Audios.h"
 #include "GAmeLibrary/AssetGroups.h"
-#include "../../AudioEngine/cAudio_System.h"
-#include "../../AudioEngine/cAudio_System_FMOD.h"
-#include "..//AssetItems/cItem_Audio.h"
+#include "AudioEngine/cAudio_System.h"
+#include "AudioEngine/cAudio_System_FMOD.h"
+#include "AssetItems/cItem_Audio.h"
+#include "Utilities/cFormat.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -85,15 +86,15 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 								item->m_format.type = format.type;
 
 								// Write the properties to the xml file
-								Properties prop = file.GetProperties();
-								prop.AddProperty("exists", "bool", std::to_string(true));
-								prop.AddProperty("bits", "int", std::to_string(format.bits));
-								prop.AddProperty("channels", "int", std::to_string(format.channels));
-								prop.AddProperty("format", "string", cAudio_Sound_FMOD::get_format_string(format.format));
-								prop.AddProperty("type", "string", cAudio_Sound_FMOD::get_type_string(format.type));
+//								Properties prop = file.GetProperties();
+								file.AddProperty("exists", "bool", cFormat::PackBool(true));
+								file.AddProperty("bits", "int", cFormat::PackInt(format.bits));
+								file.AddProperty("channels", "int", cFormat::PackInt(format.channels));
+								file.AddProperty("format", "string", cAudio_Sound_FMOD::get_format_string(format.format));
+								file.AddProperty("type", "string", cAudio_Sound_FMOD::get_type_string(format.type));
 
 								unsigned int length = sound.GetLength();
-								prop.AddProperty("length", "int", std::to_string(length));
+								file.AddProperty("length", "int", cFormat::PackInt(length));
 								sound.Release();
 							}
 							catch (std::exception& ex)

@@ -1,7 +1,8 @@
 #pragma once
 #include <string>	
+#include <istream>
 
-#include "cMyMesh.h"
+#include "AssetItems/cItem_Model.h"
 
 #pragma comment (lib, "Models.lib")
 
@@ -14,10 +15,13 @@ public:
 	// Takes the filename to load
 	// Returns by ref the mesh
 	bool LoadPlyModel(const std::string& filename,
-		cMyMesh& theMesh);
+		cItem_Model& theMesh);
 
 	// Just read the header to see if it is valid
 	bool LoadPlyModelInfo(const std::string& filename,
-		cMyMesh& theMesh);
+		cItem_Model& theMesh);
+private:
+	bool LoadThePlyHeader(std::istream& theFile, cItem_Model& theMesh);
+	bool LoadThePlyBody(std::istream& theFile, cItem_Model& theMesh);
 };
 

@@ -1,4 +1,5 @@
 #include "GameLibrary.h"
+#include "XML/XMLIndent.h"
 #include <iostream>
 
 
@@ -14,11 +15,17 @@ namespace gamelibrary
 		{
 			out << "<" << node.GetNodeName() << ">" << endl;
 			out << node.GetNodeName() << ">" << endl;
-			out << xmlindent::indent(1) << node.GetGameName() << endl;
+			out << XMLIndent(1) << node.GetGameName() << endl;
 			out << node.GetAssetGroups();
 			out << "</" << node.GetNodeName() << ">" << endl;
 		}
 		return out;
+	}
+
+	Objects GameLibrary::GetObjects() const 
+	{ 
+		auto node = GetNode()->first_node("Objects");
+		return Objects(node);
 	}
 
 }

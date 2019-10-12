@@ -71,7 +71,7 @@ void sModelDrawInfo::CalcExtents(void)
 
 bool cVAOManager::LoadModelIntoVAO(
 		std::string fileName, 
-		cMesh& theMesh,					// NEW
+		cItem_Model& theMesh,					// NEW
 		sModelDrawInfo &drawInfo,
 	    unsigned int shaderProgramID)
 
@@ -79,17 +79,17 @@ bool cVAOManager::LoadModelIntoVAO(
 	// Write some code to copy the infomation from cMesh& theMesh
 	//  to the sModelDrawInfo& drawInfo...
 
-	drawInfo.numberOfVertices = (unsigned int)theMesh.vecVertices.size();
+	drawInfo.numberOfVertices = (unsigned int)theMesh.m_vecVertices.size();
 	// Allocate an array big enought
 	drawInfo.pVertices = new sVertex[drawInfo.numberOfVertices];
 
-	// Copy the data from the vecVertices...
+	// Copy the data from the m_vecVertices...
 	for (unsigned int index = 0; index != drawInfo.numberOfVertices; index++)
 	{
 
-		drawInfo.pVertices[index].x = theMesh.vecVertices[index].x;
-		drawInfo.pVertices[index].y = theMesh.vecVertices[index].y;
-		drawInfo.pVertices[index].z = theMesh.vecVertices[index].z;
+		drawInfo.pVertices[index].x = theMesh.m_vecVertices[index].x;
+		drawInfo.pVertices[index].y = theMesh.m_vecVertices[index].y;
+		drawInfo.pVertices[index].z = theMesh.m_vecVertices[index].z;
 		drawInfo.pVertices[index].w = 1.0f;		// Set to 1 if not sure
 
 		drawInfo.pVertices[index].r = 1.0f;
@@ -97,9 +97,9 @@ bool cVAOManager::LoadModelIntoVAO(
 		drawInfo.pVertices[index].b = 1.0f;
 		drawInfo.pVertices[index].a = 1.0f;		// Again, if not sure, set to 1.0f
 
-		drawInfo.pVertices[index].nx = theMesh.vecVertices[index].nx;
-		drawInfo.pVertices[index].ny = theMesh.vecVertices[index].ny;
-		drawInfo.pVertices[index].nz = theMesh.vecVertices[index].nz;
+		drawInfo.pVertices[index].nx = theMesh.m_vecVertices[index].nx;
+		drawInfo.pVertices[index].ny = theMesh.m_vecVertices[index].ny;
+		drawInfo.pVertices[index].nz = theMesh.m_vecVertices[index].nz;
 		drawInfo.pVertices[index].nw = 1.0f;		// if unsure, set to 1.0f
 
 		// These are the "texture coordinates", and we aren't loading them, yet
@@ -111,8 +111,8 @@ bool cVAOManager::LoadModelIntoVAO(
 	}
 
 	// Now copy the index information, too
-	drawInfo.numberOfTriangles = (unsigned int)theMesh.vecTriangles.size();
-	drawInfo.numberOfIndices = (unsigned int)theMesh.vecTriangles.size() * 3;
+	drawInfo.numberOfTriangles = (unsigned int)theMesh.m_vecTriangles.size();
+	drawInfo.numberOfIndices = (unsigned int)theMesh.m_vecTriangles.size() * 3;
 
 	// Allocate the index array
 	drawInfo.pIndices = new unsigned int[drawInfo.numberOfIndices];
@@ -121,9 +121,9 @@ bool cVAOManager::LoadModelIntoVAO(
 	unsigned int indexIndex = 0;
 	for ( ; indexTri != drawInfo.numberOfTriangles; indexTri++, indexIndex += 3 )
 	{
-		drawInfo.pIndices[indexIndex + 0] = (unsigned int)theMesh.vecTriangles[indexTri].vert_index_1;
-		drawInfo.pIndices[indexIndex + 1] = (unsigned int)theMesh.vecTriangles[indexTri].vert_index_2;
-		drawInfo.pIndices[indexIndex + 2] = (unsigned int)theMesh.vecTriangles[indexTri].vert_index_3;
+		drawInfo.pIndices[indexIndex + 0] = (unsigned int)theMesh.m_vecTriangles[indexTri].vert_index_1;
+		drawInfo.pIndices[indexIndex + 1] = (unsigned int)theMesh.m_vecTriangles[indexTri].vert_index_2;
+		drawInfo.pIndices[indexIndex + 2] = (unsigned int)theMesh.m_vecTriangles[indexTri].vert_index_3;
 	}
 
 

@@ -192,23 +192,31 @@
   <ItemGroup>
     <Xml Include="..\assets\GameLibrary   copy.xml" />
     <Xml Include="..\assets\GameLibrary.xml" />
-    <Xml Include="output.xml" />
+    <Xml Include="..\assets\output.xml" />
+    <Xml Include="..\assets\output2.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply" />
-    <None Include="..\assets\models\bun_zipper_res2_XYZ.ply" />
     <None Include="..\assets\models\bun_zipper_res2_XYZ_n.ply" />
-    <None Include="..\assets\models\bun_zipper_res3_XYZ.ply" />
     <None Include="..\assets\models\bun_zipper_res3_XYZ_n.ply" />
-    <None Include="..\assets\models\bun_zipper_res4_XYZ.ply" />
     <None Include="..\assets\models\bun_zipper_res4_XYZ_N.ply" />
-    <None Include="..\assets\models\bun_zipper_XYZ.ply" />
     <None Include="..\assets\models\bun_zipper_XYZ_n.ply" />
     <None Include="..\assets\models\Cube_1_Unit_from_origin_XYZ_n.ply" />
-    <None Include="..\assets\models\Sky_Pirate_Combined_xyz.ply" />
+    <None Include="..\assets\models\cube_Low_Hi_xyz_n.ply" />
+    <None Include="..\assets\models\cube_Low_Res_xyz_n.ply" />
+    <None Include="..\assets\models\Entire_Babbage_Space_Station_xyz_n.ply" />
+    <None Include="..\assets\models\Large_Physics_Bunny_XYZ_n.ply" />
+    <None Include="..\assets\models\Physics\15982_Great_Pyramids_v1.ply" />
+    <None Include="..\assets\models\Physics\pyramid.ply" />
+    <None Include="..\assets\models\Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply" />
     <None Include="..\assets\models\Sky_Pirate_Combined_xyz_n.ply" />
     <None Include="..\assets\models\Sphere_Radius_1_XYZ_n.ply" />
     <None Include="..\assets\models\Terrain_XYZ_n.ply" />
+    <None Include="..\assets\shaders\fragmentShader01.glsl" />
+    <None Include="..\assets\shaders\vertexShader01.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\assets\keys.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

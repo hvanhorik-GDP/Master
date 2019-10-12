@@ -27,33 +27,25 @@
 
   <!-- Models -->
   <AssetGroup type = "models" open = "none">
+   
     <AssetRoot>../assets/models/</AssetRoot>
     <Asset name="NonExistant File">
       <AssetFile>NonExistant.ply</AssetFile>
     </Asset>
+    <Asset name="SingleTriangle">
+      <AssetFile>Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply</AssetFile>
+    </Asset>
     <Asset name="BigFlatTerrain_XYZ_n">
       <AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
     </Asset>
-     <Asset name="bun_zipper_XYZ">
-      <AssetFile>bun_zipper_XYZ.ply</AssetFile>
-    </Asset>
-    <Asset name="bun_zipper_XYZ_n">
+     <Asset name="bun_zipper_XYZ_n">
       <AssetFile>bun_zipper_XYZ_n.ply</AssetFile>
     </Asset>
-    <Asset name="bun_zipper_res2_XYZ">
-      <AssetFile>bun_zipper_res2_XYZ.ply</AssetFile>
-    </Asset>
-    <Asset name="bun_zipper_res2_XYZ_n">
+     <Asset name="bun_zipper_res2_XYZ_n">
       <AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
     </Asset>
-    <Asset name="bun_zipper_res3_XYZ">
-      <AssetFile>bun_zipper_res3_XYZ.ply</AssetFile>
-    </Asset>
-    <Asset name="bun_zipper_res3_XYZ_n">
+     <Asset name="bun_zipper_res3_XYZ_n">
       <AssetFile>bun_zipper_res3_XYZ_n.ply</AssetFile>
-    </Asset>
-    <Asset name="bun_zipper_res4_XYZ">
-      <AssetFile>bun_zipper_res4_XYZ.ply</AssetFile>
     </Asset>
     <Asset name="bun_zipper_res4_XYZ_n">
       <AssetFile>bun_zipper_res4_XYZ_n.ply</AssetFile>
@@ -70,13 +62,10 @@
     <Asset name="Entire_Babbage_Space_Station_xyz_n">
       <AssetFile>Entire_Babbage_Space_Station_xyz_n.ply</AssetFile>
     </Asset>
-    <Asset name="Large_Physics_Bunny_XYZ_N">
-      <AssetFile>Large_Physics_Bunny_XYZ_N.ply</AssetFile>
+    <Asset name="Large_Physics_Bunny_XYZ_n">
+      <AssetFile>Large_Physics_Bunny_XYZ_n.ply</AssetFile>
     </Asset>
-    <Asset name="Sky_Pirate_Combined_xyz">
-      <AssetFile>Sky_Pirate_Combined_xyz.ply</AssetFile>
-    </Asset>
-    <Asset name="Sky_Pirate_Combined_xyz_n">
+     <Asset name="Sky_Pirate_Combined_xyz_n">
       <AssetFile>Sky_Pirate_Combined_xyz_n.ply</AssetFile>
     </Asset>
     <Asset name="Sphere_Radius_1_XYZ_n">
@@ -109,6 +98,13 @@
     <Asset name="Hogwarts">
       <AssetFile>./Castles/Hogwarts.ply</AssetFile>
     </Asset>
+    <Asset name="Great_Pyramids">
+      <AssetFile>./Physics/15982_Great_Pyramids_v1.ply</AssetFile>
+    </Asset>
+    <Asset name="pyramid">
+      <AssetFile>./Physics/pyramid.ply</AssetFile>
+    </Asset>
+
   </AssetGroup>
 
   <!-- Audio files -->
@@ -219,24 +215,89 @@
     <AssetRoot>../assets/fonts/</AssetRoot>
   </AssetGroup>
 
-  <!-- Game Objects -->
+  <!-- Game Objects - One of these -->
+  <Objects>
+    <!-- Light Object -->
+    <Object type ="light" name ="spotlight" asset_id ="">
+      <Property name = "type"  type = "string" value="spot"/>
+      <Property name = "position" type ="vec4" value="1,2,3,4"/>
+      <Property name = "specular" type ="vec4" value="1,2,3,4"/>
+      <Property name = "position" type ="vec4" value="1,2,3,4"/>
+      <Property name = "atten" type ="vec4" value="1,2,3,4"/>
+      <Property name = "direction" type ="vec4" value="1,2,3,4"/>
+      <Property name = "lightType" type ="enum" value="0"/>
+      <Property name = "innerangle" type ="float" value=""/>
+      <Property name = "outer angle" type ="float" value=""/>
+      <Property name = "on" type ="bool" value="false"/>
+      <!-- From: fragmentShader01.glsl
+      vec4 diffuse;
+      vec4 specular;	// rgb = highlight colour, w = power
+      vec4 atten;		// x = constant, y = linear, z = quadratic, w = DistanceCutOff
+      vec4 direction;	// Spot, directional lights
+      vec4 param1;	// x = lightType, y = inner angle, z = outer angle, w = TBD
+      // 0 = pointlight
+      // 1 = spot light
+      // 2 = directional light
+      vec4 param2;	// x = 0 for off, 1 for on -->
+    </Object>
 
-  <Object type = "audio" name ="sensual giggly laughter" id = "xxxx">
-  <AssetId name = "sensual giggly laughter"/>
-  <Property name = "type"  type = "string" value="mpeg"/>
-  <Property name = "volume" type ="int" value ="10"/>
-  <Property name = "pitch" type ="double" value ="1" />
-  <Property name = "offset" type ="int" value = "0" />
-  <Property name = "position" type ="vec3" value="1,2,3"/>
-  <Property name ="color" type="vec4" value="255,0,0,0"/>
-  </Object>
-  <Object type ="group" name ="group1" id ="xxxy">
-    <ObjectID name ="sensual giggly laughter"/>
-    <Property name = "position" type ="vec3" value="1,2,3"/>
-  </Object>
-  <Object type ="group" name ="group2" id ="xxxz">
-    <ObjectID name ="group1"/>
-    <Property name = "position" type ="vec3" value="1,2,3"/>
-  </Object>
+    <!-- Model Object -->
+    <Object type ="model" name ="Bugs" asset_id ="bun_zipper_XYZ_n">
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+      <Property name = "rotation" type ="vec3" value="1,2,3"/>
+      <Property name = "scale" type ="float" value="1.0"/>
+      <Property name = "objectColourRGBA" type ="vec4" value="1,2,3,4"/>
+      <Property name = "diffuseColour" type ="vec4" value="1,2,3,4"/>
+      <Property name = "specularColour" type ="vec4" value="1,2,3,4"/>
+      
+      <!-- Physics - should be moved -->
+      <Property name = "velocity" type ="vec3" value="1,2,3"/>
+      <Property name = "accel" type ="vec3" value="1,2,3"/>
+      <Property name = "physicsShapeType" type ="enum" value="UNKNOWN"/>
+      <Property name = "AABB_min" type ="vec3" value="1,2,3"/>
+      <Property name = "AABB_max" type ="vec3" value="1,2,3"/>
+      <Property name = "SPHERE_radius" type ="float" value="1.0"/>
+      
+      <!-- Debug -->
+      <Property name = "isWireframe" type ="bool" value="false"/>
+      <Property name = "debugColour" type ="vec4" value="1,2,3,4"/>
+      <Property name = "isWireframe" type ="bool" value="false"/>
+      <Property name = "isVisible" type ="bool" value="false"/>
+      <Property name = "disableDepthBufferTest" type ="bool" value="false"/>
+      <Property name = "disableDepthBufferWrite" type ="bool" value="false"/>
+    </Object>
 
+    <!-- Audio Object -->
+    <Object type = "audio" name ="sensualgiggly" asset_id = "sensual giggly laughter">
+      <Property name = "type"  type = "string" value="mpeg"/>
+      <Property name = "volume" type ="int" value ="10"/>
+      <Property name = "pitch" type ="double" value ="1" />
+      <Property name = "offset" type ="int" value = "0" />
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+      <Property name ="color" type="vec4" value="255,0,0,0"/>
+    </Object>
+
+    <!-- group Object -->
+    <Object type ="group" name ="group1" asset_id ="">
+      <Object type ="alias" name ="sensualgiggly" asset_id =""/>
+      <Property name = "matWorld" type ="vec4" value="1,2,3,4"/>
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+    </Object>
+    
+    <!-- nested group within a group Object -->
+    <Object type ="group" name ="group2" asset_id ="">
+      <Object type ="alias" name ="group" asset_id =""/>
+      <Object type ="alias" name ="bunny" asset_id =""/>
+      <Object type ="alias" name ="spotlight" asset_id =""/>
+      <Property name = "matWorld" type ="vec4" value="1,2,3,4"/>
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+    </Object>
+
+    <!-- One world that rules them all -->
+    <Object type="world" name="wprld" asset_id="">
+      <Object type ="group" name ="group2" asset_id =""/>
+      <Object type ="group" name ="group1" asset_id =""/>
+     </Object>
+  </Objects>
+  
 </GameLibrary>

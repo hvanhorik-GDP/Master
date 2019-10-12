@@ -5,11 +5,17 @@
     <ClCompile Include="XMLAttribute.cpp" />
     <ClCompile Include="XMLDocument.cpp" />
     <ClCompile Include="XMLNodeBase.cpp" />
+    <ClCompile Include="XMLNewArrayBase.cpp" />
+    <ClCompile Include="XMLNewNodeBase.cpp" />
+    <ClCompile Include="XMLIndent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XMLArrayBase.h" />
     <ClInclude Include="XMLAttribute.h" />
     <ClInclude Include="XMLDocument.h" />
     <ClInclude Include="XMLNodeBase.h" />
+    <ClInclude Include="XMLNewArrayBase.h" />
+    <ClInclude Include="XMLNewNodeBase.h" />
+    <ClInclude Include="XMLIndent.h" />
   </ItemGroup>
 </Project>

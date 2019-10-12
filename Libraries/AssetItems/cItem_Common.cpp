@@ -6,7 +6,7 @@ cItem_Common::cItem_Common()
 	, m_parent(NULL)
 	, m_index(0)
 {
-	assert(false);		// Bad Constructor (The only way to set things is via the proper construtor)
+//	assert(false);		// Bad Constructor (The only way to set things is via the proper construtor)
 }
 
 cItem_Common::cItem_Common(	std::string id,
@@ -33,6 +33,11 @@ const std::string& cItem_Common::GetAssetID() const
 const std::string& cItem_Common::GetRelativeName() const
 {
 	return m_path;
+}
+
+bool cItem_Common::GetExists() const
+{
+	return m_exits;
 }
 
 rapidxml::xml_node<>* cItem_Common::GetParent() const

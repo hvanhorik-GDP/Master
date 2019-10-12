@@ -93,7 +93,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 	// Target - eye = direction
 	glm::vec3 direction = glm::normalize( cameraTarget - cameraEye ); 
 
-	float speed = 5.0f; 
+	float speed = 20.0f; 
 
 	pTheBall->velocity = direction * speed;
 	pTheBall->positionXYZ = cameraEye;
@@ -245,6 +245,9 @@ int main(void)
 	cMesh spaceStationMesh;
 	pTheModelLoader->LoadPlyModel("assets/models/Entire_Babbage_Space_Station_xyz_n.ply", spaceStationMesh);
 
+	cMesh singleTriangleMesh;
+	pTheModelLoader->LoadPlyModel("assets/models/Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply", singleTriangleMesh);
+
 
 	cShaderManager* pTheShaderManager = new cShaderManager();
 
@@ -346,6 +349,12 @@ int main(void)
 	pTheVAOManager->LoadModelIntoVAO("space_station", 
 									 spaceStationMesh,		// the one we test in the physics engine
 									 spaceStationDrawInfo,
+									 shaderProgID);
+
+	sModelDrawInfo singleTriangleDrawInfo;
+	pTheVAOManager->LoadModelIntoVAO("single_triangle", 
+									 singleTriangleMesh,		// the one we test in the physics engine
+									 singleTriangleDrawInfo,
 									 shaderProgID);
 
 
@@ -471,7 +480,7 @@ int main(void)
 
 
 	// Same orientation and position for BOTH the high resolution AND low resultion objects
-	glm::vec3 cubesPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 cubesPosition = glm::vec3(0.0f, -50.0f, 0.0f);
 	glm::vec3 cubesRotation = glm::vec3(glm::radians(15.0f), 0.0f, glm::radians(35.0f) );
 	
 
@@ -509,7 +518,19 @@ int main(void)
 	//pSpaceStation->physicsShapeType = MESH;
 	//pSpaceStation->isWireframe = true;
 	pSpaceStation->debugColour = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);		// Yellow
-	pLowResCube->inverseMass = 0.0f;	// Ignored during update
+	pSpaceStation->inverseMass = 0.0f;	// Ignored during update
+
+	cGameObject* pSingleTriangle = new cGameObject();			// HEAP
+	pSingleTriangle->meshName = "single_triangle";
+	pSingleTriangle->friendlyName = "single triangle";
+	pSingleTriangle->positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+	pSingleTriangle->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+	pSingleTriangle->scale = 1.0f;	//***** SCALE = 1.0f *****/
+	pSingleTriangle->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	pSingleTriangle->physicsShapeType = MESH;
+	//pSingleTriangle->isWireframe = true;
+	//pSingleTriangle->debugColour = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);		// Yellow
+	pSingleTriangle->inverseMass = 0.0f;	// Ignored during update
 
 
 	::g_vec_pGameObjects.push_back(pShpere);
@@ -520,6 +541,7 @@ int main(void)
 	::g_vec_pGameObjects.push_back(pBunny);
 	::g_vec_pGameObjects.push_back(pLargeBunny);
 //	::g_vec_pGameObjects.push_back(pSpaceStation);
+	::g_vec_pGameObjects.push_back(pSingleTriangle);
 
 	::g_vec_pGameObjects.push_back(pHiResCube);
 	::g_vec_pGameObjects.push_back(pLowResCube);
@@ -824,10 +846,10 @@ int main(void)
 		//pPhsyics->CalculateTransformedMesh(spaceStationMesh, matSpaceStation, lowResCubeMesh_TRANSFORMED_WorldSpace);
 
 		// NOTE that I'm using the LOW RESOLUTION "cube" mesh, but DRAWING the high resolution mesh
-//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
+		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
 //		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowrescubeMesh, closestPoint, closestTriangle);
-		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
-
+//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
+//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, singleTriangleMesh, closestPoint, closestTriangle);
 
 
 		// Highlight the triangle that I'm closest to

@@ -44,8 +44,6 @@ std::string XMLNodeBase::GetValue() const
 	assert(m_parent != NULL);
 	auto node = GetNode();
 	return (node) ? node->value() : std::string();
-	//return (m_parent) ?
-	//	m_parent->value() : std::string();
 }
 
 
@@ -128,16 +126,4 @@ void XMLNodeBase::Remove()
 
 //		if (parent
 	}
-}
-
-namespace xmlindent
-{
-	std::ostream& operator<<(std::ostream& stream, const xmlindent::indent& val)
-	{
-		for (int i = 0; i < val.level; i++) {
-			stream << " ";
-		}
-		return stream;
-	}
-
 }

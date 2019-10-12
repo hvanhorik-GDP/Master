@@ -192,6 +192,8 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="AssetParts.cpp" />
     <ClCompile Include="Assets.cpp" />
     <ClCompile Include="GameLibrary.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Objects.cpp" />
     <ClCompile Include="Properties.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +203,8 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="AssetParts.h" />
     <ClInclude Include="Assets.h" />
     <ClInclude Include="GameLibrary.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="Objects.h" />
     <ClInclude Include="Properties.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

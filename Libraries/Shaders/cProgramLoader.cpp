@@ -132,6 +132,8 @@ void cProgramLoader::GetAttributes(cItem_Program &info)
 		att.m_size = size;
 		att.m_type = type;
 		att.m_name = name;
+		GLint location = glGetAttribLocation(info.m_ID, name);
+		att.m_location = location;
 		info.m_vecAttributes.push_back(att);
 
 		printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
@@ -158,6 +160,8 @@ void cProgramLoader::GetUniforms(cItem_Program& info)
 		unif.m_size = size;
 		unif.m_type = type;
 		unif.m_name = name;
+		GLint location = glGetUniformLocation(info.m_ID, name);
+		unif.m_location = location;
 		info.m_vecUniforms.push_back(unif);
 
 		printf("Uniform #%d Type: %u Name: %s\n", i, type, name);

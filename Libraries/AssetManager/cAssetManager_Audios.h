@@ -18,8 +18,6 @@ private:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cAssetManager_Audios& val);
 
-	//void PlaySomething();
-	//vecAudioItems& GetAudioItems();
 	friend class cAssetManager_impl;
 private:
 	iItems_map m_map_items;

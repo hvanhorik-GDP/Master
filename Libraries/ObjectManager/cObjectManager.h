@@ -2,7 +2,7 @@
 #include "iObjectManager.h"
 
 class cObjectManager_impl;
-class cAssetManager;
+class cObjectManager;
 
 class cObjectManager : public iObjectManager
 {
@@ -11,11 +11,14 @@ public:
 	virtual ~cObjectManager() {}
 
 	// Root Node of XML document which has assets
-	virtual void LoadObjects(rapidxml::xml_node<>* parent, cAssetManager* assetManagers);
+	virtual void LoadObjects(rapidxml::xml_node<>* parent);
 
-	iObjectManager* GetObjectManager(const std::string& name);
+	// Retrieve the item information
+	virtual iObjectManager::iObject_map* GetObjects(const std::string& name);
+
+	// Write an object to the XML file
+	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
+
+	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager& val);
-
-protected:
-	cObjectManager_impl* m_cObjectManager_impl;
 };

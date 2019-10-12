@@ -1,10 +1,20 @@
-#include "cObjectManager_impl.h"
 
 #include "cObjectManager_impl.h"
-#include "GameLibrary/AssetGroups.h"
+#include "GameLibrary/Objects.h"
+#include "GameLibrary/Object.h"
 #include "cObjectManager_Audio.h"
+#include "cObjectManager_Image.h"
+#include "cObjectManager_Font.h"
+#include "cObjectManager_Model.h"
+#include "cObjectManager_Group.h"
+#include "cObjectManager_Video.h"
+#include "cObjectManager_Alias.h"
+#include "cObjectManager_Physics.h"
+#include "cObjectManager_World.h"
+#include "cObjectManager_Light.h"
+
 #include <iostream>
-#include <stdio.h> 
+//#include <stdio.h> 
 
 cObjectManager_impl::cObjectManager_impl()
 {
@@ -18,53 +28,66 @@ cObjectManager_impl::~cObjectManager_impl()
 		delete in.second;
 	}
 }
-iObjectManager* cObjectManager_impl::GetObjectManager(const std::string& name)
+
+void cObjectManager_impl::Init()
+{
+	if (m_ObjectManagers.size() > 0)
+		return;
+	m_ObjectManagers["alias"] = new cObjectManager_Alias();
+	m_ObjectManagers["audio"] = new cObjectManager_Audio();
+	m_ObjectManagers["font"] = new cObjectManager_Font();
+	m_ObjectManagers["group"] = new cObjectManager_Group();
+	m_ObjectManagers["image"] = new cObjectManager_Image();
+	m_ObjectManagers["light"] = new cObjectManager_Light();
+	m_ObjectManagers["model"] = new cObjectManager_Model();
+	m_ObjectManagers["physics"] = new cObjectManager_Physics();
+	m_ObjectManagers["video"] = new cObjectManager_Video();
+	m_ObjectManagers["world"] = new cObjectManager_World();
+}
+
+cObjectManager_impl::iObject_map* cObjectManager_impl::GetObjects(const std::string& name)
 {
 	auto manager = m_ObjectManagers[name];
 	assert(manager != NULL);
-	return manager;
+	return manager->GetObjects(name);
 }
 
 // Root Node of XML document which has assets
-void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent, cAssetManager* assetManager)
+void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent)
 {
-	// This loop is non sensical. Each valid manager should just do the same loop
-	// to check for assets and read any that are relevent for them
-	//cObjectManager_Audio* audio = new cObjectManager_Audio();
-	//m_Managers["audios"] = audio;
-	//audio->LoadAssets(parent);
+	Init();											// Make sure we are initialized
+	gamelibrary::Objects groups(parent);
 
-	gamelibrary::AssetGroups groups(parent);
-	for (size_t i = 0; i < groups.GetSize(); ++i)
+	for (auto trans = parent->first_node("Object");
+		trans;
+		trans = trans->next_sibling())
 	{
-		gamelibrary::AssetGroups temp(groups.GetParent(), i);
-		if (temp.isValid())
+		if (std::string(trans->name()) == std::string("Object"))
 		{
-			gamelibrary::GameAsset_open open(temp.GetNode());
-			gamelibrary::GameAsset_type type(temp.GetNode());
-			if (type.GetValue() == "audios")
-			{
-				// The Manager should handle duplicates properly
-				if (m_ObjectManagers.find("audios") == m_ObjectManagers.end())
-				{
-					cObjectManager_Audio* audio = new cObjectManager_Audio();
-					m_ObjectManagers["audios"] = audio;
-					audio->LoadObjects(parent, assetManager);
-				}
-			}
-			else
-			{
-				// Handle	"videos"
-				//			"images"
-				//			"shaders"
-				//			"models"
-				//			"fonts"
-				std::cout << "Unimplemented ObjectManager: (Ignored): " << type.GetValue() << std::endl;
-			}
+//			gamelibrary::Object group(trans);
+//			gamelibrary::Object_name name(trans);
+			gamelibrary::Object_type type(trans);
+//			gamelibrary::Object_type assset_id(trans);
+
+			auto typeName = type.GetValue();
+
+			auto manager = m_ObjectManagers[typeName];
+			assert(manager);
+			manager->LoadObjects(trans);
 		}
 	}
-
 }
+
+// Write an object to the XML file
+void cObjectManager_impl::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
+{
+	gamelibrary::Objects groups(parent);
+	std::string typeName = inObject->GetType();
+	auto manager = m_ObjectManagers[typeName];
+	assert(manager);
+	manager->SaveObject(inObject, parent);
+}
+
 
 std::ostream& operator<<(std::ostream& stream, const cObjectManager_impl& val)
 {

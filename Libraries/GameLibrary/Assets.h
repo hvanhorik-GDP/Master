@@ -15,6 +15,12 @@ namespace gamelibrary
 		AssetFile GetAssetFile() const { return AssetFile(GetNode()); }
 		Properties GetProperties() const { return Properties(GetNode()); }
 		AssetParts GetAssetPart() { return AssetParts(GetNode()); }
+
+		void AddProperty(
+			const std::string& newname,
+			const std::string& newtype,
+			const std::string& newvalue);
+
 	protected:
 		virtual const std::string& GetName() const { return gName; };
 	private:

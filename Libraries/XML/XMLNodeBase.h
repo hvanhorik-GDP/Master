@@ -7,17 +7,6 @@
 
 #pragma comment (lib, "XML.lib")
 
-
-namespace xmlindent
-{
-	class indent {
-	public:
-		indent(int level) : level(level) {}
-		friend std::ostream& operator<<(std::ostream& stream, const indent& val);
-		int level;
-	};
-}
-
 class XMLNodeBase
 {
 public:
@@ -46,16 +35,14 @@ public:
 	virtual rapidxml::xml_node<>* GetNode() const;
 	rapidxml::xml_node<>* GetParent() const;
 
-protected:		// HACK - Make protected later
+protected:
 	// virtual function for derived classes to specify their node name
 	virtual const std::string& GetName() const = 0;
 	bool hasParent() const;
-//	XMLNodeBase(rapidxml::xml_node<>* parent);
 	rapidxml::xml_document<>* GetDocument() const;
 	void SetParent(rapidxml::xml_node<>* parent);
 private:
 	rapidxml::xml_node<>* m_parent;
-//	XMLNodeBase(const XMLNodeBase& in);
 
 };
 

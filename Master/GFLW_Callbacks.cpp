@@ -21,7 +21,7 @@ void error_callback(int error, const char* description)
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 
-	const float CAMERASPEED = 2.0f;
+	const float cameraSPEED = 2.0f;
 
 	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
 	{
@@ -29,31 +29,31 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		// Move the camera (A & D for left and right, along the x axis)
 		if (key == GLFW_KEY_A)
 		{
-			cameraEye.x -= CAMERASPEED;		// Move the camera -0.01f units
+			cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_D)
 		{
-			cameraEye.x += CAMERASPEED;		// Move the camera +0.01f units
+			cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (Q & E for up and down, along the y axis)
 		if (key == GLFW_KEY_Q)
 		{
-			cameraEye.y -= CAMERASPEED;		// Move the camera -0.01f units
+			cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_E)
 		{
-			cameraEye.y += CAMERASPEED;		// Move the camera +0.01f units
+			cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (W & S for towards and away, along the z axis)
 		if (key == GLFW_KEY_W)
 		{
-			cameraEye.z -= CAMERASPEED;		// Move the camera -0.01f units
+			cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_S)
 		{
-			cameraEye.z += CAMERASPEED;		// Move the camera +0.01f units
+			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		if (key == GLFW_KEY_B)
@@ -61,13 +61,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 			// Shoot a bullet from the pirate ship
 			// Find the pirate ship...
 			// returns NULL (0) if we didn't find it.
-//			cGameObject* pShip = pFindObjectByFriendlyName("PirateShip");
-			cGameObject* pShip = pFindObjectByFriendlyNameMap("PirateShip");
+			cObject_Model* pShip = pFindObjectByFriendlyName("PirateShip");
 			// Maybe check to see if it returned something... 
 
 			// Find the sphere#2
-//			cGameObject* pBall = pFindObjectByFriendlyName("Sphere#2");
-			cGameObject* pBall = pFindObjectByFriendlyNameMap("Sphere#2");
+			cObject_Model* pBall = pFindObjectByFriendlyName("Sphere#2");
 
 			// Set the location velocity for sphere#2
 			pBall->positionXYZ = pShip->positionXYZ;
@@ -86,31 +84,31 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		// move the light
 		if (key == GLFW_KEY_A)
 		{
-			sexyLightPosition.x -= CAMERASPEED;		// Move the camera -0.01f units
+			sexyLightPosition.x -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_D)
 		{
-			sexyLightPosition.x += CAMERASPEED;		// Move the camera +0.01f units
+			sexyLightPosition.x += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (Q & E for up and down, along the y axis)
 		if (key == GLFW_KEY_Q)
 		{
-			sexyLightPosition.y -= CAMERASPEED;		// Move the camera -0.01f units
+			sexyLightPosition.y -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_E)
 		{
-			sexyLightPosition.y += CAMERASPEED;		// Move the camera +0.01f units
+			sexyLightPosition.y += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (W & S for towards and away, along the z axis)
 		if (key == GLFW_KEY_W)
 		{
-			sexyLightPosition.z -= CAMERASPEED;		// Move the camera -0.01f units
+			sexyLightPosition.z -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_S)
 		{
-			sexyLightPosition.z += CAMERASPEED;		// Move the camera +0.01f units
+			sexyLightPosition.z += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		if (key == GLFW_KEY_1)
@@ -173,7 +171,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		const float SHIP_SPEED_CHANGE = 0.01f;
 		const float SHIP_ANGLE_CHANGE = 0.01f;
 
-		cGameObject* pShip = pFindObjectByFriendlyName("PirateShip");
+		cObject_Model* pShip = pFindObjectByFriendlyName("PirateShip");
 		// Turn the ship around
 		if (key == GLFW_KEY_A)
 		{	// Left
@@ -236,7 +234,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	// Move the sphere to where the camera is and shoot the ball from there...
 
-	cGameObject* pTheBall = pFindObjectByFriendlyName("Sphere#1");
+	cObject_Model* pTheBall = pFindObjectByFriendlyName("Sphere#1");
 
 	// What's the velocity
 	// Target - eye = direction

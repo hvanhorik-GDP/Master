@@ -1,0 +1,20 @@
+A - Camera -x						Shift A - Light -x
+D - Camera +x						Shift D - Light +x
+Q - Camera -y						Shift Q - Light -y
+E - Camera +y						Shift E - Light +y
+W - Camera -z						Shift W - Light -z
+S - Camera +z						Shift S - Light +z
+
+B - Shoot ball from pirate ship
+
+Shift 1 - -Light Attenuation		Shift V - -Spot light inner angle
+Shift 2 - +Light Attenuation		Shift B - +Spot light inner angle
+Shift 3 - -Linear Attenuation		Shift N - -Spot light outer angle
+Shift 4 - +Linear Attenuation		Shift M - +Spot light outer angle
+Shift 5 - -Quadratic Attenuation	Shift 9 - Debug sheres ON
+Shift 6 - +Quadratic Attenuation	Shift 0 - Debug sheres OFF
+
+CTRL A - Ship Rotation Y (left)
+CTRL D - Ship Rotaion Y (right)
+CTRL W - +Ship speed
+CTRL s - -Ship speed

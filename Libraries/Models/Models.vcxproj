@@ -186,13 +186,9 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cMesh.h" />
-    <ClInclude Include="cMyMesh.h" />
-    <ClInclude Include="cModelLoader.h" />
     <ClInclude Include="cPlyLoader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cModelLoader.cpp" />
     <ClCompile Include="cPlyLoader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

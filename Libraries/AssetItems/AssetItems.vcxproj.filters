@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cItem_Audio.h" />
-    <ClInclude Include="cItem_Common - Copy.h" />
     <ClInclude Include="cItem_Common.h" />
     <ClInclude Include="cItem_Font.h" />
     <ClInclude Include="cItem_Image.h" />

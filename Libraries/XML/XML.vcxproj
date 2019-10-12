@@ -189,12 +189,18 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="XMLArrayBase.cpp" />
     <ClCompile Include="XMLAttribute.cpp" />
     <ClCompile Include="XMLDocument.cpp" />
+    <ClCompile Include="XMLIndent.cpp" />
+    <ClCompile Include="XMLNewArrayBase.cpp" />
+    <ClCompile Include="XMLNewNodeBase.cpp" />
     <ClCompile Include="XMLNodeBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XMLArrayBase.h" />
     <ClInclude Include="XMLAttribute.h" />
     <ClInclude Include="XMLDocument.h" />
+    <ClInclude Include="XMLIndent.h" />
+    <ClInclude Include="XMLNewArrayBase.h" />
+    <ClInclude Include="XMLNewNodeBase.h" />
     <ClInclude Include="XMLNodeBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

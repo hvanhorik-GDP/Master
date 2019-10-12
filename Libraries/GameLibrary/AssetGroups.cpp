@@ -1,4 +1,5 @@
 #include "AssetGroups.h"
+#include "XML/XMLIndent.h"
 #include <iostream>
 
 namespace gamelibrary
@@ -14,13 +15,13 @@ namespace gamelibrary
 			AssetGroups temp(node.GetParent(), i);
 			if (temp.isValid())
 			{
-				out << xmlindent::indent(2) << "<" << temp.GetNodeName() << " ";
+				out << XMLIndent(2) << "<" << temp.GetNodeName() << " ";
 				GameAsset_open open(temp.GetNode());
 				GameAsset_type type(temp.GetNode());
 				out << type << open << ">" << endl;
-				out << xmlindent::indent(2) << temp.GetAssetRoot() << endl;
-				out << xmlindent::indent(2) <<temp.GetAsset() << endl;
-				out << xmlindent::indent(2) << "</" << temp.GetNodeName() << ">" << endl;
+				out << XMLIndent(2) << temp.GetAssetRoot() << endl;
+				out << XMLIndent(2) <<temp.GetAsset() << endl;
+				out << XMLIndent(2) << "</" << temp.GetNodeName() << ">" << endl;
 			}
 		}
 		return out;

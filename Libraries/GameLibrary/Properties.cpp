@@ -1,4 +1,5 @@
 #include "Properties.h"
+#include "XML/XMLIndent.h"
 #include <iostream>
 
 namespace gamelibrary
@@ -27,7 +28,7 @@ namespace gamelibrary
 			Properties temp(node.GetParent(), i);
 			if (temp.isValid())
 			{
-				out << xmlindent::indent(4) << "<" << temp.GetNodeName() << " ";
+				out << XMLIndent(4) << "<" << temp.GetNodeName() << " ";
 				Property_type type(temp.GetNode());
 				Property_value value(temp.GetNode());
 				out << type << value << ">" << endl;
