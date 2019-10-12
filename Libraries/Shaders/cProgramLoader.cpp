@@ -116,7 +116,6 @@ void cProgramLoader::GetAttributes(cItem_Program &info)
 {
 	GLint count = 0;
 	glGetProgramiv(info.m_ID, GL_ACTIVE_ATTRIBUTES, &count);
-	printf("Active Attributes: %d\n", count);
 
 	for (auto i = 0; i < count; i++)
 	{
@@ -135,8 +134,6 @@ void cProgramLoader::GetAttributes(cItem_Program &info)
 		GLint location = glGetAttribLocation(info.m_ID, name);
 		att.m_location = location;
 		info.m_vecAttributes.push_back(att);
-
-		printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
 	}
 }
 
@@ -144,7 +141,6 @@ void cProgramLoader::GetUniforms(cItem_Program& info)
 {
 	GLint count = 0;
 	glGetProgramiv(info.m_ID, GL_ACTIVE_UNIFORMS, &count);
-	printf("Active Uniforms: %d\n", count);
 
 	for (auto i = 0; i < count; i++)
 	{
@@ -163,7 +159,5 @@ void cProgramLoader::GetUniforms(cItem_Program& info)
 		GLint location = glGetUniformLocation(info.m_ID, name);
 		unif.m_location = location;
 		info.m_vecUniforms.push_back(unif);
-
-		printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
 	}
 }

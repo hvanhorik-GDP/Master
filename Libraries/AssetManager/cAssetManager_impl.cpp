@@ -44,6 +44,8 @@ void cAssetManager_impl::LoadAssets(rapidxml::xml_node<>* parent)
 	gamelibrary::AssetGroups groups(parent);
 	for (size_t i = 0; i < groups.GetSize(); ++i)
 	{
+		//TODO - this will screw up and find the objects
+		// the array loops through all elements of every name
 		gamelibrary::AssetGroups temp(groups.GetParent(), i);
 		if (temp.isValid())
 		{
@@ -118,7 +120,8 @@ void cAssetManager_impl::LoadAssets(rapidxml::xml_node<>* parent)
 			} 
 			else
 			{
-				std::cout << "Unimplemented AssetManager: (Ignored): " << type.GetValue() << std::endl;
+				// TODO - see COMMENT ABOVE
+//				std::cout << "Unimplemented AssetManager: (Ignored): " << type.GetValue() << std::endl;
 			}
 		}
 	}

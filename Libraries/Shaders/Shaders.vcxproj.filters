@@ -2,15 +2,30 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="cProgramLoader.cpp" />
-    <ClCompile Include="cShader.cpp" />
     <ClCompile Include="cShaderLoader.cpp" />
-    <ClCompile Include="cShaderManager.cpp" />
-    <ClCompile Include="sUniform_old.cpp" />
+    <ClCompile Include="sUniform_old.cpp">
+      <Filter>Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="cShader.cpp">
+      <Filter>Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="cShaderManager.cpp">
+      <Filter>Reference</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cProgramLoader.h" />
     <ClInclude Include="cShaderLoader.h" />
-    <ClInclude Include="cShaderManager.h" />
-    <ClInclude Include="sUniform_old.h" />
+    <ClInclude Include="sUniform_old.h">
+      <Filter>Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="cShaderManager.h">
+      <Filter>Reference</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Reference">
+      <UniqueIdentifier>{2bdd69a4-f7fd-43b3-8815-050c121bc582}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

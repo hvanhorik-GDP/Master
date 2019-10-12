@@ -46,16 +46,22 @@ void cAssetManager_Programs::LoadAssets(rapidxml::xml_node<>* parent)
 						m_map_items[program->GetAssetID()] = program;
 
 						AssetParts parts = asset.GetAssetPart();
-						for (std::size_t j = 0; j < parts.GetSize(); ++j)
+						std::string partsName = parts.GetNodeName();
+						auto partsNode = asset.GetNode();
+						for (auto part = partsNode->first_node(partsName.c_str());
+							part;
+							part = part->next_sibling())
 						{
-							AssetParts part(parts.GetParent(), j);
-							std::string partName = part.GetValue();
-							auto item = (*shaders)[partName];
-							assert(item);
-							if (item)
-								program->m_vecShaders.push_back(item);
+							// Only AssetParts are valid
+							if (std::string(part->name()) == partsName)
+							{
+								std::string partName = part->value();
+								auto item = (*shaders)[partName];
+								assert(item);
+								if (item)
+									program->m_vecShaders.push_back(item);
+							}
 						}
-
 						cProgramLoader loader;
 						bool ok = loader.Load(*program);
 						if (!ok)
@@ -68,6 +74,9 @@ void cAssetManager_Programs::LoadAssets(rapidxml::xml_node<>* parent)
 
 						// Write the properties to the xml file
 						asset.AddProperty("isValid", "bool", cFormat::PackBool(program->m_valid));
+						if (program->m_error.size() > 0)
+							asset.AddProperty("Error", "string", program->m_error);
+
 						cItem_Program::vecAttributes &vecAtt = program->m_vecAttributes;
 						for (auto att : vecAtt)
 						{

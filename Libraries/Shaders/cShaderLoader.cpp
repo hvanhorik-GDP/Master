@@ -142,12 +142,12 @@ bool cShaderLoader::CompileShaderFromSource(cItem_Shader& shader, std::string& e
 
 //******************************************************************************************
 // Print it out (for debug)
-	std::cout << "Source (from char** array):" << std::endl;
-	for ( unsigned int indexLine = 0; indexLine != numberOfLines; indexLine++ )
-	{
-		std::cout << "(" << indexLine << "):\t" << arraySource[indexLine] << std::endl;
-	}
-	std::cout << "END" << std::endl;
+	//std::cout << "Source (from char** array):" << std::endl;
+	//for ( unsigned int indexLine = 0; indexLine != numberOfLines; indexLine++ )
+	//{
+	//	std::cout << "(" << indexLine << "):\t" << arraySource[indexLine] << std::endl;
+	//}
+	//std::cout << "END" << std::endl;
 //******************************************************************************************
 
 	glShaderSource(shader.m_ID, numberOfLines, arraySource, NULL);

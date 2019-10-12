@@ -39,9 +39,11 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 			std::string type = PropertyType.GetValue();
 			std::string name = PropertyName.GetValue();
 			std::string value = PropertyValue.GetValue();
-			if (name == "position")
+			if (name == "meshName")
+				object->meshName = value;
+			else if (name == "positionXYZ")
 				object->positionXYZ = cFormat::LoadVec3(value);
-			else if (name == "rotation")
+			else if (name == "rotationXYZ")
 				object->rotationXYZ = cFormat::LoadVec3(value);
 			else if (name == "scale")
 				object->scale = std::stof(value);
@@ -52,6 +54,8 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 			else if (name == "specularColour")
 				object->specularColour = cFormat::LoadVec4(value);
 			// Should be in physics
+			else if (name == "inverseMass")
+				object->inverseMass = cFormat::LoadFloat(value);
 			else if (name == "physicsShapeType")
 				object->physicsShapeType = cObject_Model::StringToShapeType(value);
 			else if (name == "velocity")
@@ -67,15 +71,15 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 
 			// Some debug stuff
 			else if (name == "isWireframe")
-				object->SPHERE_radius = cFormat::LoadBool(value);
+				object->isWireframe = cFormat::LoadBool(value);
 			else if (name == "debugColour")
 				object->debugColour = cFormat::LoadVec4(value);
 			else if (name == "isVisible")
 				object->isVisible = cFormat::LoadBool(value);
 			else if (name == "disableDepthBufferTest")
 				object->disableDepthBufferTest = cFormat::LoadBool(value);
-			else if (name == "disableDepthBufferTest")
-				object->disableDepthBufferTest = cFormat::LoadBool(value);
+			else if (name == "disableDepthBufferWrite")
+				object->disableDepthBufferWrite = cFormat::LoadBool(value);
 			else
 			{
 				std::cout
@@ -147,15 +151,16 @@ void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* 
 	// Write all of the properties
 //	gamelibrary::Properties properties(node);
 
-	libObject.AddProperty("position", "vec3", cFormat::PackVec3(object->positionXYZ));
-	libObject.AddProperty("rotation", "vec3", cFormat::PackVec3(object->rotationXYZ));
+	libObject.AddProperty("meshName", "string", object->meshName);
+	libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(object->positionXYZ));
+	libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(object->rotationXYZ));
 	libObject.AddProperty("scale", "float", cFormat::PackFloat(object->scale));
 
 	libObject.AddProperty("objectColourRGBA", "vec4", cFormat::PackVec4(object->objectColourRGBA));
 	libObject.AddProperty("diffuseColour", "vec4", cFormat::PackVec4(object->diffuseColour));
 	libObject.AddProperty("specularColour", "vec4", cFormat::PackVec4(object->specularColour));
 
-	// Should be in physics
+	libObject.AddProperty("inverseMass", "float", cFormat::PackFloat(object->inverseMass));
 	libObject.AddProperty("physicsShapeType", "vec3", cObject_Model::ShapeTypeToString(object->physicsShapeType));
 	libObject.AddProperty("velocity", "vec3", cFormat::PackVec3(object->velocity));
 	libObject.AddProperty("accel", "vec3", cFormat::PackVec3(object->accel));

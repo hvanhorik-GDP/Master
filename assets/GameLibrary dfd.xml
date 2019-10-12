@@ -8,11 +8,9 @@
 		<Asset name="fragmentShader01" type="fragment">
 			<AssetFile>fragmentShader01.glsl</AssetFile>
 			<Property name="isValid" type="bool" value="1"/>
-			<Property name="isValid" type="bool" value="1"/>
 		</Asset>
 		<Asset name="vertexShader01" type="vertex">
 			<AssetFile>vertexShader01.glsl</AssetFile>
-			<Property name="isValid" type="bool" value="1"/>
 			<Property name="isValid" type="bool" value="1"/>
 		</Asset>
 	</AssetGroup>
@@ -495,8 +493,6 @@
 			<AssetFile>NonExistant2.mp3</AssetFile>
 			<Property name="exists" type="bool" value="0"/>
 			<Property name="Error" type="string" value="File does not exists"/>
-			<Property name="exists" type="bool" value="0"/>
-			<Property name="Error" type="string" value="File does not exists"/>
 		</Asset>
 		<Asset name="That's Amore">
 			<AssetFile>music/Dean Martin - That&apos;s Amore.mp3</AssetFile>
@@ -750,6 +746,7 @@
 			<Property name="type" type="string" value="spot"/>
 			<Property name="position" type="vec4" value="1,2,3,4"/>
 			<Property name="specular" type="vec4" value="1,2,3,4"/>
+			<Property name="position" type="vec4" value="1,2,3,4"/>
 			<Property name="atten" type="vec4" value="1,2,3,4"/>
 			<Property name="direction" type="vec4" value="1,2,3,4"/>
 			<Property name="lightType" type="enum" value="0"/>
@@ -758,8 +755,8 @@
 			<Property name="on" type="bool" value="false"/>
 		</Object>
 		<Object type="model" name="Bugs" asset_id="bun_zipper_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="50 20 -2"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="50 20 -2"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="250.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0 1 0 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
@@ -777,7 +774,6 @@
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 			<Property name="meshName" type="string" value="bunny"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 		</Object>
 		<Object type="audio" name="sensualgiggly" asset_id="sensual giggly laughter">
 			<Property name="type" type="string" value="mpeg"/>
@@ -805,13 +801,12 @@
 		</Object>
 		<Object name="PirateShip" type="model" asset_id="Sky_Pirate_Combined_xyz_n">
 			<Property name="meshName" type="string" value="pirate"/>
-			<Property name="positionXYZ" type="vec3" value="-30 20 10"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="-30 20 10"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="0.750000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -826,13 +821,12 @@
 		</Object>
 		<Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
 			<Property name="meshName" type="string" value="sphere"/>
-			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="0 30 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="1.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -847,13 +841,12 @@
 		</Object>
 		<Object name="Sphere#2" type="model" asset_id="Sphere_Radius_1_XYZ_n">
 			<Property name="meshName" type="string" value="sphere"/>
-			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="0 0 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -868,13 +861,12 @@
 		</Object>
 		<Object name="cube" type="model" asset_id="Cube_1_Unit_from_origin_XYZ_n">
 			<Property name="meshName" type="string" value="cube"/>
-			<Property name="positionXYZ" type="vec3" value="0 -1 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="0 -1 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0 0 0 0"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -889,13 +881,12 @@
 		</Object>
 		<Object name="TheGround" type="model" asset_id="Terrain_XYZ_n">
 			<Property name="meshName" type="string" value="terrain"/>
-			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="0 0 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -910,13 +901,12 @@
 		</Object>
 		<Object name="largeBunny" type="model" asset_id="Large_Physics_Bunny_XYZ_n">
 			<Property name="meshName" type="string" value="large_bunny"/>
-			<Property name="positionXYZ" type="vec3" value="30 0 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="30 0 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -931,13 +921,12 @@
 		</Object>
 		<Object name="hi_cube" type="model" asset_id="cube_Low_Hi_xyz_n">
 			<Property name="meshName" type="string" value="hi_res_cube"/>
-			<Property name="positionXYZ" type="vec3" value="0 -50 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0.261799 0 0.610865"/>
+			<Property name="position" type="vec3" value="0 -50 0"/>
+			<Property name="rotation" type="vec3" value="0.261799 0 0.610865"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -952,13 +941,12 @@
 		</Object>
 		<Object name="low_cube" type="model" asset_id="cube_Low_Res_xyz_n">
 			<Property name="meshName" type="string" value="low_res_cube"/>
-			<Property name="positionXYZ" type="vec3" value="0 -50 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0.261799 0 0.610865"/>
+			<Property name="position" type="vec3" value="0 -50 0"/>
+			<Property name="rotation" type="vec3" value="0.261799 0 0.610865"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -973,13 +961,12 @@
 		</Object>
 		<Object name="space station" type="model" asset_id="Entire_Babbage_Space_Station_xyz_n">
 			<Property name="meshName" type="string" value="space_station"/>
-			<Property name="positionXYZ" type="vec3" value="100 0 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="100 0 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -994,13 +981,12 @@
 		</Object>
 		<Object name="single triangle" type="model" asset_id="SingleTriangle">
 			<Property name="meshName" type="string" value="single_triangle"/>
-			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="position" type="vec3" value="0 0 0"/>
+			<Property name="rotation" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>

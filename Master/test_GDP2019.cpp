@@ -63,7 +63,7 @@ float sexyLightSpotOuterAngle = 7.5f;
 // (i.e. the length is 1.0f)
 glm::vec3 sexyLightSpotDirection = glm::vec3(0.0f, -1.0f, 0.0f);
 
-bool bLightDebugSheresOn = true;
+bool bLightDebugSheresOn = false;
 
 
 // Load up my "scene"  (now global)
@@ -343,7 +343,6 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 	glm::vec3 cubesRotation = glm::vec3(glm::radians(15.0f), 0.0f, glm::radians(35.0f));
 
 	{
-
 		cObject_Model* pHiResCube = new cObject_Model("model", "hi_cube", "cube_Low_Hi_xyz_n", NULL);			// HEAP
 		pHiResCube->meshName = "hi_res_cube";
 		pHiResCube->friendlyName = "hi_cube";
@@ -408,7 +407,6 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 
 	// Get all of our model objects
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
-	cObject_Model* pShpere = pFindObjectByFriendlyName("Sphere#1");
 	/*
 	::g_vec_pGameObjects.push_back(pShpere);
 	::g_vec_pGameObjects.push_back(pShpere2);
@@ -740,7 +738,8 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 //		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
 //		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowrescubeMesh, closestPoint, closestTriangle);
 //		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
-
+	
+		cObject_Model* pShpere = pFindObjectByFriendlyName("Sphere#1");
 		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, singleTriangleMesh, closestPoint, closestTriangle);
 
 
@@ -944,11 +943,11 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 //		}
 
 
-		std::cout 
-			<< pShpere->velocity.x << ", "
-			<< pShpere->velocity.y << ", "
-			<< pShpere->velocity.z << "   dist = "
-			<< distanceToClosestPoint << std::endl;
+		//std::cout 
+		//	<< pShpere->velocity.x << ", "
+		//	<< pShpere->velocity.y << ", "
+		//	<< pShpere->velocity.z << "   dist = "
+		//	<< distanceToClosestPoint << std::endl;
 
 		//howMuchToMoveItBack = 1.0 - lenthOfThatVector
 

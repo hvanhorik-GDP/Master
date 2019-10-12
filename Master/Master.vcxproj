@@ -190,10 +190,10 @@
     <ClInclude Include="test_gl.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GameLibrary   copy.xml" />
-    <Xml Include="..\assets\GameLibrary.xml" />
+    <Xml Include="..\assets\GameLibrary xxxx.xml" />
     <Xml Include="..\assets\output.xml" />
-    <Xml Include="..\assets\output2.xml" />
+    <Xml Include="..\assets\GameLibrary xxx.xml" />
+    <Xml Include="..\assets\GameLibrary.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply" />

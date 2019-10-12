@@ -55,7 +55,6 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 						Assets_name assetName(file.GetNode());
 						AssetFile fileName = file.GetAssetFile();
 						std::string fullPath = rootPath + fileName.GetValue();
-						std::cout << fullPath << std::endl;
 
 						std::string id = assetName.GetValue();
 						auto parent = file.GetParent();
@@ -115,10 +114,6 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 						}
 					}
 				}
-			}
-			else
-			{
-				//				std::cout << "cAssetManager_Audios - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}

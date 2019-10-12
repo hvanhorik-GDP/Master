@@ -40,7 +40,6 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 						Assets_name assetName(file.GetNode());
 						AssetFile fileName = file.GetAssetFile();
 						std::string fullPath = rootPath + fileName.GetValue();
-						std::cout << fullPath << std::endl;
 
 						std::string id = assetName.GetValue();
 						auto parent = file.GetParent();
@@ -50,8 +49,8 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 						cPlyLoader loader;
 						// Just load the header for speed
 						bool ok = loader.LoadPlyModelInfo(fullPath, *item);
-						file.AddProperty("exists", "bool", std::to_string(item->m_fileExists));
-						file.AddProperty("valid", "bool", std::to_string(item->m_isValid));
+						file.AddProperty("exists", "bool", cFormat::PackBool(item->m_fileExists));
+						file.AddProperty("valid", "bool", cFormat::PackBool(item->m_isValid));
 						if (ok)
 						{
 							// Write the properties to the xml file
@@ -63,16 +62,11 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 								file.AddProperty(in.name, in.type, "" );
 							}
 							file.AddProperty("face", "int", cFormat::PackInt(item->m_faces));
-							file.AddProperty("valid", "bool", cFormat::PackBool(item->m_isValid));
 							file.AddProperty("normals", "bool", cFormat::PackBool(item->m_hasNormals));
 							file.AddProperty("colours", "bool", cFormat::PackBool(item->m_hasColor));
 						}
 					}
 				}
-			}
-			else
-			{
-//				std::cout << "cAssetManager_Models - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}

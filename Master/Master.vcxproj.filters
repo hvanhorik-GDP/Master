@@ -54,16 +54,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GameLibrary   copy.xml">
+    <Xml Include="..\assets\output.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\GameLibrary xxx.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\GameLibrary xxxx.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\output2.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\output.xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>

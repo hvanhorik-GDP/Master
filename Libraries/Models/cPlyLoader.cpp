@@ -6,13 +6,11 @@
 
 cPlyLoader::cPlyLoader()			// constructor
 {
-	//	std::cout << "A cPlyLoader() is created!" << std::endl;
 	return;
 }
 
 cPlyLoader::~cPlyLoader()			// destructor
 {
-	//	std::cout << "A cPlyLoader() is destroyed. How sad." << std::endl;
 	return;
 }
 
@@ -41,13 +39,6 @@ bool cPlyLoader::LoadThePlyHeader(std::istream& theFile, cItem_Model& theMesh)
 				theFile >> v.type >> v.name;
 				theMesh.m_vecProperties.push_back(v);
 			}
-			//else
-			//{
-			//	std::getline(theFile, temp);
-			//	cItem_Model::property v;
-			//	v.type = "last";
-			//	theMesh.m_vecProperties.push_back(v);
-			//}
 		}
 		theFile >> temp;
 	}

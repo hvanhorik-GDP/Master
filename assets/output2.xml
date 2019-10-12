@@ -8,9 +8,11 @@
 		<Asset name="fragmentShader01" type="fragment">
 			<AssetFile>fragmentShader01.glsl</AssetFile>
 			<Property name="isValid" type="bool" value="1"/>
+			<Property name="isValid" type="bool" value="1"/>
 		</Asset>
 		<Asset name="vertexShader01" type="vertex">
 			<AssetFile>vertexShader01.glsl</AssetFile>
+			<Property name="isValid" type="bool" value="1"/>
 			<Property name="isValid" type="bool" value="1"/>
 		</Asset>
 	</AssetGroup>
@@ -43,12 +45,12 @@
 		<AssetRoot>../assets/models/</AssetRoot>
 		<Asset name="NonExistant File">
 			<AssetFile>NonExistant.ply</AssetFile>
-			<Property name="exists" type="bool" value="0"/>
-			<Property name="valid" type="bool" value="0"/>
+			<Property name="exists" type="bool" value="false"/>
+			<Property name="valid" type="bool" value="false"/>
 		</Asset>
 		<Asset name="SingleTriangle">
 			<AssetFile>Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -65,7 +67,7 @@
 		</Asset>
 		<Asset name="BigFlatTerrain_XYZ_n">
 			<AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -82,7 +84,7 @@
 		</Asset>
 		<Asset name="bun_zipper_XYZ_n">
 			<AssetFile>bun_zipper_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -99,7 +101,7 @@
 		</Asset>
 		<Asset name="bun_zipper_res2_XYZ_n">
 			<AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -116,7 +118,7 @@
 		</Asset>
 		<Asset name="bun_zipper_res3_XYZ_n">
 			<AssetFile>bun_zipper_res3_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -133,7 +135,7 @@
 		</Asset>
 		<Asset name="bun_zipper_res4_XYZ_n">
 			<AssetFile>bun_zipper_res4_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -150,7 +152,7 @@
 		</Asset>
 		<Asset name="Cube_1_Unit_from_origin_XYZ_n">
 			<AssetFile>Cube_1_Unit_from_origin_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -167,7 +169,7 @@
 		</Asset>
 		<Asset name="cube_Low_Hi_xyz_n">
 			<AssetFile>cube_Low_Hi_xyz_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -184,7 +186,7 @@
 		</Asset>
 		<Asset name="cube_Low_Res_xyz_n">
 			<AssetFile>cube_Low_Res_xyz_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -201,7 +203,7 @@
 		</Asset>
 		<Asset name="Entire_Babbage_Space_Station_xyz_n">
 			<AssetFile>Entire_Babbage_Space_Station_xyz_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -218,7 +220,7 @@
 		</Asset>
 		<Asset name="Large_Physics_Bunny_XYZ_n">
 			<AssetFile>Large_Physics_Bunny_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -235,7 +237,7 @@
 		</Asset>
 		<Asset name="Sky_Pirate_Combined_xyz_n">
 			<AssetFile>Sky_Pirate_Combined_xyz_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -252,7 +254,7 @@
 		</Asset>
 		<Asset name="Sphere_Radius_1_XYZ_n">
 			<AssetFile>Sphere_Radius_1_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -269,7 +271,7 @@
 		</Asset>
 		<Asset name="Terrain_XYZ_n">
 			<AssetFile>Terrain_XYZ_n.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -286,7 +288,7 @@
 		</Asset>
 		<Asset name="12953_ChocolateRabbit_v1">
 			<AssetFile>./Bunnies/12953_ChocolateRabbit_v1.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -307,7 +309,7 @@
 		</Asset>
 		<Asset name="17505_Finger_puppet_rabbit_V1">
 			<AssetFile>./Bunnies/17505_Finger_puppet_rabbit_V1.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -328,7 +330,7 @@
 		</Asset>
 		<Asset name="10037_Rabbit_v1_L3">
 			<AssetFile>./Bunnies/10037_Rabbit_v1_L3.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -349,7 +351,7 @@
 		</Asset>
 		<Asset name="Bravil">
 			<AssetFile>./Castles/Bravil.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -370,7 +372,7 @@
 		</Asset>
 		<Asset name="10083_Small Castle_v3_L3">
 			<AssetFile>./Castles/10083_Small Castle_v3_L3.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -391,7 +393,7 @@
 		</Asset>
 		<Asset name="Castle (2)">
 			<AssetFile>./Castles/Castle (2).ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -412,7 +414,7 @@
 		</Asset>
 		<Asset name="Castle OBJ">
 			<AssetFile>./Castles/Castle OBJ.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -433,7 +435,7 @@
 		</Asset>
 		<Asset name="Hogwarts">
 			<AssetFile>./Castles/Hogwarts.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -454,7 +456,7 @@
 		</Asset>
 		<Asset name="Great_Pyramids">
 			<AssetFile>./Physics/15982_Great_Pyramids_v1.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -471,7 +473,7 @@
 		</Asset>
 		<Asset name="pyramid">
 			<AssetFile>./Physics/pyramid.ply</AssetFile>
-			<Property name="exists" type="bool" value="1"/>
+			<Property name="exists" type="bool" value="true"/>
 			<Property name="valid" type="bool" value="true"/>
 			<Property name="type" type="enum" value="ply"/>
 			<Property name="format" type="string" value="ascii"/>
@@ -491,6 +493,8 @@
 		<AssetRoot>../assets/audios/</AssetRoot>
 		<Asset name="NonExistant File2">
 			<AssetFile>NonExistant2.mp3</AssetFile>
+			<Property name="exists" type="bool" value="0"/>
+			<Property name="Error" type="string" value="File does not exists"/>
 			<Property name="exists" type="bool" value="0"/>
 			<Property name="Error" type="string" value="File does not exists"/>
 		</Asset>
@@ -746,7 +750,6 @@
 			<Property name="type" type="string" value="spot"/>
 			<Property name="position" type="vec4" value="1,2,3,4"/>
 			<Property name="specular" type="vec4" value="1,2,3,4"/>
-			<Property name="position" type="vec4" value="1,2,3,4"/>
 			<Property name="atten" type="vec4" value="1,2,3,4"/>
 			<Property name="direction" type="vec4" value="1,2,3,4"/>
 			<Property name="lightType" type="enum" value="0"/>
@@ -755,8 +758,8 @@
 			<Property name="on" type="bool" value="false"/>
 		</Object>
 		<Object type="model" name="Bugs" asset_id="bun_zipper_XYZ_n">
-			<Property name="position" type="vec3" value="50 20 -2"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="positionXYZ" type="vec3" value="50 20 -2"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="250.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0 1 0 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
@@ -773,6 +776,8 @@
 			<Property name="isVisible" type="bool" value="true"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+			<Property name="meshName" type="string" value="bunny"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 		</Object>
 		<Object type="audio" name="sensualgiggly" asset_id="sensual giggly laughter">
 			<Property name="type" type="string" value="mpeg"/>
@@ -799,12 +804,14 @@
 			<Object type="group" name="group1" asset_id=""/>
 		</Object>
 		<Object name="PirateShip" type="model" asset_id="Sky_Pirate_Combined_xyz_n">
-			<Property name="position" type="vec3" value="-30 20 10"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="pirate"/>
+			<Property name="positionXYZ" type="vec3" value="-30 20 10"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="0.750000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -818,12 +825,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="position" type="vec3" value="0 30 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="sphere"/>
+			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -837,12 +846,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="Sphere#2" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="position" type="vec3" value="0 0 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="sphere"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -856,12 +867,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="cube" type="model" asset_id="Cube_1_Unit_from_origin_XYZ_n">
-			<Property name="position" type="vec3" value="0 -1 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="cube"/>
+			<Property name="positionXYZ" type="vec3" value="0 -1 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0 0 0 0"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -875,12 +888,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="TheGround" type="model" asset_id="Terrain_XYZ_n">
-			<Property name="position" type="vec3" value="0 0 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="terrain"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -894,12 +909,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="largeBunny" type="model" asset_id="Large_Physics_Bunny_XYZ_n">
-			<Property name="position" type="vec3" value="30 0 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="large_bunny"/>
+			<Property name="positionXYZ" type="vec3" value="30 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -913,12 +930,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="hi_cube" type="model" asset_id="cube_Low_Hi_xyz_n">
-			<Property name="position" type="vec3" value="0 -50 0"/>
-			<Property name="rotation" type="vec3" value="0.261799 0 0.610865"/>
+			<Property name="meshName" type="string" value="hi_res_cube"/>
+			<Property name="positionXYZ" type="vec3" value="0 -50 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0.261799 0 0.610865"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -932,12 +951,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="low_cube" type="model" asset_id="cube_Low_Res_xyz_n">
-			<Property name="position" type="vec3" value="0 -50 0"/>
-			<Property name="rotation" type="vec3" value="0.261799 0 0.610865"/>
+			<Property name="meshName" type="string" value="low_res_cube"/>
+			<Property name="positionXYZ" type="vec3" value="0 -50 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0.261799 0 0.610865"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -951,12 +972,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="space station" type="model" asset_id="Entire_Babbage_Space_Station_xyz_n">
-			<Property name="position" type="vec3" value="100 0 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="space_station"/>
+			<Property name="positionXYZ" type="vec3" value="100 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -970,12 +993,14 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="single triangle" type="model" asset_id="SingleTriangle">
-			<Property name="position" type="vec3" value="0 0 0"/>
-			<Property name="rotation" type="vec3" value="0 0 0"/>
+			<Property name="meshName" type="string" value="single_triangle"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="MESH"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>

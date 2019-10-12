@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2019 (https://www.liquid-technologies.com) -->
+<GameLibrary>
+  <GameName>Project 1 Audio Test</GameName>
+
+  <!-- Shaders -->
+  <AssetGroup type = "shaders" open = "none">
+    <AssetRoot>../assets/shaders/</AssetRoot>
+    <Asset name="NonExistant Shader" type ="fragment">
+      <AssetFile>NonExistant2.glsl</AssetFile>
+    </Asset>
+    <Asset name="fragmentShader01" type ="fragment">
+      <AssetFile>fragmentShader01.glsl</AssetFile>
+    </Asset>
+    <Asset name="vertexShader01" type="vertex">
+      <AssetFile>vertexShader01.glsl</AssetFile>
+    </Asset>
+  </AssetGroup>
+  
+  <!-- Program - Link the shaders together as a single asset-->
+  <AssetGroup type = "programs" open = "none">
+    <Asset name="main">
+      <AssetPart>fragmentShader01</AssetPart>
+      <AssetPart>vertexShader01</AssetPart>
+    </Asset>
+  </AssetGroup>
+
+  <!-- Models -->
+  <AssetGroup type = "models" open = "none">
+   
+    <AssetRoot>../assets/models/</AssetRoot>
+    <Asset name="NonExistant File">
+      <AssetFile>NonExistant.ply</AssetFile>
+    </Asset>
+    <Asset name="SingleTriangle">
+      <AssetFile>Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply</AssetFile>
+    </Asset>
+    <Asset name="BigFlatTerrain_XYZ_n">
+      <AssetFile>BigFlatTerrain_XYZ_n.ply</AssetFile>
+    </Asset>
+     <Asset name="bun_zipper_XYZ_n">
+      <AssetFile>bun_zipper_XYZ_n.ply</AssetFile>
+    </Asset>
+     <Asset name="bun_zipper_res2_XYZ_n">
+      <AssetFile>bun_zipper_res2_XYZ_n.ply</AssetFile>
+    </Asset>
+     <Asset name="bun_zipper_res3_XYZ_n">
+      <AssetFile>bun_zipper_res3_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="bun_zipper_res4_XYZ_n">
+      <AssetFile>bun_zipper_res4_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Cube_1_Unit_from_origin_XYZ_n">
+      <AssetFile>Cube_1_Unit_from_origin_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="cube_Low_Hi_xyz_n">
+      <AssetFile>cube_Low_Hi_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="cube_Low_Res_xyz_n">
+      <AssetFile>cube_Low_Res_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Entire_Babbage_Space_Station_xyz_n">
+      <AssetFile>Entire_Babbage_Space_Station_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Large_Physics_Bunny_XYZ_n">
+      <AssetFile>Large_Physics_Bunny_XYZ_n.ply</AssetFile>
+    </Asset>
+     <Asset name="Sky_Pirate_Combined_xyz_n">
+      <AssetFile>Sky_Pirate_Combined_xyz_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Sphere_Radius_1_XYZ_n">
+      <AssetFile>Sphere_Radius_1_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="Terrain_XYZ_n">
+      <AssetFile>Terrain_XYZ_n.ply</AssetFile>
+    </Asset>
+    <Asset name="12953_ChocolateRabbit_v1">
+      <AssetFile>./Bunnies/12953_ChocolateRabbit_v1.ply</AssetFile>
+    </Asset>
+    <Asset name="17505_Finger_puppet_rabbit_V1">
+      <AssetFile>./Bunnies/17505_Finger_puppet_rabbit_V1.ply</AssetFile>
+    </Asset>
+    <Asset name="10037_Rabbit_v1_L3">
+      <AssetFile>./Bunnies/10037_Rabbit_v1_L3.ply</AssetFile>
+    </Asset>
+    <Asset name="Bravil">
+      <AssetFile>./Castles/Bravil.ply</AssetFile>
+    </Asset>
+    <Asset name="10083_Small Castle_v3_L3">
+      <AssetFile>./Castles/10083_Small Castle_v3_L3.ply</AssetFile>
+    </Asset>
+    <Asset name="Castle (2)">
+      <AssetFile>./Castles/Castle (2).ply</AssetFile>
+    </Asset>
+    <Asset name="Castle OBJ">
+      <AssetFile>./Castles/Castle OBJ.ply</AssetFile>
+    </Asset>
+    <Asset name="Hogwarts">
+      <AssetFile>./Castles/Hogwarts.ply</AssetFile>
+    </Asset>
+    <Asset name="Great_Pyramids">
+      <AssetFile>./Physics/15982_Great_Pyramids_v1.ply</AssetFile>
+    </Asset>
+    <Asset name="pyramid">
+      <AssetFile>./Physics/pyramid.ply</AssetFile>
+    </Asset>
+
+  </AssetGroup>
+
+  <!-- Audio files -->
+  <AssetGroup type = "audios" open = "all" subdir = "true" subtype="music">
+    <AssetRoot>../assets/audios/</AssetRoot>
+    <Asset name="NonExistant File2">
+      <AssetFile>NonExistant2.mp3</AssetFile>
+    </Asset>
+    <Asset name= "That's Amore">
+      <AssetFile>music/Dean Martin - That's Amore.mp3</AssetFile>
+    </Asset>
+    <Asset name= "That's Amore wav">
+      <AssetFile>music/Dean Martin - That's Amore.wav</AssetFile>
+    </Asset>
+    <Asset name= "Auld Lang Syne">
+      <AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).mp3</AssetFile>
+    </Asset>
+    <Asset name= "Auld Lang Syne wav">
+      <AssetFile>music/Guy Lombardo And His Royal Canadians - Auld Lang Syne (Capitol Records 1953).wav</AssetFile>
+    </Asset>
+    <Asset name= "Hello, Dolly">
+      <AssetFile>music/Herb Alpert's Tijuana Brass - Hello, Dolly!.ogg</AssetFile>
+    </Asset>
+    <Asset name= "Hello, Dolly wav">
+      <AssetFile>music/Herb Alpert's Tijuana Brass - Hello, Dolly!.wav</AssetFile>
+    </Asset>
+    <Asset name= "Spanish Flea wav">
+      <AssetFile>music/Spanish Flea.wav</AssetFile>
+    </Asset>
+    <Asset name= "Spanish Flea">
+      <AssetFile>music/Spanish Flea.mp3</AssetFile>
+    </Asset>
+  </AssetGroup>
+  
+  <!-- More Audio Files -->
+  <AssetGroup type = "audios" open = "all" subdir = "true" subtype="effects">
+    <AssetRoot>../assets/audios/</AssetRoot>
+     <Asset name = "let me guess">
+      <AssetFile>effects/A man says don-t tell me- let me guess -southern accent- ol.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "walk that dog">
+      <AssetFile>effects/A woman says chester- walk that dog -old woman- cartoon-_Ni.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "blackboard">
+      <AssetFile>effects/A woman says like nails on a blackboard -jewish accent- old.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "He Was So">
+      <AssetFile>effects/A_L Ploaroid Old Woman - He Was So 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "I am not Dead">
+      <AssetFile>effects/A_L Ploaroid Old Woman - I am not Dead 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "I had all These Plans">
+      <AssetFile>effects/A_L Ploaroid Old Woman - I had all These Plans 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Wasnt My Fault">
+      <AssetFile>effects/A_L Ploaroid Old Woman - Wasnt My Fault 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Just An Old Man">
+      <AssetFile>effects/Cartoon Grandpa I-m Just An Old Man.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Let Me Get My Wheelchair">
+      <AssetFile>effects/Cartoon Grandpa Let Me Get My Wheelchair.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "One Good Looking Young Lady">
+      <AssetFile>effects/Cartoon Grandpa Now That-s One Good Looking Young Lady.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Telling You Right">
+      <AssetFile>effects/Cartoon Grandpa Woo Doggy I-m Telling You Right Now.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Way Too Fast">
+      <AssetFile>effects/Cartoon Grandpa You-re Going Way Too Fast.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Old Man Cry">
+      <AssetFile>effects/Cartoon Old Man Cry 3.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "Old Man Pain">
+      <AssetFile>effects/Cartoon Old Man Pain 1.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "sensual giggly laughter">
+      <AssetFile>effects/Mature woman sensual giggly laughter 01.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "belly laughter">
+      <AssetFile>effects/Old male belly laughter.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "strike three">
+      <AssetFile>effects/Old man says baseball umpire strike three you-re out_BLASTW.mpeg</AssetFile>
+    </Asset>
+    <Asset name = "goal">
+      <AssetFile>effects/Old man says goal_BLASTWAVEFX_16176.mpeg</AssetFile>
+    </Asset>
+  </AssetGroup>
+
+  <!-- Video files -->
+  <AssetGroup type = "videos" open = "none">
+    <AssetRoot>../assets/videos/</AssetRoot>
+  </AssetGroup>
+  
+  <!-- Image files -->
+
+  <AssetGroup type = "images" open = "none">
+    <AssetRoot>../assets/images/</AssetRoot>
+  </AssetGroup>
+  
+  <!-- Font files -->
+
+  <AssetGroup type = "fonts" open = "none">
+    <AssetRoot>../assets/fonts/</AssetRoot>
+  </AssetGroup>
+
+  <!-- Game Objects - One of these -->
+  <Objects>
+    <!-- Light Object -->
+    <Object type ="light" name ="spotlight" asset_id ="">
+      <Property name = "type"  type = "string" value="spot"/>
+      <Property name = "position" type ="vec4" value="1,2,3,4"/>
+      <Property name = "specular" type ="vec4" value="1,2,3,4"/>
+      <Property name = "atten" type ="vec4" value="1,2,3,4"/>
+      <Property name = "direction" type ="vec4" value="1,2,3,4"/>
+      <Property name = "lightType" type ="enum" value="0"/>
+      <Property name = "innerangle" type ="float" value=""/>
+      <Property name = "outer angle" type ="float" value=""/>
+      <Property name = "on" type ="bool" value="false"/>
+      <!-- From: fragmentShader01.glsl
+      vec4 diffuse;
+      vec4 specular;	// rgb = highlight colour, w = power
+      vec4 atten;		// x = constant, y = linear, z = quadratic, w = DistanceCutOff
+      vec4 direction;	// Spot, directional lights
+      vec4 param1;	// x = lightType, y = inner angle, z = outer angle, w = TBD
+      // 0 = pointlight
+      // 1 = spot light
+      // 2 = directional light
+      vec4 param2;	// x = 0 for off, 1 for on -->
+    </Object>
+
+    <!-- Model Object -->
+    <Object type ="model" name ="Bugs" asset_id ="bun_zipper_XYZ_n">
+      <Property name = "positionXYZ" type ="vec3" value="1,2,3"/>
+      <Property name = "rotationXYZ" type ="vec3" value="1,2,3"/>
+      <Property name = "scale" type ="float" value="1.0"/>
+      <Property name = "objectColourRGBA" type ="vec4" value="1,2,3,4"/>
+      <Property name = "diffuseColour" type ="vec4" value="1,2,3,4"/>
+      <Property name = "specularColour" type ="vec4" value="1,2,3,4"/>
+      
+      <!-- Physics - should be moved -->
+      <Property name = "velocity" type ="vec3" value="1,2,3"/>
+      <Property name = "accel" type ="vec3" value="1,2,3"/>
+      <Property name = "physicsShapeType" type ="enum" value="UNKNOWN"/>
+      <Property name = "AABB_min" type ="vec3" value="1,2,3"/>
+      <Property name = "AABB_max" type ="vec3" value="1,2,3"/>
+      <Property name = "SPHERE_radius" type ="float" value="1.0"/>
+      
+      <!-- Debug -->
+      <Property name = "isWireframe" type ="bool" value="false"/>
+      <Property name = "debugColour" type ="vec4" value="1,2,3,4"/>
+      <Property name = "isWireframe" type ="bool" value="false"/>
+      <Property name = "isVisible" type ="bool" value="false"/>
+      <Property name = "disableDepthBufferTest" type ="bool" value="false"/>
+      <Property name = "disableDepthBufferWrite" type ="bool" value="false"/>
+    </Object>
+
+    <!-- Audio Object -->
+    <Object type = "audio" name ="sensualgiggly" asset_id = "sensual giggly laughter">
+      <Property name = "type"  type = "string" value="mpeg"/>
+      <Property name = "volume" type ="int" value ="10"/>
+      <Property name = "pitch" type ="double" value ="1" />
+      <Property name = "offset" type ="int" value = "0" />
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+      <Property name ="color" type="vec4" value="255,0,0,0"/>
+    </Object>
+
+    <!-- group Object -->
+    <Object type ="group" name ="group1" asset_id ="">
+      <Object type ="alias" name ="sensualgiggly" asset_id =""/>
+      <Property name = "matWorld" type ="vec4" value="1,2,3,4"/>
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+    </Object>
+    
+    <!-- nested group within a group Object -->
+    <Object type ="group" name ="group2" asset_id ="">
+      <Object type ="alias" name ="group" asset_id =""/>
+      <Object type ="alias" name ="bunny" asset_id =""/>
+      <Object type ="alias" name ="spotlight" asset_id =""/>
+      <Property name = "matWorld" type ="vec4" value="1,2,3,4"/>
+      <Property name = "position" type ="vec3" value="1,2,3"/>
+    </Object>
+
+    <!-- One world that rules them all -->
+    <Object type="world" name="wprld" asset_id="">
+      <Object type ="group" name ="group2" asset_id =""/>
+      <Object type ="group" name ="group1" asset_id =""/>
+     </Object>
+  </Objects>
+  
+</GameLibrary>

@@ -39,8 +39,8 @@ void cAssetManager_Shaders::LoadAssets(rapidxml::xml_node<>* parent)
 						AssetFile fileName = file.GetAssetFile();
 						Assets_type assetType(file.GetNode());
 						std::string fullPath = rootPath + fileName.GetValue();
-						std::cout << fullPath << std::endl;
-						std::cout << __FILE__ << __LINE__ << "Found an asset TODO" << std::endl;
+//						std::cout << fullPath << std::endl;
+//						std::cout << __FILE__ << __LINE__ << "Found an asset TODO" << std::endl;
 
 						std::string id = assetName.GetValue();
 						auto parent = file.GetParent();
@@ -66,10 +66,6 @@ void cAssetManager_Shaders::LoadAssets(rapidxml::xml_node<>* parent)
 						prop.AddProperty("isValid", "bool", std::to_string(item->m_valid));
 					}
 				}
-			}
-			else
-			{
-//				std::cout << "cAssetManager_Shaders - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}
