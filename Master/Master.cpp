@@ -22,12 +22,13 @@
 #include <conio.h>
 #include <direct.h>
 
-
+#include "LoadGLFW.h"
 #include "test_GDP2019.h"
 #include "test_Audio.h"
 #include "test_gl.h"
 #include "test_filesystem.h"
 #include "test_AudioEngine.h"
+#include "test_Physics.h"
 
 int main(int arg, char** argv)
 {
@@ -50,7 +51,8 @@ int main(int arg, char** argv)
 
 	document.Write("../assets/output.xml");
 
-	test_GDP2019(gameLib);
+//	test_GDP2019(gameLib);	
+	test_Physics(gameLib);
 
 	document.Write("../assets/output2.xml");
 

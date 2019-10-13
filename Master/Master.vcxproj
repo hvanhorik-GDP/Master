@@ -179,13 +179,13 @@
     <ClCompile Include="LightDebugSheres.cpp" />
     <ClCompile Include="LoadGLFW.cpp" />
     <ClCompile Include="pFindObjectByFriendlyName.cpp" />
-    <ClCompile Include="save stuff.cpp" />
     <ClCompile Include="test_AudioEngine.cpp" />
     <ClCompile Include="test_filesystem.cpp" />
     <ClCompile Include="test_GDP2019.cpp" />
     <ClCompile Include="test_gl.cpp" />
     <ClCompile Include="Master.cpp" />
     <ClCompile Include="test_Audio.cpp" />
+    <ClCompile Include="test_Physics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GFLW_Callbacks.h" />
@@ -202,13 +202,13 @@
     <ClInclude Include="test_filesystem.h" />
     <ClInclude Include="test_GDP2019.h" />
     <ClInclude Include="test_gl.h" />
+    <ClInclude Include="test_Physics.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GameLibrary xxxx.xml" />
     <Xml Include="..\assets\output.xml" />
-    <Xml Include="..\assets\GameLibrary xxx.xml" />
-    <Xml Include="..\assets\GameLibrary ddd.xml" />
     <Xml Include="..\assets\GameLibrary.xml" />
+    <Xml Include="..\assets\output2.xml" />
+    <Xml Include="..\assets\test_GDP2019.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply" />

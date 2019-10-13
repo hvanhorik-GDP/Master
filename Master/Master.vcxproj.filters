@@ -13,6 +13,9 @@
     <Filter Include="Assets\shaders">
       <UniqueIdentifier>{ed592962-3f94-4b87-a466-6e6a4dfd0435}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{00ae2ebb-3b60-4c4b-a3f1-d5e2e8ad45ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_Audio.cpp">
@@ -25,7 +28,6 @@
       <Filter>Tests</Filter>
     </ClCompile>
     <ClCompile Include="Master.cpp" />
-    <ClCompile Include="GFLW_Callbacks.cpp" />
     <ClCompile Include="test_filesystem.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
@@ -33,17 +35,33 @@
       <Filter>Tests</Filter>
     </ClCompile>
     <ClCompile Include="LoadGLFW.cpp" />
-    <ClCompile Include="globalStuff.cpp" />
-    <ClCompile Include="pFindObjectByFriendlyName.cpp" />
-    <ClCompile Include="LightDebugSheres.cpp" />
-    <ClCompile Include="save stuff.cpp" />
-    <ClCompile Include="HandleDebugBallPhysics.cpp" />
-    <ClCompile Include="HandleDebugPirate.cpp" />
-    <ClCompile Include="HandleDebugLights.cpp" />
+    <ClCompile Include="GFLW_Callbacks.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalStuff.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="HandleDebugBallPhysics.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="HandleDebugLights.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="HandleDebugPirate.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="LightDebugSheres.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="pFindObjectByFriendlyName.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="test_Physics.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Master.h" />
-    <ClInclude Include="globalStuff.h" />
     <ClInclude Include="test_Audio.h">
       <Filter>Tests</Filter>
     </ClInclude>
@@ -53,7 +71,6 @@
     <ClInclude Include="test_gl.h">
       <Filter>Tests</Filter>
     </ClInclude>
-    <ClInclude Include="GFLW_Callbacks.h" />
     <ClInclude Include="test_filesystem.h">
       <Filter>Tests</Filter>
     </ClInclude>
@@ -61,26 +78,42 @@
       <Filter>Tests</Filter>
     </ClInclude>
     <ClInclude Include="LoadGLFW.h" />
-    <ClInclude Include="pFindObjectByFriendlyName.h" />
-    <ClInclude Include="LightDebugSheres.h" />
-    <ClInclude Include="HandleDebugBallPhysics.h" />
-    <ClInclude Include="HandleDebugPirate.h" />
-    <ClInclude Include="HandleDebugLights.h" />
+    <ClInclude Include="GFLW_Callbacks.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalStuff.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="HandleDebugBallPhysics.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="HandleDebugLights.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="HandleDebugPirate.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="LightDebugSheres.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="pFindObjectByFriendlyName.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="test_Physics.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\output.xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\GameLibrary xxx.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\GameLibrary xxxx.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\GameLibrary ddd.xml">
+    <Xml Include="..\assets\test_GDP2019.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\output2.xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>
