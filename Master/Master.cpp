@@ -22,13 +22,13 @@
 #include <conio.h>
 #include <direct.h>
 
-#include "LoadGLFW.h"
-#include "test_GDP2019.h"
-#include "test_Audio.h"
-#include "test_gl.h"
-#include "test_filesystem.h"
-#include "test_AudioEngine.h"
-#include "test_Physics.h"
+#include "Common/LoadGLFW.h"
+#include "GDP2019/test_GDP2019.h"
+#include "AudioTest/test_Audio.h"
+#include "OtherTest/test_gl.h"
+#include "OtherTest/test_filesystem.h"
+#include "AudioTest/test_AudioEngine.h"
+#include "Physics/test_Physics.h"
 
 int main(int arg, char** argv)
 {

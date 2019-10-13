@@ -72,26 +72,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(ProjectDir);$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(ProjectDir);$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir).inc;$(SolutionDir)Libraries;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -171,38 +171,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GFLW_Callbacks.cpp" />
-    <ClCompile Include="globalStuff.cpp" />
-    <ClCompile Include="HandleDebugBallPhysics.cpp" />
-    <ClCompile Include="HandleDebugLights.cpp" />
-    <ClCompile Include="HandleDebugPirate.cpp" />
-    <ClCompile Include="LightDebugSheres.cpp" />
-    <ClCompile Include="LoadGLFW.cpp" />
-    <ClCompile Include="pFindObjectByFriendlyName.cpp" />
-    <ClCompile Include="test_AudioEngine.cpp" />
-    <ClCompile Include="test_filesystem.cpp" />
-    <ClCompile Include="test_GDP2019.cpp" />
-    <ClCompile Include="test_gl.cpp" />
+    <ClCompile Include="AudioTest\test_Audio.cpp" />
+    <ClCompile Include="AudioTest\test_AudioEngine.cpp" />
+    <ClCompile Include="Common\globalStuff.cpp" />
+    <ClCompile Include="Common\LoadGLFW.cpp" />
+    <ClCompile Include="Common\pFindObjectByFriendlyName.cpp" />
+    <ClCompile Include="GDP2019\GLFW_Callbacks.cpp" />
+    <ClCompile Include="GDP2019\HandleDebugBallPhysics.cpp" />
+    <ClCompile Include="GDP2019\HandleDebugLights.cpp" />
+    <ClCompile Include="GDP2019\HandleDebugPirate.cpp" />
+    <ClCompile Include="GDP2019\LightDebugSheres.cpp" />
+    <ClCompile Include="GDP2019\save stuff.cpp" />
+    <ClCompile Include="GDP2019\test_GDP2019.cpp" />
     <ClCompile Include="Master.cpp" />
-    <ClCompile Include="test_Audio.cpp" />
-    <ClCompile Include="test_Physics.cpp" />
+    <ClCompile Include="OtherTest\test_filesystem.cpp" />
+    <ClCompile Include="OtherTest\test_gl.cpp" />
+    <ClCompile Include="Physics\test_Physics.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GFLW_Callbacks.h" />
-    <ClInclude Include="globalStuff.h" />
-    <ClInclude Include="HandleDebugBallPhysics.h" />
-    <ClInclude Include="HandleDebugLights.h" />
-    <ClInclude Include="HandleDebugPirate.h" />
-    <ClInclude Include="LightDebugSheres.h" />
-    <ClInclude Include="LoadGLFW.h" />
+    <ClInclude Include="AudioTest\test_Audio.h" />
+    <ClInclude Include="AudioTest\test_AudioEngine.h" />
+    <ClInclude Include="Common\globalStuff.h" />
+    <ClInclude Include="Common\LoadGLFW.h" />
+    <ClInclude Include="Common\pFindObjectByFriendlyName.h" />
+    <ClInclude Include="GDP2019\GLFW_Callbacks.h" />
+    <ClInclude Include="GDP2019\HandleDebugBallPhysics.h" />
+    <ClInclude Include="GDP2019\HandleDebugLights.h" />
+    <ClInclude Include="GDP2019\HandleDebugPirate.h" />
+    <ClInclude Include="GDP2019\LightDebugSheres.h" />
+    <ClInclude Include="GDP2019\test_GDP2019.h" />
     <ClInclude Include="Master.h" />
-    <ClInclude Include="pFindObjectByFriendlyName.h" />
-    <ClInclude Include="test_Audio.h" />
-    <ClInclude Include="test_AudioEngine.h" />
-    <ClInclude Include="test_filesystem.h" />
-    <ClInclude Include="test_GDP2019.h" />
-    <ClInclude Include="test_gl.h" />
-    <ClInclude Include="test_Physics.h" />
+    <ClInclude Include="OtherTest\test_filesystem.h" />
+    <ClInclude Include="OtherTest\test_gl.h" />
+    <ClInclude Include="Physics\test_Physics.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\output.xml" />
