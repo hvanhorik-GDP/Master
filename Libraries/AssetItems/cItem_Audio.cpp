@@ -7,7 +7,6 @@ cItem_Audio::cItem_Audio(std::string id,
 	rapidxml::xml_node<>* parent,
 	std::size_t index)
 	: cItem_Common(id, path, parent, index)
-	, m_exists()
 	, m_isValidAudio()
 	, m_subtype()
 	, m_format()
@@ -21,11 +20,6 @@ cItem_Audio::~cItem_Audio()
 {
 	delete m_sound;
 	delete m_channel;
-}
-
-bool cItem_Audio::GetExists() const
-{
-	return m_exists;
 }
 
 bool cItem_Audio::GetIsValidAudio() const

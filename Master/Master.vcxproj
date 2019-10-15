@@ -187,6 +187,7 @@
     <ClCompile Include="OtherTest\test_filesystem.cpp" />
     <ClCompile Include="OtherTest\test_gl.cpp" />
     <ClCompile Include="Physics\test_Physics.cpp" />
+    <ClCompile Include="Physics_Callback.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioTest\test_Audio.h" />
@@ -204,9 +205,11 @@
     <ClInclude Include="OtherTest\test_filesystem.h" />
     <ClInclude Include="OtherTest\test_gl.h" />
     <ClInclude Include="Physics\test_Physics.h" />
+    <ClInclude Include="Physics_Callback.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\output.xml" />
+    <Xml Include="..\assets\GameLibrary %28Physics%29.xml" />
     <Xml Include="..\assets\GameLibrary.xml" />
     <Xml Include="..\assets\output2.xml" />
     <Xml Include="..\assets\test_GDP2019.xml" />

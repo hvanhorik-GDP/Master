@@ -131,11 +131,11 @@ void test_Audio(cAssetManager &assetManager)
 				auto baseItem = (*items)[j];
 				auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
 				assert(audioItem);
-				std::cout << "Loading Audio File: " << audioItem->GetIndex() << ": " << audioItem->GetRelativeName() << std::endl;
+				std::cout << "Loading Audio File: " << audioItem->GetAssetName() << std::endl;
 				cAudio_Sound_FMOD* sound = audioItem->GetSound();
 				cAudio_Channel_FMOD* channel = audioItem->GetChannel();
 
-				audioSystem->CreateSound(*sound, audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+				audioSystem->CreateSound(*sound, audioItem->GetAssetName(), FMOD_CREATESTREAM);
 				audioSystem->PlaySound(*sound, *channel);
 				channel->Pause(true);
 			}
@@ -204,7 +204,7 @@ void test_Audio(cAssetManager &assetManager)
 					currentItem = dynamic_cast<cItem_Audio*>(baseItem);
 					currentItem->GetChannel()->SetPosition(0);
 					currentItem->GetChannel()->Pause(false);
-					std::cout << "Audio File : " << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
+					std::cout << "Audio File : "<< currentItem->GetAssetName() << std::endl;
 					break;
 				}
 				case '0':
@@ -223,7 +223,7 @@ void test_Audio(cAssetManager &assetManager)
 						currentItem->GetChannel()->SetPosition(0);
 						currentItem->GetChannel()->Pause(false);
 						clear();
-						std::cout << "Audio File : " << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
+						std::cout << "Audio File : " << currentItem->GetAssetName() << std::endl;
 					}
 					break;
 				}
@@ -233,7 +233,7 @@ void test_Audio(cAssetManager &assetManager)
 					cItem_Audio::format format = currentItem->GetFormat();
 					clear();
 					std::cout << "Audio file information:" << std::endl << std::endl;
-					std::cout << "  Name:      " << currentItem->GetRelativeName() << std::endl;
+					std::cout << "  Name:      " << currentItem->GetAssetName() << std::endl;
 					std::cout << "  Type:      " << currentItem->get_type_string() << std::endl;
 					std::cout << "  Format:    " << currentItem->get_format_string() << std::endl;
 					std::cout << "  Channels:  " << format.channels << std::endl;
@@ -248,10 +248,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["One Good Looking Young Lady"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -266,10 +266,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["sensual giggly laughter"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -287,10 +287,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["belly laughter"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -301,10 +301,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["sensual giggly laughter"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -320,10 +320,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["Let Me Get My Wheelchair"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -336,10 +336,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["Way Too Fast"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -352,10 +352,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["Way Too Fast"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -367,10 +367,10 @@ void test_Audio(cAssetManager &assetManager)
 					{
 						auto baseItem = (*items)["Just An Old Man"];
 						auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+						std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 						if (audioItem->GetChannel() == 0)
 						{
-							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+							audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 							audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 						}
 						else
@@ -382,10 +382,10 @@ void test_Audio(cAssetManager &assetManager)
 				{
 					auto baseItem = (*items)["walk that dog"];
 					auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-					std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+					std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 					if (audioItem->GetChannel() == 0)
 					{
-						audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+						audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 						audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 					}
 					else
@@ -396,10 +396,10 @@ void test_Audio(cAssetManager &assetManager)
 				{
 					auto baseItem = (*items)["I am not Dead"];
 					auto audioItem = dynamic_cast<cItem_Audio*>(baseItem);
-					std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetRelativeName() << std::endl;
+					std::cout << "Loading Audio File: " << audioItem->GetAssetID() << ": " << audioItem->GetAssetName() << std::endl;
 					if (audioItem->GetChannel() == 0)
 					{
-						audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetRelativeName(), FMOD_CREATESTREAM);
+						audioSystem->CreateSound(*audioItem->GetSound(), audioItem->GetAssetName(), FMOD_CREATESTREAM);
 						audioSystem->PlaySound(*audioItem->GetSound(), *audioItem->GetChannel());
 					}
 					else
@@ -434,7 +434,7 @@ void test_Audio(cAssetManager &assetManager)
 					// Up volume
 					clear();
 					std::cout << "Replay Track: " << std::endl;
-					std::cout << currentItem->GetIndex() << " : " << currentItem->GetRelativeName() << std::endl;
+					std::cout << currentItem->GetAssetName() << std::endl;
 					currentItem->GetChannel()->SetPitch(0);
 					break;
 				}

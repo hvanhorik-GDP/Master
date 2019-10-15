@@ -1,13 +1,13 @@
+#include "Physics_Callback.h"
 
-#include "GLFW_Callbacks.h"
 #include "GLCommon.h"
 
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 
-#include "../Common/globalStuff.h"			// for find object
-#include "../Common/pFindObjectByFriendlyName.h"
+#include "Common/globalStuff.h"	
+#include "Common/pFindObjectByFriendlyName.h"
 
 #include <stdio.h>		// for fprintf()
 
@@ -15,14 +15,13 @@ static bool isShiftKeyDownByAlone(int mods);
 static bool isCtrlKeyDownByAlone(int mods);
 
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 
 	const float cameraSPEED = 2.0f;
 
 	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
 	{
-
 		// Move the camera (A & D for left and right, along the x axis)
 		if (key == GLFW_KEY_A)
 		{
@@ -53,27 +52,31 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
 		}
 
-		if (key == GLFW_KEY_B)
+		// See if we want to tilt the plane
+		cObject_Model* pThePlane = pFindObjectByFriendlyName("hi_cube");
+
+		const float planeTilt = 0.0005f;
+		const float maxplaneTilt = .5f;
+		if (key == GLFW_KEY_RIGHT)
 		{
-			// Shoot a bullet from the pirate ship
-			// Find the pirate ship...
-			// returns NULL (0) if we didn't find it.
-			cObject_Model* pShip = pFindObjectByFriendlyName("PirateShip");
-			// Maybe check to see if it returned something... 
-
-			// Find the sphere#2
-			cObject_Model* pBall = pFindObjectByFriendlyName("Sphere#2");
-
-			// Set the location velocity for sphere#2
-			pBall->positionXYZ = pShip->positionXYZ;
-			pBall->inverseMass = 1.0f;		// So it's updated
-			// 20.0 units "to the right"
-			// 30.0 units "up"
-			pBall->velocity = glm::vec3(15.0f, 20.0f, 0.0f);
-			pBall->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-			pBall->diffuseColour = glm::vec4(1.0f, 0.0f, 0.0f, 0.0f);
-		}//if ( key == GLFW_KEY_B )
-
+			if (pThePlane->rotationXYZ.z < maxplaneTilt)
+				pThePlane->rotationXYZ.z += planeTilt;
+		}
+		if (key == GLFW_KEY_LEFT)
+		{
+			if (pThePlane->rotationXYZ.z > -maxplaneTilt)
+				pThePlane->rotationXYZ.z -= planeTilt;
+		}
+		if (key == GLFW_KEY_UP)
+		{
+			if (pThePlane->rotationXYZ.x < maxplaneTilt)
+				pThePlane->rotationXYZ.x += planeTilt;
+		}
+		if (key == GLFW_KEY_DOWN)
+		{
+			if (pThePlane->rotationXYZ.x > -maxplaneTilt)
+				pThePlane->rotationXYZ.x -= planeTilt;
+		}
 	}
 
 	if (isShiftKeyDownByAlone(mods))
@@ -165,37 +168,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	// Moving the pirate ship in a certain direction
 	if (isCtrlKeyDownByAlone(mods))
 	{
-		const float SHIP_SPEED_CHANGE = 0.01f;
-		const float SHIP_ANGLE_CHANGE = 0.01f;
 
-		cObject_Model* pShip = pFindObjectByFriendlyName("PirateShip");
-		// Turn the ship around
-		if (key == GLFW_KEY_A)
-		{	// Left
-			pShip->HACK_AngleAroundYAxis -= SHIP_ANGLE_CHANGE;
-			pShip->rotationXYZ.y = pShip->HACK_AngleAroundYAxis;
-		}
-		if (key == GLFW_KEY_D)
-		{	// Right
-			pShip->HACK_AngleAroundYAxis += SHIP_ANGLE_CHANGE;
-			pShip->rotationXYZ.y = pShip->HACK_AngleAroundYAxis;
-		}
-		if (key == GLFW_KEY_W)
-		{	// Faster
-			pShip->HACK_speed += SHIP_SPEED_CHANGE;
-		}
-		if (key == GLFW_KEY_S)
-		{	// Slower
-			pShip->HACK_speed -= SHIP_SPEED_CHANGE;
-		}
 	}
-
-
-
 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
-
 }
 
 
@@ -227,20 +204,20 @@ bool isCtrlKeyDownByAlone(int mods)
 
 
 
-void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	// Move the sphere to where the camera is and shoot the ball from there...
-
-	cObject_Model* pTheBall = pFindObjectByFriendlyName("Sphere#1");
+	cObject_Model* pTheBall = pFindObjectByFriendlyName("Drop_Sphere");
 
 	// What's the velocity
 	// Target - eye = direction
-	glm::vec3 direction = glm::normalize(cameraTarget - cameraEye);
-
-	float speed = 5.0f;
-
+//	glm::vec3 direction = glm::normalize(cameraTarget - cameraEye);
+	glm::vec3 position = glm::vec3(0.0f, 30.0, 0.0f);
+	glm::vec3 direction = glm::vec3(0.0f, -1.0f, 0.0f);
+//	float speed = 5.0f;
+	float speed = 2.0f;
 	pTheBall->velocity = direction * speed;
-	pTheBall->positionXYZ = cameraEye;
+	pTheBall->positionXYZ = position;
 
 	return;
 }

@@ -1,7 +1,5 @@
-#ifndef _cPhysics_HG_
-#define _cPhysics_HG_
+#pragma once
 
-//#include "..//ObjectManager/cGameObject.h"
 #include "ObjectItems/cObject_Model.h"
 #include "ObjectManager/iObjectManager.h"
 #include "AssetItems/cItem_Model.h"
@@ -12,10 +10,10 @@
 
 #pragma comment(lib, "Physics.lib")
 
-class cPhysics
+class cPhysics_Henky
 {
 public:
-	cPhysics();
+	cPhysics_Henky();
 
 	// Alias to a type "existing type" "new type name"
 	typedef glm::vec3 Point;
@@ -70,7 +68,7 @@ public:
 		cItem_Model &mesh_transformedInWorld );
 	void SetDebugRenderer(cDebugRenderer* pDebugRenderer);
 
-	static glm::mat4 calculateWorldMatrix(cObject_Model& pCurrentObject);
+	glm::mat4 calculateWorldMatrix(cObject_Model& pCurrentObject);
 private:
 
 	// Does collision test and returns collision information
@@ -84,5 +82,3 @@ private:
 	glm::vec3  m_Gravity;
 	cDebugRenderer* mDebugRenderer;
 };
-
-#endif

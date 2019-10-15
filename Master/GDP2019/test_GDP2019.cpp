@@ -27,22 +27,27 @@
 #include "ObjectManager/cObjectManager.h"
 
 #include "Physics/PhysicsStuff.h"
-#include "Physics/cPhysics.h"
+#include "Physics/cPhysics_Henky.h"
 #include "LowPassFilter/cLowPassFilter.h"
 #include "DebugRenderer/cDebugRenderer.h"
 #include "LightManager/cLightHelper.h"
 
 // Local stuff pulled out of main by Henry
-#include "GFLW_Callbacks.h"
-#include "pFindObjectByFriendlyName.h"
+#include "GLFW_Callbacks.h"
+#include "Common/pFindObjectByFriendlyName.h"
 #include "LightDebugSheres.h"
-#include "globalStuff.h"
+#include "Common/globalStuff.h"
 #include "HandleDebugBallPhysics.h"
 #include "HandleDebugPirate.h"
 #include "HandleDebugLights.h"
 
 int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 {
+	// set mouse and keyboard callback
+	glfwSetKeyCallback(window, key_callback);
+	// Set the mouse button callback
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
+
 	cDebugRenderer* pDebugRenderer = new cDebugRenderer();
 	pDebugRenderer->initialize();
 
@@ -75,7 +80,7 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 		assert(map);
 		auto mesh = dynamic_cast<cItem_Model*>(map);
 		assert(mesh);
-		if (loader.LoadPlyModel(mesh->GetRelativeName(), *mesh))
+		if (loader.LoadPlyModel(mesh->GetAssetName(), *mesh))
 			mapLoaded[it.first] = mesh;
 	}
 
@@ -102,7 +107,9 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 	glEnable(GL_DEPTH);			// Write to the depth buffer
 	glEnable(GL_DEPTH_TEST);	// Test with buffer when drawing
 
-	cPhysics* pPhsyics = new cPhysics();
+	cPhysics_Henky* pPhsyics = new cPhysics_Henky();
+	pPhsyics->SetDebugRenderer(pDebugRenderer);
+
 	cLowPassFilter avgDeltaTimeThingy;
 
 	// Get the initial time
@@ -174,7 +181,7 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 		double averageDeltaTime = avgDeltaTimeThingy.getAverage();
 		pPhsyics->IntegrationStep(mapObjects, (float)averageDeltaTime);
 
-		::HandleDebugBallPhysics(shaderProgID, pPhsyics, pTheVAOManager, pDebugRenderer,&mapLoaded);
+		::HandleDebugBallPhysics(shaderProgID, pPhsyics, pTheVAOManager, pDebugRenderer, &mapLoaded);
 
 		// A more general 
 		pPhsyics->TestForCollisions(mapObjects);

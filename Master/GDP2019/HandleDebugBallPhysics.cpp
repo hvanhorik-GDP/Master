@@ -8,7 +8,7 @@
 // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
-#include "Physics/cPhysics.h"
+#include "Physics/cPhysics_Henky.h"
 #include "VAOManager/cVAOManager.h"
 #include "../Common/pFindObjectByFriendlyName.h"
 #include "DebugRenderer/cDebugRenderer.h"
@@ -27,14 +27,14 @@
 	//**********************************************************
 
 void HandleDebugBallPhysics(	GLuint shaderProgID, 
-								cPhysics * pPhsyics,
+								cPhysics_Henky * pPhsyics,
 								cVAOManager* pTheVAOManager, 
 								cDebugRenderer* pDebugRenderer,
 								std::map<std::string, cItem_Model*>* mapLoaded
 )
 {
 	glm::vec3 closestPoint = glm::vec3(0.0f, 0.0f, 0.0f);
-	cPhysics::sPhysicsTriangle closestTriangle;
+	cPhysics_Henky::sPhysicsTriangle closestTriangle;
 
 
 	// Update the mesh to match it's world position
@@ -43,13 +43,16 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 	//       from the mesh that I'm DRAWING, and transforming the LOW RESOLUTION mesh
 	//       into the same orientation (position in world space). 
 
-	cObject_Model* pHiResCube = pFindObjectByFriendlyName("hi_cube");
-	glm::mat4 matWorld = cPhysics::calculateWorldMatrix(*pHiResCube);
+	cObject_Model* pShpere = pFindObjectByFriendlyName("Drop_Sphere");
 
+	cObject_Model* pLowResCube = pFindObjectByFriendlyName("hi_cube");
+	auto tmp = pLowResCube->GetItem();
+	cItem_Model* mesh = dynamic_cast<cItem_Model*>(tmp);
+	glm::mat4 matWorld = pPhsyics->calculateWorldMatrix(*pLowResCube);
 	cItem_Model lowResCubeMesh_TRANSFORMED_WorldSpace;
 
 	auto lowrescubeMesh = (*mapLoaded)["cube_Low_Res_xyz_n"];
-	pPhsyics->CalculateTransformedMesh(*lowrescubeMesh, matWorld, lowResCubeMesh_TRANSFORMED_WorldSpace);
+	//pPhsyics->CalculateTransformedMesh(*lowrescubeMesh, matWorld, lowResCubeMesh_TRANSFORMED_WorldSpace);
 	//		pPhsyics->CalculateTransformedMesh(hirescubeMesh, matWorld, lowResCubeMesh_TRANSFORMED_WorldSpace);
 
 			//glm::mat4 matSpaceStation = glm::mat4(1.0f);
@@ -58,11 +61,12 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 			// NOTE that I'm using the LOW RESOLUTION "cube" mesh, but DRAWING the high resolution mesh
 	//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
 	//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowrescubeMesh, closestPoint, closestTriangle);
-	//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
+//	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
+//	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *mesh, closestPoint, closestTriangle);
+	pPhsyics->GetClosestTriangleToPoint_Henry(pShpere->positionXYZ, *pLowResCube, closestPoint, closestTriangle);
 
-	auto singleTriangleMesh = (*mapLoaded)["SingleTriangle"];
-	cObject_Model* pShpere = pFindObjectByFriendlyName("Sphere#1");
-	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *singleTriangleMesh, closestPoint, closestTriangle);
+//	auto singleTriangleMesh = (*mapLoaded)["SingleTriangle"];
+//	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *singleTriangleMesh, closestPoint, closestTriangle);
 
 
 	// Highlight the triangle that I'm closest to
@@ -139,11 +143,12 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 
 		// Change the direction of the ball (the bounce off the triangle)
 
-		// Get lenght of the velocity vector
+		// Get length of the velocity vector
 		float speed = glm::length(pShpere->velocity);
 
-		pShpere->velocity = reflectionVec * speed;
-
+		const float minimumspeed = 0.1f;
+		float bounce = (speed > minimumspeed)? pShpere->bounce: 1.0f;
+		pShpere->velocity = reflectionVec * speed * bounce;
 	}
 
 	{// Draw closest point

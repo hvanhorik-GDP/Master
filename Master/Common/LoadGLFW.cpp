@@ -1,6 +1,6 @@
 #include "LoadGLFW.h"
 #include "globalStuff.h"
-#include "GFLW_Callbacks.h"
+#include "GDP2019/GLFW_Callbacks.h"
 
 int loadGFLW(void)
 {
@@ -22,11 +22,15 @@ int loadGFLW(void)
 		return(EXIT_FAILURE);
 	}
 
-	glfwSetKeyCallback(window, key_callback);
-	// Set the mouse button callback
-	glfwSetMouseButtonCallback(window, mouse_button_callback);
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glfwSwapInterval(1);
 	return 0;
 }
+
+
+void error_callback(int error, const char* description)
+{
+	fprintf(stderr, "Error: %s\n", description);
+}
+

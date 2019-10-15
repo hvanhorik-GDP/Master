@@ -28,6 +28,8 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Model();
 
+	virtual void IntegrationStep(float deltaTime) final;
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Model& val);
 
@@ -38,7 +40,6 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 
 	friend class cObjectManager_Model;
 	// Used to draw this mesh
-//	std::string meshName;			//"Pirate"  - Now uses the asset_id
 
 	// Values that we can assign and then look for them
 	unsigned int friendlyIDNumber;
@@ -46,7 +47,7 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 
 	glm::vec3  positionXYZ;
 	glm::vec3  rotationXYZ;
-	float scale;;
+	float scale;
 
 	glm::mat4 matWorld;			// Calculated - Not loaded from XML
 
@@ -71,6 +72,7 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 
 	// If the object has an inverse mass of 0.0
 	//	then it's not updated by the physics code
+	float bounce = 1.0;			// bounce percentage
 	float inverseMass;	// 0.0f = Doesn't move
 
 	//bool bIsDynamic;

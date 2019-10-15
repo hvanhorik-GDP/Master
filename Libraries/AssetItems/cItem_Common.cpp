@@ -30,7 +30,7 @@ const std::string& cItem_Common::GetAssetID() const
 	return m_id;
 }
 
-const std::string& cItem_Common::GetRelativeName() const
+const std::string& cItem_Common::GetAssetName() const
 {
 	return m_path;
 }

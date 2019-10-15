@@ -24,7 +24,7 @@ cShaderLoader::~cShaderLoader()
 // Returns bool if didn't load
 bool cShaderLoader::LoadSourceFromFile(cItem_Shader& shader)
 {
-	std::string fullFileName = shader.GetRelativeName();
+	std::string fullFileName = shader.GetAssetName();
 
 	std::ifstream theFile(fullFileName.c_str());
 	if (!theFile.is_open())

@@ -1,10 +1,10 @@
-#include "cPhysics.h"
-
+#include "cPhysics_Henky.h"
 // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+#include <iostream>
 
 
-cPhysics::cPhysics()
+cPhysics_Henky::cPhysics_Henky()
 {
 	// This is a typical Earth gravity value. 
 	// note that this doesn't mean that the simulation will "look good", though... 
@@ -14,19 +14,19 @@ cPhysics::cPhysics()
 }
 
 
-void cPhysics::setGravity(glm::vec3 newGravityValue)
+void cPhysics_Henky::setGravity(glm::vec3 newGravityValue)
 {
 	this->m_Gravity = newGravityValue;
 	return;
 }
 
-glm::vec3 cPhysics::getGravity(void)
+glm::vec3 cPhysics_Henky::getGravity(void)
 {
 	return this->m_Gravity;
 }
 
 
-void cPhysics::IntegrationStep(iObjectManager::iObject_map& map_pGameObjects, float deltaTime)
+void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjects, float deltaTime)
 {
 
 
@@ -48,7 +48,7 @@ void cPhysics::IntegrationStep(iObjectManager::iObject_map& map_pGameObjects, fl
 }
 
 // Returns all the triangles and the closest points
-void cPhysics::GetClosestTriangleToPoint(Point pointXYZ, cItem_Model& mesh, Point& closestPoint, sPhysicsTriangle& closestTriangle)
+void cPhysics_Henky::GetClosestTriangleToPoint(Point pointXYZ, cItem_Model& mesh, Point& closestPoint, sPhysicsTriangle& closestTriangle)
 {
 	
 	// Assume the closest distance is REALLY far away
@@ -121,14 +121,14 @@ void cPhysics::GetClosestTriangleToPoint(Point pointXYZ, cItem_Model& mesh, Poin
 
 // Will return the closest triangles that are within the range "distanceRange".
 // This can be used as a "closest triangles to sphere"
-void cPhysics::GetClosestTrianglesToSphere(cObject_Model& testSphere, float distanceRange, cItem_Model& mesh, std::vector<sPhysicsTriangle>& vecClosestTriangles)
+void cPhysics_Henky::GetClosestTrianglesToSphere(cObject_Model& testSphere, float distanceRange, cItem_Model& mesh, std::vector<sPhysicsTriangle>& vecClosestTriangles)
 {
 
 
 }
 
 // Test each object with every other object
-void cPhysics::TestForCollisions(iObjectManager::iObject_map& map_pGameObjects)
+void cPhysics_Henky::TestForCollisions(iObjectManager::iObject_map& map_pGameObjects)
 {
 	// This will store all the collisions in this frame
 	std::vector<sCollisionInfo> vecCollisions;
@@ -165,7 +165,7 @@ void cPhysics::TestForCollisions(iObjectManager::iObject_map& map_pGameObjects)
 				continue;
 			// Calculate our current world coordinates
 			pA->matWorld = calculateWorldMatrix(*pA);
-			pA->matWorld = calculateWorldMatrix(*pB);
+			pB->matWorld = calculateWorldMatrix(*pB);
 
 			if (pA->physicsShapeType == cObject_Model::SPHERE &&
 				pB->physicsShapeType == cObject_Model::SPHERE)
@@ -197,14 +197,14 @@ void cPhysics::TestForCollisions(iObjectManager::iObject_map& map_pGameObjects)
 	} //for (auto outerObject = outer; outerObject != outerend; ++outerObject)
 }
 
-bool cPhysics::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model* pB,
+bool cPhysics_Henky::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model* pB,
 								 sCollisionInfo& collisionInfo)
 {
 	return false;
 }
 
 // Takes a mesh in "model space" and converts it into "world space"
-void cPhysics::CalculateTransformedMesh(cItem_Model& originalMesh, glm::mat4 matWorld,
+void cPhysics_Henky::CalculateTransformedMesh(cItem_Model& originalMesh, glm::mat4 matWorld,
 										cItem_Model& mesh_transformedInWorld)
 {
 	// Make a copy of the mesh...
@@ -255,8 +255,8 @@ void cPhysics::CalculateTransformedMesh(cItem_Model& originalMesh, glm::mat4 mat
 }
 
 
-// This is JUST the transformation lines from the DrawObject call
-glm::mat4 cPhysics::calculateWorldMatrix(cObject_Model& pCurrentObject)
+ //This is JUST the transformation lines from the DrawObject call
+glm::mat4 cPhysics_Henky::calculateWorldMatrix(cObject_Model& pCurrentObject)
 {
 
 	glm::mat4 matWorld = glm::mat4(1.0f);
@@ -299,7 +299,7 @@ glm::mat4 cPhysics::calculateWorldMatrix(cObject_Model& pCurrentObject)
 //void GetClosestTriangleToPoint_Henry(Point pointXYZ, cObject_Model& model, 
 // Point& closestPoint, sPhysicsTriangle& closestTriangl);
 
-void cPhysics::GetClosestTriangleToPoint_Henry(
+void cPhysics_Henky::GetClosestTriangleToPoint_Henry(
 	Point pointXYZ, cObject_Model& object,
 	Point& closestPoint, sPhysicsTriangle& closestTriangle)
 {
@@ -380,7 +380,7 @@ void cPhysics::GetClosestTriangleToPoint_Henry(
 	return;
 }
 
-bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model* pModel,
+bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model* pModel,
 	sCollisionInfo& collisionInfo)
 {
 	Sphere worldSphere;
@@ -395,7 +395,9 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 	sPhysicsTriangle closestTriangle;
 	Point closestPoint;
 	GetClosestTriangleToPoint_Henry(worldSphere.c, *pModel, closestPoint, closestTriangle);
-
+	std::cout << "Normals : " << closestTriangle.normal.x << " : "
+		<< closestTriangle.normal.y << " : "
+		<< closestTriangle.normal.x << std::endl;
 	// Highlight the triangle that I'm closest to
 	mDebugRenderer->addTriangle(closestTriangle.verts[0],
 		closestTriangle.verts[1],
@@ -444,7 +446,7 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 
 		// 5. Reposition sphere 
 		pSphere->positionXYZ += (vecPositionAdjust);
-		//			pShpere->inverseMass = 0.0f;
+		//pSphere->inverseMass = 0.0f;
 
 					// ************************************************************************
 
@@ -482,86 +484,7 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 }
 
 
-void cPhysics::SetDebugRenderer(cDebugRenderer* pDebugRenderer)
+void cPhysics_Henky::SetDebugRenderer(cDebugRenderer* pDebugRenderer)
 {
 	mDebugRenderer = pDebugRenderer;
 }
-
-#include "cPhysics.h"
-
-// Taken from Ericson's book:
-cPhysics::Point cPhysics::ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
-{
-	Vector ab = b - a;
-	Vector ac = c - a;
-	Vector bc = c - b;
-
-	// Compute parametric position s for projection P' of P on AB,
-	// P' = A + s*AB, s = snom/(snom+sdenom)
-	float snom = glm::dot(p - a, ab), sdenom = glm::dot(p - b, a - b);
-
-	// Compute parametric position t for projection P' of P on AC,
-	// P' = A + t*AC, s = tnom/(tnom+tdenom)
-	float tnom = glm::dot(p - a, ac), tdenom = glm::dot(p - c, a - c);
-
-	if (snom <= 0.0f && tnom <= 0.0f) return a; // Vertex region early out
-
-	// Compute parametric position u for projection P' of P on BC,
-	// P' = B + u*BC, u = unom/(unom+udenom)
-	float unom = glm::dot(p - b, bc), udenom = glm::dot(p - c, b - c);
-
-	if (sdenom <= 0.0f && unom <= 0.0f) return b; // Vertex region early out
-	if (tdenom <= 0.0f && udenom <= 0.0f) return c; // Vertex region early out
-
-
-	// P is outside (or on) AB if the triple scalar product [N PA PB] <= 0
-	Vector n = glm::cross(b - a, c - a);
-	float vc = glm::dot(n, glm::cross(a - p, b - p));
-	// If P outside AB and within feature region of AB,
-	// return projection of P onto AB
-	if (vc <= 0.0f && snom >= 0.0f && sdenom >= 0.0f)
-		return a + snom / (snom + sdenom) * ab;
-
-	// P is outside (or on) BC if the triple scalar product [N PB PC] <= 0
-	float va = glm::dot(n, glm::cross(b - p, c - p));
-	// If P outside BC and within feature region of BC,
-	// return projection of P onto BC
-	if (va <= 0.0f && unom >= 0.0f && udenom >= 0.0f)
-		return b + unom / (unom + udenom) * bc;
-
-	// P is outside (or on) CA if the triple scalar product [N PC PA] <= 0
-	float vb = glm::dot(n, glm::cross(c - p, a - p));
-	// If P outside CA and within feature region of CA,
-	// return projection of P onto CA
-	if (vb <= 0.0f && tnom >= 0.0f && tdenom >= 0.0f)
-		return a + tnom / (tnom + tdenom) * ac;
-
-	// P must project inside face region. Compute Q using barycentric coordinates
-	float u = va / (va + vb + vc);
-	float v = vb / (va + vb + vc);
-	float w = 1.0f - u - v; // = vc / (va + vb + vc)
-	return u * a + v * b + w * c;
-}
-
-int cPhysics::TestSphereTriangle(Sphere s, Point a, Point b, Point c, Point& p)
-{
-	// Find point P on triangle ABC closest to sphere center
-	p = this->ClosestPtPointTriangle(s.c, a, b, c);
-
-	// Sphere and triangle intersect if the (squared) distance from sphere
-	// center to point p is less than the (squared) sphere radius
-	Vector v = p - s.c;
-	return glm::dot(v, v) <= s.r * s.r;
-}
-
-int cPhysics::TestSphereSphere(Sphere a, Sphere b)
-{
-	// Calculate squared distance between centers
-
-	Vector d = a.c - b.c;
-	float dist2 = glm::dot(d, d);
-	// Spheres intersect if squared distance is less than squared sum of radii
-	float radiusSum = a.r + b.r;
-	return dist2 <= radiusSum * radiusSum;
-}
-

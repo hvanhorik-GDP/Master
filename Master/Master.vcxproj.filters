@@ -73,6 +73,9 @@
     <ClCompile Include="GDP2019\test_GDP2019.cpp">
       <Filter>GDP2019</Filter>
     </ClCompile>
+    <ClCompile Include="Physics_Callback.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Master.h" />
@@ -118,12 +121,18 @@
     <ClInclude Include="GDP2019\test_GDP2019.h">
       <Filter>GDP2019</Filter>
     </ClInclude>
+    <ClInclude Include="Physics_Callback.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\output.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\test_GDP2019.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\GameLibrary %28Physics%29.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary.xml">

@@ -1,6 +1,6 @@
 #pragma once
 #include "iObject.h"
-#include "AssetItems/cItem_Common.h"
+#include "AssetItems/iItem.h"
 #include <rapidxml/rapidxml.hpp>
 #include <glm/glm.hpp>
 
@@ -20,19 +20,20 @@ public:
 
 	// Information about the object
 	virtual const std::string& GetType() const final;
-	const std::string& GetName() const;
-	const std::string& GetAssetID() const;
+	virtual const std::string& GetName() const final;
+	virtual const std::string& GetAssetID() const final;
 
+	virtual iItem* GetItem() const final; 
+
+	// For debugging purposes - dumps the contents in human readable form
+	friend std::ostream& operator<<(std::ostream& stream, const cObject_Common& val);
+
+protected:
 	// XML stuff
 	rapidxml::xml_node<>* GetNode() const;
 	void SetNode(rapidxml::xml_node<>* in);
 	bool IsXMLValid() const;
 	std::size_t GetIndex() const;
-
-	cItem_Common* GetItem(); 
-
-	// For debugging purposes - dumps the contents in human readable form
-	friend std::ostream& operator<<(std::ostream& stream, const cObject_Common& val);
 
 protected :
 	cObject_Common();
@@ -44,6 +45,6 @@ protected :
 	rapidxml::xml_node<>* m_node;		// Offset into the asset tree so we can add properties to it
 
 	//Points to the actual item (NULL if no physical representation)
-	cItem_Common* m_Item;
+	iItem* m_Item;
 };
 

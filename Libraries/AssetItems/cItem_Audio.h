@@ -30,7 +30,6 @@ public:
 				std::size_t index);
 	virtual ~cItem_Audio();
 
-	bool GetExists() const;
 	bool GetIsValidAudio() const;
 	cItem_Audio::subtype GetSubType() const;
 	cItem_Audio::format GetFormat() const;
@@ -51,7 +50,6 @@ private:
 	cItem_Audio();				// Bad Consructor
 	cAudio_Sound_FMOD* m_sound;
 	cAudio_Channel_FMOD* m_channel;
-	bool m_exists;
 	bool m_isValidAudio;
 	subtype m_subtype;
 	format m_format;

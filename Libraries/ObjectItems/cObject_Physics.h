@@ -16,6 +16,8 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Physics();
 
+	virtual void IntegrationStep(float deltaTime) final {}
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Physics& val);
 

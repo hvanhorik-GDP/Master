@@ -61,5 +61,6 @@ private:
 	friend class cPlyLoader;
 	friend class cVAOManager;
 	friend class cPhysics;
+	friend class cPhysics_Henky;
 };
 

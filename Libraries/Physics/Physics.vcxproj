@@ -188,10 +188,13 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
   <ItemGroup>
     <ClCompile Include="cPhysics.cpp" />
     <ClCompile Include="cPhysics_Ericson.cpp" />
+    <ClCompile Include="cPhysics_Henky.cpp" />
+    <ClCompile Include="cPhysics_Henry.cpp" />
     <ClCompile Include="PhysicsStuff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cPhysics.h" />
+    <ClInclude Include="cPhysics_Henky.h" />
     <ClInclude Include="PhysicsStuff.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

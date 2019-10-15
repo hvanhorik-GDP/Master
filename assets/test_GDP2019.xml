@@ -824,7 +824,7 @@
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
-		<Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+		<Object name="Drop_Sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
 			<Property name="meshName" type="string" value="sphere"/>
 			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>

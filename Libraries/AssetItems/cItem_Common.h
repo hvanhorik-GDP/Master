@@ -12,12 +12,14 @@ public:
 					std::size_t index);
 
 	virtual ~cItem_Common();
-	const std::string& GetAssetID() const;
-	const std::string& GetRelativeName() const;
+	virtual const std::string& GetAssetID() const final;
+	virtual const std::string& GetAssetName() const final;
+	virtual bool GetExists() const final;
+
+protected:
 	rapidxml::xml_node<>* GetParent() const;
 	bool IsXMLValid() const;
 	std::size_t GetIndex() const;
-	bool GetExists() const;
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cItem_Common& val);
@@ -30,6 +32,5 @@ private:
 	// Point to original XML parent node and Index
 	rapidxml::xml_node<>* m_parent;		// Offset into the asset tree so we can add properties to it
 	std::size_t m_index;
-
 };
 

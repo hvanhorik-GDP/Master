@@ -32,6 +32,8 @@
 
 int main(int arg, char** argv)
 {
+
+
 	if (loadGFLW())
 		exit(EXIT_FAILURE);
 

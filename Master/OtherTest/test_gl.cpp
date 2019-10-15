@@ -1,6 +1,6 @@
 // Master.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "Master.h"
+#include "test_gl.h"
 
 #include "gl_OpenGL/glfw_raw/glfw_raw_Common.h"
 #include "gl_OpenGL/glfw_raw/glfw_raw_System.h"
@@ -18,7 +18,7 @@
 #include <iostream>		// C++ IO standard stuff
 
 #include "GLCommon.h"
-#include "GFLW_Callbacks.h"
+#include "GDP2019/GLFW_Callbacks.h"
 
 #pragma comment(lib, "gl_OpenGL.lib")
 
@@ -30,12 +30,6 @@ void test_gl()
 	//GLuint vertex_buffer, vertex_shader, fragment_shader, program;
 //	GLint mvp_location;
 
-	::glfwSetErrorCallback(error_callback);
-	if (!glfw::raw::System::Init())
-	{
-		exit(EXIT_FAILURE);
-	}
-
 	glfw::raw::System::WindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfw::raw::System::WindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
@@ -46,7 +40,7 @@ void test_gl()
 		exit(EXIT_FAILURE);
 	}
 
-	glfw::raw::Window::SetKeyCallback(window, key_callback);
+//	glfw::raw::Window::SetKeyCallback(window, key_callback);
 	glfw::raw::Window::MakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfw::raw::System::GetProcAddress);
 	glfw::raw::System::SwapInterval(1);

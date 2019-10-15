@@ -1,6 +1,8 @@
 #include "cAssetManager_Shaders.h"
 #include "GAmeLibrary/AssetGroups.h"
 #include "../Shaders/cShaderLoader.h"
+#include "Utilities/cFormat.h"
+
 #include <iostream>
 #include <sstream>
 
@@ -39,8 +41,6 @@ void cAssetManager_Shaders::LoadAssets(rapidxml::xml_node<>* parent)
 						AssetFile fileName = file.GetAssetFile();
 						Assets_type assetType(file.GetNode());
 						std::string fullPath = rootPath + fileName.GetValue();
-//						std::cout << fullPath << std::endl;
-//						std::cout << __FILE__ << __LINE__ << "Found an asset TODO" << std::endl;
 
 						std::string id = assetName.GetValue();
 						auto parent = file.GetParent();
@@ -62,8 +62,7 @@ void cAssetManager_Shaders::LoadAssets(rapidxml::xml_node<>* parent)
 						}
 						item->m_valid = true;
 						// Write the properties to the xml file
-						Properties prop = file.GetProperties();
-						prop.AddProperty("isValid", "bool", std::to_string(item->m_valid));
+						file.AddProperty("isValid", "bool", cFormat::PackBool(item->m_valid));
 					}
 				}
 			}

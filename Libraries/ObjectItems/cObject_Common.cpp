@@ -56,7 +56,7 @@ bool cObject_Common::IsXMLValid() const
 	return (m_node);
 }
 
-cItem_Common* cObject_Common::GetItem()
+iItem* cObject_Common::GetItem() const
 {
 	return m_Item;
 }

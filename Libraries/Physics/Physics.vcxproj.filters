@@ -15,6 +15,8 @@
     <ClCompile Include="PhysicsStuff.cpp">
       <Filter>Reference</Filter>
     </ClCompile>
+    <ClCompile Include="cPhysics_Henry.cpp" />
+    <ClCompile Include="cPhysics_Henky.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cPhysics.h">
@@ -23,5 +25,6 @@
     <ClInclude Include="PhysicsStuff.h">
       <Filter>Reference</Filter>
     </ClInclude>
+    <ClInclude Include="cPhysics_Henky.h" />
   </ItemGroup>
 </Project>

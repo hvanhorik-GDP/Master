@@ -16,6 +16,8 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Font();
 
+	virtual void IntegrationStep(float deltaTime) final {}
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Font& val);
 

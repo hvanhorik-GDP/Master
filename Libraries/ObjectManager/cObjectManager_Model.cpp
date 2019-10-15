@@ -4,6 +4,7 @@
 #include "GameLibrary/Properties.h"
 #include "GameLibrary/Objects.h"
 #include "Utilities/cFormat.h"
+#include "../AssetManager/cAssetManager.h"
 
 #include <glm/glm.hpp>
 #include <iostream>
@@ -19,12 +20,27 @@ cObjectManager_Model::~cObjectManager_Model()
 // Root Node of XML document which has assets
 void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 {
+	cAssetManager assetManager;
+
+	iAssetManager::iItems_map* assets = assetManager.GetItems("models");
 
 	gamelibrary::Object_type objectType(node);
 	gamelibrary::Object_name objectName(node);
 	gamelibrary::Object_asset_id objectAssetID(node);
 
-	auto object = new cObject_Model(objectType.GetValue(), objectName.GetValue(), objectAssetID.GetValue(), node);
+
+	auto object = new cObject_Model(
+		objectType.GetValue(), 
+		objectName.GetValue(), 
+		objectAssetID.GetValue(), 
+		node);
+
+	auto asset = assets->find(objectAssetID.GetValue());
+	if (asset != assets->end())
+	{
+		object->m_Item = asset->second;
+	}
+		
 	// Read all of the properties
 
 	for (auto property = node->first_node("Property");
@@ -52,6 +68,8 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 			else if (name == "specularColour")
 				object->specularColour = cFormat::LoadVec4(value);
 			// Should be in physics
+			else if (name == "bounce")
+				object->bounce = cFormat::LoadFloat(value);
 			else if (name == "inverseMass")
 				object->inverseMass = cFormat::LoadFloat(value);
 			else if (name == "physicsShapeType")
@@ -157,7 +175,9 @@ void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* 
 	libObject.AddProperty("objectColourRGBA", "vec4", cFormat::PackVec4(object->objectColourRGBA));
 	libObject.AddProperty("diffuseColour", "vec4", cFormat::PackVec4(object->diffuseColour));
 	libObject.AddProperty("specularColour", "vec4", cFormat::PackVec4(object->specularColour));
+	
 
+	libObject.AddProperty("bounce", "float", cFormat::PackFloat(object->bounce));
 	libObject.AddProperty("inverseMass", "float", cFormat::PackFloat(object->inverseMass));
 	libObject.AddProperty("physicsShapeType", "vec3", cObject_Model::ShapeTypeToString(object->physicsShapeType));
 	libObject.AddProperty("velocity", "vec3", cFormat::PackVec3(object->velocity));

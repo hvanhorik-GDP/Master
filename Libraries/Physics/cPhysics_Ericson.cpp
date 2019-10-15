@@ -1,7 +1,7 @@
-#include "cPhysics.h"
+#include "cPhysics_Henky.h"
 
 // Taken from Ericson's book:
-cPhysics::Point cPhysics::ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
+cPhysics_Henky::Point cPhysics_Henky::ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
 {
 	Vector ab = b - a;
 	Vector ac = c - a;
@@ -54,9 +54,7 @@ cPhysics::Point cPhysics::ClosestPtPointTriangle(Point p, Point a, Point b, Poin
 	return u * a + v * b + w * c;
 }
 
-
-
-int cPhysics::TestSphereTriangle(Sphere s, Point a, Point b, Point c, Point& p)
+int cPhysics_Henky::TestSphereTriangle(Sphere s, Point a, Point b, Point c, Point& p)
 {
 	// Find point P on triangle ABC closest to sphere center
 	p = this->ClosestPtPointTriangle(s.c, a, b, c);
@@ -67,4 +65,14 @@ int cPhysics::TestSphereTriangle(Sphere s, Point a, Point b, Point c, Point& p)
 	return glm::dot(v, v) <= s.r * s.r;
 }
 
+int cPhysics_Henky::TestSphereSphere(Sphere a, Sphere b)
+{
+	// Calculate squared distance between centers
+
+	Vector d = a.c - b.c;
+	float dist2 = glm::dot(d, d);
+	// Spheres intersect if squared distance is less than squared sum of radii
+	float radiusSum = a.r + b.r;
+	return dist2 <= radiusSum * radiusSum;
+}
 
