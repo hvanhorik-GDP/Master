@@ -2,6 +2,7 @@
 
 #include "ObjectManager/cObjectManager.h"
 #include "VAOManager/cVAOManager.h"
+#include "ObjectItems/cObject_Group.h"
 
 // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
@@ -260,41 +261,76 @@ void cPhysics_Henky::CalculateTransformedMesh(cItem_Model& originalMesh, glm::ma
 
 
  //This is JUST the transformation lines from the DrawObject call
-glm::mat4 cPhysics_Henky::calculateWorldMatrix(cObject_Model& pCurrentObject)
+glm::mat4 cPhysics_Henky::calculateWorldMatrix(iObject& pCurrentObject)
 {
+	// TODO  - Hack since we don't have a common route for groups
+	// and Models
 
+	glm::vec3 positionXYZ;
+	glm::vec3 rotationXYZ;
+	float objectScale;
+	iObject* parent = pCurrentObject.GetParentObject();
+	if (pCurrentObject.GetType() == "model")
+	{
+		cObject_Model* model = dynamic_cast<cObject_Model*>(&pCurrentObject);
+		assert(model);
+		positionXYZ = model->positionXYZ;
+		rotationXYZ = model->rotationXYZ;
+		objectScale = model->scale;
+	} 
+	else if (pCurrentObject.GetType() == "group")
+	{
+		cObject_Group* model = dynamic_cast<cObject_Group*>(&pCurrentObject);
+		assert(model);
+		positionXYZ = model->positionXYZ;
+		rotationXYZ = model->rotationXYZ;
+		objectScale = model->scale;
+	}
+
+	// what to apply first? 
+	// Local modifications followed by parent
+	// or visa versa;
 	glm::mat4 matWorld = glm::mat4(1.0f);
+	if (parent)
+		matWorld = calculateWorldMatrix(*parent);
 
 	// ******* TRANSLATION TRANSFORM *********
 	glm::mat4 matTrans
 		= glm::translate(glm::mat4(1.0f),
-			glm::vec3(pCurrentObject.positionXYZ.x,
-				pCurrentObject.positionXYZ.y,
-				pCurrentObject.positionXYZ.z));
+			glm::vec3(positionXYZ.x,
+				positionXYZ.y,
+				positionXYZ.z));
 	matWorld = matWorld * matTrans;
 
 	// ******* ROTATION TRANSFORM *********
 	glm::mat4 rotateZ = glm::rotate(glm::mat4(1.0f),
-		pCurrentObject.rotationXYZ.z,					// Angle 
+		rotationXYZ.z,					// Angle 
 		glm::vec3(0.0f, 0.0f, 1.0f));
 	matWorld = matWorld * rotateZ;
 
 	glm::mat4 rotateY = glm::rotate(glm::mat4(1.0f),
-		pCurrentObject.rotationXYZ.y,					// Angle 
+		rotationXYZ.y,					// Angle 
 		glm::vec3(0.0f, 1.0f, 0.0f));
 	matWorld = matWorld * rotateY;
 
 	glm::mat4 rotateX = glm::rotate(glm::mat4(1.0f),
-		pCurrentObject.rotationXYZ.x,					// Angle 
+		rotationXYZ.x,					// Angle 
 		glm::vec3(1.0f, 0.0f, 0.0f));
 	matWorld = matWorld * rotateX;
 
 	// ******* SCALE TRANSFORM *********
 	glm::mat4 scale = glm::scale(glm::mat4(1.0f),
-		glm::vec3(pCurrentObject.scale,
-			pCurrentObject.scale,
-			pCurrentObject.scale));
+		glm::vec3(objectScale,
+			objectScale,
+			objectScale));
 	matWorld = matWorld * scale;
+
+	// what to apply first? 
+	// Local modifications followed by parent
+	// or visa versa;
+	// This seems wrong since the above works fine
+	//if (parent)
+	//	matWorld *= calculateWorldMatrix(*parent);
 
 	return matWorld;
 }
@@ -445,6 +481,37 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		mDebugRenderer->addLine(centreOfTriangle,
 			normalInWorld,
 			glm::vec3(1.0f, 1.0f, 0.0f));
+	
+		{
+			cObjectManager objectManager;
+			auto object = objectManager.FindObjectByName("debug_sphere");
+			assert(object);
+			cObject_Model* pDebugSphere = dynamic_cast<cObject_Model*>(object);
+			glm::mat4 matModel = glm::mat4(1.0f);
+			pDebugSphere->positionXYZ = closestPoint;
+			pDebugSphere->scale = 1.0f;
+			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
+			pDebugSphere->isWireframe = true;
+			pDebugSphere->isVisible = true;
+			cVAOManager().DrawObject(matModel, pDebugSphere);
+			pDebugSphere->isVisible = false;		// Don't display it anymore
+		}
+
+		// How far did we penetrate the surface?
+		glm::vec3 CentreToClosestPoint = pSphere->positionXYZ - closestPoint;
+
+		// Direction that ball is going is normalized velocity
+		glm::vec3 directionBall = glm::normalize(pSphere->velocity);	// 1.0f
+
+		// Calcualte direction to move it back the way it came from
+		glm::vec3 oppositeDirection = -directionBall;				// 1.0f
+
+		float distanceToClosestPoint = glm::length(CentreToClosestPoint);
+
+		mDebugRenderer->addLine(pSphere->positionXYZ,
+			closestPoint,
+			glm::vec3(0.0f, 1.0f, 0.0f),
+			1.0f);
 	}
 
 	// Are we hitting the triangle? 
@@ -525,37 +592,6 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		//	<< " : y: " << pSphere->velocity.y
 		//	<< " : z: " << pSphere->velocity.z << std::endl;
 		return true;
-		if (mDebugRenderer)
-		{
-			cObjectManager objectManager;
-			auto object = objectManager.FindObjectByName("debug_sphere");
-			assert(object);
-			cObject_Model* pDebugSphere = dynamic_cast<cObject_Model*>(object);
-			glm::mat4 matModel = glm::mat4(1.0f);
-			pDebugSphere->positionXYZ = closestPoint;
-			pDebugSphere->scale = 1.0f;
-			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
-			pDebugSphere->isWireframe = true;
-			pDebugSphere->isVisible = true;
-			cVAOManager(). DrawObject(matModel, pDebugSphere);
-			pDebugSphere->isVisible = false;		// Don't display it anymore
-		}
-
-		// How far did we penetrate the surface?
-		glm::vec3 CentreToClosestPoint = pSphere->positionXYZ - closestPoint;
-
-		// Direction that ball is going is normalized velocity
-		glm::vec3 directionBall = glm::normalize(pSphere->velocity);	// 1.0f
-
-		// Calcualte direction to move it back the way it came from
-		glm::vec3 oppositeDirection = -directionBall;				// 1.0f
-
-		float distanceToClosestPoint = glm::length(CentreToClosestPoint);
-
-		mDebugRenderer->addLine(pSphere->positionXYZ,
-			closestPoint,
-			glm::vec3(0.0f, 1.0f, 0.0f),
-			1.0f);
 	}
 
 	return false;
@@ -565,4 +601,35 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 void cPhysics_Henky::SetDebugRenderer(cDebugRenderer* pDebugRenderer)
 {
 	mDebugRenderer = pDebugRenderer;
+}
+
+
+void cPhysics_Henky::boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit, glm::vec3& maxLimit)
+{
+	auto mesh = pObject.GetItem();
+	assert(mesh);
+	cItem_Model* objectItem = dynamic_cast<cItem_Model*>(mesh);
+	assert(objectItem);
+	float min = std::numeric_limits<float>::min();
+	float max = std::numeric_limits<float>::max();
+	glm::vec3 minSoFar(max, max, max);
+	glm::vec3 maxSoFar(min, min, min);
+	for (auto vertice : objectItem->m_vecVertices)
+	{
+		if (vertice.x > maxSoFar.x)
+			maxSoFar.x = vertice.x;
+		if (vertice.y > maxSoFar.y)
+			maxSoFar.y = vertice.y;
+		if (vertice.z > maxSoFar.z)
+			maxSoFar.z = vertice.z;
+
+		if (vertice.x < minSoFar.x)
+			minSoFar.x = vertice.x;
+		if (vertice.y < minSoFar.y)
+			minSoFar.y = vertice.y;
+		if (vertice.z < minSoFar.z)
+			minSoFar.z = vertice.z;
+	}
+	minLimit = minSoFar;
+	maxLimit = maxSoFar;
 }

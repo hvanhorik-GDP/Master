@@ -37,6 +37,7 @@
 #include "Common/pFindObjectByFriendlyName.h"
 #include "Common/globalStuff.h"
 #include "Physics_Callback.h"
+#include "ObjectCreator.h"
 
 // Crap for now
 #include "GDP2019/HandleDebugBallPhysics.h"
@@ -60,15 +61,18 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	gamelibrary::Objects objectsLib = gameLib.GetObjects();
 
 	// A handy list of everthing we want to load.
+	// We don't want to load everything into the VAO
+	// TODO - This should be read from the database XML file
+
 	std::map<std::string, cItem_Model*> mapLoaded;
-	mapLoaded["Cube_1_Unit_from_origin_XYZ_n"] = NULL;
-	mapLoaded["cube_Hi_Res_xyz_n"] = NULL;
+//	mapLoaded["Cube_1_Unit_from_origin_XYZ_n"] = NULL;
+//	mapLoaded["cube_Hi_Res_xyz_n"] = NULL;
 	mapLoaded["cube_Low_Res_xyz_n"] = NULL;
 	mapLoaded["pyramid"] = NULL;
 	mapLoaded["pyramid_3"] = NULL;
 	mapLoaded["Sphere_Radius_1_XYZ_n"] = NULL;
-	mapLoaded["12953_ChocolateRabbit_v1"] = NULL;
-	mapLoaded["Large_Physics_Bunny_XYZ_n"] = NULL;
+//	mapLoaded["12953_ChocolateRabbit_v1"] = NULL;
+//	mapLoaded["Large_Physics_Bunny_XYZ_n"] = NULL;
 	
 	// Load up all of the mesh we need for this run
 	for (auto it : mapLoaded)
@@ -100,85 +104,11 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 		pTheVAOManager->LoadModelIntoVAO(*model.second, drawInfo);
 	}
 
-	srand(unsigned int(time(NULL)));
-	{
-		// Make a bunch of pyramids
-		auto pyramid_1 = pFindObjectByFriendlyName("pyramid_1");
-		std::string name = "pyramid_1";
-
-		int numberOfPyramids = 10;
-		for (int i = 1; i < numberOfPyramids; ++i)
-		{
-			std::string newName = name + "_" + std::to_string(i);
-			auto temp = pyramid_1->Clone(newName);
-			assert(temp);
-			cObject_Model* newPyramid = dynamic_cast<cObject_Model*>(temp);
-			assert(newPyramid);
-			// Add in but don't do the XML
-//			mapObjects[newName] = newPyramid;
-			{
-				int min = 50;
-				int max = 255;
-				int r = rand() % (max - min) + min;
-				int g = rand() % (max - min) + min;
-				int b = rand() % (max - min) + min;
-				glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
-				newPyramid->objectColourRGBA = rgb;
-			}
-			{
-				int min = -50;
-				int max = 50;
-				int x = rand() % (max - min) + min;
-				int y = 0;
-				int z = rand() % (max - min) + min;
-				glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
-				newPyramid->positionXYZ = pos;
-			}
-			int newscale = rand() % 5;
-			newPyramid->scale = float(newscale)/2;
-			newPyramid->isVisible = true;
-			objectManager.SaveObject(newPyramid, objectsLib.GetNode());
-		}
-	}
-
-	{
-		// Make a bunch of balls
-		auto dropBall = pFindObjectByFriendlyName("Drop_Sphere");
-		std::string name = "Drop_Ball";
-
-		int numberOfBalls = 10;
-		for (int i = 1; i < numberOfBalls; ++i)
-		{
-			std::string newName = name + "_" + std::to_string(i);
-			auto temp = dropBall->Clone(newName);
-			assert(temp);
-			cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
-			assert(newBall);
-			// Add in but don't do the XML
-			objectManager.SaveObject(newBall, objectsLib.GetNode());
-			{
-				int min = 50;
-				int max = 255;
-				int r = rand() % (max - min) + min;
-				int g = rand() % (max - min) + min;
-				int b = rand() % (max - min) + min;
-				glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
-				newBall->objectColourRGBA = rgb;
-			}
-			{
-				int min = -50;
-				int max = 50;
-				int x = rand() % (max - min) + min;
-				int y = rand() % (50) + 20;
-				int z = rand() % (max - min) + min;
-				glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
-				newBall->positionXYZ = pos;
-			}
-			int newscale = rand() % 5;
-			newBall->scale = float(newscale);
-			newBall->SPHERE_radius = float(newscale);
-		}
-	}
+	// TODO - Create a bunch of objects for our simulation
+	// Note - the pyramids need to be place in a group with the world object
+	// so that they can all be rotated together
+	CreatePyramids(5, objectManager, objectsLib.GetNode());
+	CreateDropBalls(5, objectManager, objectsLib.GetNode());
 
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
 
@@ -186,10 +116,8 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	glEnable(GL_DEPTH_TEST);	// Test with buffer when drawing
 
 	cPhysics_Henky* pPhsyics = new cPhysics_Henky();
-	pPhsyics->SetDebugRenderer(pDebugRenderer);
+//	pPhsyics->SetDebugRenderer(pDebugRenderer);
 	cLowPassFilter avgDeltaTimeThingy;
-
-//	cObject_Model* pDropSphere = pFindObjectByFriendlyName("Drop_Sphere");
 
 	// Get the initial time
 	double lastTime = glfwGetTime();
@@ -275,120 +203,3 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 
 	return (EXIT_SUCCESS);
 }
-//
-//	{
-//	cObject_Model* pShpere = new cObject_Model("model", "Sphere#1", "Sphere_Radius_1_XYZ_n", NULL);
-//	pShpere->friendlyName = "Sphere#1";	// We use to search 
-//	pShpere->positionXYZ = glm::vec3(15.0f, 30.0, 15.0f);
-//	pShpere->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-//	pShpere->scale = 1.0f;
-//	pShpere->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-//	// Set the sphere's initial velocity, etc.
-//	pShpere->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-//	pShpere->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-//	pShpere->physicsShapeType = cObject_Model::eShapeTypes::SPHERE;
-//	pShpere->SPHERE_radius = 1.0f;
-//	pShpere->isVisible = true;
-//	pShpere->inverseMass = 1.0f;
-//	pShpere->inverseMass = 0.0f;			// Sphere won't move
-//	objectManager.SaveObject(pShpere, objectsLib.GetNode());
-//	}
-//	{
-//		cObject_Model* pShpere = new cObject_Model("model", "Sphere", "Sphere_Radius_1_XYZ_n", NULL);
-//		pShpere->friendlyName = "Sphere";	// We use to search 
-//		pShpere->positionXYZ = glm::vec3(0.0f, 30.0, 0.0f);
-//		pShpere->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pShpere->scale = 1.0f;
-//		pShpere->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-//		// Set the sphere's initial velocity, etc.
-//		pShpere->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pShpere->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pShpere->physicsShapeType = cObject_Model::eShapeTypes::SPHERE;
-//		pShpere->SPHERE_radius = 1.0f;
-//		pShpere->isVisible = true;
-//		pShpere->inverseMass = 1.0f;
-//		//	pShpere->inverseMass = 0.0f;			// Sphere won't move
-//		objectManager.SaveObject(pShpere, objectsLib.GetNode());
-//	} {
-//		cObject_Model* pPyramid = new cObject_Model("model", "pyramid_1", "pyramid", NULL);
-//		pPyramid->friendlyName = "pyramid_1";	// We use to search 
-//		pPyramid->positionXYZ = glm::vec3(-20.0f, 20.0, 0.0f);
-//		pPyramid->rotationXYZ = glm::vec3(0.0f, -50.0f, 0.0f);// glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->scale = 0.5f;
-//		pPyramid->objectColourRGBA = glm::vec4(0.0f, 0.5f, 0.5f, 1.0f);
-//		// Set the sphere's initial velocity, etc.
-//		pPyramid->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->physicsShapeType = cObject_Model::eShapeTypes::MESH;
-//		pPyramid->SPHERE_radius = 0.0f;
-//		pPyramid->isVisible = true;
-//		pPyramid->inverseMass = 0.0f;
-//		objectManager.SaveObject(pPyramid, objectsLib.GetNode());
-//	} {
-//		cObject_Model* pPyramid = new cObject_Model("model", "pyramid_3", "pyramid_3", NULL);
-//		pPyramid->friendlyName = "pyramid_3";	// We use to search 
-//		pPyramid->positionXYZ = glm::vec3(0.0f, 20.0, 20.0f);
-//		pPyramid->rotationXYZ = glm::vec3(50.0f, -50.0f, 0.0f); //glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->scale = 1.0f;
-//		pPyramid->objectColourRGBA = glm::vec4(.05f, 0.5f, 1.0f, 1.0f);
-//		// Set the sphere's initial velocity, etc.
-//		pPyramid->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->physicsShapeType = cObject_Model::eShapeTypes::MESH;
-//		pPyramid->SPHERE_radius = 0.0f;
-//		pPyramid->isVisible = true;
-//		pPyramid->inverseMass = 0.0f;
-//		objectManager.SaveObject(pPyramid, objectsLib.GetNode());
-//	} {
-//		cObject_Model* pPyramid = new cObject_Model("model", "chocolatebunny", "12953_ChocolateRabbit_v1", NULL);
-//		pPyramid->friendlyName = "chocolatebunny";	// We use to search 
-//		pPyramid->positionXYZ = glm::vec3(20.0f, 20.0, 20.0f);
-//		pPyramid->rotationXYZ = glm::vec3(0.0f, -50.0f, 0.0f);  // glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->scale = 2.0f;
-//		pPyramid->objectColourRGBA = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-//		// Set the sphere's initial velocity, etc.
-//		pPyramid->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-//		pPyramid->physicsShapeType = cObject_Model::eShapeTypes::MESH;
-//		pPyramid->SPHERE_radius = 0.0f;
-//		pPyramid->isVisible = false;
-//		pPyramid->inverseMass = 0.0f;
-//		objectManager.SaveObject(pPyramid, objectsLib.GetNode());
-//	}
-//
-//
-//	// Same orientation and position for BOTH the high resolution AND low resultion objects
-////	glm::vec3 cubesPosition = glm::vec3(0.0f, -50.0f, 0.0f);
-////	glm::vec3 cubesRotation = glm::vec3(glm::radians(15.0f), 0.0f, glm::radians(35.0f));
-//
-//	glm::vec3 cubesPosition = glm::vec3(0.0f, 0.0f, 0.0f);
-//	glm::vec3 cubesRotation = glm::vec3(0.0f, 0.0f, 0.0f);
-//
-//	{
-//		cObject_Model* pHiResCube = new cObject_Model("model", "hi_cube", "cube_Hi_Res_xyz_n", NULL);			// HEAP
-//		pHiResCube->friendlyName = "hi_cube";
-//		pHiResCube->positionXYZ = cubesPosition;
-//		pHiResCube->rotationXYZ = cubesRotation;
-//		pHiResCube->scale = 1.0f;	//***** SCALE = 1.0f *****/
-//		pHiResCube->objectColourRGBA = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-//		pHiResCube->physicsShapeType = cObject_Model::MESH;
-//		pHiResCube->isWireframe = false;
-//		//pHiResCube->debugColour = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);		// Yellow
-//		pHiResCube->inverseMass = 0.0f;	// Ignored during update
-//		pHiResCube->isVisible = true;
-//		objectManager.SaveObject(pHiResCube, objectsLib.GetNode());
-//	}
-//	{
-//		cObject_Model* pLowResCube = new cObject_Model("model", "low_cube", "cube_Low_Res_xyz_n", NULL);			// HEAP
-//		pLowResCube->friendlyName = "low_cube";
-//		pLowResCube->positionXYZ = cubesPosition;
-//		pLowResCube->rotationXYZ = cubesRotation;
-//		pLowResCube->scale = 1.0f;	//***** SCALE = 1.0f *****/
-//		pLowResCube->objectColourRGBA = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-//		pLowResCube->physicsShapeType = cObject_Model::MESH;
-//		pLowResCube->isWireframe = false;
-//		pLowResCube->debugColour = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);		// Yellow
-//		pLowResCube->inverseMass = 0.0f;	// Ignored during update
-//		pLowResCube->isVisible = false;
-//		objectManager.SaveObject(pLowResCube, objectsLib.GetNode());
-//	}

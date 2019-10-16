@@ -28,6 +28,9 @@ public:
 
 	virtual iItem* GetItem() const final; 
 
+	virtual iObject* GetParentObject() const final;
+	virtual void SetParentObject(iObject* in) final;
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Common& val);
 
@@ -49,5 +52,6 @@ protected :
 
 	//Points to the actual item (NULL if no physical representation)
 	iItem* m_Item;
+	iObject* m_ParentObject;
 };
 

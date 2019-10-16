@@ -188,7 +188,6 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
   <ItemGroup>
     <ClCompile Include="cGameObject.cpp" />
     <ClCompile Include="cObjectManager.cpp" />
-    <ClCompile Include="cObjectManager_Alias.cpp" />
     <ClCompile Include="cObjectManager_Audio.cpp" />
     <ClCompile Include="cObjectManager_Font.cpp" />
     <ClCompile Include="cObjectManager_Group.cpp" />
@@ -204,7 +203,6 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
   <ItemGroup>
     <ClInclude Include="cGameObject.h" />
     <ClInclude Include="cObjectManager.h" />
-    <ClInclude Include="cObjectManager_Alias.h" />
     <ClInclude Include="cObjectManager_Audio.h" />
     <ClInclude Include="cObjectManager_Font.h" />
     <ClInclude Include="cObjectManager_Group.h" />

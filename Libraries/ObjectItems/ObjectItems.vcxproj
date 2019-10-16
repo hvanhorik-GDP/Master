@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cObject_Alias.cpp" />
     <ClCompile Include="cObject_Audio.cpp" />
     <ClCompile Include="cObject_Common.cpp" />
     <ClCompile Include="cObject_Font.cpp" />
@@ -33,7 +32,6 @@
     <ClCompile Include="iObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cObject_Alias.h" />
     <ClInclude Include="cObject_Audio.h" />
     <ClInclude Include="cObject_Common.h" />
     <ClInclude Include="cObject_Font.h" />

@@ -7,7 +7,6 @@
     <ClCompile Include="cGameObject.cpp">
       <Filter>Reference</Filter>
     </ClCompile>
-    <ClCompile Include="cObjectManager_Alias.cpp" />
     <ClCompile Include="cObjectManager_World.cpp" />
     <ClCompile Include="cObjectManager_Physics.cpp" />
     <ClCompile Include="cObjectManager_Audio.cpp" />
@@ -25,7 +24,6 @@
     <ClInclude Include="cGameObject.h">
       <Filter>Reference</Filter>
     </ClInclude>
-    <ClInclude Include="cObjectManager_Alias.h" />
     <ClInclude Include="cObjectManager_World.h" />
     <ClInclude Include="cObjectManager_Physics.h" />
     <ClInclude Include="cObjectManager_Audio.h" />

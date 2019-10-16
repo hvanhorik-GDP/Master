@@ -8,7 +8,6 @@
 #include "cObjectManager_Model.h"
 #include "cObjectManager_Group.h"
 #include "cObjectManager_Video.h"
-#include "cObjectManager_Alias.h"
 #include "cObjectManager_Physics.h"
 #include "cObjectManager_World.h"
 #include "cObjectManager_Light.h"
@@ -33,7 +32,6 @@ void cObjectManager_impl::Init()
 {
 	if (m_ObjectManagers.size() > 0)
 		return;
-	m_ObjectManagers["alias"] = new cObjectManager_Alias();
 	m_ObjectManagers["audio"] = new cObjectManager_Audio();
 	m_ObjectManagers["font"] = new cObjectManager_Font();
 	m_ObjectManagers["group"] = new cObjectManager_Group();
@@ -64,10 +62,7 @@ void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent)
 	{
 		if (std::string(trans->name()) == std::string("Object"))
 		{
-//			gamelibrary::Object group(trans);
-//			gamelibrary::Object_name name(trans);
 			gamelibrary::Object_type type(trans);
-//			gamelibrary::Object_type assset_id(trans);
 
 			auto typeName = type.GetValue();
 
@@ -76,6 +71,12 @@ void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent)
 			manager->LoadObjects(trans);
 		}
 	}
+	// After loaded we need to resolve all aliases
+	auto temp = m_ObjectManagers["group"];
+	assert(temp);
+	cObjectManager_Group* groupManager = dynamic_cast<cObjectManager_Group*>(temp);
+	assert(groupManager);
+	groupManager->ResolveAlias();
 }
 
 // Write an object to the XML file

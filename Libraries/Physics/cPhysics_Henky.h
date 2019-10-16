@@ -73,7 +73,9 @@ public:
 		cItem_Model &mesh_transformedInWorld );
 	void SetDebugRenderer(cDebugRenderer* pDebugRenderer);
 
-	glm::mat4 calculateWorldMatrix(cObject_Model& pCurrentObject);
+	static glm::mat4 calculateWorldMatrix(iObject& pCurrentObject);
+
+	static void boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit, glm::vec3& maxLimit);
 private:
 
 	// Does collision test and returns collision information
@@ -87,3 +89,4 @@ private:
 	glm::vec3  m_Gravity;
 	cDebugRenderer* mDebugRenderer;
 };
+

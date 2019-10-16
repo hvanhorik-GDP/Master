@@ -45,7 +45,7 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 
 	cObject_Model* pShpere = pFindObjectByFriendlyName("Drop_Sphere");
 
-	cObject_Model* pModel = pFindObjectByFriendlyName("largeBunny");
+	cObject_Model* pModel = pFindObjectByFriendlyName("chocolatebunny");
 
 	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *pModel, closestPoint, closestTriangle);
 

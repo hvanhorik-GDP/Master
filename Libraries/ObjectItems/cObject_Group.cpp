@@ -12,6 +12,20 @@ cObject_Group::~cObject_Group()
 {
 }
 
+void cObject_Group::IntegrationStep(float deltaTime)
+{
+}
+
+void cObject_Group::AddChildObject(iObject* child)
+{
+	m_mapObjects[child->GetName()] = child;
+}
+
+cObject_Group::mapObjectsInGroup& cObject_Group::GetObjectsInGroup()
+{
+	return m_mapObjects;
+}
+
 // For debugging purposes - dumps the contents in human readable form
 std::ostream& operator<<(std::ostream& stream, const cObject_Group& val)
 {

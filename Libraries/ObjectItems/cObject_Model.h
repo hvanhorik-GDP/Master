@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 
 #include <string>
-#include <vector>
+#include <map>
 
 class cObject_Model : public cObject_Common
 {

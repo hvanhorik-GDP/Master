@@ -61,6 +61,15 @@ iItem* cObject_Common::GetItem() const
 	return m_Item;
 }
 
+iObject* cObject_Common::GetParentObject() const
+{
+	return m_ParentObject;
+}
+
+void cObject_Common::SetParentObject(iObject* in)
+{
+	m_ParentObject = in;
+}
 
 // For debugging purposes - dumps the contents in human readable form
 std::ostream& operator<<(std::ostream& stream, const cObject_Common& val)

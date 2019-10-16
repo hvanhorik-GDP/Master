@@ -47,8 +47,8 @@ void cObject_Model::IntegrationStep(float deltaTime)
 			objectColourRGBA = rgb;
 		}
 		{
-			int min = -50;
-			int max = 50;
+			int min = -5;
+			int max = 5;
 			int x = rand() % (max - min) + min;
 			int y = rand() % (50) + 20;
 			int z = rand() % (max - min) + min;

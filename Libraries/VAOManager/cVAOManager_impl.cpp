@@ -1,5 +1,5 @@
 #include "cVAOManager_impl.h"
-#include "Physics/cPhysics.h"
+#include "Physics/cPhysics_Henky.h"
 
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
@@ -273,7 +273,7 @@ void cVAOManager_impl::DrawObject(glm::mat4 m, cObject_Model* pCurrentObject)
 	// position, scale, and rotation (orientation) of the object
 	// has been placed into calculateWorldMatrix()
 
-	m = cPhysics::calculateWorldMatrix(*pCurrentObject);
+	m = cPhysics_Henky::calculateWorldMatrix(*pCurrentObject);
 
 	//	m = glm::mat4(1.0f);
 	//	

@@ -4,7 +4,7 @@
 #include "GameLibrary/Properties.h"
 #include "GameLibrary/Objects.h"
 #include "Utilities/cFormat.h"
-#include "../AssetManager/cAssetManager.h"
+#include "AssetManager/cAssetManager.h"
 
 #include <glm/glm.hpp>
 #include <iostream>

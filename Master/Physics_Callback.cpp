@@ -7,12 +7,16 @@
 #include <glm/vec4.hpp>
 
 #include "Common/globalStuff.h"	
+#include "ObjectManager/cObjectManager.h"
+#include "ObjectItems/cObject_Group.h"
 #include "Common/pFindObjectByFriendlyName.h"
 
-#include <stdio.h>		// for fprintf()
+#include <iostream>
 
 static bool isShiftKeyDownByAlone(int mods);
 static bool isCtrlKeyDownByAlone(int mods);
+
+static void tiltPlane(int plane, float value);
 
 
 void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -52,30 +56,26 @@ void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action,
 			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
 		}
 
-		// See if we want to tilt the plane
-		cObject_Model* pThePlane = pFindObjectByFriendlyName("low_cube");
-
 		const float planeTilt = 0.0005f;
-		const float maxplaneTilt = .5f;
+		const int x = 0;
+		const int y = 1;
+		const int z = 2;
+
 		if (key == GLFW_KEY_RIGHT)
 		{
-			if (pThePlane->rotationXYZ.z < maxplaneTilt)
-				pThePlane->rotationXYZ.z += planeTilt;
+			tiltPlane(z, planeTilt);
 		}
 		if (key == GLFW_KEY_LEFT)
 		{
-			if (pThePlane->rotationXYZ.z > -maxplaneTilt)
-				pThePlane->rotationXYZ.z -= planeTilt;
+			tiltPlane(z, -planeTilt);
 		}
 		if (key == GLFW_KEY_UP)
 		{
-			if (pThePlane->rotationXYZ.x < maxplaneTilt)
-				pThePlane->rotationXYZ.x += planeTilt;
+			tiltPlane(x, planeTilt);
 		}
 		if (key == GLFW_KEY_DOWN)
 		{
-			if (pThePlane->rotationXYZ.x > -maxplaneTilt)
-				pThePlane->rotationXYZ.x -= planeTilt;
+			tiltPlane(x, -planeTilt);
 		}
 	}
 
@@ -224,8 +224,8 @@ void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, i
 		pTheBall->objectColourRGBA = rgb;
 	}
 	{
-		int min = -50;
-		int max = 50;
+		int min = -5;
+		int max = 5;
 		int x = rand() % (max - min) + min;
 		int y = rand() % (50) + 20;
 		int z = rand() % (max - min) + min;
@@ -238,4 +238,36 @@ void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, i
 	pTheBall->velocity = glm::vec3(0.0f, 1.0f, 0.0f);
 	pTheBall->accel = glm::vec3(0.0f, 0.0f, 0.0f);
 	return;
+}
+
+void tiltPlane(int plane, float value)
+{
+	const float maxplaneTilt = .5f;
+
+	cObjectManager objectManager;
+	auto object = objectManager.FindObjectByName("ground_plane");
+	assert(object);
+	cObject_Group* group = dynamic_cast<cObject_Group*>(object);
+	assert(group);
+	auto howFar = group->rotationXYZ[plane];
+
+	if (howFar < maxplaneTilt)
+	{
+		group->rotationXYZ[plane] += value;
+	//	// Hack for now.. Just set the rotation
+	//	// TODO - Move into the physics to calculate worldMat 
+	//	// It needs to check the parents for additional rotation.
+	//	for (auto children : group->GetObjectsInGroup())
+	//	{
+	//		cObject_Model* model = dynamic_cast<cObject_Model*>(children.second);
+	//		if (model)
+	//		{
+	//			std::cout << "Tilt Plane: " << plane
+	//				<< " Value: " << value
+	//				<< " Current: " << model->rotationXYZ[plane]
+	//				<< " Model: " << model->GetName() << std::endl;
+	//			model->rotationXYZ[plane] += value;
+	//		}
+	//	}
+	}
 }

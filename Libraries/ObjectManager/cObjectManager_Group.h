@@ -15,10 +15,13 @@ private:
 	virtual iObjectManager::iObject_map* GetObjects(const std::string& name);
 
 	// Write an object to the XML file
-	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent) { assert(false); };
+	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager_Group& val);
+	
+	// We need to resolve all aliases when we are done with object manager
+	virtual void ResolveAlias();
 
 	friend class cObjectManager_impl;
 private:

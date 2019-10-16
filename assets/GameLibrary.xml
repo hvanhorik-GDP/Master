@@ -242,12 +242,12 @@
 			<Property name="SPHERE_radius" type="float" value="0.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
-			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isVisible" type="bool" value="false"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_3" type="model" asset_id="pyramid_3">
-			<Property name="positionXYZ" type="vec3" value="-20 0 20"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0.05 0.5 1 1"/>
@@ -267,9 +267,9 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="chocolatebunny" type="model" asset_id="12953_ChocolateRabbit_v1">
-			<Property name="positionXYZ" type="vec3" value="20 20 20"/>
-			<Property name="rotationXYZ" type="vec3" value="0 -50 0"/>
-			<Property name="scale" type="float" value="2.000000"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
@@ -343,13 +343,12 @@
 			<Property name="SPHERE_radius" type="float" value="0.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="1 1 0.5 1"/>
-			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="isVisible" type="bool" value="true"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
     
     <Object name="debug_sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-      <Property name="meshName" type="string" value="sphere"/>
       <Property name="positionXYZ" type="vec3" value="0 0 0"/>
       <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
       <Property name="scale" type="float" value="1.00000"/>
@@ -369,7 +368,20 @@
       <Property name="disableDepthBufferTest" type="bool" value="false"/>
       <Property name="disableDepthBufferWrite" type="bool" value="false"/>
     </Object>
-
+    
+    <Object type="group" name="ground_plane" asset_id="">
+      <Property name="low_cube" type="alias" value="low_cube"/>
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="isVisible" type="bool" value="false"/>
+    </Object>
+   
+    <Object type="world" name="world" asset_id="">
+      <Property name="ground_plane" type="alias" value="ground"/>
+    </Object>
   </Objects>
 </GameLibrary>
 
