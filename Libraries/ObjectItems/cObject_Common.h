@@ -23,6 +23,9 @@ public:
 	virtual const std::string& GetName() const final;
 	virtual const std::string& GetAssetID() const final;
 
+	virtual iObject* Clone(const std::string& newName) 
+		{ assert(false); return NULL; }
+
 	virtual iItem* GetItem() const final; 
 
 	// For debugging purposes - dumps the contents in human readable form

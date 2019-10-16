@@ -305,45 +305,42 @@ void cPhysics::GetClosestTriangleToPoint_Henry(
 {
 	iItem* item = object.GetItem();
 	assert(item);
-	cItem_Model* mesh = dynamic_cast<cItem_Model*>(item);
-	assert(mesh);
+	cItem_Model* drawMesh = dynamic_cast<cItem_Model*>(item);
+	assert(drawMesh);
 	// We need to test world coordinates
 	auto matWorld = object.matWorld;
+
+	cItem_Model worldMesh;
+	CalculateTransformedMesh(*drawMesh, matWorld, worldMesh);
 
 	// Assume the closest distance is REALLY far away
 	float closestDistanceSoFar = FLT_MAX;
 
 	for (unsigned int triIndex = 0;
-		triIndex != mesh->m_vecTriangles.size();
+		triIndex != worldMesh.m_vecTriangles.size();
 		triIndex++)
 	{
-		cItem_Model::sPlyTriangle& curTriangle = mesh->m_vecTriangles[triIndex];
+		cItem_Model::sPlyTriangle& curTriangle = worldMesh.m_vecTriangles[triIndex];
 
 		// Get the vertices of the triangle
-		cItem_Model::sPlyVertexXYZ triVert1 = mesh->m_vecVertices[curTriangle.vert_index_1];
-		cItem_Model::sPlyVertexXYZ triVert2 = mesh->m_vecVertices[curTriangle.vert_index_2];
-		cItem_Model::sPlyVertexXYZ triVert3 = mesh->m_vecVertices[curTriangle.vert_index_3];
+		cItem_Model::sPlyVertexXYZ triVert1 = worldMesh.m_vecVertices[curTriangle.vert_index_1];
+		cItem_Model::sPlyVertexXYZ triVert2 = worldMesh.m_vecVertices[curTriangle.vert_index_2];
+		cItem_Model::sPlyVertexXYZ triVert3 = worldMesh.m_vecVertices[curTriangle.vert_index_3];
 
-		glm::vec4 tri4VertPoint1;
-		tri4VertPoint1.x = triVert1.x;
-		tri4VertPoint1.y = triVert1.y;
-		tri4VertPoint1.z = triVert1.z;
-		glm::vec4 worldPoint1 = matWorld * tri4VertPoint1;
-		glm::vec3 triVertPoint1 = worldPoint1;
+		Point triVertPoint1;
+		triVertPoint1.x = triVert1.x;
+		triVertPoint1.y = triVert1.y;
+		triVertPoint1.z = triVert1.z;
 
-		glm::vec4 tri4VertPoint2;
-		tri4VertPoint2.x = triVert2.x;
-		tri4VertPoint2.y = triVert2.y;
-		tri4VertPoint2.z = triVert2.z;
-		glm::vec4 worldPoint2 = matWorld * tri4VertPoint2;
-		glm::vec3 triVertPoint2 = worldPoint2;
+		Point triVertPoint2;
+		triVertPoint2.x = triVert2.x;
+		triVertPoint2.y = triVert2.y;
+		triVertPoint2.z = triVert2.z;
 
-		glm::vec4 tri4VertPoint3;
-		tri4VertPoint3.x = triVert3.x;
-		tri4VertPoint3.y = triVert3.y;
-		tri4VertPoint3.z = triVert3.z;
-		glm::vec4 worldPoint3 = matWorld * tri4VertPoint3;
-		glm::vec3 triVertPoint3 = worldPoint3;
+		Point triVertPoint3;
+		triVertPoint3.x = triVert3.x;
+		triVertPoint3.y = triVert3.y;
+		triVertPoint3.z = triVert3.z;
 
 		Point curClosetPoint = ClosestPtPointTriangle(pointXYZ,
 			triVertPoint1, triVertPoint2, triVertPoint3);
@@ -359,20 +356,23 @@ void cPhysics::GetClosestTriangleToPoint_Henry(
 			closestPoint = curClosetPoint;
 
 			// Copy the triangle information over, as well
-			closestTriangle.verts[0] = triVertPoint1;
-			closestTriangle.verts[1] = triVertPoint2;
-			closestTriangle.verts[2] = triVertPoint3;
+			closestTriangle.verts[0].x = triVert1.x;
+			closestTriangle.verts[0].y = triVert1.y;
+			closestTriangle.verts[0].z = triVert1.z;
+			closestTriangle.verts[1].x = triVert2.x;
+			closestTriangle.verts[1].y = triVert2.y;
+			closestTriangle.verts[1].z = triVert2.z;
+			closestTriangle.verts[2].x = triVert3.x;
+			closestTriangle.verts[2].y = triVert3.y;
+			closestTriangle.verts[2].z = triVert3.z;
 
 			// Quick is to average the normal of all 3 vertices
-			glm::vec4 triVert1Norm = glm::vec4(triVert1.nx, triVert1.ny, triVert1.nz, 1.0f);
-			glm::vec4 triVert2Norm = glm::vec4(triVert2.nx, triVert2.ny, triVert2.nz, 1.0f);
-			glm::vec4 triVert3Norm = glm::vec4(triVert3.nx, triVert3.ny, triVert3.nz, 1.0f);
+			glm::vec3 triVert1Norm = glm::vec3(triVert1.nx, triVert1.ny, triVert1.nz);
+			glm::vec3 triVert2Norm = glm::vec3(triVert2.nx, triVert2.ny, triVert2.nz);
+			glm::vec3 triVert3Norm = glm::vec3(triVert3.nx, triVert3.ny, triVert3.nz);
 
 			// Average of the vertex normals... 
-			glm::vec4 objectNormal = (triVert1Norm + triVert2Norm + triVert3Norm) / 3.0f;
-			// Put in world coordinates
-			glm::vec4 worldNormal = matWorld * objectNormal;
-			closestTriangle.normal = worldNormal;
+			closestTriangle.normal = (triVert1Norm + triVert2Norm + triVert3Norm) / 3.0f;
 		}
 
 	}//for (unsigned int triIndex = 0;
@@ -384,9 +384,9 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 	sCollisionInfo& collisionInfo)
 {
 	Sphere worldSphere;
-	glm::vec4 worldSpherevec = pSphere->matWorld * glm::vec4(pSphere->positionXYZ, 1.0f);
+	glm::vec4 worldSpherevec = /*pSphere->matWorld * */ glm::vec4(pSphere->positionXYZ, 1.0f);
 	worldSphere.c = worldSpherevec;
-	worldSphere.r = pSphere->SPHERE_radius * pSphere->scale;
+	worldSphere.r = pSphere->SPHERE_radius/* * pSphere->scale*/;
 
 	iItem* itemMesh = pModel->GetItem();
 	assert(itemMesh);
@@ -397,10 +397,13 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 	GetClosestTriangleToPoint_Henry(worldSphere.c, *pModel, closestPoint, closestTriangle);
 
 	// Highlight the triangle that I'm closest to
-	mDebugRenderer->addTriangle(closestTriangle.verts[0],
-		closestTriangle.verts[1],
-		closestTriangle.verts[2],
-		glm::vec3(1.0f, 0.0f, 0.0f));
+	if (mDebugRenderer)
+	{
+		mDebugRenderer->addTriangle(closestTriangle.verts[0],
+			closestTriangle.verts[1],
+			closestTriangle.verts[2],
+			glm::vec3(1.0f, 0.0f, 0.0f));
+	}
 
 	// Highlight the triangle that I'm closest to
 	// To draw the normal, calculate the average of the 3 vertices, 
@@ -411,9 +414,12 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 
 	glm::vec3 normalInWorld = centreOfTriangle + (closestTriangle.normal * 20.0f);	// Normal x 10 length
 
-	mDebugRenderer->addLine(centreOfTriangle,
-		normalInWorld,
-		glm::vec3(1.0f, 1.0f, 0.0f));
+	if (mDebugRenderer)
+	{
+		mDebugRenderer->addLine(centreOfTriangle,
+			normalInWorld,
+			glm::vec3(1.0f, 1.0f, 0.0f));
+	}
 
 	// Are we hitting the triangle? 
 	float distance = glm::length(worldSphere.c - closestPoint);
@@ -438,13 +444,15 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 
 		// 4. Sphere is moving in the direction of the velocity, so 
 		//    we want to move the sphere BACK along this velocity vector
-		glm::vec3 vecDirection = glm::normalize(pSphere->velocity);
+
+//		glm::vec3 vecDirection = glm::normalize(pSphere->velocity);
+		glm::vec3 vecDirection = /*-closestTriangle.normal;*/  glm::normalize(pSphere->velocity);
 
 		glm::vec3 vecPositionAdjust = (-vecDirection) * lengthPositionAdjustment;
 
 		// 5. Reposition sphere 
 		pSphere->positionXYZ += (vecPositionAdjust);
-		//			pShpere->inverseMass = 0.0f;
+		//pSphere->inverseMass = 0.0f;
 
 					// ************************************************************************
 
@@ -461,22 +469,36 @@ bool cPhysics::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model*
 	//			pShpere->inverseMass = 0.0f;	// Stopped
 
 		glm::vec3 velVecX20 = velocityVector * 10.0f;
-		mDebugRenderer->addLine(closestPoint, velVecX20,
-			glm::vec3(1.0f, 0.0f, 0.0f), 30.0f /*seconds*/);
+		if (mDebugRenderer)
+		{
+			mDebugRenderer->addLine(closestPoint, velVecX20,
+				glm::vec3(1.0f, 0.0f, 0.0f), 30.0f /*seconds*/);
+		}
 
 		glm::vec3 reflectionVecX20 = reflectionVec * 10.0f;
-		mDebugRenderer->addLine(closestPoint, reflectionVecX20,
-			glm::vec3(0.0f, 1.0f, 1.0f), 30.0f /*seconds*/);
+		if (mDebugRenderer)
+		{
+			mDebugRenderer->addLine(closestPoint, reflectionVecX20,
+				glm::vec3(0.0f, 1.0f, 1.0f), 30.0f /*seconds*/);
+		}
 
 		// Change the direction of the ball (the bounce off the triangle)
 
 		// Get length of the velocity vector
 		float speed = glm::length(pSphere->velocity);
 
-		const float minimumspeed = 0.1f;
-		float bounce = (speed > minimumspeed) ? pSphere->bounce : 1.0f;
+		const float minimumspeed = 2.0f;
+		const float minimumbouncd = 1.0f;
+		if (speed < minimumspeed)
+			speed = minimumspeed;
+		float bounce = (speed > minimumbouncd) ? pSphere->bounce : 1.0f;
 		pSphere->velocity = reflectionVec * speed * bounce;
-		return true;
+		//std::cout << "speed: " << speed
+		//	<< " Bounce: " << bounce 
+		//	<< " Velocity : x: " << pSphere->velocity.x
+		//	<< " : y: " << pSphere->velocity.y
+		//	<< " : z: " << pSphere->velocity.z << std::endl;
+		//	return true;
 	}
 	return false;
 }

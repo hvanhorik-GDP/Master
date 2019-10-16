@@ -21,6 +21,8 @@ private:
 	// Write an object to the XML file
 	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
 
+	iObject* FindObjectByName(const std::string& objectName);
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager_impl& val);
 

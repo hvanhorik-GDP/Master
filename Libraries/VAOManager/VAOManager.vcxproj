@@ -187,9 +187,15 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cVAOManager.cpp" />
+    <ClCompile Include="cVAOManager_impl.cpp" />
+    <ClCompile Include="iVAOManager.cpp" />
+    <ClCompile Include="sModelDrawInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cVAOManager.h" />
+    <ClInclude Include="cVAOManager_impl.h" />
+    <ClInclude Include="iVAOManager.h" />
+    <ClInclude Include="sModelDrawInfo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

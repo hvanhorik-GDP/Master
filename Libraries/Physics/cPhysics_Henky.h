@@ -49,7 +49,12 @@ public:
 
 	// Returns all the triangles and the closest points
 	void GetClosestTriangleToPoint( Point pointXYZ, cItem_Model &model, Point &closestPoint, sPhysicsTriangle &closestTriangle );
-	void GetClosestTriangleToPoint_Henry( Point pointXYZ, cObject_Model& model, Point& closestPoint, sPhysicsTriangle& closestTriangl);
+
+	// Get the mesh first and transform it to world coordinates.
+	void GetClosestTriangleToPoint(Point pointXYZ, cObject_Model& model, Point& closestPoint, sPhysicsTriangle& closestTriangl);
+
+	// TODO - My attempt at not transforming the mesh. (failed for now)
+	void GetClosestTriangleToPoint_Henry_save(Point pointXYZ, cObject_Model& model, Point& closestPoint, sPhysicsTriangle& closestTriangl);
 
 	// Will return the closest triangles that are within the range "distanceRange".
 	// This can be used as a "closest triangles to sphere"

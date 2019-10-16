@@ -13,7 +13,7 @@
 #include "../Common/pFindObjectByFriendlyName.h"
 #include "DebugRenderer/cDebugRenderer.h"
 
-
+#include <iostream>
 
 // Let's draw all the closest points to the sphere
 	// on the terrain mesh....
@@ -45,29 +45,9 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 
 	cObject_Model* pShpere = pFindObjectByFriendlyName("Drop_Sphere");
 
-	cObject_Model* pLowResCube = pFindObjectByFriendlyName("hi_cube");
-	auto tmp = pLowResCube->GetItem();
-	cItem_Model* mesh = dynamic_cast<cItem_Model*>(tmp);
-	glm::mat4 matWorld = pPhsyics->calculateWorldMatrix(*pLowResCube);
-	cItem_Model lowResCubeMesh_TRANSFORMED_WorldSpace;
+	cObject_Model* pModel = pFindObjectByFriendlyName("largeBunny");
 
-	auto lowrescubeMesh = (*mapLoaded)["cube_Low_Res_xyz_n"];
-	//pPhsyics->CalculateTransformedMesh(*lowrescubeMesh, matWorld, lowResCubeMesh_TRANSFORMED_WorldSpace);
-	//		pPhsyics->CalculateTransformedMesh(hirescubeMesh, matWorld, lowResCubeMesh_TRANSFORMED_WorldSpace);
-
-			//glm::mat4 matSpaceStation = glm::mat4(1.0f);
-			//pPhsyics->CalculateTransformedMesh(spaceStationMesh, matSpaceStation, lowResCubeMesh_TRANSFORMED_WorldSpace);
-
-			// NOTE that I'm using the LOW RESOLUTION "cube" mesh, but DRAWING the high resolution mesh
-	//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
-	//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowrescubeMesh, closestPoint, closestTriangle);
-//	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
-//	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *mesh, closestPoint, closestTriangle);
-	pPhsyics->GetClosestTriangleToPoint_Henry(pShpere->positionXYZ, *pLowResCube, closestPoint, closestTriangle);
-
-//	auto singleTriangleMesh = (*mapLoaded)["SingleTriangle"];
-//	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *singleTriangleMesh, closestPoint, closestTriangle);
-
+	pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, *pModel, closestPoint, closestTriangle);
 
 	// Highlight the triangle that I'm closest to
 	pDebugRenderer->addTriangle(closestTriangle.verts[0],
@@ -108,6 +88,9 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 
 		// 3. Create a vector from closest point to radius
 		float lengthPositionAdjustment = pShpere->SPHERE_radius - centreToContractDistance;
+		//std::cout << "Radius: " << pShpere->SPHERE_radius  
+		//	<< " Scale: " << pShpere->scale
+		//	<< " Adjust: " << lengthPositionAdjustment << std::endl;
 
 		// 4. Sphere is moving in the direction of the velocity, so 
 		//    we want to move the sphere BACK along this velocity vector
@@ -119,11 +102,11 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 		pShpere->positionXYZ += (vecPositionAdjust);
 		//			pShpere->inverseMass = 0.0f;
 
-					// ************************************************************************
+		// ************************************************************************
 
 
-					// Is in contact with the triangle... 
-					// Calculate the response vector off the triangle. 
+		// Is in contact with the triangle... 
+		// Calculate the response vector off the triangle. 
 		glm::vec3 velocityVector = glm::normalize(pShpere->velocity);
 
 		// closestTriangle.normal
@@ -131,7 +114,7 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 		reflectionVec = glm::normalize(reflectionVec);
 
 		// Stop the sphere and draw the two vectors...
-	//			pShpere->inverseMass = 0.0f;	// Stopped
+//		pShpere->inverseMass = 0.0f;	// Stopped
 
 		glm::vec3 velVecX20 = velocityVector * 10.0f;
 		pDebugRenderer->addLine(closestPoint, velVecX20,
@@ -151,7 +134,8 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 		pShpere->velocity = reflectionVec * speed * bounce;
 	}
 
-	{// Draw closest point
+	{
+		// Draw closest point
 		cObject_Model* pDebugSphere = pFindObjectByFriendlyName("debug_sphere");
 		glm::mat4 matModel = glm::mat4(1.0f);
 		pDebugSphere->positionXYZ = closestPoint;
@@ -159,8 +143,7 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 		pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
 		pDebugSphere->isWireframe = true;
 		pDebugSphere->isVisible = true;
-		pTheVAOManager->DrawObject(matModel, pDebugSphere,
-			shaderProgID);
+		pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		pDebugSphere->isVisible = false;		// Don't display it anymore
 	}
 

@@ -1,15 +1,5 @@
 #pragma once
-
-#include "GLCommon.h"
-#include "AssetItems/cItem_Model.h"
-
-// Will load the models and place them 
-// into the vertex and index buffers to be drawn
-
 #include <string>
-#include <map>
-
-#pragma comment(lib, "VAOManager.lib")
 
 // The vertex structure 
 //	that's ON THE GPU (eventually) 
@@ -55,29 +45,4 @@ struct sModelDrawInfo
 	float extentX, extentY, extentZ;
 
 	void CalcExtents(void);
-};
-
-
-class cVAOLoader
-{
-public:
-
-	// Takes a cMesh object and copies it into the GPU (as a VOA)
-	bool LoadModelIntoVAO(std::string friendlyName,
-		cItem_Model& theModel,				// NEW
-		sModelDrawInfo& drawInfo,
-		unsigned int shaderProgramID);
-
-	// We don't want to return an int, likely
-	bool FindDrawInfoByModelName(std::string filename,
-		sModelDrawInfo& drawInfo);
-
-	std::string getLastError(bool bAndClear = true);
-
-private:
-
-	std::map< std::string /*model name*/,
-		sModelDrawInfo /* info needed to draw*/ >
-		m_map_ModelName_to_VAOID;
-
 };

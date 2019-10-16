@@ -59,7 +59,7 @@ private:
 
 	friend class cAssetManager_Models;
 	friend class cPlyLoader;
-	friend class cVAOManager;
+	friend class cVAOManager_impl;
 	friend class cPhysics;
 	friend class cPhysics_Henky;
 };

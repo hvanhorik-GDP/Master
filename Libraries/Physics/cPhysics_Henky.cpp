@@ -1,4 +1,8 @@
 #include "cPhysics_Henky.h"
+
+#include "ObjectManager/cObjectManager.h"
+#include "VAOManager/cVAOManager.h"
+
 // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 #include <iostream>
@@ -9,7 +13,7 @@ cPhysics_Henky::cPhysics_Henky()
 	// This is a typical Earth gravity value. 
 	// note that this doesn't mean that the simulation will "look good", though... 
 //	this->m_Gravity = glm::vec3(0.0f, -9.81f, 0.0f);
-	this->m_Gravity = glm::vec3(0.0f, -1.0f, 0.0f);
+	this->m_Gravity = glm::vec3(0.0f, -6.0f, 0.0f);
 	return;
 }
 
@@ -295,11 +299,33 @@ glm::mat4 cPhysics_Henky::calculateWorldMatrix(cObject_Model& pCurrentObject)
 	return matWorld;
 }
 
+
 // Returns all the triangles and the closest points
 //void GetClosestTriangleToPoint_Henry(Point pointXYZ, cObject_Model& model, 
 // Point& closestPoint, sPhysicsTriangle& closestTriangl);
 
-void cPhysics_Henky::GetClosestTriangleToPoint_Henry(
+void cPhysics_Henky::GetClosestTriangleToPoint(
+	Point pointXYZ, cObject_Model& object,
+	Point& closestPoint, sPhysicsTriangle& closestTriangle)
+{
+	iItem* item = object.GetItem();
+	assert(item);
+	cItem_Model* drawMesh = dynamic_cast<cItem_Model*>(item);
+	assert(drawMesh);
+	// We need to test world coordinates
+	auto matWorld = object.matWorld;
+
+	cItem_Model worldMesh;
+	CalculateTransformedMesh(*drawMesh, matWorld, worldMesh);
+
+	GetClosestTriangleToPoint(pointXYZ, worldMesh, closestPoint, closestTriangle);
+}
+
+// Returns all the triangles and the closest points
+//void GetClosestTriangleToPoint_Henry(Point pointXYZ, cObject_Model& model, 
+// Point& closestPoint, sPhysicsTriangle& closestTriangl);
+
+void cPhysics_Henky::GetClosestTriangleToPoint_Henry_save(
 	Point pointXYZ, cObject_Model& object,
 	Point& closestPoint, sPhysicsTriangle& closestTriangle)
 {
@@ -384,9 +410,9 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 	sCollisionInfo& collisionInfo)
 {
 	Sphere worldSphere;
-	glm::vec4 worldSpherevec = pSphere->matWorld * glm::vec4(pSphere->positionXYZ, 1.0f);
+	glm::vec4 worldSpherevec = /*pSphere->matWorld * */ glm::vec4(pSphere->positionXYZ, 1.0f);
 	worldSphere.c = worldSpherevec;
-	worldSphere.r = pSphere->SPHERE_radius * pSphere->scale;
+	worldSphere.r = pSphere->SPHERE_radius/* * pSphere->scale*/;
 
 	iItem* itemMesh = pModel->GetItem();
 	assert(itemMesh);
@@ -394,15 +420,16 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 	assert(modelMesh);
 	sPhysicsTriangle closestTriangle;
 	Point closestPoint;
-	GetClosestTriangleToPoint_Henry(worldSphere.c, *pModel, closestPoint, closestTriangle);
-	std::cout << "Normals : " << closestTriangle.normal.x << " : "
-		<< closestTriangle.normal.y << " : "
-		<< closestTriangle.normal.x << std::endl;
+	GetClosestTriangleToPoint(worldSphere.c, *pModel, closestPoint, closestTriangle);
+
 	// Highlight the triangle that I'm closest to
-	mDebugRenderer->addTriangle(closestTriangle.verts[0],
-		closestTriangle.verts[1],
-		closestTriangle.verts[2],
-		glm::vec3(1.0f, 0.0f, 0.0f));
+	if (mDebugRenderer)
+	{
+		mDebugRenderer->addTriangle(closestTriangle.verts[0],
+			closestTriangle.verts[1],
+			closestTriangle.verts[2],
+			glm::vec3(1.0f, 0.0f, 0.0f));
+	}
 
 	// Highlight the triangle that I'm closest to
 	// To draw the normal, calculate the average of the 3 vertices, 
@@ -413,9 +440,12 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 
 	glm::vec3 normalInWorld = centreOfTriangle + (closestTriangle.normal * 20.0f);	// Normal x 10 length
 
-	mDebugRenderer->addLine(centreOfTriangle,
-		normalInWorld,
-		glm::vec3(1.0f, 1.0f, 0.0f));
+	if (mDebugRenderer)
+	{
+		mDebugRenderer->addLine(centreOfTriangle,
+			normalInWorld,
+			glm::vec3(1.0f, 1.0f, 0.0f));
+	}
 
 	// Are we hitting the triangle? 
 	float distance = glm::length(worldSphere.c - closestPoint);
@@ -440,7 +470,9 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 
 		// 4. Sphere is moving in the direction of the velocity, so 
 		//    we want to move the sphere BACK along this velocity vector
-		glm::vec3 vecDirection = glm::normalize(pSphere->velocity);
+
+//		glm::vec3 vecDirection = glm::normalize(pSphere->velocity);
+		glm::vec3 vecDirection = /*-closestTriangle.normal;*/  glm::normalize(pSphere->velocity);
 
 		glm::vec3 vecPositionAdjust = (-vecDirection) * lengthPositionAdjustment;
 
@@ -463,23 +495,69 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 	//			pShpere->inverseMass = 0.0f;	// Stopped
 
 		glm::vec3 velVecX20 = velocityVector * 10.0f;
-		mDebugRenderer->addLine(closestPoint, velVecX20,
-			glm::vec3(1.0f, 0.0f, 0.0f), 30.0f /*seconds*/);
+		if (mDebugRenderer)
+		{
+			mDebugRenderer->addLine(closestPoint, velVecX20,
+				glm::vec3(1.0f, 0.0f, 0.0f), 30.0f /*seconds*/);
+		}
 
 		glm::vec3 reflectionVecX20 = reflectionVec * 10.0f;
-		mDebugRenderer->addLine(closestPoint, reflectionVecX20,
-			glm::vec3(0.0f, 1.0f, 1.0f), 30.0f /*seconds*/);
+		if (mDebugRenderer)
+		{
+			mDebugRenderer->addLine(closestPoint, reflectionVecX20,
+				glm::vec3(0.0f, 1.0f, 1.0f), 30.0f /*seconds*/);
+		}
 
 		// Change the direction of the ball (the bounce off the triangle)
 
 		// Get length of the velocity vector
 		float speed = glm::length(pSphere->velocity);
 
-		const float minimumspeed = 0.1f;
-		float bounce = (speed > minimumspeed) ? pSphere->bounce : 1.0f;
+		const float minimumspeed = 2.0f;
+		const float minimumbouncd = 1.0f;
+		if (speed < minimumspeed)
+			speed = minimumspeed;
+		float bounce = (speed > minimumbouncd) ? pSphere->bounce : 1.0f;
 		pSphere->velocity = reflectionVec * speed * bounce;
+		//std::cout << "speed: " << speed
+		//	<< " Bounce: " << bounce 
+		//	<< " Velocity : x: " << pSphere->velocity.x
+		//	<< " : y: " << pSphere->velocity.y
+		//	<< " : z: " << pSphere->velocity.z << std::endl;
 		return true;
+		if (mDebugRenderer)
+		{
+			cObjectManager objectManager;
+			auto object = objectManager.FindObjectByName("debug_sphere");
+			assert(object);
+			cObject_Model* pDebugSphere = dynamic_cast<cObject_Model*>(object);
+			glm::mat4 matModel = glm::mat4(1.0f);
+			pDebugSphere->positionXYZ = closestPoint;
+			pDebugSphere->scale = 1.0f;
+			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
+			pDebugSphere->isWireframe = true;
+			pDebugSphere->isVisible = true;
+			cVAOManager(). DrawObject(matModel, pDebugSphere);
+			pDebugSphere->isVisible = false;		// Don't display it anymore
+		}
+
+		// How far did we penetrate the surface?
+		glm::vec3 CentreToClosestPoint = pSphere->positionXYZ - closestPoint;
+
+		// Direction that ball is going is normalized velocity
+		glm::vec3 directionBall = glm::normalize(pSphere->velocity);	// 1.0f
+
+		// Calcualte direction to move it back the way it came from
+		glm::vec3 oppositeDirection = -directionBall;				// 1.0f
+
+		float distanceToClosestPoint = glm::length(CentreToClosestPoint);
+
+		mDebugRenderer->addLine(pSphere->positionXYZ,
+			closestPoint,
+			glm::vec3(0.0f, 1.0f, 0.0f),
+			1.0f);
 	}
+
 	return false;
 }
 

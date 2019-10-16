@@ -34,6 +34,33 @@ void cObject_Model::IntegrationStep(float deltaTime)
 	positionXYZ.y += velocity.y * deltaTime;
 	positionXYZ.z += velocity.z * deltaTime;
 
+	// See if we fell off the map
+	if (positionXYZ.y < -50.0f)
+	{
+		{
+			int min = 50;
+			int max = 255;
+			int r = rand() % (max - min) + min;
+			int g = rand() % (max - min) + min;
+			int b = rand() % (max - min) + min;
+			glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
+			objectColourRGBA = rgb;
+		}
+		{
+			int min = -50;
+			int max = 50;
+			int x = rand() % (max - min) + min;
+			int y = rand() % (50) + 20;
+			int z = rand() % (max - min) + min;
+			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
+			positionXYZ = pos;
+		}
+		velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+		accel = glm::vec3(0.0f, 0.0f, 0.0f);
+		int newscale = rand() % 5;
+		scale = float(newscale);
+		SPHERE_radius = float(newscale);
+	}
 }
 
 // For debugging purposes - dumps the contents in human readable form
@@ -74,3 +101,14 @@ cObject_Model::eShapeTypes cObject_Model::StringToShapeType(std::string& in)
 		return eShapeTypes::SPHERE;
 	return eShapeTypes::UNKNOWN;
 }
+
+iObject* cObject_Model::Clone(const std::string& newName)
+{
+	// Copy everything and change the name
+	cObject_Model* ret =
+		new cObject_Model(*this);
+	ret->m_name = newName;
+	ret->m_node = NULL;			// No XML so it won't update
+	return ret;
+}
+

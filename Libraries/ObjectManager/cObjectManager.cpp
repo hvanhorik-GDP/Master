@@ -38,3 +38,8 @@ iObjectManager::iObject_map* cObjectManager::GetObjects(const std::string& name)
 	return m_cObjectManager_impl->GetObjects(name);
 }
 
+iObject* cObjectManager::FindObjectByName(const std::string& objectName)
+{
+	assert(m_cObjectManager_impl);
+	return m_cObjectManager_impl->FindObjectByName(objectName);
+}

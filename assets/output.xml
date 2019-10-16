@@ -38,6 +38,23 @@
 	</AssetGroup>
 	<AssetGroup type="models" open="none">
 		<AssetRoot>../assets/models/</AssetRoot>
+		<Asset name="Large_Physics_Bunny_XYZ_n">
+			<AssetFile>./Physics/Large_Physics_Bunny_XYZ_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="453"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="948"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
 		<Asset name="pyramid">
 			<AssetFile>./Physics/pyramid.ply</AssetFile>
 			<Property name="exists" type="bool" value="true"/>
@@ -205,7 +222,7 @@
 		<Object name="Drop_Sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
 			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="scale" type="float" value="2.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
@@ -216,7 +233,7 @@
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="AABB_min" type="vec3" value="0 0 0"/>
 			<Property name="AABB_max" type="vec3" value="0 0 0"/>
-			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="SPHERE_radius" type="float" value="2.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
@@ -224,9 +241,9 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_1" type="model" asset_id="pyramid">
-			<Property name="positionXYZ" type="vec3" value="-20 20 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 -50 0"/>
-			<Property name="scale" type="float" value="0.500000"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.00000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0 0.5 0.5 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
@@ -239,13 +256,13 @@
 			<Property name="SPHERE_radius" type="float" value="0.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
-			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="isVisible" type="bool" value="true"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_3" type="model" asset_id="pyramid_3">
-			<Property name="positionXYZ" type="vec3" value="0 20 20"/>
-			<Property name="rotationXYZ" type="vec3" value="50 -50 0"/>
+			<Property name="positionXYZ" type="vec3" value="-20 0 20"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="0.05 0.5 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
@@ -283,6 +300,26 @@
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
+		<Object name="largeBunny" type="model" asset_id="Large_Physics_Bunny_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="30 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
 		<Object name="hi_cube" type="model" asset_id="cube_Hi_Res_xyz_n">
 			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
@@ -299,7 +336,7 @@
 			<Property name="SPHERE_radius" type="float" value="0.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
-			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isVisible" type="bool" value="false"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>

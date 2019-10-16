@@ -89,15 +89,13 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 	auto prg = (*programItems)["main"];
 	cItem_Program* program = dynamic_cast<cItem_Program*>(prg);
 	GLuint shaderProgID = program->GetID();				// Get the ID of the program	
-	cVAOManager* pTheVAOManager = new cVAOManager();
+	cVAOManager* pTheVAOManager = new cVAOManager(shaderProgID);
 
 	// Load all of the models into the GPU
 	for ( auto model : mapLoaded)
 	{
 		sModelDrawInfo drawInfo;
-		pTheVAOManager->LoadModelIntoVAO(*model.second,
-			drawInfo,
-			shaderProgID);
+		pTheVAOManager->LoadModelIntoVAO(*model.second, drawInfo);
 	}
 
 	// Get all of our model objects (Now loaded from the xml file)
@@ -172,8 +170,7 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 			cObject_Model* pCurrentObject = dynamic_cast<cObject_Model*>(object.second);
 			assert(pCurrentObject);
 
-			pTheVAOManager->DrawObject( matModel, pCurrentObject,
-					   shaderProgID);
+			pTheVAOManager->DrawObject( matModel, pCurrentObject);
 
 		} // for (auto object: mapObjects)
 

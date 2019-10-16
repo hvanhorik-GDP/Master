@@ -30,6 +30,8 @@ public:
 
 	virtual void IntegrationStep(float deltaTime) final;
 
+	virtual iObject* Clone(const std::string& newName);
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Model& val);
 

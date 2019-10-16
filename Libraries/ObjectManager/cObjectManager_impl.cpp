@@ -99,3 +99,15 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_impl& val)
 	}
 	return stream;
 }
+
+// returns NULL (0) if we didn't find it.
+iObject* cObjectManager_impl::FindObjectByName(const std::string& objectName)
+{
+	for (auto manager : m_ObjectManagers)
+	{
+		auto objects = manager.second->GetObjects(manager.first);
+		if (objects->find(objectName) != objects->end())
+			return (*objects)[objectName];
+	}
+	return NULL;
+}

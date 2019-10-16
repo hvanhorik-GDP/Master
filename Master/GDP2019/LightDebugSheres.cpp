@@ -17,8 +17,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->scale = 0.5f;
 			pDebugSphere->debugColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pTheVAOManager->DrawObject(matModel, pDebugSphere,
-				shaderProgID);
+			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
 
 		// Draw spheres to represent the attenuation...
@@ -35,8 +34,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->scale = sphereSize;
 			pDebugSphere->debugColour = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pTheVAOManager->DrawObject(matModel, pDebugSphere,
-				shaderProgID);
+			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
 		{   // Draw a sphere at 25% brightness
 			glm::mat4 matModel = glm::mat4(1.0f);
@@ -51,8 +49,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->scale = sphereSize;
 			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pTheVAOManager->DrawObject(matModel, pDebugSphere,
-				shaderProgID);
+			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
 		{   // Draw a sphere at 50% brightness
 			glm::mat4 matModel = glm::mat4(1.0f);
@@ -67,8 +64,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->scale = sphereSize;
 			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pTheVAOManager->DrawObject(matModel, pDebugSphere,
-				shaderProgID);
+			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
 		{   // Draw a sphere at 75% brightness
 			glm::mat4 matModel = glm::mat4(1.0f);
@@ -83,8 +79,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->scale = sphereSize;
 			pDebugSphere->debugColour = glm::vec4(1.0f, 1.0f, 0.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pTheVAOManager->DrawObject(matModel, pDebugSphere,
-				shaderProgID);
+			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
 		{   // Draw a sphere at 95% brightness
 			glm::mat4 matModel = glm::mat4(1.0f);
@@ -99,8 +94,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->scale = sphereSize;
 			pDebugSphere->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pTheVAOManager->DrawObject(matModel, pDebugSphere,
-				shaderProgID);
+			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
 		pDebugSphere->isVisible = false;				// stop displaying it
 	}// if (bLightDebugSheresOn) 

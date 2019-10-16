@@ -14,6 +14,8 @@
 #include <cstdio>		// c libs
 #include <iostream>		// C++ IO standard stuff
 #include <map>			// Map aka "dictonary" 
+#include <cstdlib>
+#include <time.h>
 
 #include "Models/cPlyLoader.h"
 #include "AssetItems/cItem_Program.h"
@@ -66,8 +68,8 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	mapLoaded["pyramid_3"] = NULL;
 	mapLoaded["Sphere_Radius_1_XYZ_n"] = NULL;
 	mapLoaded["12953_ChocolateRabbit_v1"] = NULL;
+	mapLoaded["Large_Physics_Bunny_XYZ_n"] = NULL;
 	
-
 	// Load up all of the mesh we need for this run
 	for (auto it : mapLoaded)
 	{
@@ -89,17 +91,94 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	auto prg = (*programItems)["main"];
 	cItem_Program* program = dynamic_cast<cItem_Program*>(prg);
 	GLuint shaderProgID = program->GetID();				// Get the ID of the program	
-	cVAOManager* pTheVAOManager = new cVAOManager();
+	cVAOManager* pTheVAOManager = new cVAOManager(shaderProgID);
 
 	// Load all of the models into the GPU
 	for ( auto model : mapLoaded)
 	{
 		sModelDrawInfo drawInfo;
-		pTheVAOManager->LoadModelIntoVAO(*model.second,
-			drawInfo,
-			shaderProgID);
+		pTheVAOManager->LoadModelIntoVAO(*model.second, drawInfo);
 	}
 
+	srand(unsigned int(time(NULL)));
+	{
+		// Make a bunch of pyramids
+		auto pyramid_1 = pFindObjectByFriendlyName("pyramid_1");
+		std::string name = "pyramid_1";
+
+		int numberOfPyramids = 10;
+		for (int i = 1; i < numberOfPyramids; ++i)
+		{
+			std::string newName = name + "_" + std::to_string(i);
+			auto temp = pyramid_1->Clone(newName);
+			assert(temp);
+			cObject_Model* newPyramid = dynamic_cast<cObject_Model*>(temp);
+			assert(newPyramid);
+			// Add in but don't do the XML
+//			mapObjects[newName] = newPyramid;
+			{
+				int min = 50;
+				int max = 255;
+				int r = rand() % (max - min) + min;
+				int g = rand() % (max - min) + min;
+				int b = rand() % (max - min) + min;
+				glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
+				newPyramid->objectColourRGBA = rgb;
+			}
+			{
+				int min = -50;
+				int max = 50;
+				int x = rand() % (max - min) + min;
+				int y = 0;
+				int z = rand() % (max - min) + min;
+				glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
+				newPyramid->positionXYZ = pos;
+			}
+			int newscale = rand() % 5;
+			newPyramid->scale = float(newscale)/2;
+			newPyramid->isVisible = true;
+			objectManager.SaveObject(newPyramid, objectsLib.GetNode());
+		}
+	}
+
+	{
+		// Make a bunch of balls
+		auto dropBall = pFindObjectByFriendlyName("Drop_Sphere");
+		std::string name = "Drop_Ball";
+
+		int numberOfBalls = 10;
+		for (int i = 1; i < numberOfBalls; ++i)
+		{
+			std::string newName = name + "_" + std::to_string(i);
+			auto temp = dropBall->Clone(newName);
+			assert(temp);
+			cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
+			assert(newBall);
+			// Add in but don't do the XML
+			objectManager.SaveObject(newBall, objectsLib.GetNode());
+			{
+				int min = 50;
+				int max = 255;
+				int r = rand() % (max - min) + min;
+				int g = rand() % (max - min) + min;
+				int b = rand() % (max - min) + min;
+				glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
+				newBall->objectColourRGBA = rgb;
+			}
+			{
+				int min = -50;
+				int max = 50;
+				int x = rand() % (max - min) + min;
+				int y = rand() % (50) + 20;
+				int z = rand() % (max - min) + min;
+				glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
+				newBall->positionXYZ = pos;
+			}
+			int newscale = rand() % 5;
+			newBall->scale = float(newscale);
+			newBall->SPHERE_radius = float(newscale);
+		}
+	}
 
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
 
@@ -110,7 +189,7 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	pPhsyics->SetDebugRenderer(pDebugRenderer);
 	cLowPassFilter avgDeltaTimeThingy;
 
-	cObject_Model* pDropSphere = pFindObjectByFriendlyName("Drop_Sphere");
+//	cObject_Model* pDropSphere = pFindObjectByFriendlyName("Drop_Sphere");
 
 	// Get the initial time
 	double lastTime = glfwGetTime();
@@ -172,8 +251,7 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 			cObject_Model* pCurrentObject = dynamic_cast<cObject_Model*>(object.second);
 			assert(pCurrentObject);
 
-			pTheVAOManager->DrawObject( matModel, pCurrentObject,
-					   shaderProgID);
+			pTheVAOManager->DrawObject( matModel, pCurrentObject);
 
 		} // for (auto object: mapObjects)
 
@@ -181,10 +259,10 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 		double averageDeltaTime = avgDeltaTimeThingy.getAverage();
 		pPhsyics->IntegrationStep(mapObjects, (float)averageDeltaTime);
 
-		::HandleDebugBallPhysics(shaderProgID, pPhsyics, pTheVAOManager, pDebugRenderer,&mapLoaded);
+//		::HandleDebugBallPhysics(shaderProgID, pPhsyics, pTheVAOManager, pDebugRenderer,&mapLoaded);
 
 		// A more general 
-//		pPhsyics->TestForCollisions(mapObjects);
+		pPhsyics->TestForCollisions(mapObjects);
 		::LightDebugSheres(shaderProgID, pTheVAOManager);
 
 		pDebugRenderer->RenderDebugObjects( view, projection, 0.01f );
