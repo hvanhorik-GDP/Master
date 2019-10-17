@@ -214,6 +214,8 @@
     <Xml Include="..\assets\GameLibrary %28Physics%29.xml" />
     <Xml Include="..\assets\GameLibrary.xml" />
     <Xml Include="..\assets\output2.xml" />
+    <Xml Include="..\assets\output3.xml" />
+    <Xml Include="..\assets\output4.xml" />
     <Xml Include="..\assets\test_GDP2019.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,12 @@
 #pragma once
 #include "iObject.h"
-#include "AssetItems/iItem.h"
 #include <rapidxml/rapidxml.hpp>
 #include <glm/glm.hpp>
 
 #include <string>
 #include <vector>
 
+class iItem;
 
 class cObject_Common : public iObject
 {

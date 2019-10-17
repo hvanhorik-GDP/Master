@@ -3,7 +3,7 @@
 
 #pragma comment (lib, "Shaders.lib")
 
-class cAssetManager_Shaders : public iAssetManager
+class cAssetManager_Shaders : public iAssetManager 
 {
 private:
 	cAssetManager_Shaders();

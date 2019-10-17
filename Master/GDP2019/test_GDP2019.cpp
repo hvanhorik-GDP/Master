@@ -6,7 +6,6 @@
 #include <glm/vec4.hpp> // glm::vec4
 #include <glm/mat4x4.hpp> // glm::mat4
 #include <glm/gtc/matrix_transform.hpp>
-// glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 
 #include <sstream>
@@ -18,15 +17,11 @@
 
 #include "Models/cPlyLoader.h"
 #include "AssetItems/cItem_Program.h"
-#include "AssetItems/cItem_Model.h"
-#include "AssetManager/cAssetManager_Models.h"
-#include "AssetManager/cAssetManager_Programs.h"
 #include "AssetManager/cAssetManager.h"
 
 #include "VAOManager/cVAOManager.h"
 #include "ObjectManager/cObjectManager.h"
 
-#include "Physics/PhysicsStuff.h"
 #include "Physics/cPhysics_Henky.h"
 #include "LowPassFilter/cLowPassFilter.h"
 #include "DebugRenderer/cDebugRenderer.h"

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <rapidxml/rapidxml.hpp>
+#include <rapidxml/rapidxml_ext.hpp>
 #include <string>
 #include <vector>
 #include <ostream>

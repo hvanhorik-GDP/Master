@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class cItem_Model : public cItem_Common
+class cItem_Model : public cItem_Common 
 {
 public:
 	// This structure matches the file, so that our life is

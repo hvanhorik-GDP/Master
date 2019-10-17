@@ -3,7 +3,7 @@
 
 class cItem_Image : public cItem_Common
 {
-public:
+public: 
 
 
 	cItem_Image(std::string id,

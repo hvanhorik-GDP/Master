@@ -3,7 +3,7 @@
 
 class cAssetManager_Models : public iAssetManager
 {
-private:
+private: 
 	cAssetManager_Models();
 	virtual ~cAssetManager_Models();
 

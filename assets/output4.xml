@@ -1,0 +1,12 @@
+<AssetGroup type="shaders" open="none">
+	<AssetRoot>../assets/shaders/</AssetRoot>
+	<Asset name="fragmentShader01" type="fragment">
+		<AssetFile>fragmentShader01.glsl</AssetFile>
+		<Property name="isValid" type="bool" value="true"/>
+	</Asset>
+	<Asset name="vertexShader01" type="vertex">
+		<AssetFile>vertexShader01.glsl</AssetFile>
+		<Property name="isValid" type="bool" value="true"/>
+	</Asset>
+</AssetGroup>
+

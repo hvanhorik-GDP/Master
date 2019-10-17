@@ -2,7 +2,7 @@
 // A way to pass items around
 #include <ostream>
 
-#pragma comment (lib, "AssetItems.lib")
+#pragma comment (lib, "AssetItems.lib") 
 
 class iItem
 {

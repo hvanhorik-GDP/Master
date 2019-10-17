@@ -20,8 +20,6 @@
 #include "Models/cPlyLoader.h"
 #include "AssetItems/cItem_Program.h"
 #include "AssetItems/cItem_Model.h"
-#include "AssetManager/cAssetManager_Models.h"
-#include "AssetManager/cAssetManager_Programs.h"
 #include "AssetManager/cAssetManager.h"
 
 #include "VAOManager/cVAOManager.h"

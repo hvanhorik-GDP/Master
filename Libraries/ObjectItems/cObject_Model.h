@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 
-class cObject_Model : public cObject_Common
+class cObject_Model : public cObject_Common 
 {
 public:
 

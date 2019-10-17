@@ -147,6 +147,12 @@
     <Xml Include="..\assets\output2.xml">
       <Filter>Assets</Filter>
     </Xml>
+    <Xml Include="..\assets\output3.xml">
+      <Filter>Assets</Filter>
+    </Xml>
+    <Xml Include="..\assets\output4.xml">
+      <Filter>Assets</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply">

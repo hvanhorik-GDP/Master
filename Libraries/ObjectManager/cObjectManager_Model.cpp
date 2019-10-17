@@ -5,6 +5,7 @@
 #include "GameLibrary/Objects.h"
 #include "Utilities/cFormat.h"
 #include "AssetManager/cAssetManager.h"
+#include <rapidxml/rapidxml_ext.hpp>
 
 #include <glm/glm.hpp>
 #include <iostream>

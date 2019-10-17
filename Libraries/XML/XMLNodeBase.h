@@ -1,6 +1,7 @@
 #pragma once
 
 #include <rapidxml/rapidxml.hpp>
+#include <rapidxml/rapidxml_ext.hpp>
 #include <string>
 #include <vector>
 #include <ostream>
@@ -34,7 +35,6 @@ public:
 	friend std::ostream& operator << (std::ostream& out, const XMLNodeBase& node);
 	virtual rapidxml::xml_node<>* GetNode() const;
 	rapidxml::xml_node<>* GetParent() const;
-
 protected:
 	// virtual function for derived classes to specify their node name
 	virtual const std::string& GetName() const = 0;

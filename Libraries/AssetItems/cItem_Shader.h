@@ -3,7 +3,7 @@
 #include "cItem_Common.h"
 #include <vector>
 
-class cItem_Shader : public cItem_Common
+class cItem_Shader : public cItem_Common 
 {
 public:
 
