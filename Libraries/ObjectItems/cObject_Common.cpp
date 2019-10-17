@@ -77,3 +77,25 @@ std::ostream& operator<<(std::ostream& stream, const cObject_Common& val)
 	stream << "std::ostream& operator<<(std::ostream& stream, const cObject_Common& val)" << "Not Implemented" << std::endl;
 	return stream;
 }
+
+// from iMessageInterface
+// Everyone has a universal ID
+const std::string& cObject_Common::GetMyUID() const
+{
+	// UID is our name
+	return m_name;
+}
+
+// Recieve a message
+bool cObject_Common::RecieveMessage(const iMessage& message)
+{
+	assert(false);				//  TODO - Implement
+	return false;
+}
+
+// Recieve a message and reply
+bool cObject_Common::RecieveAndRespond(const iMessage& in, iMessage& reply)
+{
+	assert(false);				// TODO - implement
+	return false;
+}

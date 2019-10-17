@@ -1,5 +1,6 @@
 #pragma once
 #include "iObject.h"
+#include "../MessageManager/iMessageInterface.h"
 #include <rapidxml/rapidxml.hpp>
 #include <glm/glm.hpp>
 
@@ -8,7 +9,7 @@
 
 class iItem;
 
-class cObject_Common : public iObject
+class cObject_Common : public iObject, public iMessageInterface
 {
 public:
 	cObject_Common( const std::string &type,
@@ -18,6 +19,7 @@ public:
 
 	virtual ~cObject_Common();
 
+	// From iObject
 	// Information about the object
 	virtual const std::string& GetType() const final;
 	virtual const std::string& GetName() const final;
@@ -33,6 +35,19 @@ public:
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Common& val);
+
+	// from iMessageInterface
+	// Everyone has a universal ID
+	virtual const std::string& GetMyUID() const;
+
+
+	//TODO - for now just implement them here.
+	// need to implement them in every class of iObject
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message);
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
 
 protected:
 	// XML stuff

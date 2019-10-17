@@ -32,13 +32,19 @@
 
 int main(int arg, char** argv)
 {
-
-
+	std::string root("../assets/");
+	std::string libraryName("GameLibrary.xml");
+	if (arg > 1)
+	{
+		libraryName = argv[1];
+	}
+	std::string inputLibrary = root + libraryName;
+	std::string outputLibrary = root + "output_" + libraryName;
 	if (loadGFLW())
 		exit(EXIT_FAILURE);
 
 	XMLDocument document;
-	document.Read("../assets/GameLibrary.xml");
+	document.Read(inputLibrary);
 
 	gamelibrary::GameLibrary gameLib = gamelibrary::GameLibrary(document.GetDocument());
 
@@ -51,12 +57,10 @@ int main(int arg, char** argv)
 	cObjectManager objectManager;
 	objectManager.LoadObjects(objects.GetNode());
 
-	document.Write("../assets/output.xml");
-
 //	test_GDP2019(gameLib);	
 	test_Physics(gameLib);
 
-	document.Write("../assets/output2.xml");
+	document.Write(outputLibrary);
 
 	//	test_filesystem();
 //	test_AudioEngine();
