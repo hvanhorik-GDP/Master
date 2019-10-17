@@ -29,6 +29,7 @@
 #include "OtherTest/test_filesystem.h"
 #include "AudioTest/test_AudioEngine.h"
 #include "Physics/test_Physics.h"
+#include "Graphics/test_Graphics.h"
 
 int main(int arg, char** argv)
 {
@@ -58,7 +59,15 @@ int main(int arg, char** argv)
 	objectManager.LoadObjects(objects.GetNode());
 
 //	test_GDP2019(gameLib);	
-	test_Physics(gameLib);
+	if (libraryName == "PhysicsLibrary.xml")
+		test_Physics(gameLib);
+	else if(libraryName == "GraphicsLibrary.xml")
+		test_Graphics(gameLib);
+	else
+	{
+		assert(false);
+		std::cout << "Unknown library : " << libraryName << std::endl;
+	}
 
 	document.Write(outputLibrary);
 

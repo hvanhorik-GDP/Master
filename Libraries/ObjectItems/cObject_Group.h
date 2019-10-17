@@ -25,6 +25,13 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Group& val);
 
+	// from iMessageInterface
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message);
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
+
 private:
 public:			// TODO - hack
 	friend class cObjectManager_Group;

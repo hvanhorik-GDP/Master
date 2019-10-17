@@ -21,14 +21,20 @@ bool cMessageManager::SendMessage(const iMessage& message)
 	return gMessageManager_impl->SendMessage(message);
 }
 
-bool cMessageManager::Register(iMessageInterface* interface)
+bool cMessageManager::Register(const std::string& interfaceName, iMessageInterface* interface)
 {
 	assert(gMessageManager_impl);
-	return gMessageManager_impl->Register(interface);
+	return gMessageManager_impl->Register(interfaceName, interface);
 }
 
 bool cMessageManager::SendWithResponse(const iMessage& send, iMessage& ret)
 {
 	assert(gMessageManager_impl);
 	return gMessageManager_impl->SendWithResponse(send, ret);
+}
+
+bool cMessageManager::Broadcast(const iMessage& in)
+{
+	assert(gMessageManager_impl);
+	return gMessageManager_impl->Broadcast(in);
 }

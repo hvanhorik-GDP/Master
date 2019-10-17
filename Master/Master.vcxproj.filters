@@ -25,6 +25,9 @@
     <Filter Include="GDP2019">
       <UniqueIdentifier>{32b81305-143d-4239-b48c-99611c37ec06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{88c606ae-72e6-451d-ba2c-cb8bb65d3373}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Master.cpp" />
@@ -73,11 +76,23 @@
     <ClCompile Include="GDP2019\test_GDP2019.cpp">
       <Filter>GDP2019</Filter>
     </ClCompile>
-    <ClCompile Include="Physics_Callback.cpp">
+    <ClCompile Include="Physics\cPhysicsTilter.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectCreator.cpp">
+    <ClCompile Include="Physics\Physics_Callback.cpp">
       <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\ObjectCreator.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\cGraphicsTilter.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Graphics_Callback.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\test_Graphics.cpp">
+      <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,33 +139,39 @@
     <ClInclude Include="GDP2019\test_GDP2019.h">
       <Filter>GDP2019</Filter>
     </ClInclude>
-    <ClInclude Include="Physics_Callback.h">
+    <ClInclude Include="Physics\cPhysicsTilter.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectCreator.h">
+    <ClInclude Include="Physics\Physics_Callback.h">
       <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\ObjectCreator.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\cGraphicsTilter.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Graphics_Callback.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\test_Graphics.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\output.xml">
-      <Filter>Assets</Filter>
-    </Xml>
     <Xml Include="..\assets\test_GDP2019.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\GameLibrary %28Physics%29.xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\GameLibrary.xml">
+    <Xml Include="..\assets\GameLibrary (backup).xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\output2.xml">
+    <Xml Include="..\assets\GraphicsLibrary.xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\output3.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\output4.xml">
+    <Xml Include="..\assets\PhysicsLibrary.xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>

@@ -11,7 +11,7 @@ private:
 	cMessageManager_impl();
 	virtual ~cMessageManager_impl();
 
-	virtual bool Register(iMessageInterface* interface);
+	virtual bool Register(const std::string&interfaceName, iMessageInterface* interface);
 
 	// Send a message to a reciever with no reply
 	virtual bool SendMessage(const iMessage& message);

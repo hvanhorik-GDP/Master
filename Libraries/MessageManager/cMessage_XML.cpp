@@ -31,3 +31,14 @@ std::ostream& operator<<(std::ostream& stream, const cMessage_XML& val)
 	stream << *val.GetNode();
 	return stream;
 }
+
+// TODO - Hack for now until I implement XML based version
+const std::string& cMessage_XML::GetMessageString() const
+{
+	return m_message;
+}
+
+void cMessage_XML::SetMessageString(const std::string& in)
+{
+	m_message = in;
+}

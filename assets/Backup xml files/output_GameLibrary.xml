@@ -393,10 +393,10 @@
 			<Property name="ground_plane" type="alias" value="ground"/>
 		</Object>
 		<Object name="pyramid_1_0" type="model" asset_id="pyramid">
-			<Property name="positionXYZ" type="vec3" value="-29 5 6"/>
+			<Property name="positionXYZ" type="vec3" value="-51 5 20"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="0.700000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.752941 0.976471 0.32549 1"/>
+			<Property name="scale" type="float" value="0.437500"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.596078 0.552941 0.494118 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -414,10 +414,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_1_1" type="model" asset_id="pyramid">
-			<Property name="positionXYZ" type="vec3" value="-19 5 40"/>
+			<Property name="positionXYZ" type="vec3" value="22 5 23"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="0.175000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.462745 0.427451 0.898039 1"/>
+			<Property name="scale" type="float" value="0.712500"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.905882 0.827451 0.768627 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -435,10 +435,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_1_2" type="model" asset_id="pyramid">
-			<Property name="positionXYZ" type="vec3" value="42 5 17"/>
+			<Property name="positionXYZ" type="vec3" value="28 5 24"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="0.825000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.945098 0.756863 0.552941 1"/>
+			<Property name="scale" type="float" value="0.712500"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.882353 0.596078 0.219608 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -456,10 +456,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_1_3" type="model" asset_id="pyramid">
-			<Property name="positionXYZ" type="vec3" value="-42 5 -9"/>
+			<Property name="positionXYZ" type="vec3" value="2 5 -42"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="0.225000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.27451 0.584314 0.941176 1"/>
+			<Property name="scale" type="float" value="0.762500"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.278431 0.780392 0.34902 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -477,10 +477,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="pyramid_1_4" type="model" asset_id="pyramid">
-			<Property name="positionXYZ" type="vec3" value="44 5 3"/>
+			<Property name="positionXYZ" type="vec3" value="41 5 -7"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="0.387500"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.658824 0.372549 0.690196 1"/>
+			<Property name="scale" type="float" value="0.712500"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.486275 0.431373 0.85098 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -498,31 +498,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="Drop_Ball_0" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="-47 31 29"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="3.000000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.313726 0.752941 0.976471 1"/>
-			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
-			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="bounce" type="float" value="1.000000"/>
-			<Property name="inverseMass" type="float" value="1.000000"/>
-			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
-			<Property name="velocity" type="vec3" value="0 0 0"/>
-			<Property name="accel" type="vec3" value="0 0 0"/>
-			<Property name="AABB_min" type="vec3" value="0 0 0"/>
-			<Property name="AABB_max" type="vec3" value="0 0 0"/>
-			<Property name="SPHERE_radius" type="float" value="3.000000"/>
-			<Property name="isWireframe" type="bool" value="false"/>
-			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
-			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="disableDepthBufferTest" type="bool" value="false"/>
-			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
-		</Object>
-		<Object name="Drop_Ball_1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="-40 27 15"/>
+			<Property name="positionXYZ" type="vec3" value="-34 22 49"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.462745 0.427451 0.898039 1"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.34902 0.596078 0.552941 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -539,11 +518,32 @@
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
+		<Object name="Drop_Ball_1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="14 23 6"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.905882 0.827451 0.768627 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
 		<Object name="Drop_Ball_2" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="-19 36 -30"/>
+			<Property name="positionXYZ" type="vec3" value="31 18 -19"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="4.000000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.756863 0.552941 0.427451 1"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.596078 0.219608 0.392157 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -561,10 +561,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="Drop_Ball_3" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="-20 32 40"/>
+			<Property name="positionXYZ" type="vec3" value="6 32 -25"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="1.000000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.941176 0.658824 0.286275 1"/>
+			<Property name="scale" type="float" value="2.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.34902 0.733333 0.921569 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -574,7 +574,7 @@
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="AABB_min" type="vec3" value="0 0 0"/>
 			<Property name="AABB_max" type="vec3" value="0 0 0"/>
-			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="SPHERE_radius" type="float" value="2.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
@@ -582,10 +582,10 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 		<Object name="Drop_Ball_4" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="44 35 -50"/>
+			<Property name="positionXYZ" type="vec3" value="42 34 -33"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="0.000000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.768627 0.27451 0.898039 1"/>
+			<Property name="scale" type="float" value="2.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.470588 0.470588 0.34902 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
 			<Property name="bounce" type="float" value="1.000000"/>
@@ -595,7 +595,7 @@
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="AABB_min" type="vec3" value="0 0 0"/>
 			<Property name="AABB_max" type="vec3" value="0 0 0"/>
-			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="SPHERE_radius" type="float" value="2.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>

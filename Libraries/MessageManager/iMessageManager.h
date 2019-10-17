@@ -11,7 +11,7 @@ public:
 	virtual ~iMessageManager() {}
 
 	// Register thyself
-	virtual bool Register(iMessageInterface* interface) = 0;
+	virtual bool Register(const std::string& interfaceName, iMessageInterface* interface) = 0;
 
 	// Just send a message to the reciever
 	virtual bool SendMessage(const iMessage& message) = 0;

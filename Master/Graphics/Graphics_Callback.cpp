@@ -1,4 +1,4 @@
-#include "Physics_Callback.h"
+#include "Graphics_Callback.h"
 
 #include "GLCommon.h"
 
@@ -11,16 +11,21 @@
 #include "ObjectItems/cObject_Group.h"
 #include "Common/pFindObjectByFriendlyName.h"
 
+#include "cGraphicsTilter.h"
 #include <iostream>
 
 static bool isShiftKeyDownByAlone(int mods);
 static bool isCtrlKeyDownByAlone(int mods);
 
-static void tiltPlane(int plane, float value);
 
 
-void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+static cGraphicsTilter* gTilter = NULL;
+
+
+void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
+	if (!gTilter)
+		gTilter = new cGraphicsTilter();
 
 	const float cameraSPEED = 2.0f;
 
@@ -63,19 +68,19 @@ void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action,
 
 		if (key == GLFW_KEY_RIGHT)
 		{
-			tiltPlane(z, planeTilt);
+			gTilter->tiltPlane(z, planeTilt);
 		}
 		if (key == GLFW_KEY_LEFT)
 		{
-			tiltPlane(z, -planeTilt);
+			gTilter->tiltPlane(z, -planeTilt);
 		}
 		if (key == GLFW_KEY_UP)
 		{
-			tiltPlane(x, planeTilt);
+			gTilter->tiltPlane(x, planeTilt);
 		}
 		if (key == GLFW_KEY_DOWN)
 		{
-			tiltPlane(x, -planeTilt);
+			gTilter->tiltPlane(x, -planeTilt);
 		}
 	}
 
@@ -204,7 +209,7 @@ bool isCtrlKeyDownByAlone(int mods)
 
 
 
-void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+void Graphics_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	// Move the sphere to where the camera is and shoot the ball from there...
 	cObject_Model* pTheBall = pFindObjectByFriendlyName("Drop_Sphere");
@@ -240,34 +245,3 @@ void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, i
 	return;
 }
 
-void tiltPlane(int plane, float value)
-{
-	const float maxplaneTilt = .5f;
-
-	cObjectManager objectManager;
-	auto object = objectManager.FindObjectByName("ground_plane");
-	assert(object);
-	cObject_Group* group = dynamic_cast<cObject_Group*>(object);
-	assert(group);
-	auto howFar = group->rotationXYZ[plane];
-
-	if (howFar < maxplaneTilt)
-	{
-		group->rotationXYZ[plane] += value;
-	//	// Hack for now.. Just set the rotation
-	//	// TODO - Move into the physics to calculate worldMat 
-	//	// It needs to check the parents for additional rotation.
-	//	for (auto children : group->GetObjectsInGroup())
-	//	{
-	//		cObject_Model* model = dynamic_cast<cObject_Model*>(children.second);
-	//		if (model)
-	//		{
-	//			std::cout << "Tilt Plane: " << plane
-	//				<< " Value: " << value
-	//				<< " Current: " << model->rotationXYZ[plane]
-	//				<< " Model: " << model->GetName() << std::endl;
-	//			model->rotationXYZ[plane] += value;
-	//		}
-	//	}
-	}
-}

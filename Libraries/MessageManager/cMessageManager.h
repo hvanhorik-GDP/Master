@@ -12,7 +12,7 @@ public:
 	virtual ~cMessageManager();
 
 	// Register an interface
-	virtual bool Register(iMessageInterface* interface);
+	virtual bool Register(const std::string& interfaceName, iMessageInterface* interface);
 
 	// Send a message to a reciever with no reply
 	virtual bool SendMessage(const iMessage& message);
@@ -21,7 +21,7 @@ public:
 	virtual bool SendWithResponse(const iMessage& send, iMessage& ret);
 
 	// Broadcast a message to anyone who is interested
-	virtual bool Broadcast(const iMessage& in) = 0;
+	virtual bool Broadcast(const iMessage& in);
 
 };
 

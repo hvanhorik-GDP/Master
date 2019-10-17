@@ -14,5 +14,9 @@ public:
 	virtual const std::string& Sender() const = 0;
 
 	virtual rapidxml::xml_node<>* GetNode() const = 0;
+
+	// TODO - Hack for now until I implement XML based version
+	virtual const std::string& GetMessageString() const = 0;
+	virtual void SetMessageString(const std::string& in) = 0;
 };
 

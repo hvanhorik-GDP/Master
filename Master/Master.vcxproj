@@ -183,12 +183,16 @@
     <ClCompile Include="GDP2019\LightDebugSheres.cpp" />
     <ClCompile Include="GDP2019\save stuff.cpp" />
     <ClCompile Include="GDP2019\test_GDP2019.cpp" />
+    <ClCompile Include="Graphics\cGraphicsTilter.cpp" />
+    <ClCompile Include="Graphics\Graphics_Callback.cpp" />
+    <ClCompile Include="Graphics\test_Graphics.cpp" />
     <ClCompile Include="Master.cpp" />
-    <ClCompile Include="ObjectCreator.cpp" />
     <ClCompile Include="OtherTest\test_filesystem.cpp" />
     <ClCompile Include="OtherTest\test_gl.cpp" />
+    <ClCompile Include="Physics\cPhysicsTilter.cpp" />
+    <ClCompile Include="Physics\ObjectCreator.cpp" />
+    <ClCompile Include="Physics\Physics_Callback.cpp" />
     <ClCompile Include="Physics\test_Physics.cpp" />
-    <ClCompile Include="Physics_Callback.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioTest\test_Audio.h" />
@@ -202,20 +206,22 @@
     <ClInclude Include="GDP2019\HandleDebugPirate.h" />
     <ClInclude Include="GDP2019\LightDebugSheres.h" />
     <ClInclude Include="GDP2019\test_GDP2019.h" />
+    <ClInclude Include="Graphics\cGraphicsTilter.h" />
+    <ClInclude Include="Graphics\Graphics_Callback.h" />
+    <ClInclude Include="Graphics\test_Graphics.h" />
     <ClInclude Include="Master.h" />
-    <ClInclude Include="ObjectCreator.h" />
     <ClInclude Include="OtherTest\test_filesystem.h" />
     <ClInclude Include="OtherTest\test_gl.h" />
+    <ClInclude Include="Physics\cPhysicsTilter.h" />
+    <ClInclude Include="Physics\ObjectCreator.h" />
+    <ClInclude Include="Physics\Physics_Callback.h" />
     <ClInclude Include="Physics\test_Physics.h" />
-    <ClInclude Include="Physics_Callback.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\output.xml" />
     <Xml Include="..\assets\GameLibrary %28Physics%29.xml" />
-    <Xml Include="..\assets\GameLibrary.xml" />
-    <Xml Include="..\assets\output2.xml" />
-    <Xml Include="..\assets\output3.xml" />
-    <Xml Include="..\assets\output4.xml" />
+    <Xml Include="..\assets\GameLibrary (backup).xml" />
+    <Xml Include="..\assets\GraphicsLibrary.xml" />
+    <Xml Include="..\assets\PhysicsLibrary.xml" />
     <Xml Include="..\assets\test_GDP2019.xml" />
   </ItemGroup>
   <ItemGroup>
