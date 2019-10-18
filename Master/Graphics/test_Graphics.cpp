@@ -63,15 +63,32 @@ int test_Graphics(gamelibrary::GameLibrary& gameLib)
 	// TODO - This should be read from the database XML file
 
 	std::map<std::string, cItem_Model*> mapLoaded;
-//	mapLoaded["Cube_1_Unit_from_origin_XYZ_n"] = NULL;
-//	mapLoaded["cube_Hi_Res_xyz_n"] = NULL;
-	mapLoaded["cube_Low_Res_xyz_n"] = NULL;
-	mapLoaded["pyramid"] = NULL;
-	mapLoaded["pyramid_3"] = NULL;
+	mapLoaded["barrel"] = NULL;
+	mapLoaded["Bomb"] = NULL;
+	mapLoaded["canoe"] = NULL;
+	mapLoaded["coin_map"] = NULL;
+	mapLoaded["ship"] = NULL;
+	mapLoaded["treasure_chest_assembled"] = NULL;
+	mapLoaded["Pirate_sword_low_poly"] = NULL;
+	mapLoaded["SimpleRedShip"] = NULL;
+	mapLoaded["coin_map"] = NULL;
+	mapLoaded["lantern_obj"] = NULL;
+	mapLoaded["compass"] = NULL;
+	mapLoaded["parrot"] = NULL;
+	mapLoaded["tresure_chest_closed_lowpoly"] = NULL;
+	mapLoaded["Sky_Pirate_Combined_xyz_n"] = NULL;
+	mapLoaded["Terrain_XYZ_n"] = NULL;
 	mapLoaded["Sphere_Radius_1_XYZ_n"] = NULL;
-//	mapLoaded["12953_ChocolateRabbit_v1"] = NULL;
-//	mapLoaded["Large_Physics_Bunny_XYZ_n"] = NULL;
-	
+	mapLoaded["cube_Low_Res_xyz_n"] = NULL;
+	mapLoaded["Chest"] = NULL;
+	mapLoaded["Crate"] = NULL;
+	mapLoaded["Crate2"] = NULL;
+	mapLoaded["torch"] = NULL;
+	mapLoaded["pyramid_a"] = NULL;
+	mapLoaded["pyramid_b"] = NULL;
+	//mapLoaded["De_Zeven_Provincien_large"] = NULL;
+	//mapLoaded["Kerosene_lamp_large"] = NULL;
+
 	// Load up all of the mesh we need for this run
 	for (auto it : mapLoaded)
 	{
@@ -102,19 +119,11 @@ int test_Graphics(gamelibrary::GameLibrary& gameLib)
 		pTheVAOManager->LoadModelIntoVAO(*model.second, drawInfo);
 	}
 
-	// TODO - Create a bunch of objects for our simulation
-	// Note - the pyramids need to be place in a group with the world object
-	// so that they can all be rotated together
-	//CreatePyramids(5, objectManager, objectsLib.GetNode());
-	//CreateDropBalls(5, objectManager, objectsLib.GetNode());
-
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
 
 	glEnable(GL_DEPTH);			// Write to the depth buffer
 	glEnable(GL_DEPTH_TEST);	// Test with buffer when drawing
 
-	//cPhysics_Henky* pPhsyics = new cPhysics_Henky();
-//	pPhsyics->SetDebugRenderer(pDebugRenderer);
 	cLowPassFilter avgDeltaTimeThingy;
 
 	// Get the initial time

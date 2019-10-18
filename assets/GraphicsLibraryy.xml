@@ -1,0 +1,752 @@
+<GameLibrary>
+	<GameName>Project 1 Phsysics Test</GameName>
+	<AssetGroup type="shaders" open="none">
+		<AssetRoot>../assets/shaders/</AssetRoot>
+		<Asset name="fragmentShader01" type="fragment">
+			<AssetFile>fragmentShader01.glsl</AssetFile>
+			<Property name="isValid" type="bool" value="true"/>
+		</Asset>
+		<Asset name="vertexShader01" type="vertex">
+			<AssetFile>vertexShader01.glsl</AssetFile>
+			<Property name="isValid" type="bool" value="true"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="programs" open="none">
+		<Asset name="main">
+			<AssetPart>fragmentShader01</AssetPart>
+			<AssetPart>vertexShader01</AssetPart>
+			<Property name="isValid" type="bool" value="true"/>
+			<Property name="vNormal" type="Attribute" value="1"/>
+			<Property name="vPosition" type="Attribute" value="0"/>
+			<Property name="matModel" type="Uniform" value="2"/>
+			<Property name="matModelInverseTranspose" type="Uniform" value="3"/>
+			<Property name="matProj" type="Uniform" value="0"/>
+			<Property name="matView" type="Uniform" value="1"/>
+			<Property name="bDoNotLight" type="Uniform" value="12"/>
+			<Property name="debugColour" type="Uniform" value="13"/>
+			<Property name="diffuseColour" type="Uniform" value="14"/>
+			<Property name="eyeLocation" type="Uniform" value="11"/>
+			<Property name="specularColour" type="Uniform" value="15"/>
+			<Property name="theLights[0].position" type="Uniform" value="4"/>
+			<Property name="theLights[0].diffuse" type="Uniform" value="5"/>
+			<Property name="theLights[0].specular" type="Uniform" value="6"/>
+			<Property name="theLights[0].atten" type="Uniform" value="7"/>
+			<Property name="theLights[0].direction" type="Uniform" value="8"/>
+			<Property name="theLights[0].param1" type="Uniform" value="9"/>
+			<Property name="theLights[0].param2" type="Uniform" value="10"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="models" open="none">
+		<AssetRoot>../assets/models/</AssetRoot>
+
+    <Asset name="Chest">
+      <AssetFile>./Graphics/Chest.ply</AssetFile>
+    </Asset>
+    <Asset name="Crate">
+      <AssetFile>./Graphics/Crate.ply</AssetFile>
+    </Asset>
+    <Asset name="Crate2">
+      <AssetFile>./Graphics/Crate2.ply</AssetFile>
+    </Asset>
+    <Asset name="torch">
+      <AssetFile>./Graphics/torch.ply</AssetFile>
+    </Asset>
+
+    <Asset name="barrel">
+			<AssetFile>./Graphics/barrel.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="448"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="754"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Pirate_sword_low_poly">
+			<AssetFile>./Graphics/Pirate_sword_low_poly.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="204"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="372"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Bomb">
+			<AssetFile>./Graphics/Bomb.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="546"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="1078"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="compass">
+			<AssetFile>./Graphics/compass.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="601"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="1202"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="ship">
+			<AssetFile>./Graphics/ship.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="33878"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="64342"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="canoe">
+			<AssetFile>./Graphics/canoe.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="788"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="1652"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="SimpleRedShip">
+			<AssetFile>./Graphics/SimpleRedShip.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="18003"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="31030"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="coin_map">
+			<AssetFile>./Graphics/coin_map.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="4517"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="9030"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="lantern_obj">
+			<AssetFile>./Graphics/lantern_obj.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="12889"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="24634"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="treasure_chest_assembled">
+			<AssetFile>./Graphics/treasure_chest_assembled.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="120096"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="240236"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="parrot">
+			<AssetFile>./Graphics/parrot.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="927"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="1824"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="tresure_chest_closed_lowpoly">
+			<AssetFile>./Graphics/tresure_chest_closed_lowpoly.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="41055"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="82186"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Sky_Pirate_Combined_xyz_n">
+			<AssetFile>./Graphics/Sky_Pirate_Combined_xyz_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="97658"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="59066"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Terrain_XYZ_n">
+			<AssetFile>./Graphics/Terrain_XYZ_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="66049"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="131072"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Sphere_Radius_1_XYZ_n">
+			<AssetFile>./Graphics/Sphere_Radius_1_XYZ_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="642"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="1280"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="cube_Low_Res_xyz_n">
+			<AssetFile>./Graphics/cube_Low_Res_xyz_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="26"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="12"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
+		<AssetRoot>../assets/audios/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="videos" open="none">
+		<AssetRoot>../assets/videos/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="images" open="none">
+		<AssetRoot>../assets/images/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="fonts" open="none">
+		<AssetRoot>../assets/fonts/</AssetRoot>
+	</AssetGroup>
+	<Objects>
+		<Object type="light" name="spotlight" asset_id="">
+			<Property name="type" type="string" value="spot"/>
+			<Property name="position" type="vec4" value="1,2,3,4"/>
+			<Property name="specular" type="vec4" value="1,2,3,4"/>
+			<Property name="atten" type="vec4" value="1,2,3,4"/>
+			<Property name="direction" type="vec4" value="1,2,3,4"/>
+			<Property name="lightType" type="enum" value="0"/>
+			<Property name="innerangle" type="float" value=""/>
+			<Property name="outer angle" type="float" value=""/>
+			<Property name="on" type="bool" value="false"/>
+		</Object>
+		<Object name="barrel" type="model" asset_id="barrel">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.220001"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+
+    <Object name="Chest" type="model" asset_id="Chest">
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="0.220001"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="1.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+    <Object name="Crate" type="model" asset_id="Crate">
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="0.220001"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="1.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+    <Object name="Crate2" type="model" asset_id="Crate2">
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="0.220001"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="1.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+    <Object name="torch" type="model" asset_id="torch">
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="0.220001"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="1.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+
+
+
+
+    <Object name="Pirate_sword_low_poly" type="model" asset_id="Pirate_sword_low_poly">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.150001"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Bomb" type="model" asset_id="Bomb">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.0"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="ship" type="model" asset_id="ship">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.220000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="canoe" type="model" asset_id="canoe">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.460001"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Terrain_XYZ_n" type="model" asset_id="Terrain_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.410001"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="SimpleRedShip" type="model" asset_id="SimpleRedShip">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.260001"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="coin_map" type="model" asset_id="coin_map">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.0"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="lantern_obj" type="model" asset_id="lantern_obj">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.330001"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="treasure_chest_assembled" type="model" asset_id="treasure_chest_assembled">
+			<Property name="positionXYZ" type="vec3" value="0.61 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.949999"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="compass" type="model" asset_id="compass">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.0"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="parrot" type="model" asset_id="parrot">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="tresure_chest_closed_lowpoly" type="model" asset_id="tresure_chest_closed_lowpoly">
+			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="5.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="low_cube" type="model" asset_id="cube_Low_Res_xyz_n">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="1 1 0.5 1"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="debug_sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.340000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 0 0 0"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="true"/>
+			<Property name="debugColour" type="vec4" value="0 1 0 1"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object type="group" name="ground_plane" asset_id="">
+			<Property name="Terrain_XYZ_n" type="alias" value="Terrain_XYZ_n"/>
+			<Property name="low_cube" type="alias" value="low_cube"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="isVisible" type="bool" value="true"/>
+		</Object>
+		<Object type="world" name="world" asset_id="">
+			<Property name="ground_plane" type="alias" value="ground"/>
+		</Object>
+	</Objects>
+</GameLibrary>
+

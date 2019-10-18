@@ -2,7 +2,7 @@
 
 #include "iAudio_System.h"
 
-#pragma comment(lib , "Audio_Engine.lib")
+#pragma comment(lib , "AudioEngine.lib")
 
 class cAudio_System : public iAudio_System
 {

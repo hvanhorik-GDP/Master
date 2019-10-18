@@ -63,7 +63,9 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 	mapLoaded["cube_Low_Hi_xyz_n"] = NULL;
 	mapLoaded["cube_Low_Res_xyz_n"] = NULL;
 	mapLoaded["SingleTriangle"] = NULL;
-//	mapLoaded["BigFlatTerrain_XYZ_n"] == NULL
+	mapLoaded["pyramid_a"] = NULL;
+	mapLoaded["pyramid_b"] = NULL;
+	//	mapLoaded["BigFlatTerrain_XYZ_n"] == NULL
 //	mapLoaded["Entire_Babbage_Space_Station_xyz_n"] == NULL;
 
 	// Load up all of the mesh we need for this run

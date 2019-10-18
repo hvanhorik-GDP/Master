@@ -68,6 +68,8 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	mapLoaded["cube_Low_Res_xyz_n"] = NULL;
 	mapLoaded["pyramid"] = NULL;
 	mapLoaded["pyramid_3"] = NULL;
+	mapLoaded["pyramid_a"] = NULL;
+//	mapLoaded["pyramid_b"] = NULL;
 	mapLoaded["Sphere_Radius_1_XYZ_n"] = NULL;
 //	mapLoaded["12953_ChocolateRabbit_v1"] = NULL;
 //	mapLoaded["Large_Physics_Bunny_XYZ_n"] = NULL;
@@ -105,8 +107,8 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	// TODO - Create a bunch of objects for our simulation
 	// Note - the pyramids need to be place in a group with the world object
 	// so that they can all be rotated together
-	CreatePyramids(5, objectManager, objectsLib.GetNode());
-	CreateDropBalls(5, objectManager, objectsLib.GetNode());
+	CreatePyramids(12, objectManager, objectsLib.GetNode());
+	CreateDropBalls(30, objectManager, objectsLib.GetNode());
 
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
 

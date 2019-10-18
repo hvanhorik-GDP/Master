@@ -3,6 +3,8 @@
 
 class c_Audio_System_impl;
 
+#pragma comment (lib, "AudioEngine.lib")
+
 class iAudio_System
 {
 public:

@@ -1,4 +1,12 @@
 #include "cObject_Model.h"
+#include "MessageManager/iMessage.h"
+#include "MessageManager/cMessageManager.h"
+#include "Utilities/cFormat.h"
+#include "GameLibrary/Object.h"
+#include "GameLibrary/Properties.h"
+#include "GameLibrary/Objects.h"
+
+#include <iostream>
 
 cObject_Model::cObject_Model(const std::string& type,
 	const std::string& name,
@@ -7,6 +15,9 @@ cObject_Model::cObject_Model(const std::string& type,
 	: cObject_Common(type, name, asset_id, node)
 {
 	matWorld = glm::mat4(1.0f);
+	// Global registry of myself that I may recieve messages
+	cMessageManager().Register(name, this);
+
 }
 
 cObject_Model::~cObject_Model()
@@ -50,7 +61,7 @@ void cObject_Model::IntegrationStep(float deltaTime)
 			int min = -5;
 			int max = 5;
 			int x = rand() % (max - min) + min;
-			int y = rand() % (50) + 20;
+			int y = rand() % (50) + 40;
 			int z = rand() % (max - min) + min;
 			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
 			positionXYZ = pos;
@@ -112,3 +123,65 @@ iObject* cObject_Model::Clone(const std::string& newName)
 	return ret;
 }
 
+
+
+bool cObject_Model::RecieveMessage(const iMessage& message)
+{
+	rapidxml::xml_node<>* node = GetNode();
+	gamelibrary::Object libObject(GetNode());
+
+	std::string text = message.GetMessageString();
+	std::vector<std::string> tokens;
+	cFormat::Tokens(text, tokens, ", ");
+	assert(tokens.size() >= 2);
+	if (tokens[0] == "rotate")
+	{
+		int plane = cFormat::LoadInt(tokens[1]);
+		float value = cFormat::LoadFloat(tokens[2]);
+		rotationXYZ[plane] += value;
+		if (node)
+			libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(rotationXYZ));
+	}
+	else if (tokens[0] == "move")
+	{
+		int plane = cFormat::LoadInt(tokens[1]);
+		float value = cFormat::LoadFloat(tokens[2]);
+		positionXYZ[plane] += value;
+		if (node)
+			libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(positionXYZ));
+	}
+	else if (tokens[0] == "color")
+	{
+		int colour = cFormat::LoadInt(tokens[1]);
+		float value = cFormat::LoadFloat(tokens[2]);
+		objectColourRGBA[colour] += value;
+		if (objectColourRGBA[colour] > 1.0f)
+			objectColourRGBA[colour] = 1.0f;
+		if (objectColourRGBA[colour] < 0.0f)
+			objectColourRGBA[colour] = 0.0f;
+		if (node)
+			libObject.AddProperty("objectColourRGBA", "vec4", cFormat::PackVec4(objectColourRGBA));
+	}
+	else if (tokens[0] == "scale")
+	{
+		float value = cFormat::LoadFloat(tokens[1]);
+		scale += value;
+		libObject.AddProperty("scale", "float", cFormat::PackFloat(scale));
+	}
+	else
+	{
+		std::cout << "cObject_Group::RecieveMessage(): "
+			<< "Invalid Message command: " << tokens[0]
+			<< ", " << tokens[1]
+			<< ", " << tokens[2] << std::endl;
+		return false;
+	}
+	return true;
+}
+
+// Recieve a message and reply
+bool cObject_Model::RecieveAndRespond(const iMessage& in, iMessage& reply)
+{
+	assert(false);			// Not implmented yet
+	return false;
+}

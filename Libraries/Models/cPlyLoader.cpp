@@ -144,6 +144,7 @@ bool cPlyLoader::LoadPlyModel(
 	cItem_Model& theMesh)
 {
 	std::ifstream theFile(filename.c_str());
+	std::cout << "cPlyLoader::LoadPlyModel - Loading model : " << filename << std::endl;
 	if (!theFile.is_open())
 	{
 		// On no! Where's the file??? 

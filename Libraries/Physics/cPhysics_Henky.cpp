@@ -14,7 +14,7 @@ cPhysics_Henky::cPhysics_Henky()
 	// This is a typical Earth gravity value. 
 	// note that this doesn't mean that the simulation will "look good", though... 
 //	this->m_Gravity = glm::vec3(0.0f, -9.81f, 0.0f);
-	this->m_Gravity = glm::vec3(0.0f, -6.0f, 0.0f);
+	this->m_Gravity = glm::vec3(0.0f, -3.0f, 0.0f);
 	return;
 }
 
@@ -539,13 +539,13 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		//    we want to move the sphere BACK along this velocity vector
 
 //		glm::vec3 vecDirection = glm::normalize(pSphere->velocity);
-		glm::vec3 vecDirection = /*-closestTriangle.normal;*/  glm::normalize(pSphere->velocity);
+		glm::vec3 vecDirection = -closestTriangle.normal;//  glm::normalize(pSphere->velocity);
 
 		glm::vec3 vecPositionAdjust = (-vecDirection) * lengthPositionAdjustment;
 
 		// 5. Reposition sphere 
 		pSphere->positionXYZ += (vecPositionAdjust);
-		//pSphere->inverseMass = 0.0f;
+	//	pSphere->inverseMass = 0.0f;
 
 					// ************************************************************************
 
@@ -580,7 +580,7 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		// Get length of the velocity vector
 		float speed = glm::length(pSphere->velocity);
 
-		const float minimumspeed = 2.0f;
+		const float minimumspeed = 0.005f;
 		const float minimumbouncd = 1.0f;
 		if (speed < minimumspeed)
 			speed = minimumspeed;

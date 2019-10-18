@@ -11,81 +11,129 @@
 #include "ObjectItems/cObject_Group.h"
 #include "Common/pFindObjectByFriendlyName.h"
 
-#include "cGraphicsTilter.h"
+#include "cGraphicsToObject.h"
 #include <iostream>
+#include <sstream>
 
 static bool isShiftKeyDownByAlone(int mods);
 static bool isCtrlKeyDownByAlone(int mods);
 
-
-
-static cGraphicsTilter* gTilter = NULL;
+static bool gHasGraphicsObject = false;
+static cGraphicsToObject* gGraphicsToObject = NULL;
 
 
 void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	if (!gTilter)
-		gTilter = new cGraphicsTilter();
+	// Ignore key up
+	if (action == 0)
+		return;
+	// We're getting reentrant code at startup
+	if (!gHasGraphicsObject)
+	{
+		gHasGraphicsObject = true;
+		gGraphicsToObject = new cGraphicsToObject();
+	}
+	if (!gGraphicsToObject)
+		return;
 
 	const float cameraSPEED = 2.0f;
+	const float rgbAdjust = 0.01F;
+	const float moveAdjust = 0.01F;
+	const float scaleAdjust = 0.01f;
+	const float rotateAdjust = 0.01f;
 
 	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
 	{
-		// Move the camera (A & D for left and right, along the x axis)
-		if (key == GLFW_KEY_A)
+		// Tab Key Shift to next visible object
+		if (key == GLFW_KEY_TAB)
 		{
-			cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
+			gGraphicsToObject->NextVisable();
 		}
-		if (key == GLFW_KEY_D)
+		if (key == GLFW_KEY_R)
 		{
-			cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
+			gGraphicsToObject->AdjustColour(0, +rgbAdjust);
 		}
-
-		// Move the camera (Q & E for up and down, along the y axis)
-		if (key == GLFW_KEY_Q)
+		if (key == GLFW_KEY_G)
 		{
-			cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
+			gGraphicsToObject->AdjustColour(1, +rgbAdjust);
 		}
-		if (key == GLFW_KEY_E)
+		if (key == GLFW_KEY_B)
 		{
-			cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
+			gGraphicsToObject->AdjustColour(2, +rgbAdjust);
 		}
 
-		// Move the camera (W & S for towards and away, along the z axis)
-		if (key == GLFW_KEY_W)
+		// Position
+		if (key == GLFW_KEY_X)
 		{
-			cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
+			gGraphicsToObject->Move(0, +moveAdjust);
 		}
-		if (key == GLFW_KEY_S)
+		if (key == GLFW_KEY_Y)
 		{
-			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
+			gGraphicsToObject->Move(1, +moveAdjust);
+		}
+		if (key == GLFW_KEY_Z)
+		{
+			gGraphicsToObject->Move(2, +moveAdjust);
 		}
 
-		const float planeTilt = 0.0005f;
-		const int x = 0;
-		const int y = 1;
-		const int z = 2;
-
-		if (key == GLFW_KEY_RIGHT)
-		{
-			gTilter->tiltPlane(z, planeTilt);
-		}
+		// Rotate
 		if (key == GLFW_KEY_LEFT)
 		{
-			gTilter->tiltPlane(z, -planeTilt);
+			gGraphicsToObject->Rotate(1, +rotateAdjust);
 		}
-		if (key == GLFW_KEY_UP)
+		if (key == GLFW_KEY_RIGHT)
 		{
-			gTilter->tiltPlane(x, planeTilt);
+			gGraphicsToObject->Rotate(1, -rotateAdjust);
 		}
-		if (key == GLFW_KEY_DOWN)
+
+		// Scale
+		if (key == GLFW_KEY_S)
 		{
-			gTilter->tiltPlane(x, -planeTilt);
+			gGraphicsToObject->Scale(+scaleAdjust);
 		}
 	}
-
 	if (isShiftKeyDownByAlone(mods))
 	{
+		if (key == GLFW_KEY_TAB)
+		{
+			gGraphicsToObject->NextInvisable();
+		}
+
+		if (key == GLFW_KEY_R)
+		{
+			gGraphicsToObject->AdjustColour(0, -rgbAdjust);
+		}
+		if (key == GLFW_KEY_G)
+		{
+			gGraphicsToObject->AdjustColour(1, -rgbAdjust);
+		}
+		if (key == GLFW_KEY_B)
+		{
+			gGraphicsToObject->AdjustColour(2, -rgbAdjust);
+		}
+
+
+		// Position
+		if (key == GLFW_KEY_X)
+		{
+			gGraphicsToObject->Move(0, -moveAdjust);
+		}
+		if (key == GLFW_KEY_Y)
+		{
+			gGraphicsToObject->Move(1, -moveAdjust);
+		}
+		if (key == GLFW_KEY_Z)
+		{
+			gGraphicsToObject->Move(2, -moveAdjust);
+		}
+
+		// Scale
+		if (key == GLFW_KEY_S)
+		{
+			gGraphicsToObject->Scale( -scaleAdjust);
+		}
+
+#if 0
 		// move the light
 		if (key == GLFW_KEY_A)
 		{
@@ -166,18 +214,49 @@ void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action
 		{
 			bLightDebugSheresOn = true;
 		}
-
+#endif
+		
 	}//if (isShiftKeyDownByAlone(mods))
 
 
-	// Moving the pirate ship in a certain direction
+	// Camera moved to ctrl key
 	if (isCtrlKeyDownByAlone(mods))
 	{
+		// Move the camera (A & D for left and right, along the x axis)
+		if (key == GLFW_KEY_A)
+		{
+			cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
+		}
+		if (key == GLFW_KEY_D)
+		{
+			cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
+		}
+
+		// Move the camera (Q & E for up and down, along the y axis)
+		if (key == GLFW_KEY_Q)
+		{
+			cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
+		}
+		if (key == GLFW_KEY_E)
+		{
+			cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
+		}
+
+		// Move the camera (W & S for towards and away, along the z axis)
+		if (key == GLFW_KEY_W)
+		{
+			cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
+		}
+		if (key == GLFW_KEY_S)
+		{
+			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
+		}
 
 	}
 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
+
 }
 
 
@@ -211,6 +290,7 @@ bool isCtrlKeyDownByAlone(int mods)
 
 void Graphics_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
+#if 0
 	// Move the sphere to where the camera is and shoot the ball from there...
 	cObject_Model* pTheBall = pFindObjectByFriendlyName("Drop_Sphere");
 
@@ -242,6 +322,7 @@ void Graphics_mouse_button_callback(GLFWwindow* window, int button, int action, 
 	pTheBall->SPHERE_radius = float(scale);
 	pTheBall->velocity = glm::vec3(0.0f, 1.0f, 0.0f);
 	pTheBall->accel = glm::vec3(0.0f, 0.0f, 0.0f);
+#endif
 	return;
 }
 

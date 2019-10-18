@@ -38,6 +38,13 @@ public:
 	static std::string ShapeTypeToString(cObject_Model::eShapeTypes in);
 	static cObject_Model::eShapeTypes StringToShapeType(std::string& in);
 
+	// from iMessageInterface
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message);
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
+
 public:			// TODO - Hack - We need this public for old code since it replaces cGameObject.h
 
 	friend class cObjectManager_Model;

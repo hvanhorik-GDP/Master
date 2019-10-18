@@ -34,26 +34,26 @@ void CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_nod
 	float surface = maxBox.y;
 
 	// Make a bunch of pyramids
-	auto pyramid_1 = pFindObjectByFriendlyName("pyramid_1");
+	std::string name = "pyramid_a";
+	auto pyramid_a = pFindObjectByFriendlyName(name);
 
-	std::string name = "pyramid_1";
 
 	// How big is the pyramid
 	glm::vec3 minPyramid;
 	glm::vec3 maxPyramid;
-	cPhysics_Henky::boundsOfObject(*pyramid_1, minPyramid, maxPyramid);
+	cPhysics_Henky::boundsOfObject(*pyramid_a, minPyramid, maxPyramid);
 	float pyramidHeight = maxPyramid.y;
 
 	for (int i = 0; i < number; ++i)
 	{
 		std::string newName = name + "_" + std::to_string(i);
-		auto temp = pyramid_1->Clone(newName);
+		auto temp = pyramid_a->Clone(newName);
 		assert(temp);
 		cObject_Model* newPyramid = dynamic_cast<cObject_Model*>(temp);
 		assert(newPyramid);
 
 		float newscale = float((rand()) % 100 + 1);
-		newscale /= 80;
+		newscale /= 90;
 		newPyramid->scale = newscale;
 		if (pyramidHeight * newscale > gMaxHeightOfPyramid)
 			gMaxHeightOfPyramid = pyramidHeight * newscale;
@@ -118,7 +118,7 @@ void CreateDropBalls(int number, cObjectManager& objectManager, rapidxml::xml_no
 			int min = -50;
 			int max = 50;
 			int x = rand() % (max - min) + min;
-			int y = rand() % 20 + gMaxHeightOfPyramid;		// Minimum 20 above pyramid
+			int y = rand() % 50 + gMaxHeightOfPyramid;		// Minimum 20 above pyramid
 			int z = rand() % (max - min) + min;
 			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
 			newBall->positionXYZ = pos;

@@ -28,6 +28,12 @@
     <Filter Include="Graphics">
       <UniqueIdentifier>{88c606ae-72e6-451d-ba2c-cb8bb65d3373}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\models\Physics">
+      <UniqueIdentifier>{f7276281-e5ef-4981-8db1-ac5ae78ad194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\models\Graphics">
+      <UniqueIdentifier>{7f67e0f2-b4de-48e7-97a6-83e6ed4931f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Master.cpp" />
@@ -85,13 +91,13 @@
     <ClCompile Include="Physics\ObjectCreator.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\cGraphicsTilter.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Graphics_Callback.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\test_Graphics.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\cGraphicsToObject.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>
@@ -148,13 +154,13 @@
     <ClInclude Include="Physics\ObjectCreator.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\cGraphicsTilter.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Graphics_Callback.h">
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\test_Graphics.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\cGraphicsToObject.h">
       <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -174,61 +180,115 @@
     <Xml Include="..\assets\PhysicsLibrary.xml">
       <Filter>Assets</Filter>
     </Xml>
+    <Xml Include="..\assets\output_GraphicsLibrary.xml">
+      <Filter>Assets</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\assets\models\BigFlatTerrain_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\bun_zipper_res2_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\bun_zipper_res3_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\bun_zipper_res4_XYZ_N.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\bun_zipper_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\Cube_1_Unit_from_origin_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\Sky_Pirate_Combined_xyz_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\Sphere_Radius_1_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
-    <None Include="..\assets\models\Terrain_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
-    </None>
     <None Include="..\assets\shaders\vertexShader01.glsl">
       <Filter>Assets\shaders</Filter>
     </None>
     <None Include="..\assets\shaders\fragmentShader01.glsl">
       <Filter>Assets\shaders</Filter>
     </None>
-    <None Include="..\assets\models\cube_Low_Hi_xyz_n.ply">
-      <Filter>Assets\models</Filter>
+    <None Include="..\assets\models\Graphics\barrel.ply">
+      <Filter>Assets\models\Graphics</Filter>
     </None>
-    <None Include="..\assets\models\cube_Low_Res_xyz_n.ply">
-      <Filter>Assets\models</Filter>
+    <None Include="..\assets\models\Graphics\Bomb.ply">
+      <Filter>Assets\models\Graphics</Filter>
     </None>
-    <None Include="..\assets\models\Entire_Babbage_Space_Station_xyz_n.ply">
-      <Filter>Assets\models</Filter>
+    <None Include="..\assets\models\Graphics\canoe.ply">
+      <Filter>Assets\models\Graphics</Filter>
     </None>
-    <None Include="..\assets\models\Large_Physics_Bunny_XYZ_n.ply">
-      <Filter>Assets\models</Filter>
+    <None Include="..\assets\models\Graphics\coin_map.ply">
+      <Filter>Assets\models\Graphics</Filter>
     </None>
-    <None Include="..\assets\models\Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply">
-      <Filter>Assets\models</Filter>
+    <None Include="..\assets\models\Graphics\compass.ply">
+      <Filter>Assets\models\Graphics</Filter>
     </None>
-    <None Include="..\assets\models\Physics\15982_Great_Pyramids_v1.ply">
-      <Filter>Assets\models</Filter>
+    <None Include="..\assets\models\Graphics\De_Zeven_Provincien_large.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\foo.tmp">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Kerosene_lamp_large.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\lantern_obj.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\parrot.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Pirate_sword_low_poly.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\ship.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\SimpleRedShip.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\treasure_chest_assembled.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\tresure_chest_closed_lowpoly.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\12953_ChocolateRabbit_v1.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\BigFlatTerrain_XYZ_n.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\Cube_1_Unit_from_origin_XYZ_n.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\cube_Hi_Res_xyz_n.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\cube_Low_Res_xyz_n - Copy.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\cube_Low_Res_xyz_n.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\Large_Physics_Bunny_XYZ_n.ply">
+      <Filter>Assets\models\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\pyramid.ply">
-      <Filter>Assets\models</Filter>
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\pyramid_3.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Physics\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>Assets\models\Physics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Chest.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Crate.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Crate2.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\cube_Low_Res_xyz_n.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Sky_Pirate_Combined_xyz_n.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\Terrain_XYZ_n.ply">
+      <Filter>Assets\models\Graphics</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics\torch.ply">
+      <Filter>Assets\models\Graphics</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

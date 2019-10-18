@@ -66,14 +66,14 @@ void HandleDebugLights(GLuint shaderProgID)
 		cameraEye.x, cameraEye.y, cameraEye.z, 1.0f);
 
 
-	std::stringstream ssTitle;
-	ssTitle
-		<< sexyLightPosition.x << ", "
-		<< sexyLightPosition.y << ", "
-		<< sexyLightPosition.z
-		<< "Atten: "
-		<< sexyLightConstAtten << " : "
-		<< sexyLightLinearAtten << " : "
-		<< sexyLightQuadraticAtten;
-	glfwSetWindowTitle(window, ssTitle.str().c_str());
+	//std::stringstream ssTitle;
+	//ssTitle
+	//	<< sexyLightPosition.x << ", "
+	//	<< sexyLightPosition.y << ", "
+	//	<< sexyLightPosition.z
+	//	<< "Atten: "
+	//	<< sexyLightConstAtten << " : "
+	//	<< sexyLightLinearAtten << " : "
+	//	<< sexyLightQuadraticAtten;
+	//glfwSetWindowTitle(window, ssTitle.str().c_str());
 }
