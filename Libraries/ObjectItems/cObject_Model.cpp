@@ -6,7 +6,14 @@
 #include "GameLibrary/Properties.h"
 #include "GameLibrary/Objects.h"
 
+#include "GLCommon.h"
+#include <sstream>
+#include <iomanip>
 #include <iostream>
+
+
+// TODO - HACK
+extern GLFWwindow* window;
 
 cObject_Model::cObject_Model(const std::string& type,
 	const std::string& name,
@@ -124,7 +131,6 @@ iObject* cObject_Model::Clone(const std::string& newName)
 }
 
 
-
 bool cObject_Model::RecieveMessage(const iMessage& message)
 {
 	rapidxml::xml_node<>* node = GetNode();
@@ -141,6 +147,17 @@ bool cObject_Model::RecieveMessage(const iMessage& message)
 		rotationXYZ[plane] += value;
 		if (node)
 			libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(rotationXYZ));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Model: "
+			<< "Rotation: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " x: " << rotationXYZ.x
+			<< " y: " << rotationXYZ.y
+			<< " z: " << rotationXYZ.z;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+
 	}
 	else if (tokens[0] == "move")
 	{
@@ -149,6 +166,17 @@ bool cObject_Model::RecieveMessage(const iMessage& message)
 		positionXYZ[plane] += value;
 		if (node)
 			libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(positionXYZ));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Model: "
+			<< "Move: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " x: " << positionXYZ.x
+			<< " y: " << positionXYZ.y
+			<< " z: " << positionXYZ.z;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+
 	}
 	else if (tokens[0] == "color")
 	{
@@ -161,12 +189,32 @@ bool cObject_Model::RecieveMessage(const iMessage& message)
 			objectColourRGBA[colour] = 0.0f;
 		if (node)
 			libObject.AddProperty("objectColourRGBA", "vec4", cFormat::PackVec4(objectColourRGBA));
+
+	
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Model: "
+			<< "Colour: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " r: " << objectColourRGBA.r
+			<< " g: " << objectColourRGBA.g
+			<< " b: " << objectColourRGBA.b;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+
 	}
 	else if (tokens[0] == "scale")
 	{
 		float value = cFormat::LoadFloat(tokens[1]);
 		scale += value;
 		libObject.AddProperty("scale", "float", cFormat::PackFloat(scale));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Model: "
+			<< "Scale: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " s: " << scale;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
 	}
 	else
 	{

@@ -34,6 +34,8 @@ public:
 	virtual const std::string& GetName() const = 0;
 	virtual const std::string& GetAssetID() const = 0;
 	virtual iItem* GetItem() const = 0;
+	virtual bool IsVisable() const = 0;
+	virtual void SetVisable(bool to) = 0;
 
 	virtual iObject* Clone(const std::string& newName) = 0;
 	virtual iObject* GetParentObject() const = 0;

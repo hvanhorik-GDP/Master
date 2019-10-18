@@ -63,7 +63,7 @@ void HandleDebugLights(GLuint shaderProgID)
 	GLint eyeLocation_UL = glGetUniformLocation(shaderProgID, "eyeLocation");
 
 	glUniform4f(eyeLocation_UL,
-		cameraEye.x, cameraEye.y, cameraEye.z, 1.0f);
+		old_cameraEye.x, old_cameraEye.y, old_cameraEye.z, 1.0f);
 
 
 	//std::stringstream ssTitle;

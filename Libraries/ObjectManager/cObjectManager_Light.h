@@ -15,7 +15,7 @@ public:
 	virtual iObjectManager::iObject_map* GetObjects(const std::string& name);
 
 	// Write an object to the XML file
-	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent) { assert(false); };
+	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager_Light& val);

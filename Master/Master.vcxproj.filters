@@ -168,19 +168,13 @@
     <Xml Include="..\assets\test_GDP2019.xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\GameLibrary %28Physics%29.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\GameLibrary (backup).xml">
-      <Filter>Assets</Filter>
-    </Xml>
     <Xml Include="..\assets\GraphicsLibrary.xml">
       <Filter>Assets</Filter>
     </Xml>
     <Xml Include="..\assets\PhysicsLibrary.xml">
       <Filter>Assets</Filter>
     </Xml>
-    <Xml Include="..\assets\output_GraphicsLibrary.xml">
+    <Xml Include="..\assets\GraphicsLibrary(output).xml">
       <Filter>Assets</Filter>
     </Xml>
   </ItemGroup>

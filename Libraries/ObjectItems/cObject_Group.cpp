@@ -2,7 +2,17 @@
 #include "MessageManager/iMessage.h"
 #include "MessageManager/cMessageManager.h"
 #include "Utilities/cFormat.h"
+#include "GameLibrary/Object.h"
+
+
+#include "GLCommon.h"
+#include <sstream>
+#include <iomanip>
 #include <iostream>
+
+
+// TODO - HACK
+extern GLFWwindow* window;
 
 
 cObject_Group::cObject_Group(const std::string& type,
@@ -42,6 +52,9 @@ std::ostream& operator<<(std::ostream& stream, const cObject_Group& val)
 
 bool cObject_Group::RecieveMessage(const iMessage& message)
 {
+	rapidxml::xml_node<>* node = GetNode();
+	gamelibrary::Object libObject(GetNode());
+
 	std::string text = message.GetMessageString();
 	std::vector<std::string> tokens;
 	cFormat::Tokens(text, tokens, ", ");
@@ -51,6 +64,66 @@ bool cObject_Group::RecieveMessage(const iMessage& message)
 		int plane = cFormat::LoadInt(tokens[1]);
 		float value = cFormat::LoadFloat(tokens[2]);
 		rotationXYZ[plane] += value;
+		if (node)
+			libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(rotationXYZ));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Group : "
+			<< "Rotation: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " x: " << rotationXYZ.x
+			<< " y: " << rotationXYZ.y
+			<< " z: " << rotationXYZ.z;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+
+	}
+	else if (tokens[0] == "move")
+	{
+		int plane = cFormat::LoadInt(tokens[1]);
+		float value = cFormat::LoadFloat(tokens[2]);
+		positionXYZ[plane] += value;
+		if (node)
+			libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(positionXYZ));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Group : "
+			<< "Move: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " x: " << positionXYZ.x
+			<< " y: " << positionXYZ.y
+			<< " z: " << positionXYZ.z;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+
+	}
+	else if (tokens[0] == "color")
+	{
+
+		std::cout << "cObject_Group::RecieveMessage - color not supported" << std::endl;
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Group : "
+			<< "Color: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " c: " << "NOT supported";
+
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+	}
+	else if (tokens[0] == "scale")
+	{
+		float value = cFormat::LoadFloat(tokens[1]);
+		scale += value;
+		libObject.AddProperty("scale", "float", cFormat::PackFloat(scale));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Group : "
+			<< "Scale: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " s: " << scale;
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
 	}
 	else
 	{

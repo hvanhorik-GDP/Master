@@ -24,6 +24,7 @@
 
 #include "VAOManager/cVAOManager.h"
 #include "ObjectManager/cObjectManager.h"
+#include "../../Libraries/ObjectItems/cObject_World.h"
 
 #include "Physics/PhysicsStuff.h"
 #include "Physics/cPhysics_Henky.h"
@@ -33,7 +34,6 @@
 
 // Local stuff pulled out of main by Henry
 #include "Common/pFindObjectByFriendlyName.h"
-#include "Common/globalStuff.h"
 #include "Physics_Callback.h"
 #include "ObjectCreator.h"
 
@@ -44,6 +44,13 @@
 
 int test_Physics(gamelibrary::GameLibrary& gameLib)
 {
+
+	cObjectManager manager;
+	//TODO - for now only a single world
+	auto object = manager.FindObjectByName("world");
+	assert(object);
+	cObject_World* world = dynamic_cast<cObject_World*>(object);
+
 	// set mouse and keyboard callback
 	glfwSetKeyCallback(window, Physics_key_callback);
 	// Set the mouse button callback
@@ -152,9 +159,9 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 
 		// View matrix
 		view = glm::mat4(1.0f);
-		view = glm::lookAt(cameraEye,
-						cameraTarget,
-						upVector);
+		view = glm::lookAt(	world->cameraEye,
+							world->cameraTarget,
+							world->upVector);
 
 		glViewport(0, 0, width, height);
 

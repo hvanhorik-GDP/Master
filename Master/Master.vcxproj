@@ -218,10 +218,8 @@
     <ClInclude Include="Physics\test_Physics.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GameLibrary %28Physics%29.xml" />
-    <Xml Include="..\assets\GameLibrary (backup).xml" />
+    <Xml Include="..\assets\GraphicsLibrary(output).xml" />
     <Xml Include="..\assets\GraphicsLibrary.xml" />
-    <Xml Include="..\assets\output_GraphicsLibrary.xml" />
     <Xml Include="..\assets\PhysicsLibrary.xml" />
     <Xml Include="..\assets\test_GDP2019.xml" />
   </ItemGroup>

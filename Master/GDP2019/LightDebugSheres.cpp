@@ -10,7 +10,7 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 	cObject_Model* pDebugSphere = pFindObjectByFriendlyName("debug_sphere");
 	if (bLightDebugSheresOn)
 	{
-		pDebugSphere->isVisible = true;
+		pDebugSphere->SetVisable(true);
 		{// Draw where the light is at
 			glm::mat4 matModel = glm::mat4(1.0f);
 			pDebugSphere->positionXYZ = sexyLightPosition;
@@ -96,6 +96,6 @@ void LightDebugSheres(GLuint shaderProgID, cVAOManager *pTheVAOManager)
 			pDebugSphere->isWireframe = true;
 			pTheVAOManager->DrawObject(matModel, pDebugSphere);
 		}
-		pDebugSphere->isVisible = false;				// stop displaying it
+		pDebugSphere->SetVisable(false);				// stop displaying it
 	}// if (bLightDebugSheresOn) 
 }

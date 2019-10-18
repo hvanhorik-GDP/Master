@@ -41,6 +41,16 @@ const std::string& cObject_Common::GetType() const
 	return m_type;
 }
 
+bool cObject_Common::IsVisable() const
+{
+	return m_isVisable;
+}
+
+void cObject_Common::SetVisable(bool to)
+{
+	m_isVisable = to;
+}
+
 rapidxml::xml_node<>* cObject_Common::GetNode() const
 {
 	return m_node;

@@ -77,6 +77,13 @@ void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent)
 	cObjectManager_Group* groupManager = dynamic_cast<cObjectManager_Group*>(temp);
 	assert(groupManager);
 	groupManager->ResolveAlias();
+
+	// After loaded we need to resolve all aliases
+	temp = m_ObjectManagers["world"];
+	assert(temp);
+	cObjectManager_World* worldManager = dynamic_cast<cObjectManager_World*>(temp);
+	assert(worldManager);
+	worldManager->ResolveAlias();
 }
 
 // Write an object to the XML file

@@ -97,34 +97,6 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 	bool isWireframe;
 	glm::vec4 debugColour;
 
-	bool isVisible;
-
 	bool disableDepthBufferTest;
 	bool disableDepthBufferWrite;
 };
-
-/*
-	  <Property name = "position" type ="vec3" value="1,2,3"/>
-	  <Property name = "rotation" type ="vec3" value="1,2,3"/>
-	  <Property name = "scale" type ="float" value="1.0"/>
-	  <Property name = "objectColourRGBA" type ="vec4" value="1,2,3,4"/>
-	  <Property name = "diffuseColour" type ="vec4" value="1,2,3,4"/>
-	  <Property name = "specularColour" type ="vec4" value="1,2,3,4"/>
-
-	  <!-- Physics - should be moved -->
-	  <Property name = "velocity" type ="vec3" value="1,2,3"/>
-	  <Property name = "accel" type ="vec3" value="1,2,3"/>
-	  <Property name = "physicsShapeType" type ="enum" value="UNKNOWN"/>
-	  <Property name = "AABB_min" type ="vec3" value="1,2,3"/>
-	  <Property name = "AABB_max" type ="vec3" value="1,2,3"/>
-	  <Property name = "SPHERE_radius" type ="float" value="1.0"/>
-
-	  <!-- Debug -->
-	  <Property name = "isWireframe" type ="bool" value="false"/>
-	  <Property name = "debugColour" type ="vec4" value="1,2,3,4"/>
-	  <Property name = "isWireframe" type ="bool" value="false"/>
-	  <Property name = "debugColour" type ="vec4" value="1,2,3,4"/>
-	  <Property name = "isVisible" type ="bool" value="false"/>
-	  <Property name = "disableDepthBufferTest" type ="bool" value="false"/>
-	  <Property name = "disableDepthBufferTest" type ="bool" value="false"/>
- */

@@ -4,8 +4,6 @@
 
 int loadGFLW(void)
 {
-
-
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 	{

@@ -142,9 +142,9 @@ void HandleDebugBallPhysics(	GLuint shaderProgID,
 		pDebugSphere->scale = 1.0f;
 		pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
 		pDebugSphere->isWireframe = true;
-		pDebugSphere->isVisible = true;
+		pDebugSphere->SetVisable(true);
 		pTheVAOManager->DrawObject(matModel, pDebugSphere);
-		pDebugSphere->isVisible = false;		// Don't display it anymore
+		pDebugSphere->SetVisable(false);		// Don't display it anymore
 	}
 
 	// How far did we penetrate the surface?

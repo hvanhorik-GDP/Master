@@ -140,9 +140,9 @@ int test_GDP2019(gamelibrary::GameLibrary& gameLib)
 
 		// View matrix
 		view = glm::mat4(1.0f);
-		view = glm::lookAt(cameraEye,
-						cameraTarget,
-						upVector);
+		view = glm::lookAt(old_cameraEye,
+						old_cameraTarget,
+						old_upVector);
 
 		glViewport(0, 0, width, height);
 

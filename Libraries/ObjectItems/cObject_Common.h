@@ -24,6 +24,8 @@ public:
 	virtual const std::string& GetType() const final;
 	virtual const std::string& GetName() const final;
 	virtual const std::string& GetAssetID() const final;
+	virtual bool IsVisable() const final;
+	virtual void SetVisable(bool to) final;
 
 	virtual iObject* Clone(const std::string& newName) 
 		{ assert(false); return NULL; }
@@ -40,7 +42,6 @@ public:
 	// Everyone has a universal ID
 	virtual const std::string& GetMyUID() const;
 
-
 	//TODO - for now just implement them here.
 	// need to implement them in every class of iObject
 	// Recieve a message
@@ -49,18 +50,19 @@ public:
 	// Recieve a message and reply
 	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
 
+
 protected:
 	// XML stuff
 	rapidxml::xml_node<>* GetNode() const;
 	void SetNode(rapidxml::xml_node<>* in);
 	bool IsXMLValid() const;
-	std::size_t GetIndex() const;
 
 protected :
 	cObject_Common();
 	std::string m_type;
 	std::string m_name;
 	std::string m_assetID;
+	bool m_isVisable = true;
 
 // Point to original XML parent node and Index
 	rapidxml::xml_node<>* m_node;		// Offset into the asset tree so we can add properties to it

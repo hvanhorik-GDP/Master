@@ -1,12 +1,12 @@
 #pragma once
-#include "cObject_Group.h"
-#include <vector>
+#include "cObject_Common.h"
 
-class cObject_World : public cObject_Group			// The world is just like a group
+#include <map>
+
+class cObject_World : public cObject_Common			// The world is just like a group
 {
 public:
-	// This structure matches the file, so that our life is
-	//   simpler and happier, and we all get along.
+	typedef std::map<std::string, iObject*> mapObjectsInWorld;
 
 	cObject_World() {};				// Get's filled in by physics
 
@@ -16,10 +16,32 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_World();
 
+	virtual void IntegrationStep(float deltaTime);
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_World& val);
 
+	// from iMessageInterface
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message);
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
+
 private:
+	//TODO - HACK - PUBLIC
+public:
 	friend class cObjectManager_World;
+	friend class cLightManager;
+
+	glm::vec3 cameraEye;
+	glm::vec3 cameraTarget;
+	glm::vec3 upVector;
+	bool debugRenderer;
+	int windowWidth;
+	int windowHeight;
+
+
+	mapObjectsInWorld m_mapObjects;
 };
 

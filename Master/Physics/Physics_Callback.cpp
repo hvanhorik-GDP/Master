@@ -9,6 +9,7 @@
 #include "Common/globalStuff.h"	
 #include "ObjectManager/cObjectManager.h"
 #include "ObjectItems/cObject_Group.h"
+#include "ObjectItems/cObject_World.h"
 #include "Common/pFindObjectByFriendlyName.h"
 
 #include "cPhysicsTilter.h"
@@ -31,34 +32,40 @@ void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action,
 
 	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
 	{
+		cObjectManager manager;
+		//TODO - for now only a single world
+		auto object = manager.FindObjectByName("world");
+		assert(object);
+		cObject_World* world = dynamic_cast<cObject_World*>(object);
+
 		// Move the camera (A & D for left and right, along the x axis)
 		if (key == GLFW_KEY_A)
 		{
-			cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
+			world->cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_D)
 		{
-			cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
+			world->cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (Q & E for up and down, along the y axis)
 		if (key == GLFW_KEY_Q)
 		{
-			cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
+			world->cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_E)
 		{
-			cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
+			world->cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (W & S for towards and away, along the z axis)
 		if (key == GLFW_KEY_W)
 		{
-			cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
+			world->cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_S)
 		{
-			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
+			world->cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		const float planeTilt = 0.0005f;

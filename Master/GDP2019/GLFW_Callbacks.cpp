@@ -26,31 +26,31 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		// Move the camera (A & D for left and right, along the x axis)
 		if (key == GLFW_KEY_A)
 		{
-			cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
+			old_cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_D)
 		{
-			cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
+			old_cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (Q & E for up and down, along the y axis)
 		if (key == GLFW_KEY_Q)
 		{
-			cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
+			old_cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_E)
 		{
-			cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
+			old_cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		// Move the camera (W & S for towards and away, along the z axis)
 		if (key == GLFW_KEY_W)
 		{
-			cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
+			old_cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
 		}
 		if (key == GLFW_KEY_S)
 		{
-			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
+			old_cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
 		}
 
 		if (key == GLFW_KEY_B)
@@ -235,12 +235,12 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 	// What's the velocity
 	// Target - eye = direction
-	glm::vec3 direction = glm::normalize(cameraTarget - cameraEye);
+	glm::vec3 direction = glm::normalize(old_cameraTarget - old_cameraEye);
 
 	float speed = 5.0f;
 
 	pTheBall->velocity = direction * speed;
-	pTheBall->positionXYZ = cameraEye;
+	pTheBall->positionXYZ = old_cameraEye;
 
 	return;
 }

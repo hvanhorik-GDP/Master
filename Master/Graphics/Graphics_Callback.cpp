@@ -6,9 +6,9 @@
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 
-#include "Common/globalStuff.h"	
 #include "ObjectManager/cObjectManager.h"
 #include "ObjectItems/cObject_Group.h"
+#include "ObjectItems/cObject_World.h"
 #include "Common/pFindObjectByFriendlyName.h"
 
 #include "cGraphicsToObject.h"
@@ -20,7 +20,7 @@ static bool isCtrlKeyDownByAlone(int mods);
 
 static bool gHasGraphicsObject = false;
 static cGraphicsToObject* gGraphicsToObject = NULL;
-
+static float adjustSpeed = 0.01f;
 
 void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -42,221 +42,131 @@ void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action
 	const float scaleAdjust = 0.01f;
 	const float rotateAdjust = 0.01f;
 
-	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
+	int modifier = (isShiftKeyDownByAlone(mods)) ? -1 : 1;
+
+	if (key == GLFW_KEY_W)
 	{
-		// Tab Key Shift to next visible object
-		if (key == GLFW_KEY_TAB)
-		{
-			gGraphicsToObject->NextVisable();
-		}
-		if (key == GLFW_KEY_R)
-		{
-			gGraphicsToObject->AdjustColour(0, +rgbAdjust);
-		}
-		if (key == GLFW_KEY_G)
-		{
-			gGraphicsToObject->AdjustColour(1, +rgbAdjust);
-		}
-		if (key == GLFW_KEY_B)
-		{
-			gGraphicsToObject->AdjustColour(2, +rgbAdjust);
-		}
-
-		// Position
-		if (key == GLFW_KEY_X)
-		{
-			gGraphicsToObject->Move(0, +moveAdjust);
-		}
-		if (key == GLFW_KEY_Y)
-		{
-			gGraphicsToObject->Move(1, +moveAdjust);
-		}
-		if (key == GLFW_KEY_Z)
-		{
-			gGraphicsToObject->Move(2, +moveAdjust);
-		}
-
-		// Rotate
-		if (key == GLFW_KEY_LEFT)
-		{
-			gGraphicsToObject->Rotate(1, +rotateAdjust);
-		}
-		if (key == GLFW_KEY_RIGHT)
-		{
-			gGraphicsToObject->Rotate(1, -rotateAdjust);
-		}
-
-		// Scale
-		if (key == GLFW_KEY_S)
-		{
-			gGraphicsToObject->Scale(+scaleAdjust);
-		}
+		gGraphicsToObject->TargetWorld();
+		adjustSpeed = cameraSPEED;
 	}
-	if (isShiftKeyDownByAlone(mods))
+	else if (key == GLFW_KEY_L)
 	{
-		if (key == GLFW_KEY_TAB)
-		{
-			gGraphicsToObject->NextInvisable();
-		}
-
-		if (key == GLFW_KEY_R)
-		{
-			gGraphicsToObject->AdjustColour(0, -rgbAdjust);
-		}
-		if (key == GLFW_KEY_G)
-		{
-			gGraphicsToObject->AdjustColour(1, -rgbAdjust);
-		}
-		if (key == GLFW_KEY_B)
-		{
-			gGraphicsToObject->AdjustColour(2, -rgbAdjust);
-		}
-
-
-		// Position
-		if (key == GLFW_KEY_X)
-		{
-			gGraphicsToObject->Move(0, -moveAdjust);
-		}
-		if (key == GLFW_KEY_Y)
-		{
-			gGraphicsToObject->Move(1, -moveAdjust);
-		}
-		if (key == GLFW_KEY_Z)
-		{
-			gGraphicsToObject->Move(2, -moveAdjust);
-		}
-
-		// Scale
-		if (key == GLFW_KEY_S)
-		{
-			gGraphicsToObject->Scale( -scaleAdjust);
-		}
-
-#if 0
-		// move the light
-		if (key == GLFW_KEY_A)
-		{
-			sexyLightPosition.x -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_D)
-		{
-			sexyLightPosition.x += cameraSPEED;		// Move the camera +0.01f units
-		}
-
-		// Move the camera (Q & E for up and down, along the y axis)
-		if (key == GLFW_KEY_Q)
-		{
-			sexyLightPosition.y -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_E)
-		{
-			sexyLightPosition.y += cameraSPEED;		// Move the camera +0.01f units
-		}
-
-		// Move the camera (W & S for towards and away, along the z axis)
-		if (key == GLFW_KEY_W)
-		{
-			sexyLightPosition.z -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_S)
-		{
-			sexyLightPosition.z += cameraSPEED;		// Move the camera +0.01f units
-		}
-
-		if (key == GLFW_KEY_1)
-		{
-			sexyLightConstAtten *= 0.99f;			// 99% of what it was
-		}
-		if (key == GLFW_KEY_2)
-		{
-			sexyLightConstAtten *= 1.01f;			// 1% more of what it was
-		}
-		if (key == GLFW_KEY_3)
-		{
-			sexyLightLinearAtten *= 0.99f;			// 99% of what it was
-		}
-		if (key == GLFW_KEY_4)
-		{
-			sexyLightLinearAtten *= 1.01f;			// 1% more of what it was
-		}
-		if (key == GLFW_KEY_5)
-		{
-			sexyLightQuadraticAtten *= 0.99f;			// 99% of what it was
-		}
-		if (key == GLFW_KEY_6)
-		{
-			sexyLightQuadraticAtten *= 1.01f;			// 1% more of what it was
-		}
-		if (key == GLFW_KEY_V)
-		{
-			sexyLightSpotInnerAngle -= 0.1f;
-		}
-		if (key == GLFW_KEY_B)
-		{
-			sexyLightSpotInnerAngle += 0.1f;
-		}
-		if (key == GLFW_KEY_N)
-		{
-			sexyLightSpotOuterAngle -= 0.1f;
-		}
-		if (key == GLFW_KEY_M)
-		{
-			sexyLightSpotOuterAngle += 0.1f;
-		}
-
-
-		if (key == GLFW_KEY_9)
-		{
-			bLightDebugSheresOn = false;
-		}
-		if (key == GLFW_KEY_0)
-		{
-			bLightDebugSheresOn = true;
-		}
-#endif
-		
-	}//if (isShiftKeyDownByAlone(mods))
-
-
-	// Camera moved to ctrl key
-	if (isCtrlKeyDownByAlone(mods))
+		gGraphicsToObject->TargetLights();
+		adjustSpeed = moveAdjust;
+	}
+	else if (key == GLFW_KEY_M)
 	{
-		// Move the camera (A & D for left and right, along the x axis)
-		if (key == GLFW_KEY_A)
-		{
-			cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_D)
-		{
-			cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
-		}
+		gGraphicsToObject->TargetModels();
+		adjustSpeed = moveAdjust;
+	}
+	else if (key == GLFW_KEY_A)
+	{
+		gGraphicsToObject->TargetGroups();
+		adjustSpeed = moveAdjust;
+	}
+	// Tab Key Shift to next visible object
+	else if (key == GLFW_KEY_TAB)
+	{
+		if (isShiftKeyDownByAlone(mods))
+			gGraphicsToObject->NextVisable();
+		else
+			gGraphicsToObject->NextVisable();
+	}
+	else if (key == GLFW_KEY_R)
+	{
+		gGraphicsToObject->AdjustColour(0, adjustSpeed * modifier);
+	}
+	else if (key == GLFW_KEY_G)
+	{
+		gGraphicsToObject->AdjustColour(1, adjustSpeed * modifier);
+	}
+	else if (key == GLFW_KEY_B)
+	{
+		gGraphicsToObject->AdjustColour(2, adjustSpeed * modifier);
+	}
 
-		// Move the camera (Q & E for up and down, along the y axis)
-		if (key == GLFW_KEY_Q)
-		{
-			cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_E)
-		{
-			cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
-		}
+	// Position
+	else if (key == GLFW_KEY_X)
+	{
+		gGraphicsToObject->Move(0, adjustSpeed * modifier);
+	}
+	else if (key == GLFW_KEY_Y)
+	{
+		gGraphicsToObject->Move(1, adjustSpeed * modifier);
+	}
+	else if (key == GLFW_KEY_Z)
+	{
+		gGraphicsToObject->Move(2, adjustSpeed * modifier);
+	}
 
-		// Move the camera (W & S for towards and away, along the z axis)
-		if (key == GLFW_KEY_W)
-		{
-			cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_S)
-		{
-			cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
-		}
+	// Rotate
+	else if (key == GLFW_KEY_LEFT)
+	{
+		gGraphicsToObject->Rotate(1, adjustSpeed);
+	}
+	else if (key == GLFW_KEY_RIGHT)
+	{
+		gGraphicsToObject->Rotate(1, -adjustSpeed);
+	}
 
+	// Scale
+	else if (key == GLFW_KEY_S)
+	{
+		gGraphicsToObject->Scale(adjustSpeed * modifier);
+	}
+
+	else if (key == GLFW_KEY_9)
+	{
+		gGraphicsToObject->SetDebug(false);
+	}
+	else if (key == GLFW_KEY_0)
+	{
+		gGraphicsToObject->SetDebug(true);
+	}
+
+	else if (key == GLFW_KEY_1)
+	{
+		gGraphicsToObject->Light(0, 0.99f);
+	}
+	else if (key == GLFW_KEY_2)
+	{
+		gGraphicsToObject->Light(0, 1.01f);
+	}
+	else if (key == GLFW_KEY_3)
+	{
+		gGraphicsToObject->Light(1, 0.99f);
+	}
+	else if (key == GLFW_KEY_4)
+	{
+		gGraphicsToObject->Light(1, 1.01f);
+	}
+	else if (key == GLFW_KEY_5)
+	{
+		gGraphicsToObject->Light(2, 0.99f);
+	}
+	else if (key == GLFW_KEY_6)
+	{
+		gGraphicsToObject->Light(2, 1.01f);
+	}
+	if (key == GLFW_KEY_V)
+	{
+//		sexyLightSpotInnerAngle -= 0.1f;
+	}
+	if (key == GLFW_KEY_B)
+	{
+//		sexyLightSpotInnerAngle += 0.1f;
+	}
+	if (key == GLFW_KEY_N)
+	{
+//		sexyLightSpotOuterAngle -= 0.1f;
+	}
+	if (key == GLFW_KEY_M)
+	{
+//		sexyLightSpotOuterAngle += 0.1f;
 	}
 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
-
 }
 
 

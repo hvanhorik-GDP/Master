@@ -263,7 +263,7 @@ bool cVAOManager_impl::FindDrawInfoByModelName(
 
 void cVAOManager_impl::DrawObject(glm::mat4 m, cObject_Model* pCurrentObject)
 {
-	if (!pCurrentObject->isVisible)			// Invisible so don't draw it
+	if (!pCurrentObject->IsVisable())			// Invisible so don't draw it
 		return;
 	// 
 				//         mat4x4_identity(m);

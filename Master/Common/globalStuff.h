@@ -5,9 +5,9 @@
 
 
 // These are defined in theMain.cpp
-extern glm::vec3 cameraEye;
-extern glm::vec3 cameraTarget;
-extern glm::vec3 upVector;
+extern glm::vec3 old_cameraEye;
+extern glm::vec3 old_cameraTarget;
+extern glm::vec3 old_upVector;
 
 extern glm::vec3 sexyLightPosition;
 extern float sexyLightConstAtten;

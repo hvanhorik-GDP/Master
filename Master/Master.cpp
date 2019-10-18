@@ -40,7 +40,9 @@ int main(int arg, char** argv)
 		libraryName = argv[1];
 	}
 	std::string inputLibrary = root + libraryName;
-	std::string outputLibrary = root + "output_" + libraryName;
+	std::size_t pos = libraryName.find(".");
+	std::string outName = libraryName.substr(0, pos) + "(output).xml";
+	std::string outputLibrary = root + outName;
 	if (loadGFLW())
 		exit(EXIT_FAILURE);
 

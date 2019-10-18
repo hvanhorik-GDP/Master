@@ -187,9 +187,11 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cLightHelper.cpp" />
+    <ClCompile Include="cLightManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cLightHelper.h" />
+    <ClInclude Include="cLightManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

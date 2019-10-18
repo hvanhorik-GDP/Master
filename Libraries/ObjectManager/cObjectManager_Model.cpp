@@ -92,7 +92,7 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 			else if (name == "debugColour")
 				object->debugColour = cFormat::LoadVec4(value);
 			else if (name == "isVisible")
-				object->isVisible = cFormat::LoadBool(value);
+				object->m_isVisable = cFormat::LoadBool(value);
 			else if (name == "disableDepthBufferTest")
 				object->disableDepthBufferTest = cFormat::LoadBool(value);
 			else if (name == "disableDepthBufferWrite")
@@ -166,9 +166,7 @@ void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* 
 	objAssetID.SetValue(writeObject->GetAssetID());
 
 	// Write all of the properties
-//	gamelibrary::Properties properties(node);
 
-//	libObject.AddProperty("meshName", "string", object->meshName);
 	libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(object->positionXYZ));
 	libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(object->rotationXYZ));
 	libObject.AddProperty("scale", "float", cFormat::PackFloat(object->scale));
@@ -190,7 +188,7 @@ void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* 
 	// Some debug stuff
 	libObject.AddProperty("isWireframe", "bool", cFormat::PackBool(object->isWireframe));
 	libObject.AddProperty("debugColour", "vec4", cFormat::PackVec4(object->debugColour));
-	libObject.AddProperty("isVisible", "bool", cFormat::PackBool(object->isVisible));
+	libObject.AddProperty("isVisible", "bool", cFormat::PackBool(object->m_isVisable));
 	libObject.AddProperty("disableDepthBufferTest", "bool", cFormat::PackBool(object->disableDepthBufferTest));
 	libObject.AddProperty("disableDepthBufferWrite", "bool", cFormat::PackBool(object->disableDepthBufferWrite));
 }

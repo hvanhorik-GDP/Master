@@ -9,10 +9,12 @@
     <ClCompile Include="cLightHelper.cpp">
       <Filter>Reference</Filter>
     </ClCompile>
+    <ClCompile Include="cLightManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cLightHelper.h">
       <Filter>Reference</Filter>
     </ClInclude>
+    <ClInclude Include="cLightManager.h" />
   </ItemGroup>
 </Project>

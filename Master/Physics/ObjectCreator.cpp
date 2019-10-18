@@ -77,7 +77,7 @@ void CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_nod
 			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
 			newPyramid->positionXYZ = pos;
 		}
-		newPyramid->isVisible = true;
+		newPyramid->SetVisable(true);
 
 		// Save the object to the object array
 		objectManager.SaveObject(newPyramid, parent);
@@ -118,7 +118,7 @@ void CreateDropBalls(int number, cObjectManager& objectManager, rapidxml::xml_no
 			int min = -50;
 			int max = 50;
 			int x = rand() % (max - min) + min;
-			int y = rand() % 50 + gMaxHeightOfPyramid;		// Minimum 20 above pyramid
+			int y = rand() % 50 + gMaxHeightOfPyramid;		// Minimum 50 above pyramid
 			int z = rand() % (max - min) + min;
 			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
 			newBall->positionXYZ = pos;

@@ -161,7 +161,7 @@ void cPhysics::TestForCollisions(iObjectManager::iObject_map& map_pGameObjects)
 			if (pA == pB)
 				assert(false);		// huh
 			// Ignore invisible objects
-			if (!pA->isVisible || !pB->isVisible)
+			if (!pA->IsVisable() || !pB->IsVisable())
 				continue;
 			// Calculate our current world coordinates
 			pA->matWorld = calculateWorldMatrix(*pA);

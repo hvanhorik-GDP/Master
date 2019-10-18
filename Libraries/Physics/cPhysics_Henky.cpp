@@ -166,7 +166,7 @@ void cPhysics_Henky::TestForCollisions(iObjectManager::iObject_map& map_pGameObj
 			if (pA == pB)
 				assert(false);		// huh
 			// Ignore invisible objects
-			if (!pA->isVisible || !pB->isVisible)
+			if (!pA->IsVisable() || !pB->IsVisable())
 				continue;
 			// Calculate our current world coordinates
 			pA->matWorld = calculateWorldMatrix(*pA);
@@ -492,9 +492,9 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 			pDebugSphere->scale = 1.0f;
 			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pDebugSphere->isVisible = true;
+			pDebugSphere->SetVisable( true );
 			cVAOManager().DrawObject(matModel, pDebugSphere);
-			pDebugSphere->isVisible = false;		// Don't display it anymore
+			pDebugSphere->SetVisable(false);		// Don't display it anymore
 		}
 
 		// How far did we penetrate the surface?

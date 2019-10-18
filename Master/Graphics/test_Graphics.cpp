@@ -21,29 +21,32 @@
 #include "AssetItems/cItem_Program.h"
 #include "AssetItems/cItem_Model.h"
 #include "AssetManager/cAssetManager.h"
+#include "../../Libraries/ObjectItems/cObject_World.h"
 
 #include "VAOManager/cVAOManager.h"
 #include "ObjectManager/cObjectManager.h"
 
-//#include "Physics/PhysicsStuff.h"
-//#include "Physics/cPhysics_Henky.h"
 #include "LowPassFilter/cLowPassFilter.h"
 #include "DebugRenderer/cDebugRenderer.h"
-#include "LightManager/cLightHelper.h"
+#include "LightManager/cLightManager.h"
 
 // Local stuff pulled out of main by Henry
 #include "Common/pFindObjectByFriendlyName.h"
-#include "Common/globalStuff.h"
 #include "Graphics_Callback.h"
-//#include "ObjectCreator.h"
 
 // Crap for now
-//#include "GDP2019/HandleDebugBallPhysics.h"
-#include "GDP2019/HandleDebugLights.h"
 #include "GDP2019/LightDebugSheres.h"
 
 int test_Graphics(gamelibrary::GameLibrary& gameLib)
 {
+	cObjectManager manager;
+	//TODO - for now only a single world
+	auto object = manager.FindObjectByName("world");
+	assert(object);
+	cObject_World* world = dynamic_cast<cObject_World*>(object);
+
+	glfwSetWindowSize(window, world->windowWidth, world->windowHeight);
+
 	// set mouse and keyboard callback
 	glfwSetKeyCallback(window, Graphics_key_callback);
 	// Set the mouse button callback
@@ -159,9 +162,10 @@ int test_Graphics(gamelibrary::GameLibrary& gameLib)
 
 		// View matrix
 		view = glm::mat4(1.0f);
-		view = glm::lookAt(cameraEye,
-						cameraTarget,
-						upVector);
+		view = glm::lookAt(world->cameraEye,
+			world->cameraTarget,
+			world->upVector);
+
 
 		glViewport(0, 0, width, height);
 
@@ -169,8 +173,12 @@ int test_Graphics(gamelibrary::GameLibrary& gameLib)
 		//  depth (or z) buffer.
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-		::HandleDebugLights(shaderProgID);
+//		::HandleDebugLights(shaderProgID);
 		//::HandleDebugPirate(pDebugRenderer);
+
+		// Lightmanager handles all lighting
+		cLightManager lightManager(shaderProgID);
+		lightManager.ApplyLights();
 
 		GLint matView_UL = glGetUniformLocation(shaderProgID, "matView");
 		GLint matProj_UL = glGetUniformLocation(shaderProgID, "matProj");

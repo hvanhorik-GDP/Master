@@ -70,6 +70,8 @@ std::string cFormat::PackBool(bool in)
 
 float cFormat::LoadFloat(const std::string& in)
 {
+	if (in.size() == 0)
+		return 0.0f;
 	return std::stof(in);
 }
 
