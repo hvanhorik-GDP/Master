@@ -87,8 +87,6 @@ int test_Graphics(gamelibrary::GameLibrary& gameLib)
 	mapLoaded["Crate"] = NULL;
 	mapLoaded["Crate2"] = NULL;
 	mapLoaded["torch"] = NULL;
-	mapLoaded["pyramid_a"] = NULL;
-	mapLoaded["pyramid_b"] = NULL;
 	//mapLoaded["De_Zeven_Provincien_large"] = NULL;
 	//mapLoaded["Kerosene_lamp_large"] = NULL;
 

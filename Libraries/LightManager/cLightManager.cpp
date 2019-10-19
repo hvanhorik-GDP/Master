@@ -274,7 +274,7 @@ void cLightManager::ApplyLight(cObject_Light& lightObject)
 		0.0f, 
 		1.0f);
 
-	//if (lightObject.DebugSpheres)
+	if (lightObject.DebugSpheres)
 	{
 		cObjectManager manager;
 		auto object = manager.FindObjectByName("debug_sphere");

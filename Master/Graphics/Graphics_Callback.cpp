@@ -44,7 +44,11 @@ void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action
 
 	int modifier = (isShiftKeyDownByAlone(mods)) ? -1 : 1;
 
-	if (key == GLFW_KEY_W)
+	if (key == GLFW_KEY_F)
+	{
+		gGraphicsToObject->Focus();
+	}
+	else if (key == GLFW_KEY_W)
 	{
 		gGraphicsToObject->TargetWorld();
 		adjustSpeed = cameraSPEED;
@@ -115,6 +119,12 @@ void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action
 		gGraphicsToObject->Scale(adjustSpeed * modifier);
 	}
 
+	// Wireframe
+	else if (key == GLFW_KEY_T)
+	{
+		gGraphicsToObject->SetWireFrame(true);
+	}
+	
 	else if (key == GLFW_KEY_9)
 	{
 		gGraphicsToObject->SetDebug(false);

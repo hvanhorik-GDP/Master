@@ -216,6 +216,20 @@ bool cObject_Model::RecieveMessage(const iMessage& message)
 			<< " s: " << scale;
 		glfwSetWindowTitle(window, ssTitle.str().c_str());
 	}
+	else if (tokens[0] == "wire")
+	{
+		float value = cFormat::LoadBool(tokens[1]);
+		isWireframe = !isWireframe;
+		libObject.AddProperty("isWireframe", "bool", cFormat::PackBool(isWireframe));
+
+		std::stringstream ssTitle;
+		ssTitle << std::fixed << std::setprecision(4)
+			<< "Model: "
+			<< "WireFrame: "
+			<< "Object: " << GetName().substr(0, 8)
+			<< " w: " << cFormat::PackBool(isWireframe);
+		glfwSetWindowTitle(window, ssTitle.str().c_str());
+	}
 	else
 	{
 		std::cout << "cObject_Group::RecieveMessage(): "

@@ -38,7 +38,8 @@ public:
 	// Recieve a message and reply
 	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
 
-private:
+	//TODO - hack
+public:
 	friend class cObjectManager_Light;
 	friend class cLightManager;
 	std::string shaderEntry;		// theLights[x]

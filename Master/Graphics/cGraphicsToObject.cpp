@@ -5,6 +5,9 @@
 #include "ObjectManager/cObjectManager.h"
 #include "ObjectItems/cObject_Group.h"
 #include "ObjectItems/cObject_Model.h"
+#include "ObjectItems/cObject_World.h"
+#include "ObjectItems/cObject_Light.h"
+#include "Physics/cPhysics_Henky.h"
 
 #include "GLCommon.h"
 #include <sstream>
@@ -165,6 +168,67 @@ void cGraphicsToObject::SetDebug(bool value)
 	msg.SetMessageString(text);
 
 	bool ok = cMessageManager().SendMessage(msg);
+}
+void cGraphicsToObject::SetWireFrame(bool value)
+{
+	bool m_debug = false;
+	if (!m_CurrentObject)
+		return;
+	std::string name = m_CurrentObject->GetName();
+	cMessage_XML msg(name, gGraphicsObjectName);
+	std::string text = "wire," + cFormat::PackBool(value);
+	msg.SetMessageString(text);
+
+	bool ok = cMessageManager().SendMessage(msg);
+
+}
+
+void cGraphicsToObject::Focus()
+{
+	if (!m_CurrentObject)
+		return;
+	cObjectManager objectManager;
+
+	auto object = objectManager.FindObjectByName("world");
+	assert(object);
+	cObject_World* world = dynamic_cast<cObject_World*>(object);
+
+	glm::vec3 targetPos;
+	auto camera = world->cameraEye;
+	iObject* parent = NULL;
+	if (m_CurrentObject->GetType() == "model")
+	{
+		cObject_Model* model = dynamic_cast<cObject_Model*> (m_CurrentObject);
+		targetPos = model->positionXYZ;
+		parent = model->GetParentObject();
+	}
+	else if (m_CurrentObject->GetType() == "group")
+	{
+		cObject_Group* group = dynamic_cast<cObject_Group*> (m_CurrentObject);
+		targetPos = group->positionXYZ;
+		parent = group->GetParentObject();
+	}
+	else if (m_CurrentObject->GetType() == "light")
+	{
+		cObject_Light* light = dynamic_cast<cObject_Light*> (m_CurrentObject);
+		targetPos = light->positionXYZ;
+		parent = light->GetParentObject();
+	}
+	else
+	{
+		return;
+	}
+	// We need to transform the matrix if it's in a group
+	glm::mat4x4 m(1);
+	if (parent)
+		m = cPhysics_Henky::calculateWorldMatrix(*parent);
+	targetPos = m * glm::vec4(targetPos, 1.0f);
+
+	auto camerposition = glm::vec3(targetPos.x - 15, targetPos.y, targetPos.z );
+//	auto cameradirection = glm::vec3(0, 0, 10);
+
+	world->cameraEye = camerposition;
+	world->cameraTarget = targetPos;
 }
 
 const std::string& cGraphicsToObject::GetMyUID() const

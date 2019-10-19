@@ -462,13 +462,13 @@
 			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
 			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
 			<Property name="constantAttenuation" type="float" value="0.00002"/>
-			<Property name="linearAttenuation" type="float" value="0.191331"/>
+			<Property name="linearAttenuation" type="float" value="0.03"/>
 			<Property name="quadradicAttenuation" type="float" value="0.00002"/>
 			<Property name="distanceCutOff" type="float" value="1000000.0"/>
 			<Property name="spotInnerangle" type="float" value="0.0"/>
 			<Property name="spotOuterangle" type="float" value="0.0"/>
 			<Property name="direction" type="vec3" value="0 -1 0"/>
-			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isVisible" type="bool" value="false"/>
 			<Property name="DebugSpheres" type="bool" value="false"/>
 		</Object>
 		<Object name="Bomb" type="model" asset_id="Bomb">
@@ -678,14 +678,14 @@
 			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
 			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
 			<Property name="constantAttenuation" type="float" value="0.00002"/>
-			<Property name="linearAttenuation" type="float" value="2.649947"/>
+			<Property name="linearAttenuation" type="float" value="1.115008"/>
 			<Property name="quadradicAttenuation" type="float" value="0.000012"/>
 			<Property name="distanceCutOff" type="float" value="1000000.0"/>
 			<Property name="spotInnerangle" type="float" value="0.0"/>
 			<Property name="spotOuterangle" type="float" value="0.0"/>
 			<Property name="direction" type="vec3" value="0 -1 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="DebugSpheres" type="bool" value="false"/>
+			<Property name="DebugSpheres" type="bool" value="true"/>
 		</Object>
 		<Object type="light" name="Sky_Pirate_light_2" asset_id="">
 			<Property name="shaderEntry" type="string" value="theLights[5]"/>
@@ -694,14 +694,14 @@
 			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
 			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
 			<Property name="constantAttenuation" type="float" value="0.00002"/>
-			<Property name="linearAttenuation" type="float" value="0.084977"/>
+			<Property name="linearAttenuation" type="float" value="0.022754"/>
 			<Property name="quadradicAttenuation" type="float" value="0.00002"/>
 			<Property name="distanceCutOff" type="float" value="1000000.0"/>
 			<Property name="spotInnerangle" type="float" value="0.0"/>
 			<Property name="spotOuterangle" type="float" value="0.0"/>
 			<Property name="direction" type="vec3" value="0 -1 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="DebugSpheres" type="bool" value="false"/>
+			<Property name="DebugSpheres" type="bool" value="true"/>
 		</Object>
 		<Object type="group" name="Sky_Pirate_group" asset_id="">
 			<Property name="Sky_Pirate" type="alias" value="Sky_Pirate"/>
@@ -710,7 +710,7 @@
 			<Property name="Sky_Pirate_barrel" type="alias" value="Sky_Pirate_barrel"/>
 			<Property name="Sky_Pirate_treasure_chest" type="alias" value="Sky_Pirate_treasure_chest"/>
 			<Property name="positionXYZ" type="vec3" value="30  20 -30"/>
-			<Property name="rotationXYZ" type="vec3" value="0 -1.06 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="0.460001"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -799,19 +799,19 @@
 		<Object type="light" name="ship_light" asset_id="">
 			<Property name="shaderEntry" type="string" value="theLights[3]"/>
 			<Property name="lightType" type="enum" value="POINT"/>
-			<Property name="positionXYZ" type="vec3" value="0 40.1478 5"/>
-			<Property name="rotationXYZ" type="vec3" value="0 1.49 0"/>
-			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
+			<Property name="positionXYZ" type="vec3" value="0 20.1989 5"/>
+      <Property name="rotationXYZ" type="vec3" value="0 1.49 0"/>
+      <Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
 			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
-			<Property name="constantAttenuation" type="float" value="0.000006"/>
-			<Property name="linearAttenuation" type="float" value="4.539760"/>
-			<Property name="quadradicAttenuation" type="float" value="0.000043"/>
+			<Property name="constantAttenuation" type="float" value="0.00002"/>
+			<Property name="linearAttenuation" type="float" value="3.200680"/>
+			<Property name="quadradicAttenuation" type="float" value="0.000020"/>
 			<Property name="distanceCutOff" type="float" value="1000000.0"/>
 			<Property name="spotInnerangle" type="float" value="0.0"/>
 			<Property name="spotOuterangle" type="float" value="0.0"/>
 			<Property name="direction" type="vec3" value="0 -1 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="DebugSpheres" type="bool" value="false"/>
+			<Property name="DebugSpheres" type="bool" value="true"/>
 		</Object>
 		<Object type="group" name="ship_group" asset_id="">
 			<Property name="ship" type="alias" value="ship"/>
@@ -820,7 +820,7 @@
 			<Property name="ship_Crate" type="alias" value="ship_Crate"/>
 			<Property name="ship_light" type="alias" value="ship_light"/>
 			<Property name="positionXYZ" type="vec3" value="-30 20 -30"/>
-			<Property name="rotationXYZ" type="vec3" value="0 -2.74 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="0.500000"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -893,14 +893,14 @@
 			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
 			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
 			<Property name="constantAttenuation" type="float" value="0.00002"/>
-			<Property name="linearAttenuation" type="float" value="2.748490"/>
+			<Property name="linearAttenuation" type="float" value="1.739046"/>
 			<Property name="quadradicAttenuation" type="float" value="0.000020"/>
 			<Property name="distanceCutOff" type="float" value="1000000.0"/>
 			<Property name="spotInnerangle" type="float" value="0.0"/>
 			<Property name="spotOuterangle" type="float" value="0.0"/>
 			<Property name="direction" type="vec3" value="0 -1 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="DebugSpheres" type="bool" value="false"/>
+			<Property name="DebugSpheres" type="bool" value="true"/>
 		</Object>
 		<Object name="SimpleRedShip_lantern" type="model" asset_id="lantern_obj">
 			<Property name="positionXYZ" type="vec3" value="-7.33007 7.19007 0"/>
@@ -989,14 +989,14 @@
 			<Property name="spotOuterangle" type="float" value="0.0"/>
 			<Property name="direction" type="vec3" value="0 -1 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="DebugSpheres" type="bool" value="false"/>
+			<Property name="DebugSpheres" type="bool" value="true"/>
 		</Object>
 		<Object type="group" name="canoe_group" asset_id="">
 			<Property name="canoe" type="alias" value="canoe"/>
 			<Property name="canoe_light" type="alias" value="canoe_light"/>
 			<Property name="canoe_torch" type="alias" value="canoe_torch"/>
 			<Property name="positionXYZ" type="vec3" value="0 20 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0 -0.47 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
 			<Property name="scale" type="float" value="0.430001"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -1033,7 +1033,7 @@
 		</Object>
 		<Object type="world" name="world" asset_id="">
 			<Property name="ground_plane" type="alias" value="ground"/>
-			<Property name="cameraEye" type="vec3" value="112 32 22"/>
+			<Property name="cameraEye" type="vec3" value="0.0, 80.0, -80.0"/>
 			<Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
 			<Property name="upVector" type="vec3" value="0 1 0"/>
 			<Property name="debugRenderer" type="bool" value="false"/>

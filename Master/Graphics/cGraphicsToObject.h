@@ -30,6 +30,8 @@ public:
 	void Scale(float value);
 	void Light(int type, float value);
 	void SetDebug(bool value);
+	void SetWireFrame(bool value);
+	void Focus();
 
 	std::vector<iObject *> m_Objects;
 	iObject* m_CurrentObject;
