@@ -204,7 +204,7 @@ int test_Graphics(gamelibrary::GameLibrary& gameLib)
 
 		// A more general 
 //		pPhsyics->TestForCollisions(mapObjects);
-		::LightDebugSheres(shaderProgID, pTheVAOManager);
+//		::LightDebugSheres(shaderProgID, pTheVAOManager);
 
 		pDebugRenderer->RenderDebugObjects( view, projection, 0.01f );
 

@@ -10,20 +10,8 @@
     <Filter Include="Assets\shaders">
       <UniqueIdentifier>{ed592962-3f94-4b87-a466-6e6a4dfd0435}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Common">
-      <UniqueIdentifier>{00ae2ebb-3b60-4c4b-a3f1-d5e2e8ad45ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AudioTest">
-      <UniqueIdentifier>{367be525-4c8f-4a4d-85fd-2a47cf3c3703}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="OtherTest">
-      <UniqueIdentifier>{49c8020f-fa61-43a9-b058-7984683f98a8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Physics">
       <UniqueIdentifier>{c9cd8538-17fe-4a5a-9a15-da94cb3ba479}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GDP2019">
-      <UniqueIdentifier>{32b81305-143d-4239-b48c-99611c37ec06}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics">
       <UniqueIdentifier>{88c606ae-72e6-451d-ba2c-cb8bb65d3373}</UniqueIdentifier>
@@ -34,53 +22,68 @@
     <Filter Include="Assets\models\Graphics">
       <UniqueIdentifier>{7f67e0f2-b4de-48e7-97a6-83e6ed4931f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="_Exteral Reference">
+      <UniqueIdentifier>{0bdbf691-5c1a-44d6-80bc-f158e152d7a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\AudioTest">
+      <UniqueIdentifier>{367be525-4c8f-4a4d-85fd-2a47cf3c3703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\Common">
+      <UniqueIdentifier>{00ae2ebb-3b60-4c4b-a3f1-d5e2e8ad45ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\GDP2019">
+      <UniqueIdentifier>{32b81305-143d-4239-b48c-99611c37ec06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\OtherTest">
+      <UniqueIdentifier>{49c8020f-fa61-43a9-b058-7984683f98a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Master.cpp" />
     <ClCompile Include="Common\globalStuff.cpp">
-      <Filter>Common</Filter>
+      <Filter>_Exteral Reference\Common</Filter>
     </ClCompile>
     <ClCompile Include="Common\LoadGLFW.cpp">
-      <Filter>Common</Filter>
+      <Filter>_Exteral Reference\Common</Filter>
     </ClCompile>
     <ClCompile Include="Common\pFindObjectByFriendlyName.cpp">
-      <Filter>Common</Filter>
+      <Filter>_Exteral Reference\Common</Filter>
     </ClCompile>
     <ClCompile Include="AudioTest\test_Audio.cpp">
-      <Filter>AudioTest</Filter>
+      <Filter>_Exteral Reference\AudioTest</Filter>
     </ClCompile>
     <ClCompile Include="AudioTest\test_AudioEngine.cpp">
-      <Filter>AudioTest</Filter>
+      <Filter>_Exteral Reference\AudioTest</Filter>
     </ClCompile>
     <ClCompile Include="OtherTest\test_filesystem.cpp">
-      <Filter>OtherTest</Filter>
+      <Filter>_Exteral Reference\OtherTest</Filter>
     </ClCompile>
     <ClCompile Include="OtherTest\test_gl.cpp">
-      <Filter>OtherTest</Filter>
+      <Filter>_Exteral Reference\OtherTest</Filter>
     </ClCompile>
     <ClCompile Include="Physics\test_Physics.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\GLFW_Callbacks.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\HandleDebugBallPhysics.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\HandleDebugLights.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\HandleDebugPirate.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\LightDebugSheres.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\save stuff.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\test_GDP2019.cpp">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="Physics\cPhysicsTilter.cpp">
       <Filter>Physics</Filter>
@@ -104,46 +107,46 @@
   <ItemGroup>
     <ClInclude Include="Master.h" />
     <ClInclude Include="Common\globalStuff.h">
-      <Filter>Common</Filter>
+      <Filter>_Exteral Reference\Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\LoadGLFW.h">
-      <Filter>Common</Filter>
+      <Filter>_Exteral Reference\Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\pFindObjectByFriendlyName.h">
-      <Filter>Common</Filter>
+      <Filter>_Exteral Reference\Common</Filter>
     </ClInclude>
     <ClInclude Include="AudioTest\test_Audio.h">
-      <Filter>AudioTest</Filter>
+      <Filter>_Exteral Reference\AudioTest</Filter>
     </ClInclude>
     <ClInclude Include="AudioTest\test_AudioEngine.h">
-      <Filter>AudioTest</Filter>
+      <Filter>_Exteral Reference\AudioTest</Filter>
     </ClInclude>
     <ClInclude Include="OtherTest\test_filesystem.h">
-      <Filter>OtherTest</Filter>
+      <Filter>_Exteral Reference\OtherTest</Filter>
     </ClInclude>
     <ClInclude Include="OtherTest\test_gl.h">
-      <Filter>OtherTest</Filter>
+      <Filter>_Exteral Reference\OtherTest</Filter>
     </ClInclude>
     <ClInclude Include="Physics\test_Physics.h">
       <Filter>Physics</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\GLFW_Callbacks.h">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\HandleDebugBallPhysics.h">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\HandleDebugLights.h">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\HandleDebugPirate.h">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\LightDebugSheres.h">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\test_GDP2019.h">
-      <Filter>GDP2019</Filter>
+      <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="Physics\cPhysicsTilter.h">
       <Filter>Physics</Filter>
@@ -165,17 +168,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="..\assets\GraphicsLibrary(output).xml" />
+    <Xml Include="..\assets\GraphicsLibrary.xml" />
+    <Xml Include="..\assets\PhysicsLibrary(output).xml" />
+    <Xml Include="..\assets\PhysicsLibrary.xml" />
     <Xml Include="..\assets\test_GDP2019.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\GraphicsLibrary.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\PhysicsLibrary.xml">
-      <Filter>Assets</Filter>
-    </Xml>
-    <Xml Include="..\assets\GraphicsLibrary(output).xml">
-      <Filter>Assets</Filter>
+      <Filter>_Exteral Reference</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>
@@ -286,8 +284,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\assets\GraphicsKeys.txt" />
     <Text Include="..\assets\keys.txt">
-      <Filter>Assets</Filter>
+      <Filter>_Exteral Reference</Filter>
     </Text>
+    <Text Include="Readme.txt" />
   </ItemGroup>
 </Project>

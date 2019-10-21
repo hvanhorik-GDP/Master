@@ -5,6 +5,16 @@
 #include "ObjectItems/iObject.h"
 #include <map>
 
+
+// INFO6044 - iObjectManager reads in all of the for the object types from the xml file
+// It is a "singleton", "Pimpl",  "Abstract Factory", "Builder"
+// It reads all of it's information from the gamlibary XML file
+// See cObjectManage, cObjectManager_imple and each of the types and each of the different types
+// This will fill load in the "ObjectItems/iObject.h"
+//
+// objects point to assets (or not) depending on the type. for Models all of assets but lights 
+// do not
+
 #pragma comment (lib, "ObjectManager.lib")
 
 class cObjectManager;

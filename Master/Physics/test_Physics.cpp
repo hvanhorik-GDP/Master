@@ -24,13 +24,14 @@
 
 #include "VAOManager/cVAOManager.h"
 #include "ObjectManager/cObjectManager.h"
-#include "../../Libraries/ObjectItems/cObject_World.h"
+#include "ObjectItems/cObject_World.h"
 
 #include "Physics/PhysicsStuff.h"
 #include "Physics/cPhysics_Henky.h"
 #include "LowPassFilter/cLowPassFilter.h"
 #include "DebugRenderer/cDebugRenderer.h"
-#include "LightManager/cLightHelper.h"
+#include "LightManager/cLightManager.h"
+#include "cPhysicsTilter.h"
 
 // Local stuff pulled out of main by Henry
 #include "Common/pFindObjectByFriendlyName.h"
@@ -41,6 +42,10 @@
 #include "GDP2019/HandleDebugBallPhysics.h"
 #include "GDP2019/HandleDebugLights.h"
 #include "GDP2019/LightDebugSheres.h"
+
+
+extern cPhysicsTilter* gTilter;		// TODO - Hack
+
 
 int test_Physics(gamelibrary::GameLibrary& gameLib)
 {
@@ -68,18 +73,12 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	// A handy list of everthing we want to load.
 	// We don't want to load everything into the VAO
 	// TODO - This should be read from the database XML file
-
 	std::map<std::string, cItem_Model*> mapLoaded;
-//	mapLoaded["Cube_1_Unit_from_origin_XYZ_n"] = NULL;
-//	mapLoaded["cube_Hi_Res_xyz_n"] = NULL;
 	mapLoaded["cube_Low_Res_xyz_n"] = NULL;
 	mapLoaded["pyramid"] = NULL;
 	mapLoaded["pyramid_3"] = NULL;
 	mapLoaded["pyramid_a"] = NULL;
-//	mapLoaded["pyramid_b"] = NULL;
 	mapLoaded["Sphere_Radius_1_XYZ_n"] = NULL;
-//	mapLoaded["12953_ChocolateRabbit_v1"] = NULL;
-//	mapLoaded["Large_Physics_Bunny_XYZ_n"] = NULL;
 	
 	// Load up all of the mesh we need for this run
 	for (auto it : mapLoaded)
@@ -114,8 +113,16 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	// TODO - Create a bunch of objects for our simulation
 	// Note - the pyramids need to be place in a group with the world object
 	// so that they can all be rotated together
-	CreatePyramids(12, objectManager, objectsLib.GetNode());
-	CreateDropBalls(30, objectManager, objectsLib.GetNode());
+	CreatePyramids(10, objectManager, objectsLib.GetNode());
+	CreateDropBalls(100, objectManager, objectsLib.GetNode());
+
+	// Do an initial tilter
+	gTilter = new cPhysicsTilter();
+	int random = rand() % 1;
+	int plane = (random == 0) ? 0 : 2;		// x or z axis tilt
+	random = rand() % 1000 + 100;
+	float planeTilt = 0.0005f * random;
+	gTilter->tiltPlane(plane, planeTilt);
 
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
 
@@ -123,7 +130,6 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	glEnable(GL_DEPTH_TEST);	// Test with buffer when drawing
 
 	cPhysics_Henky* pPhsyics = new cPhysics_Henky();
-//	pPhsyics->SetDebugRenderer(pDebugRenderer);
 	cLowPassFilter avgDeltaTimeThingy;
 
 	// Get the initial time
@@ -169,8 +175,8 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 		//  depth (or z) buffer.
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-		::HandleDebugLights(shaderProgID);
-		//::HandleDebugPirate(pDebugRenderer);
+		cLightManager lightManager(shaderProgID);
+		lightManager.ApplyLights();
 
 		GLint matView_UL = glGetUniformLocation(shaderProgID, "matView");
 		GLint matProj_UL = glGetUniformLocation(shaderProgID, "matProj");
@@ -198,7 +204,7 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 
 		// A more general 
 		pPhsyics->TestForCollisions(mapObjects);
-		::LightDebugSheres(shaderProgID, pTheVAOManager);
+//		::LightDebugSheres(shaderProgID, pTheVAOManager);
 
 		pDebugRenderer->RenderDebugObjects( view, projection, 0.01f );
 

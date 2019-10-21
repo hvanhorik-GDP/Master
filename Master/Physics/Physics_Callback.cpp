@@ -20,50 +20,45 @@ static bool isCtrlKeyDownByAlone(int mods);
 
 
 
-static cPhysicsTilter* gTilter = NULL;
+cPhysicsTilter* gTilter = NULL;
 
 
 void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
+	// Ignore key up (double hit)
+	if (action == 0)
+		return;
+
 	if (!gTilter)
 		gTilter = new cPhysicsTilter();
 
 	const float cameraSPEED = 2.0f;
 
+	cObjectManager manager;
+	//TODO - for now only a single world
+	auto object = manager.FindObjectByName("world");
+	assert(object);
+	cObject_World* world = dynamic_cast<cObject_World*>(object);
+
 	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
 	{
-		cObjectManager manager;
-		//TODO - for now only a single world
-		auto object = manager.FindObjectByName("world");
-		assert(object);
-		cObject_World* world = dynamic_cast<cObject_World*>(object);
 
-		// Move the camera (A & D for left and right, along the x axis)
-		if (key == GLFW_KEY_A)
+		if (key == GLFW_KEY_T)
 		{
-			world->cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
+			gTilter->track();			// Turn on ball tracking
 		}
-		if (key == GLFW_KEY_D)
+										// Move the camera (A & D for left and right, along the x axis)
+		if (key == GLFW_KEY_X)
 		{
 			world->cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
 		}
 
-		// Move the camera (Q & E for up and down, along the y axis)
-		if (key == GLFW_KEY_Q)
-		{
-			world->cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_E)
+		if (key == GLFW_KEY_Y)
 		{
 			world->cameraEye.y += cameraSPEED;		// Move the camera +0.01f units
 		}
 
-		// Move the camera (W & S for towards and away, along the z axis)
-		if (key == GLFW_KEY_W)
-		{
-			world->cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_S)
+		if (key == GLFW_KEY_Z)
 		{
 			world->cameraEye.z += cameraSPEED;		// Move the camera +0.01f units
 		}
@@ -93,95 +88,23 @@ void Physics_key_callback(GLFWwindow* window, int key, int scancode, int action,
 
 	if (isShiftKeyDownByAlone(mods))
 	{
-		// move the light
-		if (key == GLFW_KEY_A)
+		if (key == GLFW_KEY_X)
 		{
-			sexyLightPosition.x -= cameraSPEED;		// Move the camera -0.01f units
+			world->cameraEye.x -= cameraSPEED;		// Move the camera -0.01f units
 		}
-		if (key == GLFW_KEY_D)
-		{
-			sexyLightPosition.x += cameraSPEED;		// Move the camera +0.01f units
-		}
-
 		// Move the camera (Q & E for up and down, along the y axis)
-		if (key == GLFW_KEY_Q)
+		if (key == GLFW_KEY_Y)
 		{
-			sexyLightPosition.y -= cameraSPEED;		// Move the camera -0.01f units
+			world->cameraEye.y -= cameraSPEED;		// Move the camera -0.01f units
 		}
-		if (key == GLFW_KEY_E)
-		{
-			sexyLightPosition.y += cameraSPEED;		// Move the camera +0.01f units
-		}
-
 		// Move the camera (W & S for towards and away, along the z axis)
-		if (key == GLFW_KEY_W)
+		if (key == GLFW_KEY_Z)
 		{
-			sexyLightPosition.z -= cameraSPEED;		// Move the camera -0.01f units
-		}
-		if (key == GLFW_KEY_S)
-		{
-			sexyLightPosition.z += cameraSPEED;		// Move the camera +0.01f units
-		}
-
-		if (key == GLFW_KEY_1)
-		{
-			sexyLightConstAtten *= 0.99f;			// 99% of what it was
-		}
-		if (key == GLFW_KEY_2)
-		{
-			sexyLightConstAtten *= 1.01f;			// 1% more of what it was
-		}
-		if (key == GLFW_KEY_3)
-		{
-			sexyLightLinearAtten *= 0.99f;			// 99% of what it was
-		}
-		if (key == GLFW_KEY_4)
-		{
-			sexyLightLinearAtten *= 1.01f;			// 1% more of what it was
-		}
-		if (key == GLFW_KEY_5)
-		{
-			sexyLightQuadraticAtten *= 0.99f;			// 99% of what it was
-		}
-		if (key == GLFW_KEY_6)
-		{
-			sexyLightQuadraticAtten *= 1.01f;			// 1% more of what it was
-		}
-		if (key == GLFW_KEY_V)
-		{
-			sexyLightSpotInnerAngle -= 0.1f;
-		}
-		if (key == GLFW_KEY_B)
-		{
-			sexyLightSpotInnerAngle += 0.1f;
-		}
-		if (key == GLFW_KEY_N)
-		{
-			sexyLightSpotOuterAngle -= 0.1f;
-		}
-		if (key == GLFW_KEY_M)
-		{
-			sexyLightSpotOuterAngle += 0.1f;
-		}
-
-
-		if (key == GLFW_KEY_9)
-		{
-			bLightDebugSheresOn = false;
-		}
-		if (key == GLFW_KEY_0)
-		{
-			bLightDebugSheresOn = true;
+			world->cameraEye.z -= cameraSPEED;		// Move the camera -0.01f units
 		}
 
 	}//if (isShiftKeyDownByAlone(mods))
 
-
-	// Moving the pirate ship in a certain direction
-	if (isCtrlKeyDownByAlone(mods))
-	{
-
-	}
 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
@@ -215,7 +138,6 @@ bool isCtrlKeyDownByAlone(int mods)
 }
 
 
-
 void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	// Move the sphere to where the camera is and shoot the ball from there...
@@ -244,9 +166,10 @@ void Physics_mouse_button_callback(GLFWwindow* window, int button, int action, i
 		glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
 		pTheBall->positionXYZ = pos;
 	}
-	int scale = rand() % 5;
-	pTheBall->scale = float(scale);
-	pTheBall->SPHERE_radius = float(scale);
+	// HACK - TODO - turn off scale
+//	int scale = rand() % 5;
+//	pTheBall->scale = float(scale);
+//	pTheBall->SPHERE_radius = float(scale);
 	pTheBall->velocity = glm::vec3(0.0f, 1.0f, 0.0f);
 	pTheBall->accel = glm::vec3(0.0f, 0.0f, 0.0f);
 	pTheBall->inverseMass = 1.0f;

@@ -4,6 +4,13 @@
 #include <string>
 #include <rapidxml/rapidxml.hpp>
 
+// INFO6044 - AssetManager reads in all of the for the project
+// including Audio/Models/Shaders etc.
+// It is a "singleton", "Pimpl",  "Abstract Factory", "Builder"
+// It reads all of it's information from the gamlibary XML file
+// See cAssetManager, cAssetManager_impl, and each of the different types
+// This will fill load in the "AssetItems/iItems.h"
+
 class iItem;
 
 

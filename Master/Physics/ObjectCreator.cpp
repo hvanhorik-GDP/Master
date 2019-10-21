@@ -52,8 +52,8 @@ void CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_nod
 		cObject_Model* newPyramid = dynamic_cast<cObject_Model*>(temp);
 		assert(newPyramid);
 
-		float newscale = float((rand()) % 100 + 1);
-		newscale /= 90;
+		float newscale = float((rand()) % 40 + 30);
+		newscale /= 120;
 		newPyramid->scale = newscale;
 		if (pyramidHeight * newscale > gMaxHeightOfPyramid)
 			gMaxHeightOfPyramid = pyramidHeight * newscale;
@@ -124,8 +124,10 @@ void CreateDropBalls(int number, cObjectManager& objectManager, rapidxml::xml_no
 			newBall->positionXYZ = pos;
 		}
 		int newscale = rand() % 5;
-		newBall->scale = float(newscale);
-		newBall->SPHERE_radius = float(newscale);
+
+		//TODO - HACK - turn off scale
+		newBall->scale = 1.0;// float(newscale);
+		newBall->SPHERE_radius = 1.0;// = float(newscale);
 		objectManager.SaveObject(newBall, parent);
 	}
 }

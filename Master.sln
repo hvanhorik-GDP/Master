@@ -150,7 +150,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectItems", "Libraries\Ob
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utilities", "Libraries\Utilities\Utilities.vcxproj", "{A5EFD24D-1808-49C6-A49E-957355AC7AA1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{2E3F5B69-5FDF-4908-A685-79269A1B5BB4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_External Reference", "_External Reference", "{2E3F5B69-5FDF-4908-A685-79269A1B5BB4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Files-From-CDRom", "..\External\_Physics 6019\Files-From-CDRom\Files-From-CDRom.vcxproj", "{00B68353-9E7B-4525-98E8-766151EE4706}"
 EndProject

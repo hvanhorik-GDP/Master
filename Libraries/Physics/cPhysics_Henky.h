@@ -82,9 +82,9 @@ private:
 	// Returns true if collision, and will load collisionInfo struct
 	bool DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model*pB,
 									  sCollisionInfo &collisionInfo );
+	void sphereCollisionResponse(cObject_Model* pA, cObject_Model* pB);
 	bool DoShphereMeshCollisionTest(cObject_Model* pA, cObject_Model* pB,
 									 sCollisionInfo &collisionInfo );
-
 
 	glm::vec3  m_Gravity;
 	cDebugRenderer* mDebugRenderer;

@@ -46,6 +46,8 @@ int main(int arg, char** argv)
 	if (loadGFLW())
 		exit(EXIT_FAILURE);
 
+	// INFO6044 - loads in the game 
+
 	XMLDocument document;
 	document.Read(inputLibrary);
 
@@ -60,7 +62,9 @@ int main(int arg, char** argv)
 	cObjectManager objectManager;
 	objectManager.LoadObjects(objects.GetNode());
 
-//	test_GDP2019(gameLib);	
+	// INFO6044 -a bit of a hack since the Physics and Graphics operarate somewhat
+	// differently
+
 	if (libraryName == "PhysicsLibrary.xml")
 		test_Physics(gameLib);
 	else if(libraryName == "GraphicsLibrary.xml")
@@ -70,6 +74,10 @@ int main(int arg, char** argv)
 		assert(false);
 		std::cout << "Unknown library : " << libraryName << std::endl;
 	}
+
+	// INFO6044 - a copy of the xml is made which reflects changes to any
+	// objects during play
+
 
 	document.Write(outputLibrary);
 

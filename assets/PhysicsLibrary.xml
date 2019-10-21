@@ -181,20 +181,20 @@
 	</AssetGroup>
 	<Objects>
     <Object type="light" name="light_0" asset_id="">
-      <Property name = "shaderEntry" type = "string" value = "theLights[0]" />
-      <Property name = "lightType" type = "enum" value = "POINT" />
-      <Property name = "positionXYZ" type = "vec3" value = "0 0 0" />
-      <Property name = "diffuseColour" type = "vec4" value ="1 1 1 1"/>
-      <Property name = "specularColour" type = "vec4" value = "1 1 1 1" />
-      <Property name = "constantAttenuation" type = "float" value = "0.0000001" />
-      <Property name = "linearAttenuation" type = "float" value = "0.002" />
-      <Property name = "quadradicAttenuation" type = "float" value = "0.0000001" />
-      <Property name = "distanceCutOff" type = "float" value = "1000000.0" />
-      <Property name = "spotInnerangle" type = "float" value = "0" />
-      <Property name = "spotOuterangle" type = "float" value = "0" />
-      <Property name = "direction" type = "vec3" value = "0 -1 0" />
-      <Property name = "isVisible" type = "bool" value = "true" />
-      <Property name = "DebugSpheres" type = "bool" value = "false" />
+      <Property name="shaderEntry" type="string" value="theLights[0]"/>
+      <Property name="lightType" type="enum" value="POINT"/>
+      <Property name="positionXYZ" type="vec3" value="-25.0 200.0 0.0"/>
+      <Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
+      <Property name="specularColour" type="vec4" value="1 1 1 1"/>
+      <Property name="constantAttenuation" type="float" value="0.0000001"/>
+      <Property name="linearAttenuation" type="float" value="0.005"/>
+      <Property name="quadradicAttenuation" type="float" value="0.0000001"/>
+      <Property name="distanceCutOff" type="float" value="1000000.0"/>
+      <Property name="spotInnerangle" type="float" value="0.0"/>
+      <Property name="spotOuterangle" type="float" value="0.0"/>
+      <Property name="direction" type="vec3" value="0 -1 0"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="DebugSpheres" type="bool" value="false"/>  
     </Object>
     <Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
 			<Property name="positionXYZ" type="vec3" value="15 30 15"/>
@@ -219,7 +219,7 @@
 		<Object name="Drop_Sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
 			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="2.000000"/>
+			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
 			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
 			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
@@ -230,7 +230,7 @@
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="AABB_min" type="vec3" value="0 0 0"/>
 			<Property name="AABB_max" type="vec3" value="0 0 0"/>
-			<Property name="SPHERE_radius" type="float" value="2.000000"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
 			<Property name="isWireframe" type="bool" value="false"/>
 			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
@@ -275,7 +275,7 @@
       <Property name="SPHERE_radius" type="float" value="0.000000"/>
       <Property name="isWireframe" type="bool" value="false"/>
       <Property name="debugColour" type="vec4" value="0 0 0 0"/>
-      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="isVisible" type="bool" value="false"/>
       <Property name="disableDepthBufferTest" type="bool" value="false"/>
       <Property name="disableDepthBufferWrite" type="bool" value="false"/>
     </Object>
@@ -433,12 +433,17 @@
       <Property name="scale" type="float" value="1.000000"/>
       <Property name="velocity" type="vec3" value="0 0 0"/>
       <Property name="accel" type="vec3" value="0 0 0"/>
-      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="isVisible" type="bool" value="true"/>
     </Object>
    
     <Object type="world" name="world" asset_id="">
       <Property name="ground_plane" type="alias" value="ground"/>
-    </Object>
+      <Property name="cameraEye" type="vec3" value="84 32 22"/>
+      <Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
+      <Property name="upVector" type="vec3" value="0 1 0"/>
+      <Property name="debugRenderer" type="bool" value="false"/>
+      <Property name="windowWidth" type="int" value="700"/>
+      <Property name="windowHeight" type="int" value="500"/>    </Object>
   </Objects>
 </GameLibrary>
 

@@ -220,6 +220,7 @@
   <ItemGroup>
     <Xml Include="..\assets\GraphicsLibrary(output).xml" />
     <Xml Include="..\assets\GraphicsLibrary.xml" />
+    <Xml Include="..\assets\PhysicsLibrary(output).xml" />
     <Xml Include="..\assets\PhysicsLibrary.xml" />
     <Xml Include="..\assets\test_GDP2019.xml" />
   </ItemGroup>
@@ -261,7 +262,9 @@
     <None Include="..\assets\shaders\vertexShader01.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\assets\GraphicsKeys.txt" />
     <Text Include="..\assets\keys.txt" />
+    <Text Include="Readme.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

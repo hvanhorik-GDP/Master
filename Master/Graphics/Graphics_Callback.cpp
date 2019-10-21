@@ -106,11 +106,11 @@ void Graphics_key_callback(GLFWwindow* window, int key, int scancode, int action
 	// Rotate
 	else if (key == GLFW_KEY_LEFT)
 	{
-		gGraphicsToObject->Rotate(1, adjustSpeed);
+		gGraphicsToObject->Rotate(0, adjustSpeed);
 	}
 	else if (key == GLFW_KEY_RIGHT)
 	{
-		gGraphicsToObject->Rotate(1, -adjustSpeed);
+		gGraphicsToObject->Rotate(0, -adjustSpeed);
 	}
 
 	// Scale

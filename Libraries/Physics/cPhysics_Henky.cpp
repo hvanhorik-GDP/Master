@@ -40,13 +40,10 @@ void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjec
 		// Get a pointer to the current object (makes the code a little clearer)
 		cObject_Model* pCurObj = dynamic_cast<cObject_Model*>(object.second);
 		assert(pCurObj);
-		if (pCurObj->inverseMass != 0.0f)
-		{
-			// We still need to hack the gravity till we move this into
-			// it's own space. Probably the world
-			pCurObj->accel = this->m_Gravity;
-			pCurObj->IntegrationStep(deltaTime);
-		}
+		// TODO - hack We still need to hack the gravity till we move this into
+		// it's own space. Probably the world
+		pCurObj->accel = this->m_Gravity;
+		pCurObj->IntegrationStep(deltaTime);
 	}//for (unsigned int index = 0;
 
 	return;
@@ -202,11 +199,6 @@ void cPhysics_Henky::TestForCollisions(iObjectManager::iObject_map& map_pGameObj
 	} //for (auto outerObject = outer; outerObject != outerend; ++outerObject)
 }
 
-bool cPhysics_Henky::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model* pB,
-								 sCollisionInfo& collisionInfo)
-{
-	return false;
-}
 
 // Takes a mesh in "model space" and converts it into "world space"
 void cPhysics_Henky::CalculateTransformedMesh(cItem_Model& originalMesh, glm::mat4 matWorld,
@@ -442,6 +434,117 @@ void cPhysics_Henky::GetClosestTriangleToPoint_Henry_save(
 	return;
 }
 
+void cPhysics_Henky::SetDebugRenderer(cDebugRenderer* pDebugRenderer)
+{
+	mDebugRenderer = pDebugRenderer;
+}
+
+
+void cPhysics_Henky::boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit, glm::vec3& maxLimit)
+{
+	auto mesh = pObject.GetItem();
+	assert(mesh);
+	cItem_Model* objectItem = dynamic_cast<cItem_Model*>(mesh);
+	assert(objectItem);
+	float min = std::numeric_limits<float>::min();
+	float max = std::numeric_limits<float>::max();
+	glm::vec3 minSoFar(max, max, max);
+	glm::vec3 maxSoFar(min, min, min);
+	for (auto vertice : objectItem->m_vecVertices)
+	{
+		if (vertice.x > maxSoFar.x)
+			maxSoFar.x = vertice.x;
+		if (vertice.y > maxSoFar.y)
+			maxSoFar.y = vertice.y;
+		if (vertice.z > maxSoFar.z)
+			maxSoFar.z = vertice.z;
+
+		if (vertice.x < minSoFar.x)
+			minSoFar.x = vertice.x;
+		if (vertice.y < minSoFar.y)
+			minSoFar.y = vertice.y;
+		if (vertice.z < minSoFar.z)
+			minSoFar.z = vertice.z;
+	}
+	minLimit = minSoFar;
+	maxLimit = maxSoFar;
+}
+
+
+bool cPhysics_Henky::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model* pB,
+	sCollisionInfo& collisionInfo)
+{
+	glm::vec3 distance = pA->positionXYZ - pB->positionXYZ;
+	float size = glm::length(distance);
+	float radiusSum = pA->SPHERE_radius + pB->SPHERE_radius;
+	bool colide = size <= radiusSum;
+
+	if (colide)
+	{
+		sphereCollisionResponse(pA, pB);
+		return true;
+	}
+	return false;
+}
+
+// Borrowed from Michael
+void cPhysics_Henky::sphereCollisionResponse(cObject_Model* pA, cObject_Model* pB)
+{
+
+	float m1, m2, x1, x2;
+	glm::vec3 v1, v2, v1x, v2x, v1y, v2y; 
+	glm::vec3 x(pA->positionXYZ - pB->positionXYZ);
+
+	assert(pA->scale == 1.0f);
+	assert(pB->scale == 1.0f);
+
+	glm::normalize(x);
+	v1 = pA->velocity;
+	x1 = glm::dot(x, v1);
+	v1x = x * x1;
+	v1y = v1 - v1x;
+	m1 = pA->inverseMass;
+
+	x = x * -1.0f;
+	v2 = pB->velocity;
+	x2 = glm::dot(x, v2);
+	v2x = x * x2;
+	v2y = v2 - v2x;
+	m2 = pB->inverseMass;
+
+	//set the position of the spheres to their previous non contact positions to unstick them.
+	pA->positionXYZ = pA->previousPosition;
+	pB->positionXYZ = pB->previousPosition;
+
+	// Swap the colours to denote a hit
+	auto aColour = pA->objectColourRGBA;
+	pA->objectColourRGBA = pB->objectColourRGBA;
+	pB->objectColourRGBA = aColour;
+	//std::cout << "pA - hit: "
+	//	<< " x: " << pA->velocity.x
+	//	<< " y: " << pA->velocity.y
+	//	<< " z: " << pA->velocity.z;
+	pA->velocity = glm::vec3(v1x * (m1 - m2) / (m1 + m2) + v2x * (2 * m2) / (m1 + m2) + v1y) / 4.0f;
+	pA->velocity -= pA->bounce;
+	//std::cout << " to: "
+	//	<< " x: " << pA->velocity.x
+	//	<< " y: " << pA->velocity.y
+	//	<< " z: " << pA->velocity.z
+	//	<< std::endl;
+	//std::cout << "pb - hit: "
+	//	<< " x: " << pB->velocity.x
+	//	<< " y: " << pB->velocity.y
+	//	<< " z: " << pB->velocity.z;
+	pB->velocity = glm::vec3(v1x * (2 * m1) / (m1 + m2) + v2x * (m2 - m1) / (m1 + m2) + v2y) / 4.0f;
+	pB->velocity -= pB->bounce;
+	//std::cout << " to: "
+	//	<< " x: " << pB->velocity.x
+	//	<< " y: " << pB->velocity.y
+	//	<< " z: " << pB->velocity.z
+	//	<< std::endl << std::endl;
+
+}
+
 bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_Model* pModel,
 	sCollisionInfo& collisionInfo)
 {
@@ -481,7 +584,7 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		mDebugRenderer->addLine(centreOfTriangle,
 			normalInWorld,
 			glm::vec3(1.0f, 1.0f, 0.0f));
-	
+
 		{
 			cObjectManager objectManager;
 			auto object = objectManager.FindObjectByName("debug_sphere");
@@ -492,7 +595,7 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 			pDebugSphere->scale = 1.0f;
 			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
 			pDebugSphere->isWireframe = true;
-			pDebugSphere->SetVisable( true );
+			pDebugSphere->SetVisable(true);
 			cVAOManager().DrawObject(matModel, pDebugSphere);
 			pDebugSphere->SetVisable(false);		// Don't display it anymore
 		}
@@ -545,13 +648,25 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 
 		// 5. Reposition sphere 
 		pSphere->positionXYZ += (vecPositionAdjust);
-	//	pSphere->inverseMass = 0.0f;
+		//	pSphere->inverseMass = 0.0f;
 
-					// ************************************************************************
+		// Push back the sphere to previous position to stop overlap
+//		pSphere->positionXYZ = pSphere->previousPosition;
+//		pSphere->velocity = pSphere->previousVelocity;
+		// TODO - test - Models will be moving in the future
+//		if (pModel->inverseMass != 0.0f)
+//		{
+//			pModel->positionXYZ = pModel->previousPosition;
+//			pModel->velocity = pModel->previousVelocity;
+//		}
 
 
-					// Is in contact with the triangle... 
-					// Calculate the response vector off the triangle. 
+
+		// ************************************************************************
+
+
+		// Is in contact with the triangle... 
+		// Calculate the response vector off the triangle. 
 		glm::vec3 velocityVector = glm::normalize(pSphere->velocity);
 
 		// closestTriangle.normal
@@ -559,7 +674,7 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		reflectionVec = glm::normalize(reflectionVec);
 
 		// Stop the sphere and draw the two vectors...
-	//			pShpere->inverseMass = 0.0f;	// Stopped
+		//			pShpere->inverseMass = 0.0f;	// Stopped
 
 		glm::vec3 velVecX20 = velocityVector * 10.0f;
 		if (mDebugRenderer)
@@ -597,39 +712,3 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 	return false;
 }
 
-
-void cPhysics_Henky::SetDebugRenderer(cDebugRenderer* pDebugRenderer)
-{
-	mDebugRenderer = pDebugRenderer;
-}
-
-
-void cPhysics_Henky::boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit, glm::vec3& maxLimit)
-{
-	auto mesh = pObject.GetItem();
-	assert(mesh);
-	cItem_Model* objectItem = dynamic_cast<cItem_Model*>(mesh);
-	assert(objectItem);
-	float min = std::numeric_limits<float>::min();
-	float max = std::numeric_limits<float>::max();
-	glm::vec3 minSoFar(max, max, max);
-	glm::vec3 maxSoFar(min, min, min);
-	for (auto vertice : objectItem->m_vecVertices)
-	{
-		if (vertice.x > maxSoFar.x)
-			maxSoFar.x = vertice.x;
-		if (vertice.y > maxSoFar.y)
-			maxSoFar.y = vertice.y;
-		if (vertice.z > maxSoFar.z)
-			maxSoFar.z = vertice.z;
-
-		if (vertice.x < minSoFar.x)
-			minSoFar.x = vertice.x;
-		if (vertice.y < minSoFar.y)
-			minSoFar.y = vertice.y;
-		if (vertice.z < minSoFar.z)
-			minSoFar.z = vertice.z;
-	}
-	minLimit = minSoFar;
-	maxLimit = maxSoFar;
-}

@@ -55,6 +55,7 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 	std::string friendlyName;
 
 	glm::vec3  positionXYZ;
+	glm::vec3  previousPosition;
 	glm::vec3  rotationXYZ;
 	float scale;
 
@@ -71,6 +72,7 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 
 
 	// Add some physics things
+	glm::vec3  previousVelocity;
 	glm::vec3 velocity;
 	glm::vec3 accel;
 
@@ -99,4 +101,8 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 
 	bool disableDepthBufferTest;
 	bool disableDepthBufferWrite;
+	// We are being tracked by the camera
+	// TODO - HACK - This needs to be moved into a Camera Object
+	// TODO - I don't have time now to do it
+	bool debugHackTrackingMe = false;
 };

@@ -1,0 +1,30 @@
+W - Select object World (camera)
+A - Select objects Group 
+L - Select objects Lights
+M - Select objects Models
+
+Once you've selected the type of object you can
+Enter any of the command bellow and they will apply (if applicable ) to that object
+
+	TAB - Tab to next item
+
+	Shift- Shift key (reverse)
+	R - Adjust Object colour R
+	G - Adjust Object colour Group
+	B - Adjust Object colour B
+
+	Shift-  Shift key (reverse)
+	X - Move object X (sideways)
+	Y - Move object Y (up)
+	Z - Move object Z (back)
+
+	Left-Arrow - Rotate object X
+	Right-Arrow - Rotate object -X
+
+	Shift- Shift key (reverse)
+	S - scale object
+	F - Focus
+	T - set object wireframe
+	9/0 - debug sphere on/off
+
+	1,2,3,4,5,6 - Light attenuation keys
