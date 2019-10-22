@@ -16,6 +16,10 @@
     <ClCompile Include="cObjectManager_Model.cpp" />
     <ClCompile Include="cObjectManager_Video.cpp" />
     <ClCompile Include="cObjectManager_Light.cpp" />
+    <ClCompile Include="cObjectManager_Camera.cpp" />
+    <ClCompile Include="cObjectManager_ParticleEmitter.cpp" />
+    <ClCompile Include="cObjectManager_Texture.cpp" />
+    <ClCompile Include="cObjectManager_Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cObjectManager.h" />
@@ -33,6 +37,10 @@
     <ClInclude Include="cObjectManager_Model.h" />
     <ClInclude Include="cObjectManager_Video.h" />
     <ClInclude Include="cObjectManager_Light.h" />
+    <ClInclude Include="cObjectManager_Camera.h" />
+    <ClInclude Include="cObjectManager_ParticleEmitter.h" />
+    <ClInclude Include="cObjectManager_Texture.h" />
+    <ClInclude Include="cObjectManager_Window.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Reference">

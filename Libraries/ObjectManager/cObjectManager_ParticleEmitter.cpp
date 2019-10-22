@@ -1,5 +1,5 @@
-#include "cObjectManager_World.h"
-#include "ObjectItems/cObject_World.h"
+#include "cObjectManager_ParticleEmitter.h"
+#include "ObjectItems/cObject_ParticleEmitter.h"
 #include "GameLibrary/Object.h"
 #include "GameLibrary/Objects.h"
 #include "GameLibrary/Properties.h"
@@ -8,16 +8,16 @@
 
 #include <iostream>
 
-cObjectManager_World::cObjectManager_World()
+cObjectManager_ParticleEmitter::cObjectManager_ParticleEmitter()
 {
 }
 
-cObjectManager_World::~cObjectManager_World()
+cObjectManager_ParticleEmitter::~cObjectManager_ParticleEmitter()
 {
 }
 
 // Root Node of XML document which has assets
-void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
+void cObjectManager_ParticleEmitter::LoadObjects(rapidxml::xml_node<>* node)
 {
 
 	gamelibrary::Object_type objectType(node);
@@ -25,7 +25,7 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 	gamelibrary::Object_asset_id objectAssetID(node);
 
 
-	auto object = new cObject_World(
+	auto object = new cObject_ParticleEmitter(
 		objectType.GetValue(),
 		objectName.GetValue(),
 		objectAssetID.GetValue(),
@@ -45,23 +45,37 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 			std::string name = PropertyName.GetValue();
 			std::string value = PropertyValue.GetValue();
 
-			if (name == "cameraEye")
-				object->cameraEye = cFormat::LoadVec3(value);
-			else if (name == "cameraTarget")
-				object->cameraTarget = cFormat::LoadVec3(value);
-			else if (name == "upVector")
-				object->upVector = cFormat::LoadVec3(value);
-			else if (name == "windowWidth")
-				object->windowWidth = cFormat::LoadInt(value);
-			else if (name == "windowHeight")
-				object->windowHeight = cFormat::LoadInt(value);
+			//if (name == "cameraEye")
+			//	object->cameraEye = cFormat::LoadVec3(value);
+			//else if (name == "cameraTarget")
+			//	object->cameraTarget = cFormat::LoadVec3(value);
+			//else if (name == "upVector")
+			//	object->upVector = cFormat::LoadVec3(value);
+			//else if (name == "windowWidth")
+			//	object->windowWidth = cFormat::LoadInt(value);
+			//else if (name == "windowHeight")
+			//	object->windowHeight = cFormat::LoadInt(value);
 
-			// Some debug stuff
-			else if (name == "debugRenderer")
-				object->debugRenderer = cFormat::LoadBool(value);
-			else if (type == "alias")
-				object->m_mapObjects[name] = NULL;		// Just note the name (This gets filled in post processing)
-			else
+			//// Some debug stuff
+			//else if (name == "debugRenderer")
+			//	object->debugRenderer = cFormat::LoadBool(value);
+			//glm::vec3 m_acceleration;
+			//glm::vec3 m_location;
+
+			//vec_Particles m_vec_pParticles;
+
+			//// Saved for when we call Step()
+			//// These are set when we call Initialize();
+			//glm::vec3 m_minVelocity;
+			//glm::vec3 m_maxVelocity;
+			//glm::vec3 m_minDeltaPosition;
+			//glm::vec3 m_maxDeltaPosition;
+			//float m_minLifeSeconds;
+			//float m_maxLifeSeconds;
+			//int m_minParticlesPerFrame;
+			//int m_maxParticlesPerFrame;
+			//bool m_initialized;
+//			else
 			{
 				std::cout
 					<< "Unkown property found: "
@@ -85,11 +99,11 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 		m_map_objects[objectName.GetValue()] = object;
 }
 
-void cObjectManager_World::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
+void cObjectManager_ParticleEmitter::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
 {
 	assert(parent);
 	assert(inObject);
-	auto object = dynamic_cast<cObject_World*>(inObject);
+	auto object = dynamic_cast<cObject_ParticleEmitter*>(inObject);
 	assert(object);
 
 	auto writeObject = object;
@@ -105,7 +119,7 @@ void cObjectManager_World::SaveObject(iObject* inObject, rapidxml::xml_node<>* p
 			<< " AssetID: " << object->GetAssetID() << std::endl;
 
 		// Overwrite what we have - This will copy the new values into the old entries
-		writeObject = dynamic_cast<cObject_World*>(m_map_objects[object->GetName()]);
+		writeObject = dynamic_cast<cObject_ParticleEmitter*>(m_map_objects[object->GetName()]);
 	}
 	else
 		m_map_objects[object->GetName()] = object;
@@ -129,48 +143,40 @@ void cObjectManager_World::SaveObject(iObject* inObject, rapidxml::xml_node<>* p
 	gamelibrary::Object_asset_id objAssetID(node);
 	objAssetID.SetValue(writeObject->GetAssetID());
 
-	// Write all of the properties
-	libObject.AddProperty("cameraEye", "vec3", cFormat::PackVec3(object->cameraEye));
-	libObject.AddProperty("cameraTarget", "vec3", cFormat::PackVec3(object->cameraTarget));
-	libObject.AddProperty("upVector", "vec3", cFormat::PackVec3(object->upVector));
-	libObject.AddProperty("windowWidth", "float", cFormat::PackInt(object->windowWidth));
-	libObject.AddProperty("windowHeight", "float", cFormat::PackInt(object->windowHeight));
+	//glm::vec3 m_acceleration;
+	//glm::vec3 m_location;
 
-	// Some debug stuff
-	libObject.AddProperty("debugRenderer", "bool", cFormat::PackBool(object->debugRenderer));
-	for (auto alias : object->m_mapObjects)
-	{
-		libObject.AddProperty(alias.first, "alias", alias.first);
-	}
+	//vec_Particles m_vec_pParticles;
+
+	//// Saved for when we call Step()
+	//// These are set when we call Initialize();
+	//glm::vec3 m_minVelocity;
+	//glm::vec3 m_maxVelocity;
+	//glm::vec3 m_minDeltaPosition;
+	//glm::vec3 m_maxDeltaPosition;
+	//float m_minLifeSeconds;
+	//float m_maxLifeSeconds;
+	//int m_minParticlesPerFrame;
+	//int m_maxParticlesPerFrame;
+	//bool m_initialized;
+// Write all of the properties
+	//libObject.AddProperty("cameraEye", "vec3", cFormat::PackVec3(object->cameraEye));
+	//libObject.AddProperty("cameraTarget", "vec3", cFormat::PackVec3(object->cameraTarget));
+	//libObject.AddProperty("upVector", "vec3", cFormat::PackVec3(object->upVector));
+	//libObject.AddProperty("windowWidth", "float", cFormat::PackInt(object->windowWidth));
+	//libObject.AddProperty("windowHeight", "float", cFormat::PackInt(object->windowHeight));
+
 }
 
 // Retrieve the item information
-iObjectManager::iObject_map* cObjectManager_World::GetObjects(const std::string& name)
+iObjectManager::iObject_map* cObjectManager_ParticleEmitter::GetObjects(const std::string& name)
 {
 	return &m_map_objects;
 }
 
 // For debugging purposes - dumps the contents in human readable form
-std::ostream& operator<<(std::ostream& stream, const cObjectManager_World& val)
+std::ostream& operator<<(std::ostream& stream, const cObjectManager_ParticleEmitter& val)
 {
 	return stream;
 }
 
-
-void cObjectManager_World::ResolveAlias()
-{
-	cObjectManager manager;
-	for (auto group : m_map_objects)
-	{
-		auto object = dynamic_cast<cObject_World*>(group.second);
-		assert(object);
-
-		for (auto alias : object->m_mapObjects)
-		{
-			iObject* theAlias = manager.FindObjectByName(alias.first);
-			object->m_mapObjects[alias.first] = theAlias;
-			// TODO - No backpointer to world for now.
-//			theAlias->SetParentObject(object);		// Point back to the parent group
-		}
-	}
-}

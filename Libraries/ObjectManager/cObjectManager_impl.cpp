@@ -11,6 +11,10 @@
 #include "cObjectManager_Physics.h"
 #include "cObjectManager_World.h"
 #include "cObjectManager_Light.h"
+#include "cObjectManager_ParticleEmitter.h"
+#include "cObjectManager_Camera.h"
+#include "cObjectManager_Texture.h"
+#include "cObjectManager_Window.h"
 
 #include <iostream>
 //#include <stdio.h> 
@@ -33,13 +37,17 @@ void cObjectManager_impl::Init()
 	if (m_ObjectManagers.size() > 0)
 		return;
 	m_ObjectManagers["audio"] = new cObjectManager_Audio();
+	m_ObjectManagers["camera"] = new cObjectManager_Camera();
 	m_ObjectManagers["font"] = new cObjectManager_Font();
 	m_ObjectManagers["group"] = new cObjectManager_Group();
 	m_ObjectManagers["image"] = new cObjectManager_Image();
 	m_ObjectManagers["light"] = new cObjectManager_Light();
 	m_ObjectManagers["model"] = new cObjectManager_Model();
+	m_ObjectManagers["particleemitter"] = new cObjectManager_ParticleEmitter();
 	m_ObjectManagers["physics"] = new cObjectManager_Physics();
+	m_ObjectManagers["texture"] = new cObjectManager_Texture();
 	m_ObjectManagers["video"] = new cObjectManager_Video();
+	m_ObjectManagers["window"] = new cObjectManager_Window();
 	m_ObjectManagers["world"] = new cObjectManager_World();
 }
 

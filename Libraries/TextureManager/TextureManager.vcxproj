@@ -19,47 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cObject_Audio.cpp" />
-    <ClCompile Include="cObject_Camera.cpp" />
-    <ClCompile Include="cObject_Common.cpp" />
-    <ClCompile Include="cObject_Font.cpp" />
-    <ClCompile Include="cObject_Group.cpp" />
-    <ClCompile Include="cObject_Image.cpp" />
-    <ClCompile Include="cObject_Light.cpp" />
-    <ClCompile Include="cObject_Model.cpp" />
-    <ClCompile Include="cObject_Particle.cpp" />
-    <ClCompile Include="cObject_ParticleEmitter.cpp" />
-    <ClCompile Include="cObject_Physics.cpp" />
-    <ClCompile Include="cObject_Texture.cpp" />
-    <ClCompile Include="cObject_Video.cpp" />
-    <ClCompile Include="cObject_Window.cpp" />
-    <ClCompile Include="cObject_World.cpp" />
-    <ClCompile Include="iObject.cpp" />
-    <ClCompile Include="Reference\cParticleEmitter.cpp" />
+    <ClCompile Include="C24BitBMPpixel.cpp" />
+    <ClCompile Include="cBasicTextureManager.cpp" />
+    <ClCompile Include="CTextureFromBMP.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cObject_Audio.h" />
-    <ClInclude Include="cObject_Camera.h" />
-    <ClInclude Include="cObject_Common.h" />
-    <ClInclude Include="cObject_Font.h" />
-    <ClInclude Include="cObject_Group.h" />
-    <ClInclude Include="cObject_Image.h" />
-    <ClInclude Include="cObject_Light.h" />
-    <ClInclude Include="cObject_Model.h" />
-    <ClInclude Include="cObject_Particle.h" />
-    <ClInclude Include="cObject_ParticleEmitter.h" />
-    <ClInclude Include="cObject_Physics.h" />
-    <ClInclude Include="cObject_Texture.h" />
-    <ClInclude Include="cObject_Video.h" />
-    <ClInclude Include="cObject_Window.h" />
-    <ClInclude Include="cObject_World.h" />
-    <ClInclude Include="iObject.h" />
-    <ClInclude Include="Reference\cParticleEmitter.h" />
+    <ClInclude Include="C24BitBMPpixel.h" />
+    <ClInclude Include="cBasicTextureManager.h" />
+    <ClInclude Include="CTextureFromBMP.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{096c2ae7-a391-456e-87a1-ec382eaa4486}</ProjectGuid>
-    <RootNamespace>ObjectItems</RootNamespace>
+    <ProjectGuid>{0476b5da-3fa4-4f8b-a1cd-e32380b8c43d}</ProjectGuid>
+    <RootNamespace>TextureManager</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
