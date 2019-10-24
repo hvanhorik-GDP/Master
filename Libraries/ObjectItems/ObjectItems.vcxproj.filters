@@ -67,6 +67,18 @@
     <ClCompile Include="iObject.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="cObject_3d.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="iObject_3d.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="iObject_Physics.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="iObject_ChannelControl.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reference\cParticleEmitter.h">
@@ -134,6 +146,18 @@
     </ClInclude>
     <ClInclude Include="iObject.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_3d.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="iObject_3d.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="iObject_Physics.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="iObject_ChannelControl.h">
+      <Filter>Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

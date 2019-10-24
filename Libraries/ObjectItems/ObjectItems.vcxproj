@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cObject_3d.cpp" />
     <ClCompile Include="cObject_Audio.cpp" />
     <ClCompile Include="cObject_Camera.cpp" />
     <ClCompile Include="cObject_Channel.cpp" />
@@ -40,9 +41,13 @@
     <ClCompile Include="cObject_Window.cpp" />
     <ClCompile Include="cObject_World.cpp" />
     <ClCompile Include="iObject.cpp" />
+    <ClCompile Include="iObject_3d.cpp" />
+    <ClCompile Include="iObject_ChannelControl.cpp" />
+    <ClCompile Include="iObject_Physics.cpp" />
     <ClCompile Include="Reference\cParticleEmitter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cObject_3d.h" />
     <ClInclude Include="cObject_Audio.h" />
     <ClInclude Include="cObject_Camera.h" />
     <ClInclude Include="cObject_Channel.h" />
@@ -64,6 +69,9 @@
     <ClInclude Include="cObject_Window.h" />
     <ClInclude Include="cObject_World.h" />
     <ClInclude Include="iObject.h" />
+    <ClInclude Include="iObject_3d.h" />
+    <ClInclude Include="iObject_ChannelControl.h" />
+    <ClInclude Include="iObject_Physics.h" />
     <ClInclude Include="Reference\cParticleEmitter.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

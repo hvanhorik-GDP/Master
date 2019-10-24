@@ -50,7 +50,6 @@ public:
 	// Recieve a message and reply
 	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
 
-
 protected:
 	// XML stuff
 	rapidxml::xml_node<>* GetNode() const;

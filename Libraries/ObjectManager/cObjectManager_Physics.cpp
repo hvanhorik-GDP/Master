@@ -20,7 +20,7 @@ void cObjectManager_Physics::LoadObjects(rapidxml::xml_node<>* node)
 	gamelibrary::Object_asset_id asset_id(node);
 
 
-	auto object = new cObject_Physics(type.GetValue(), name.GetValue(), asset_id.GetValue(), node);
+//	auto object = new cObject_Physics(type.GetValue(), name.GetValue(), asset_id.GetValue(), node);
 }
 
 // Retrieve the item information
