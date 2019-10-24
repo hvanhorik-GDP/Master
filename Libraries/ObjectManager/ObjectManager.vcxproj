@@ -190,6 +190,8 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cObjectManager_Audio.cpp" />
     <ClCompile Include="cObjectManager_Camera.cpp" />
+    <ClCompile Include="cObjectManager_Channel.cpp" />
+    <ClCompile Include="cObjectManager_DSP.cpp" />
     <ClCompile Include="cObjectManager_Font.cpp" />
     <ClCompile Include="cObjectManager_Group.cpp" />
     <ClCompile Include="cObjectManager_Image.cpp" />
@@ -198,6 +200,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="cObjectManager_Model.cpp" />
     <ClCompile Include="cObjectManager_ParticleEmitter.cpp" />
     <ClCompile Include="cObjectManager_Physics.cpp" />
+    <ClCompile Include="cObjectManager_Sound.cpp" />
     <ClCompile Include="cObjectManager_Texture.cpp" />
     <ClCompile Include="cObjectManager_Video.cpp" />
     <ClCompile Include="cObjectManager_Window.cpp" />
@@ -209,6 +212,8 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cObjectManager_Audio.h" />
     <ClInclude Include="cObjectManager_Camera.h" />
+    <ClInclude Include="cObjectManager_Channel.h" />
+    <ClInclude Include="cObjectManager_DSP.h" />
     <ClInclude Include="cObjectManager_Font.h" />
     <ClInclude Include="cObjectManager_Group.h" />
     <ClInclude Include="cObjectManager_Image.h" />
@@ -217,6 +222,7 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="cObjectManager_Model.h" />
     <ClInclude Include="cObjectManager_ParticleEmitter.h" />
     <ClInclude Include="cObjectManager_Physics.h" />
+    <ClInclude Include="cObjectManager_Sound.h" />
     <ClInclude Include="cObjectManager_Texture.h" />
     <ClInclude Include="cObjectManager_Video.h" />
     <ClInclude Include="cObjectManager_Window.h" />

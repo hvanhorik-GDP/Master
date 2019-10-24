@@ -10,17 +10,28 @@
 class iObject
 {
 public:
+
+	// I don't think these are used
 	enum eObjectType
 	{
 		eUnknown,
-		eGroup,
 		eAudio,
-		eModel,
-		ePhysics,
-		eImage,
+		eCamera,
+		eChannel,
+		eChannelControl,
+		eChannelGroup,
+		eDSP,
+		eFont,
+		eGroup,
 		eLight,
-		eFont, 
-		eAlias,
+		eImage,
+		eModel,
+		eParticle,
+		eParticleEmitter,
+		ePhysics,
+		eTexture,
+		eVideo,
+		eWindow,
 		eWorld,
 		eMax = eWorld
 	};

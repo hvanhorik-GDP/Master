@@ -1,50 +1,141 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="cObjectManager.cpp" />
-    <ClCompile Include="cObjectManager_impl.cpp" />
-    <ClCompile Include="iObjectManager.cpp" />
     <ClCompile Include="cGameObject.cpp">
       <Filter>Reference</Filter>
     </ClCompile>
-    <ClCompile Include="cObjectManager_World.cpp" />
-    <ClCompile Include="cObjectManager_Physics.cpp" />
-    <ClCompile Include="cObjectManager_Audio.cpp" />
-    <ClCompile Include="cObjectManager_Font.cpp" />
-    <ClCompile Include="cObjectManager_Group.cpp" />
-    <ClCompile Include="cObjectManager_Image.cpp" />
-    <ClCompile Include="cObjectManager_Model.cpp" />
-    <ClCompile Include="cObjectManager_Video.cpp" />
-    <ClCompile Include="cObjectManager_Light.cpp" />
-    <ClCompile Include="cObjectManager_Camera.cpp" />
-    <ClCompile Include="cObjectManager_ParticleEmitter.cpp" />
-    <ClCompile Include="cObjectManager_Texture.cpp" />
-    <ClCompile Include="cObjectManager_Window.cpp" />
+    <ClCompile Include="cObjectManager.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Audio.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Camera.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Channel.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_DSP.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Font.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Image.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Group.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_impl.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Light.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Model.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_ParticleEmitter.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Physics.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Sound.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Texture.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Video.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_Window.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManager_World.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="iObjectManager.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cObjectManager.h" />
-    <ClInclude Include="cObjectManager_impl.h" />
-    <ClInclude Include="iObjectManager.h" />
     <ClInclude Include="cGameObject.h">
       <Filter>Reference</Filter>
     </ClInclude>
-    <ClInclude Include="cObjectManager_World.h" />
-    <ClInclude Include="cObjectManager_Physics.h" />
-    <ClInclude Include="cObjectManager_Audio.h" />
-    <ClInclude Include="cObjectManager_Font.h" />
-    <ClInclude Include="cObjectManager_Group.h" />
-    <ClInclude Include="cObjectManager_Image.h" />
-    <ClInclude Include="cObjectManager_Model.h" />
-    <ClInclude Include="cObjectManager_Video.h" />
-    <ClInclude Include="cObjectManager_Light.h" />
-    <ClInclude Include="cObjectManager_Camera.h" />
-    <ClInclude Include="cObjectManager_ParticleEmitter.h" />
-    <ClInclude Include="cObjectManager_Texture.h" />
-    <ClInclude Include="cObjectManager_Window.h" />
+    <ClInclude Include="cObjectManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Audio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Camera.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Channel.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_DSP.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Font.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Image.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Group.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_impl.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Light.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Model.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_ParticleEmitter.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Physics.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Sound.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Texture.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Video.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_Window.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_World.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="iObjectManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Reference">
       <UniqueIdentifier>{574e3283-2a6f-4810-be0f-8e8f04e5b464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{5d109f2e-bfc4-40a4-ba11-242198a1d218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{1ec2e2ac-cea0-4ce7-877d-c302ec88a842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Visual">
+      <UniqueIdentifier>{f04f3eb1-59bc-47a6-8b98-08cbfc1866db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,40 +1,153 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="cObject_Audio.cpp" />
-    <ClCompile Include="cObject_Common.cpp" />
-    <ClCompile Include="cObject_Font.cpp" />
-    <ClCompile Include="cObject_Group.cpp" />
-    <ClCompile Include="cObject_Image.cpp" />
-    <ClCompile Include="cObject_Light.cpp" />
-    <ClCompile Include="cObject_Model.cpp" />
-    <ClCompile Include="cObject_Physics.cpp" />
-    <ClCompile Include="cObject_Video.cpp" />
-    <ClCompile Include="cObject_World.cpp" />
-    <ClCompile Include="iObject.cpp" />
     <ClCompile Include="Reference\cParticleEmitter.cpp">
       <Filter>Reference</Filter>
     </ClCompile>
+    <ClCompile Include="cObject_Audio.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Channel.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_ChannelControl.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_ChannelGroup.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_DSP.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Camera.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Font.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Image.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Light.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Model.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Particle.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_ParticleEmitter.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Physics.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Texture.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Video.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Window.cpp">
+      <Filter>Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Sound.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Common.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_Group.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="cObject_World.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="iObject.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cObject_Audio.h" />
-    <ClInclude Include="cObject_Common.h" />
-    <ClInclude Include="cObject_Font.h" />
-    <ClInclude Include="cObject_Group.h" />
-    <ClInclude Include="cObject_Image.h" />
-    <ClInclude Include="cObject_Light.h" />
-    <ClInclude Include="cObject_Model.h" />
-    <ClInclude Include="cObject_Physics.h" />
-    <ClInclude Include="cObject_Video.h" />
-    <ClInclude Include="cObject_World.h" />
-    <ClInclude Include="iObject.h" />
     <ClInclude Include="Reference\cParticleEmitter.h">
       <Filter>Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Audio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Channel.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_ChannelControl.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_ChannelGroup.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_DSP.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Camera.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Font.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Image.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Light.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Model.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Particle.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_ParticleEmitter.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Physics.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Texture.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Video.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Window.h">
+      <Filter>Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Sound.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Common.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_Group.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cObject_World.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="iObject.h">
+      <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Reference">
       <UniqueIdentifier>{527f6fdd-0878-4bb5-98a6-33e984e0a83d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{006b5548-e94a-47d8-8edf-84d50062518e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Visual">
+      <UniqueIdentifier>{8f5093cf-7797-49e0-9140-bc4ed718f74a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{9cb3f216-4e63-4807-bee8-d32a6770973a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

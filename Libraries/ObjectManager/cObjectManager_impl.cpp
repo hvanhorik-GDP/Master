@@ -15,6 +15,10 @@
 #include "cObjectManager_Camera.h"
 #include "cObjectManager_Texture.h"
 #include "cObjectManager_Window.h"
+#include "cObjectManager_Channel.h"
+#include "cObjectManager_DSP.h"
+#include "cObjectManager_Sound.h"
+
 
 #include <iostream>
 //#include <stdio.h> 
@@ -39,16 +43,44 @@ void cObjectManager_impl::Init()
 	m_ObjectManagers["audio"] = new cObjectManager_Audio();
 	m_ObjectManagers["camera"] = new cObjectManager_Camera();
 	m_ObjectManagers["font"] = new cObjectManager_Font();
+	m_ObjectManagers["channel"] = new cObjectManager_Channel();
+	m_ObjectManagers["channelgroup"] = new cObjectManager_Channel();
+	m_ObjectManagers["DSP"] = new cObjectManager_DSP();
 	m_ObjectManagers["group"] = new cObjectManager_Group();
 	m_ObjectManagers["image"] = new cObjectManager_Image();
 	m_ObjectManagers["light"] = new cObjectManager_Light();
 	m_ObjectManagers["model"] = new cObjectManager_Model();
 	m_ObjectManagers["particleemitter"] = new cObjectManager_ParticleEmitter();
 	m_ObjectManagers["physics"] = new cObjectManager_Physics();
+	m_ObjectManagers["sound"] = new cObjectManager_Sound();
 	m_ObjectManagers["texture"] = new cObjectManager_Texture();
 	m_ObjectManagers["video"] = new cObjectManager_Video();
 	m_ObjectManagers["window"] = new cObjectManager_Window();
 	m_ObjectManagers["world"] = new cObjectManager_World();
+
+	enum eObjectType
+	{
+		eUnknown,
+		eAudio,
+		eCamera,
+		eChannel,
+		eChannelControl,
+		eChannelGroup,
+		eDSP,
+		eFont,
+		eGroup,
+		eLight,
+		eImage,
+		eModel,
+		eParticle,
+		eParticleEmitter,
+		ePhysics,
+		eTexture,
+		eVideo,
+		eWindow,
+		eWorld,
+		eMax = eWorld
+	};
 }
 
 cObjectManager_impl::iObject_map* cObjectManager_impl::GetObjects(const std::string& name)

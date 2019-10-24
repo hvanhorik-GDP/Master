@@ -86,9 +86,6 @@
     <ClInclude Include="cAudio_Sound_FMOD.h">
       <Filter>Sound</Filter>
     </ClInclude>
-    <ClInclude Include="cAudio_Reverb3D_FMOD.h">
-      <Filter>DSP</Filter>
-    </ClInclude>
     <ClInclude Include="cAudio_DSPConnection_FMOD.h">
       <Filter>DSP</Filter>
     </ClInclude>
@@ -101,14 +98,17 @@
     <ClInclude Include="cAudio_ChannelControl_FMOD.h">
       <Filter>Channel</Filter>
     </ClInclude>
-    <ClInclude Include="cAudio_Channel_FMOD.h">
-      <Filter>System</Filter>
-    </ClInclude>
     <ClInclude Include="cAudio_ChannelGroup_FMOD.h">
       <Filter>Channel</Filter>
     </ClInclude>
     <ClInclude Include="cAudio_Exception_FMOD.h">
       <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Channel_FMOD.h">
+      <Filter>Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="cAudio_Reverb3D_FMOD.h">
+      <Filter>Reverb3D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

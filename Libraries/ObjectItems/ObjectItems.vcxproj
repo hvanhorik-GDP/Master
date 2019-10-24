@@ -21,7 +21,11 @@
   <ItemGroup>
     <ClCompile Include="cObject_Audio.cpp" />
     <ClCompile Include="cObject_Camera.cpp" />
+    <ClCompile Include="cObject_Channel.cpp" />
+    <ClCompile Include="cObject_ChannelControl.cpp" />
+    <ClCompile Include="cObject_ChannelGroup.cpp" />
     <ClCompile Include="cObject_Common.cpp" />
+    <ClCompile Include="cObject_DSP.cpp" />
     <ClCompile Include="cObject_Font.cpp" />
     <ClCompile Include="cObject_Group.cpp" />
     <ClCompile Include="cObject_Image.cpp" />
@@ -30,6 +34,7 @@
     <ClCompile Include="cObject_Particle.cpp" />
     <ClCompile Include="cObject_ParticleEmitter.cpp" />
     <ClCompile Include="cObject_Physics.cpp" />
+    <ClCompile Include="cObject_Sound.cpp" />
     <ClCompile Include="cObject_Texture.cpp" />
     <ClCompile Include="cObject_Video.cpp" />
     <ClCompile Include="cObject_Window.cpp" />
@@ -40,7 +45,11 @@
   <ItemGroup>
     <ClInclude Include="cObject_Audio.h" />
     <ClInclude Include="cObject_Camera.h" />
+    <ClInclude Include="cObject_Channel.h" />
+    <ClInclude Include="cObject_ChannelControl.h" />
+    <ClInclude Include="cObject_ChannelGroup.h" />
     <ClInclude Include="cObject_Common.h" />
+    <ClInclude Include="cObject_DSP.h" />
     <ClInclude Include="cObject_Font.h" />
     <ClInclude Include="cObject_Group.h" />
     <ClInclude Include="cObject_Image.h" />
@@ -49,6 +58,7 @@
     <ClInclude Include="cObject_Particle.h" />
     <ClInclude Include="cObject_ParticleEmitter.h" />
     <ClInclude Include="cObject_Physics.h" />
+    <ClInclude Include="cObject_Sound.h" />
     <ClInclude Include="cObject_Texture.h" />
     <ClInclude Include="cObject_Video.h" />
     <ClInclude Include="cObject_Window.h" />
