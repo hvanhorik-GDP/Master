@@ -27,7 +27,5 @@ private:
 	glm::vec3 cameraEye;
 	glm::vec3 cameraTarget;
 	glm::vec3 upVector;
-
-
 };
 

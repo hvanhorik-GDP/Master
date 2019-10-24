@@ -63,6 +63,7 @@ void cObjectManager_Texture::LoadObjects(rapidxml::xml_node<>* node)
 //			else
 			{
 				std::cout
+					<< __FILE__
 					<< "Unkown property found: "
 					<< " Name = " << name
 					<< " Type = " << type

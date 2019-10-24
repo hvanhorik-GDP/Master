@@ -435,7 +435,18 @@
       <Property name="accel" type="vec3" value="0 0 0"/>
       <Property name="isVisible" type="bool" value="true"/>
     </Object>
-   
+    
+    <Object type="world" name="window" asset_id="">
+      <Property name="windowWidth" type="int" value="700"/>
+      <Property name="windowHeight" type="int" value="500"/>
+    </Object>
+
+    <Object type="camera" name="world" asset_id="">
+      <Property name="cameraEye" type="vec3" value="84 32 22"/>
+      <Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
+      <Property name="upVector" type="vec3" value="0 1 0"/>
+    </Object>
+  
     <Object type="world" name="world" asset_id="">
       <Property name="ground_plane" type="alias" value="ground"/>
       <Property name="cameraEye" type="vec3" value="84 32 22"/>

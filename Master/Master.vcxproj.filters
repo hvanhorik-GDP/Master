@@ -103,6 +103,7 @@
     <ClCompile Include="Graphics\cGraphicsToObject.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="OtherTest\week7.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Master.h" />

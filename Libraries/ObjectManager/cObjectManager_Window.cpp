@@ -45,24 +45,14 @@ void cObjectManager_Window::LoadObjects(rapidxml::xml_node<>* node)
 			std::string name = PropertyName.GetValue();
 			std::string value = PropertyValue.GetValue();
 
-			//if (name == "cameraEye")
-			//	object->cameraEye = cFormat::LoadVec3(value);
-			//else if (name == "cameraTarget")
-			//	object->cameraTarget = cFormat::LoadVec3(value);
-			//else if (name == "upVector")
-			//	object->upVector = cFormat::LoadVec3(value);
-			//else if (name == "windowWidth")
-			//	object->windowWidth = cFormat::LoadInt(value);
-			//else if (name == "windowHeight")
-			//	object->windowHeight = cFormat::LoadInt(value);
-
-			//// Some debug stuff
-			//else if (name == "debugRenderer")
-			//	object->debugRenderer = cFormat::LoadBool(value);
-
-//			else
+			if (name == "windowWidth")
+				object->windowWidth = cFormat::LoadInt(value);
+			else if (name == "windowHeight")
+				object->windowHeight = cFormat::LoadInt(value);
+			else
 			{
 				std::cout
+					<< __FILE__ 
 					<< "Unkown property found: "
 					<< " Name = " << name
 					<< " Type = " << type
@@ -130,11 +120,8 @@ void cObjectManager_Window::SaveObject(iObject* inObject, rapidxml::xml_node<>* 
 
 
 	// Write all of the properties
-		//libObject.AddProperty("cameraEye", "vec3", cFormat::PackVec3(object->cameraEye));
-		//libObject.AddProperty("cameraTarget", "vec3", cFormat::PackVec3(object->cameraTarget));
-		//libObject.AddProperty("upVector", "vec3", cFormat::PackVec3(object->upVector));
-		//libObject.AddProperty("windowWidth", "float", cFormat::PackInt(object->windowWidth));
-		//libObject.AddProperty("windowHeight", "float", cFormat::PackInt(object->windowHeight));
+	libObject.AddProperty("windowWidth", "float", cFormat::PackInt(object->windowWidth));
+	libObject.AddProperty("windowHeight", "float", cFormat::PackInt(object->windowHeight));
 
 }
 

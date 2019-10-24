@@ -23,5 +23,8 @@ public:
 
 private:
 	friend class cObjectManager_Window;
+	int windowWidth;
+	int windowHeight;
+
 };
 

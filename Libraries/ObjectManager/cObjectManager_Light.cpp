@@ -79,6 +79,7 @@ void cObjectManager_Light::LoadObjects(rapidxml::xml_node<>* node)
 			else
 			{
 				std::cout
+					<< __FILE__
 					<< "Unkown property found: "
 					<< " Name = " << name
 					<< " Type = " << type

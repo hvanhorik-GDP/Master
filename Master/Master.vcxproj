@@ -189,6 +189,7 @@
     <ClCompile Include="Master.cpp" />
     <ClCompile Include="OtherTest\test_filesystem.cpp" />
     <ClCompile Include="OtherTest\test_gl.cpp" />
+    <ClCompile Include="OtherTest\week7.cpp" />
     <ClCompile Include="Physics\cPhysicsTilter.cpp" />
     <ClCompile Include="Physics\ObjectCreator.cpp" />
     <ClCompile Include="Physics\Physics_Callback.cpp" />
