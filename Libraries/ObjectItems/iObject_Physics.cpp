@@ -1,6 +1,5 @@
 #include "iObject_Physics.h"
-
-
+#include "iObject.h"
 
 std::ostream& operator<<(std::ostream& stream, const iObject_Physics& val)
 {
@@ -8,3 +7,12 @@ std::ostream& operator<<(std::ostream& stream, const iObject_Physics& val)
 	return stream;
 }
 
+iObject_Physics* iObject_Physics::GetPhysicsInterface(iObject* in)
+{
+	return dynamic_cast<iObject_Physics*>(in);
+}
+
+bool iObject_Physics::HasPhysicsInterface(iObject* in)
+{
+	return (GetPhysicsInterface(in) != NULL);
+}

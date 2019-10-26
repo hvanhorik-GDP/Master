@@ -1,5 +1,6 @@
 #include "cObject_Light.h"
 #include "MessageManager/iMessage.h"
+#include "MessageManager/iMessageInterface.h"
 #include "MessageManager/cMessageManager.h"
 #include "Utilities/cFormat.h"
 #include "GameLibrary/Object.h"
@@ -18,15 +19,28 @@ cObject_Light::cObject_Light(const std::string& type,
 	const std::string& name,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
-	: cObject_Common(type, name, asset_id, node)
+	: cObject_Common()
 {
-	cMessageManager().Register(name, this);
+	// Hack for now
+	LoadCommon(type, name, asset_id, node);
 
+	cMessageManager().Register(name, this);
 }
 
 cObject_Light::~cObject_Light()
 {
 }
+
+iObject* cObject_Light::Clone(const std::string& newName)
+{
+	// Copy everything and change the name
+	cObject_Light* ret =
+		new cObject_Light(*this);
+	ret->m_name = newName;
+	ret->m_node = NULL;			// No XML so it won't update
+	return ret;
+}
+
 
 // For debugging purposes - dumps the contents in human readable form
 std::ostream& operator<<(std::ostream& stream, const cObject_Light& val)

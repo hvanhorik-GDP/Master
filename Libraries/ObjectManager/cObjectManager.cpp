@@ -43,3 +43,9 @@ iObject* cObjectManager::FindObjectByName(const std::string& objectName)
 	assert(m_cObjectManager_impl);
 	return m_cObjectManager_impl->FindObjectByName(objectName);
 }
+
+void cObjectManager::ResolveAlias()
+{
+	assert(m_cObjectManager_impl);
+	m_cObjectManager_impl->ResolveAlias();
+}

@@ -11,10 +11,8 @@ public:
 	cObject_3d();
 	virtual ~cObject_3d();
 
-	// We don't handle clone method here
-	// but instead have our own clone
-	virtual cObject_3d* Clone(const std::string& newName) = 0;
-	virtual cObject_3d* Clone_3d(const std::string& newName);
+	// objects can clone themselves (We don't do it)
+	void Copy_iObject_3d(const iObject_3d& from);
 
 	virtual const glm::vec3& GetPosition() const final;
 	virtual const glm::vec3& GetPreviousPosition() const final;
@@ -26,6 +24,8 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_3d& val);
 private:
+	friend class cObjectManagerPart_3d;
+
 	glm::vec3  positionXYZ;
 	glm::vec3  previousPosition;
 	glm::vec3  rotationXYZ;

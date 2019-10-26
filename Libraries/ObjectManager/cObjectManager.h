@@ -23,4 +23,7 @@ public:
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager& val);
+private:
+	virtual void ResolveAlias();			// Don't expose this
+
 };

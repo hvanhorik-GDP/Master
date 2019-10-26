@@ -17,6 +17,9 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Group();
 
+	virtual iObject* Clone(const std::string& newName) final;
+
+
 	virtual void IntegrationStep(float deltaTime) final;
 
 	virtual void AddChildObject(iObject* child);

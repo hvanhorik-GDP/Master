@@ -61,6 +61,21 @@
     <ClCompile Include="iObjectManager.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="iObjectManagerPart.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManagerPart_Group.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManagerPart_3d.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManagerPart_ChannelControl.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManagerPart_Physics.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cGameObject.h">
@@ -123,6 +138,21 @@
     <ClInclude Include="iObjectManager.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="iObjectManagerPart.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManagerPart_Group.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManagerPart_3d.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManagerPart_ChannelControl.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManagerPart_Physics.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Reference">
@@ -136,6 +166,9 @@
     </Filter>
     <Filter Include="Visual">
       <UniqueIdentifier>{f04f3eb1-59bc-47a6-8b98-08cbfc1866db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parts">
+      <UniqueIdentifier>{cea858c8-bd47-49ee-826d-3ca727041279}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

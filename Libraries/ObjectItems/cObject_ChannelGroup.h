@@ -16,10 +16,19 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_ChannelGroup();
 
-	virtual void IntegrationStep(float deltaTime) final {}
+	virtual iObject* Clone(const std::string& newName) final;
+
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message) final;
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply) final;
+
+	virtual void IntegrationStep(float deltaTime) final;
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_ChannelGroup& val);
+
 
 private:
 	friend class cObjectManager_ChannelGroup;

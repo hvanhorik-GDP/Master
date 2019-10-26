@@ -28,9 +28,9 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Model();
 
-	virtual void IntegrationStep(float deltaTime) final;
+	virtual iObject* Clone(const std::string& newName) final;
 
-	virtual iObject* Clone(const std::string& newName);
+	virtual void IntegrationStep(float deltaTime) final;
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Model& val);
@@ -38,12 +38,10 @@ public:
 	static std::string ShapeTypeToString(cObject_Model::eShapeTypes in);
 	static cObject_Model::eShapeTypes StringToShapeType(std::string& in);
 
-	// from iMessageInterface
 	// Recieve a message
-	virtual bool RecieveMessage(const iMessage& message);
-
+	virtual bool RecieveMessage(const iMessage& message) final;
 	// Recieve a message and reply
-	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply) final; 
 
 public:			// TODO - Hack - We need this public for old code since it replaces cGameObject.h
 

@@ -23,6 +23,8 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Light();
 
+	virtual iObject* Clone(const std::string& newName) final;
+
 	virtual void IntegrationStep(float deltaTime) final {}
 
 	static std::string LightTypeToString(cObject_Light::eLightType in);
@@ -33,10 +35,10 @@ public:
 
 	// from iMessageInterface
 	// Recieve a message
-	virtual bool RecieveMessage(const iMessage& message);
+	virtual bool RecieveMessage(const iMessage& message) final;
 
 	// Recieve a message and reply
-	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply);
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply) final;
 
 	//TODO - hack
 public:

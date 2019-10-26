@@ -11,17 +11,21 @@ cObject_3d::~cObject_3d()
 {
 }
 
+// objects can clone themselves (We don't do it)
+void cObject_3d::Copy_iObject_3d(const iObject_3d& from)
+{
+	positionXYZ = from.GetPosition();
+	previousPosition = from.GetPreviousPosition();
+	rotationXYZ = from.GetRoation();
+	scale = from.GetScale();
+	matWorld = from.GetMatWorld();
+}
+
 
 std::ostream& operator<<(std::ostream& stream, const cObject_3d& val)
 {
 	stream << "Got to iAssetManager:cObject3ds by accident" << std::endl;
 	return stream;
-}
-
-cObject_3d* cObject_3d::Clone_3d(const std::string& newName)
-{
-	assert(false);
-	//TODO - implement
 }
 
 const glm::vec3& cObject_3d::GetPosition() const

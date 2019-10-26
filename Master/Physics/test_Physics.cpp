@@ -55,6 +55,7 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	auto object = manager.FindObjectByName("world");
 	assert(object);
 	cObject_World* world = dynamic_cast<cObject_World*>(object);
+	assert(world);
 
 	// set mouse and keyboard callback
 	glfwSetKeyCallback(window, Physics_key_callback);

@@ -28,6 +28,7 @@
     <ClCompile Include="cObject_Common.cpp" />
     <ClCompile Include="cObject_DSP.cpp" />
     <ClCompile Include="cObject_Font.cpp" />
+    <ClCompile Include="cObject_Alias.cpp" />
     <ClCompile Include="cObject_Group.cpp" />
     <ClCompile Include="cObject_Image.cpp" />
     <ClCompile Include="cObject_Light.cpp" />
@@ -43,6 +44,8 @@
     <ClCompile Include="iObject.cpp" />
     <ClCompile Include="iObject_3d.cpp" />
     <ClCompile Include="iObject_ChannelControl.cpp" />
+    <ClCompile Include="iObject_Common.cpp" />
+    <ClCompile Include="iObject_Alias.cpp" />
     <ClCompile Include="iObject_Physics.cpp" />
     <ClCompile Include="Reference\cParticleEmitter.cpp" />
   </ItemGroup>
@@ -56,6 +59,7 @@
     <ClInclude Include="cObject_Common.h" />
     <ClInclude Include="cObject_DSP.h" />
     <ClInclude Include="cObject_Font.h" />
+    <ClInclude Include="cObject_Alias.h" />
     <ClInclude Include="cObject_Group.h" />
     <ClInclude Include="cObject_Image.h" />
     <ClInclude Include="cObject_Light.h" />
@@ -71,6 +75,8 @@
     <ClInclude Include="iObject.h" />
     <ClInclude Include="iObject_3d.h" />
     <ClInclude Include="iObject_ChannelControl.h" />
+    <ClInclude Include="iObject_Common.h" />
+    <ClInclude Include="iObject_Alias.h" />
     <ClInclude Include="iObject_Physics.h" />
     <ClInclude Include="Reference\cParticleEmitter.h" />
   </ItemGroup>

@@ -16,15 +16,26 @@ cObject_World::cObject_World(const std::string& type,
 	const std::string& name,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
-	: cObject_Common(type, name, asset_id, node)
+	: cObject_Common()
 {
 	cMessageManager().Register(name, this);
-
+	// Hack for now
+	LoadCommon(type, name, asset_id, node);
 }
+
 cObject_World::~cObject_World()
 {
 }
 
+iObject* cObject_World::Clone(const std::string& newName)
+{
+	// Copy everything and change the name
+	cObject_World* ret =
+		new cObject_World(*this);
+	ret->m_name = newName;
+	ret->m_node = NULL;			// No XML so it won't update
+	return ret;
+}
 // For debugging purposes - dumps the contents in human readable form
 std::ostream& operator<<(std::ostream& stream, const cObject_World& val)
 {

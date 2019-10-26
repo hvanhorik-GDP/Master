@@ -37,6 +37,10 @@ public:
 	// Write an object to the XML file
 	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent = NULL) = 0;
 
+	// We need to resolve all aliases when we are done with object manager
+	// This is a post processing step since we need to have parsed the full xml file
+	virtual void ResolveAlias() = 0;
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const iObjectManager& val);
 };

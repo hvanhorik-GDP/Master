@@ -16,7 +16,16 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_Camera();
 
+
+	virtual iObject* Clone(const std::string& newName) final;
+
 	virtual void IntegrationStep(float deltaTime) final {}
+
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message) final;
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply) final;
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Camera& val);

@@ -13,13 +13,15 @@ private:
 	virtual ~cObjectManager_impl();
 
 	// Root Node of XML document which has assets
-	virtual void LoadObjects(rapidxml::xml_node<>* node);
+	virtual void LoadObjects(rapidxml::xml_node<>* node) final;
 
 	// Retrieve the item information
-	virtual iObjectManager::iObject_map* GetObjects(const std::string& name);
+	virtual iObjectManager::iObject_map* GetObjects(const std::string& name) final;
 
 	// Write an object to the XML file
-	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
+	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent) final;
+
+	virtual void ResolveAlias() final;
 
 	iObject* FindObjectByName(const std::string& objectName);
 
@@ -28,6 +30,7 @@ private:
 
 	typedef std::map<std::string, iObjectManager*>  mapObjectManagers;
 	mapObjectManagers m_ObjectManagers;
+
 	friend class cObjectManager;
 
 private:

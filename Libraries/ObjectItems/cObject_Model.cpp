@@ -24,8 +24,11 @@ cObject_Model::cObject_Model(const std::string& type,
 	const std::string& name,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
-	: cObject_Common(type, name, asset_id, node)
+	: cObject_Common()
 {
+	// Hack for now
+	LoadCommon(type, name, asset_id, node);
+
 	matWorld = glm::mat4(1.0f);
 	// Global registry of myself that I may recieve messages
 	cMessageManager().Register(name, this);
@@ -172,7 +175,6 @@ iObject* cObject_Model::Clone(const std::string& newName)
 	ret->m_node = NULL;			// No XML so it won't update
 	return ret;
 }
-
 
 bool cObject_Model::RecieveMessage(const iMessage& message)
 {

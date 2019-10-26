@@ -818,7 +818,6 @@
 			<Property name="shaderEntry" type="string" value="theLights[3]"/>
 			<Property name="lightType" type="enum" value="POINT"/>
 			<Property name="positionXYZ" type="vec3" value="0 40.1478 5"/>
-			<Property name="rotationXYZ" type="vec3" value="0 1.49 0"/>
 			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
 			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
 			<Property name="constantAttenuation" type="float" value="0.000006"/>
@@ -1099,6 +1098,15 @@
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
+		</Object>
+		<Object type="window" name="window" asset_id="">
+			<Property name="windowWidth" type="int" value="700"/>
+			<Property name="windowHeight" type="int" value="500"/>
+		</Object>
+		<Object type="camera" name="camera" asset_id="">
+			<Property name="cameraEye" type="vec3" value="84 32 22"/>
+			<Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
+			<Property name="upVector" type="vec3" value="0 1 0"/>
 		</Object>
 		<Object type="world" name="world" asset_id="">
 			<Property name="ground_plane" type="alias" value="ground"/>

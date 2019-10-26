@@ -18,6 +18,8 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_ParticleEmitter();
 
+	virtual iObject* Clone(const std::string& newName) final;
+
 
 	virtual void IntegrationStep(float deltaTime) final;
 
@@ -30,6 +32,12 @@ public:
 	// Note: returns nothing and passed by reference ("&")
 
 	void getParticles(vec_Particles& vec_pParticles);
+
+	// Recieve a message
+	virtual bool RecieveMessage(const iMessage& message) final;
+
+	// Recieve a message and reply
+	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply) final;
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_ParticleEmitter& val);

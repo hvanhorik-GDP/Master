@@ -10,15 +10,23 @@ cObject_Common::cObject_Common()
 {
 }
 
-cObject_Common::cObject_Common(	const std::string &type,
+void cObject_Common::LoadCommon(const std::string &type,
 								const std::string &name,
 								const std::string &asset_id,
 								rapidxml::xml_node<>* node)
-	: m_type(type)
-	, m_name(name)
-	, m_assetID(asset_id)
-	, m_node(node)
 {
+	m_type = type;
+	m_name = name;
+	m_assetID = asset_id;
+	m_node = node;
+}
+
+void cObject_Common::Copy_iObject_Common(const iObject_Common& from)
+{
+	m_type =from.GetType();
+	m_name = GetName();
+	m_assetID = GetAssetID();
+	m_node = GetNode();
 }
 
 cObject_Common::~cObject_Common()
@@ -45,6 +53,12 @@ bool cObject_Common::IsVisable() const
 {
 	return m_isVisable;
 }
+
+bool cObject_Common::IsObjectLocked() const
+{
+	return m_isObjectLocked;
+}
+
 
 void cObject_Common::SetVisable(bool to)
 {
@@ -81,31 +95,37 @@ void cObject_Common::SetParentObject(iObject* in)
 	m_ParentObject = in;
 }
 
+const std::string& cObject_Common::GetMyUID() const
+{
+	return m_name;
+}
+
+
+//// from iMessageInterface
+//// Everyone has a universal ID
+//const std::string& cObject_Common::GetMyUID() const
+//{
+//	// UID is our name
+//	return m_name;
+//}
+//
+//// Recieve a message
+//bool cObject_Common::RecieveMessage(const iMessage& message)
+//{
+//	assert(false);				//  TODO - Implement
+//	return false;
+//}
+//
+//// Recieve a message and reply
+//bool cObject_Common::RecieveAndRespond(const iMessage& in, iMessage& reply)
+//{
+//	assert(false);				// TODO - implement
+//	return false;
+//}
+//
 // For debugging purposes - dumps the contents in human readable form
 std::ostream& operator<<(std::ostream& stream, const cObject_Common& val)
 {
 	stream << "std::ostream& operator<<(std::ostream& stream, const cObject_Common& val)" << "Not Implemented" << std::endl;
 	return stream;
-}
-
-// from iMessageInterface
-// Everyone has a universal ID
-const std::string& cObject_Common::GetMyUID() const
-{
-	// UID is our name
-	return m_name;
-}
-
-// Recieve a message
-bool cObject_Common::RecieveMessage(const iMessage& message)
-{
-	assert(false);				//  TODO - Implement
-	return false;
-}
-
-// Recieve a message and reply
-bool cObject_Common::RecieveAndRespond(const iMessage& in, iMessage& reply)
-{
-	assert(false);				// TODO - implement
-	return false;
 }

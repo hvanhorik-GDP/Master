@@ -16,6 +16,9 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_World();
 
+	virtual iObject* Clone(const std::string& newName) final;
+
+
 	virtual void IntegrationStep(float deltaTime);
 
 	// For debugging purposes - dumps the contents in human readable form

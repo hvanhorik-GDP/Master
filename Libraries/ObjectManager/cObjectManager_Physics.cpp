@@ -34,3 +34,26 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_Physics& val
 {
 	return stream;
 }
+
+void cObjectManager_Physics::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent) 
+{ 
+	assert(false); 
+}
+
+void cObjectManager_Physics::ResolveAlias()
+{
+	//	cObjectManager manager;
+	//	for (auto group : m_map_objects)
+	//	{
+	//		auto object = dynamic_cast<cObject_World*>(group.second);
+	//		assert(object);
+	//
+	//		for (auto alias : object->m_mapObjects)
+	//		{
+	//			iObject* theAlias = manager.FindObjectByName(alias.first);
+	//			object->m_mapObjects[alias.first] = theAlias;
+	//			// TODO - No backpointer to world for now.
+	////			theAlias->SetParentObject(object);		// Point back to the parent group
+	//		}
+	//	}
+}

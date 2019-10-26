@@ -19,14 +19,26 @@ cObject_Group::cObject_Group(const std::string& type,
 	const std::string& name,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
-	: cObject_Common(type, name, asset_id, node)
+	: cObject_Common()
 {
+	LoadCommon(type, name, asset_id, node);
 	// Global registry of myself that I may recieve messages
 	cMessageManager().Register(name, this);
 }
 
 cObject_Group::~cObject_Group()
 {
+}
+
+
+iObject* cObject_Group::Clone(const std::string& newName)
+{
+	// Copy everything and change the name
+	cObject_Group* ret =
+		new cObject_Group(*this);
+	ret->m_name = newName;
+	ret->m_node = NULL;			// No XML so it won't update
+	return ret;
 }
 
 void cObject_Group::IntegrationStep(float deltaTime)

@@ -126,6 +126,14 @@ void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent)
 	worldManager->ResolveAlias();
 }
 
+void cObjectManager_impl::ResolveAlias()
+{
+	for (auto manager : m_ObjectManagers)
+	{
+		manager.second->ResolveAlias();
+	}
+}
+
 // Write an object to the XML file
 void cObjectManager_impl::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
 {

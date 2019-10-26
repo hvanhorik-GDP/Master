@@ -23,6 +23,12 @@ void cObjectManager_Image::LoadObjects(rapidxml::xml_node<>* node)
 	auto object = new cObject_Image(type.GetValue(), name.GetValue(), asset_id.GetValue(), node);
 }
 
+
+void cObjectManager_Image::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
+{
+	assert(false);
+}
+
 // Retrieve the item information
 iObjectManager::iObject_map* cObjectManager_Image::GetObjects(const std::string& name)
 {
@@ -33,4 +39,22 @@ iObjectManager::iObject_map* cObjectManager_Image::GetObjects(const std::string&
 std::ostream& operator<<(std::ostream& stream, const cObjectManager_Image& val)
 {
 	return stream;
+}
+
+void cObjectManager_Image::ResolveAlias()
+{
+	//	cObjectManager manager;
+	//	for (auto group : m_map_objects)
+	//	{
+	//		auto object = dynamic_cast<cObject_World*>(group.second);
+	//		assert(object);
+	//
+	//		for (auto alias : object->m_mapObjects)
+	//		{
+	//			iObject* theAlias = manager.FindObjectByName(alias.first);
+	//			object->m_mapObjects[alias.first] = theAlias;
+	//			// TODO - No backpointer to world for now.
+	////			theAlias->SetParentObject(object);		// Point back to the parent group
+	//		}
+	//	}
 }

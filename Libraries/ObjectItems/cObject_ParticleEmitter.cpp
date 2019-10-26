@@ -7,13 +7,27 @@ cObject_ParticleEmitter::cObject_ParticleEmitter(const std::string& type,
 	const std::string& name,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
-	: cObject_Common(type, name, asset_id, node)
+	: cObject_Common()
 {
+	// Hack for now
+	LoadCommon(type, name, asset_id, node);
+
 	m_initialized = false;
 }
 
 cObject_ParticleEmitter::~cObject_ParticleEmitter()
 {
+}
+
+
+iObject* cObject_ParticleEmitter::Clone(const std::string& newName)
+{
+	// Copy everything and change the name
+	cObject_ParticleEmitter* ret =
+		new cObject_ParticleEmitter(*this);
+	ret->m_name = newName;
+	ret->m_node = NULL;			// No XML so it won't update
+	return ret;
 }
 
 // For debugging purposes - dumps the contents in human readable form
@@ -153,4 +167,20 @@ void cObject_ParticleEmitter::getParticles(vec_Particles& vec_pParticles)
 	}
 
 	return;
+}
+
+
+//TODO - for now just implement them here.
+// need to implement them in every class of iObject
+// Recieve a message
+bool cObject_ParticleEmitter::RecieveMessage(const iMessage& message)
+{
+	return false;
+}
+
+// Recieve a message and reply
+bool cObject_ParticleEmitter::RecieveAndRespond(const iMessage& in, iMessage& reply)
+{
+	return false;
+
 }
