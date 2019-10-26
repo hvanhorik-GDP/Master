@@ -16,6 +16,7 @@
 #include "cObjectManager_Texture.h"
 #include "cObjectManager_Window.h"
 #include "cObjectManager_Channel.h"
+#include "cObjectManager_ChannelGroup.h"
 #include "cObjectManager_DSP.h"
 #include "cObjectManager_Sound.h"
 
@@ -44,7 +45,7 @@ void cObjectManager_impl::Init()
 	m_ObjectManagers["camera"] = new cObjectManager_Camera();
 	m_ObjectManagers["font"] = new cObjectManager_Font();
 	m_ObjectManagers["channel"] = new cObjectManager_Channel();
-	m_ObjectManagers["channelgroup"] = new cObjectManager_Channel();
+	m_ObjectManagers["channelgroup"] = new cObjectManager_ChannelGroup();
 	m_ObjectManagers["DSP"] = new cObjectManager_DSP();
 	m_ObjectManagers["group"] = new cObjectManager_Group();
 	m_ObjectManagers["image"] = new cObjectManager_Image();

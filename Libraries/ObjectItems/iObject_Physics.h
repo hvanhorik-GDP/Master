@@ -30,7 +30,6 @@ public:
 	virtual const glm::vec3& GetAcceleration() const = 0;
 	virtual float GetBounce() const = 0;
 	virtual float GetInverseMass() const = 0;
-	virtual float GetSphereRadius() const = 0;
 	virtual eShapeTypes GetPhysicalShapeType() const = 0;
 	virtual float GetSPHERERadius() const = 0;
 

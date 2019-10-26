@@ -76,6 +76,12 @@
     <ClCompile Include="cObjectManagerPart_Physics.cpp">
       <Filter>Parts</Filter>
     </ClCompile>
+    <ClCompile Include="cObjectManager_ChannelGroup.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManagerPart_Common.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cGameObject.h">
@@ -151,6 +157,12 @@
       <Filter>Parts</Filter>
     </ClInclude>
     <ClInclude Include="cObjectManagerPart_Physics.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManager_ChannelGroup.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManagerPart_Common.h">
       <Filter>Parts</Filter>
     </ClInclude>
   </ItemGroup>

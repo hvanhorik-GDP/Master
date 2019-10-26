@@ -1,13 +1,8 @@
 #include "cObject_ChannelControl.h"
 
-cObject_ChannelControl::cObject_ChannelControl(const std::string& type,
-	const std::string& name,
-	const std::string& asset_id,
-	rapidxml::xml_node<>* node)
-	: cObject_Common()
+cObject_ChannelControl::cObject_ChannelControl()
+	: iObject_ChannelControl()
 {
-	// Hack for now
-	LoadCommon(type, name, asset_id, node);
 }
 
 cObject_ChannelControl::~cObject_ChannelControl()
@@ -23,7 +18,7 @@ std::ostream& operator<<(std::ostream& stream, const cObject_ChannelControl& val
 
 bool cObject_ChannelControl::getPaused()
 {
-	return m_ParentObject;
+	return m_Paused;
 }
 
 float cObject_ChannelControl::getVolume()

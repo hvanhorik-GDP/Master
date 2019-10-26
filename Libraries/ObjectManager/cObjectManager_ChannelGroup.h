@@ -1,12 +1,12 @@
 #pragma once
 #include "iObjectManager.h"
 
-class cObjectManager_Channel :
+class cObjectManager_ChannelGroup :
 	public iObjectManager
 {
 private:
-	cObjectManager_Channel();
-	virtual ~cObjectManager_Channel();
+	cObjectManager_ChannelGroup();
+	virtual ~cObjectManager_ChannelGroup();
 
 	// Root Node of XML document which has assets
 	virtual void LoadObjects(rapidxml::xml_node<>* node);
@@ -15,13 +15,13 @@ private:
 	virtual iObjectManager::iObject_map* GetObjects(const std::string& name);
 
 	// Write an object to the XML file
-	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
+	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent) { assert(false); };
 
 	// Resolve any aliases
 	virtual void ResolveAlias() final;
 
 	// For debugging purposes - dumps the contents in human readable form
-	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager_Channel& val);
+	friend std::ostream& operator<<(std::ostream& stream, const cObjectManager_ChannelGroup& val);
 
 	friend class cObjectManager_impl; 
 private:

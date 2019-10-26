@@ -1,19 +1,12 @@
 #pragma once
-#include "cObject_Common.h"
+#include "iObject_ChannelControl.h"
 #include <vector>
 
-class cObject_ChannelControl : public cObject_Common
+class cObject_ChannelControl : public iObject_ChannelControl
 {
 public:
-	// This structure matches the file, so that our life is
-	//   simpler and happier, and we all get along.
+	cObject_ChannelControl();
 
-	cObject_ChannelControl() {};				// Get's filled in by physics
-
-	cObject_ChannelControl(const std::string& type,
-		const std::string& name,
-		const std::string& asset_id,
-		rapidxml::xml_node<>* node);
 	virtual ~cObject_ChannelControl();
 
 	virtual void IntegrationStep(float deltaTime) = 0;

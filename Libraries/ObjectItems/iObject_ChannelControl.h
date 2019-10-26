@@ -11,14 +11,6 @@ public:
 	iObject_ChannelControl() {};				// Get's filled in by physics
 	virtual ~iObject_ChannelControl() {}
 
-	virtual void IntegrationStep(float deltaTime) = 0;
-
-	// Recieve a message
-	virtual bool RecieveMessage(const iMessage& message) final;
-
-	// Recieve a message and reply
-	virtual bool RecieveAndRespond(const iMessage& in, iMessage& reply) final;
-
 	//FMOD_RESULT F_API stop();
 	//FMOD_RESULT F_API setPaused(bool paused);
 	virtual bool getPaused() = 0;

@@ -1,8 +1,19 @@
 #pragma once
+
+#include "cObject_Common.h"
 #include "cObject_ChannelControl.h"
+#include "cObject_3d.h"
+#include "cObject_Physics.h"
+#include "cObject_Alias.h"
+
 #include <vector>
 
-class cObject_ChannelGroup : public cObject_ChannelControl
+class cObject_ChannelGroup
+	: public cObject_Common							// Need common items
+	, public cObject_ChannelControl					// Full channel control
+	, public cObject_3d								// This is a 3d Object
+	, public cObject_Physics						// and physics applies to it
+	, public cObject_Alias							// This is a grouping
 {
 public:
 	// This structure matches the file, so that our life is

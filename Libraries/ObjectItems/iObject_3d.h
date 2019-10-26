@@ -12,8 +12,6 @@ public:
 	iObject_3d() {};
 	virtual ~iObject_3d() {}
 
-	virtual void DefineOverrideFunctionsHere() = 0;
-
 	virtual const glm::vec3& GetPosition() const = 0;
 	virtual const glm::vec3& GetPreviousPosition() const = 0;
 	virtual const glm::vec3& GetRoation() const = 0;

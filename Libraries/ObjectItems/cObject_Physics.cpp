@@ -61,7 +61,6 @@ float cObject_Physics::GetSPHERERadius() const
 	return SPHERE_radius;
 }
 
-
 std::string cObject_Physics::ShapeTypeToString(iObject_Physics::eShapeTypes in)
 {
 	switch (in)
@@ -93,4 +92,14 @@ iObject_Physics::eShapeTypes cObject_Physics::StringToShapeType(const std::strin
 	if (in == "SPHERE")
 		return eShapeTypes::SPHERE;
 	return eShapeTypes::UNKNOWN;
+}
+
+const glm::vec3& cObject_Physics::GetAABB_min() const
+{
+	return AABB_min;
+}
+
+const glm::vec3& cObject_Physics::GetAABB_max() const
+{
+	return AABB_max;
 }

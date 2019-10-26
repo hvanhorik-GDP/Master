@@ -65,10 +65,11 @@ public:
 
 //hack protected:
 	// Should this be removed and just allow inheritance to handle it
-	void SetNode(rapidxml::xml_node<>* in);
+	virtual void SetNode(rapidxml::xml_node<>* in);
 	virtual void SetVisable(bool to) final;
 
 protected:
+	friend class cObjectManagerPart_Common;
 	std::string m_type;
 	std::string m_name;
 	std::string m_assetID;

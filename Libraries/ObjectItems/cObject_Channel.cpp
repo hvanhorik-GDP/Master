@@ -4,10 +4,13 @@ cObject_Channel::cObject_Channel(const std::string& type,
 	const std::string& name,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
-	: cObject_ChannelControl(type, name, asset_id, node)
+	: cObject_Common()							// Need common items
+	, cObject_ChannelControl()					// Full channel control
+	, cObject_3d()								// This is a 3d Object
+	, cObject_Physics()							// and physics applies to it
 {
-
 }
+
 cObject_Channel::~cObject_Channel()
 {
 }
