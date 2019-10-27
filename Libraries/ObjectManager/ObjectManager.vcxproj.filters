@@ -64,9 +64,6 @@
     <ClCompile Include="iObjectManagerPart.cpp">
       <Filter>Parts</Filter>
     </ClCompile>
-    <ClCompile Include="cObjectManagerPart_Group.cpp">
-      <Filter>Parts</Filter>
-    </ClCompile>
     <ClCompile Include="cObjectManagerPart_3d.cpp">
       <Filter>Parts</Filter>
     </ClCompile>
@@ -80,6 +77,9 @@
       <Filter>Audio</Filter>
     </ClCompile>
     <ClCompile Include="cObjectManagerPart_Common.cpp">
+      <Filter>Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectManagerPart_Alias.cpp">
       <Filter>Parts</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,9 +147,6 @@
     <ClInclude Include="iObjectManagerPart.h">
       <Filter>Parts</Filter>
     </ClInclude>
-    <ClInclude Include="cObjectManagerPart_Group.h">
-      <Filter>Parts</Filter>
-    </ClInclude>
     <ClInclude Include="cObjectManagerPart_3d.h">
       <Filter>Parts</Filter>
     </ClInclude>
@@ -163,6 +160,9 @@
       <Filter>Audio</Filter>
     </ClInclude>
     <ClInclude Include="cObjectManagerPart_Common.h">
+      <Filter>Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectManagerPart_Alias.h">
       <Filter>Parts</Filter>
     </ClInclude>
   </ItemGroup>

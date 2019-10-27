@@ -52,7 +52,6 @@ iObject* cObjectManagerPart_Common::AddObjectToMap(
 	iObject* inObject,
 	rapidxml::xml_node<>* parent)
 {
-	assert(parent);
 	assert(inObject);
 	cObject_Common* commonObject = dynamic_cast<cObject_Common*>(inObject);
 	assert(commonObject);
@@ -66,30 +65,40 @@ iObject* cObjectManagerPart_Common::AddObjectToMap(
 		LogDuplicateEntry(__FILE__, commonObject->GetName(), commonObject->GetType(), commonObject->GetAssetID());
 
 		// Overwrite what we have - This will copy the new values into the old entries
-			writeObject = dynamic_cast<cObject_Common*>(theMap[commonObject->GetName()]);
-			assert(writeObject);
+		writeObject = dynamic_cast<cObject_Common*>(theMap[commonObject->GetName()]);
+		assert(writeObject);
 	}
 	else
 		theMap[commonObject->GetName()] = commonObject;
 
+	std::cout << "TODO - check for null parent" << std::endl;
+
 	auto node = writeObject->GetNode();
 	if (!node)
 	{
-		// If no node then create and insert one
-		gamelibrary::Objects parentObject(parent);
-		node = parentObject.Insert("Object", "");
-		writeObject->SetNode(node);
+		if (parent)
+		{
+			// If we have  parent, we want to add this to the database
+			// else we will leave the node blacnk and it won't get inserted.
+			// If no node then create and insert one
+			gamelibrary::Objects parentObject(parent);
+			node = parentObject.Insert("Object", "");
+			writeObject->SetNode(node);
+		}
 	}
 
-	gamelibrary::Object libObject(node);
-	gamelibrary::Object_name objName(node);
-	objName.SetValue(writeObject->GetName());
+	if (node)
+	{
+		gamelibrary::Object libObject(node);
+		gamelibrary::Object_name objName(node);
+		objName.SetValue(writeObject->GetName());
 
-	gamelibrary::Object_type objType(node);
-	objType.SetValue(writeObject->GetType());
+		gamelibrary::Object_type objType(node);
+		objType.SetValue(writeObject->GetType());
 
-	gamelibrary::Object_asset_id objAssetID(node);
-	objAssetID.SetValue(writeObject->GetAssetID());
+		gamelibrary::Object_asset_id objAssetID(node);
+		objAssetID.SetValue(writeObject->GetAssetID());
+	}
 
 	return writeObject;
 }

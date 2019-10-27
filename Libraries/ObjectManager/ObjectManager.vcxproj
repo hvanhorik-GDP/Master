@@ -189,9 +189,9 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClCompile Include="cGameObject.cpp" />
     <ClCompile Include="cObjectManager.cpp" />
     <ClCompile Include="cObjectManagerPart_3d.cpp" />
+    <ClCompile Include="cObjectManagerPart_Alias.cpp" />
     <ClCompile Include="cObjectManagerPart_ChannelControl.cpp" />
     <ClCompile Include="cObjectManagerPart_Common.cpp" />
-    <ClCompile Include="cObjectManagerPart_Group.cpp" />
     <ClCompile Include="cObjectManagerPart_Physics.cpp" />
     <ClCompile Include="cObjectManager_Audio.cpp" />
     <ClCompile Include="cObjectManager_Camera.cpp" />
@@ -218,9 +218,9 @@ xcopy /S /D /Y "$(ProjectDir)libraries\$(Platform)\$(Configuration)\*" "$(Soluti
     <ClInclude Include="cGameObject.h" />
     <ClInclude Include="cObjectManager.h" />
     <ClInclude Include="cObjectManagerPart_3d.h" />
+    <ClInclude Include="cObjectManagerPart_Alias.h" />
     <ClInclude Include="cObjectManagerPart_ChannelControl.h" />
     <ClInclude Include="cObjectManagerPart_Common.h" />
-    <ClInclude Include="cObjectManagerPart_Group.h" />
     <ClInclude Include="cObjectManagerPart_Physics.h" />
     <ClInclude Include="cObjectManager_Audio.h" />
     <ClInclude Include="cObjectManager_Camera.h" />

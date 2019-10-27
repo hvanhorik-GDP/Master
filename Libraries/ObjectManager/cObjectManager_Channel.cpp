@@ -68,12 +68,15 @@ void cObjectManager_Channel::SaveObject(iObject* inObject, rapidxml::xml_node<>*
 	assert(writeObject);
 
 	auto node = writeObject->GetNode();
-	gamelibrary::Object libObject(node);
+	if (node)
+	{
+		gamelibrary::Object libObject(node);
 
-	cObjectManagerPart_Common().SaveProperties(writeObject, node);
-	cObjectManagerPart_3d().SaveProperties(writeObject, node);
-	cObjectManagerPart_ChannelControl().SaveProperties(writeObject, node);
-	cObjectManagerPart_Physics().SaveProperties(writeObject, node);
+		cObjectManagerPart_Common().SaveProperties(writeObject, node);
+		cObjectManagerPart_3d().SaveProperties(writeObject, node);
+		cObjectManagerPart_ChannelControl().SaveProperties(writeObject, node);
+		cObjectManagerPart_Physics().SaveProperties(writeObject, node);
+	}
 }
 
 

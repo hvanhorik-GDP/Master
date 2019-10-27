@@ -108,9 +108,8 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 						{
 							// Error
 							// Write the properties to the xml file
-							Properties prop = file.GetProperties();
-							prop.AddProperty("exists", "bool", std::to_string(false));
-							prop.AddProperty("Error", "string", errorMessage);
+							file.AddProperty("exists", "bool", cFormat::PackBool(false));
+							file.AddProperty("error", "string", errorMessage);
 						}
 					}
 				}

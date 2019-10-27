@@ -37,6 +37,9 @@
     <Filter Include="_Exteral Reference\OtherTest">
       <UniqueIdentifier>{49c8020f-fa61-43a9-b058-7984683f98a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{61fafbe6-5bd7-4bce-b119-5f5450e2e283}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Master.cpp" />
@@ -44,9 +47,6 @@
       <Filter>_Exteral Reference\Common</Filter>
     </ClCompile>
     <ClCompile Include="Common\LoadGLFW.cpp">
-      <Filter>_Exteral Reference\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Common\pFindObjectByFriendlyName.cpp">
       <Filter>_Exteral Reference\Common</Filter>
     </ClCompile>
     <ClCompile Include="AudioTest\test_Audio.cpp">
@@ -60,9 +60,6 @@
     </ClCompile>
     <ClCompile Include="OtherTest\test_gl.cpp">
       <Filter>_Exteral Reference\OtherTest</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\test_Physics.cpp">
-      <Filter>Physics</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\GLFW_Callbacks.cpp">
       <Filter>_Exteral Reference\GDP2019</Filter>
@@ -88,9 +85,6 @@
     <ClCompile Include="Physics\cPhysicsTilter.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Physics\Physics_Callback.cpp">
-      <Filter>Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Physics\ObjectCreator.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
@@ -104,6 +98,21 @@
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="OtherTest\week7.cpp" />
+    <ClCompile Include="Physics\Physics_Callback.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\test_Physics.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\Audio_Callback.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\test_Audio.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\pFindObjectByFriendlyName.cpp">
+      <Filter>_Exteral Reference\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Master.h" />
@@ -111,9 +120,6 @@
       <Filter>_Exteral Reference\Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\LoadGLFW.h">
-      <Filter>_Exteral Reference\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\pFindObjectByFriendlyName.h">
       <Filter>_Exteral Reference\Common</Filter>
     </ClInclude>
     <ClInclude Include="AudioTest\test_Audio.h">
@@ -127,9 +133,6 @@
     </ClInclude>
     <ClInclude Include="OtherTest\test_gl.h">
       <Filter>_Exteral Reference\OtherTest</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\test_Physics.h">
-      <Filter>Physics</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\GLFW_Callbacks.h">
       <Filter>_Exteral Reference\GDP2019</Filter>
@@ -152,9 +155,6 @@
     <ClInclude Include="Physics\cPhysicsTilter.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Physics\Physics_Callback.h">
-      <Filter>Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Physics\ObjectCreator.h">
       <Filter>Physics</Filter>
     </ClInclude>
@@ -167,6 +167,21 @@
     <ClInclude Include="Graphics\cGraphicsToObject.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Physics\Physics_Callback.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\test_Physics.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\Audio_Callback.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\test_Audio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\pFindObjectByFriendlyName.h">
+      <Filter>_Exteral Reference\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\GraphicsLibrary(output).xml" />
@@ -176,6 +191,8 @@
     <Xml Include="..\assets\test_GDP2019.xml">
       <Filter>_Exteral Reference</Filter>
     </Xml>
+    <Xml Include="..\assets\AudioLibrary.xml" />
+    <Xml Include="..\assets\AudioLibrary(output).xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\shaders\vertexShader01.glsl">

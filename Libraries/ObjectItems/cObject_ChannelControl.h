@@ -88,7 +88,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_ChannelControl& val);
 
 protected:
-	friend class cObjectManager_Channel;
+	friend class cObjectManagerPart_ChannelControl;
 
 	bool m_Paused;
 	float m_Volume;

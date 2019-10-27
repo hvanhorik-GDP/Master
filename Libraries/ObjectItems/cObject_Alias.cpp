@@ -35,6 +35,15 @@ std::ostream& operator<<(std::ostream& stream, const cObject_Alias& val)
 	return stream;
 }
 
+// objects can clone themselves (We don't do it)
+void cObject_Alias::Copy_iObject_Alias(const iObject_Alias& from)
+{
+	// TODO - This needs to be a clone
+	// do noting for now
+	return;
+}
+
+
 // TODO - Moved to new class
 
 //

@@ -10,8 +10,8 @@
 
 void highPointOfbox(glm::vec3& min, glm::vec3& max)
 {
-	// Make a bunch of pyramids
-	auto cubeObject = pFindObjectByFriendlyName("low_cube");
+	auto temp = cObjectManager().FindObjectByName("low_cube");
+	cObject_Model* cubeObject = dynamic_cast<cObject_Model*>(temp);
 	assert(cubeObject);
 	cPhysics_Henky::boundsOfObject(*cubeObject, min, max);
 }
@@ -35,7 +35,8 @@ void CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_nod
 
 	// Make a bunch of pyramids
 	std::string name = "pyramid_a";
-	auto pyramid_a = pFindObjectByFriendlyName(name);
+	temp = objectManager.FindObjectByName(name);
+	cObject_Model* pyramid_a = dynamic_cast<cObject_Model*>(temp);
 
 
 	// How big is the pyramid
@@ -94,8 +95,9 @@ void CreateDropBalls(int number, cObjectManager& objectManager, rapidxml::xml_no
 
 
 	// Make a bunch of balls
-	auto dropBall = pFindObjectByFriendlyName("Drop_Sphere");
-	std::string name = "Drop_Ball";
+	std::string name = "Drop_Sphere";
+	auto dropBall = objectManager.FindObjectByName(name);
+	assert(dropBall);
 
 	for (int i = 0; i < number; ++i)
 	{
@@ -129,5 +131,20 @@ void CreateDropBalls(int number, cObjectManager& objectManager, rapidxml::xml_no
 		newBall->scale = 1.0;// float(newscale);
 		newBall->SPHERE_radius = 1.0;// = float(newscale);
 		objectManager.SaveObject(newBall, parent);
+	}
+}
+
+void CloneObject(int number, const std::string& name, rapidxml::xml_node<>* parent)
+{
+	srand(unsigned int(time(NULL)));
+	cObjectManager objectManager;
+
+	auto object = objectManager.FindObjectByName(name);
+	for (int i = 0; i < number; ++i)
+	{
+		std::string newName = name + "_" + std::to_string(i);
+		auto temp = object->Clone(newName);
+		assert(temp);
+		objectManager.SaveObject(temp, parent);
 	}
 }

@@ -173,6 +173,8 @@
   <ItemGroup>
     <ClCompile Include="AudioTest\test_Audio.cpp" />
     <ClCompile Include="AudioTest\test_AudioEngine.cpp" />
+    <ClCompile Include="Audio\Audio_Callback.cpp" />
+    <ClCompile Include="Audio\test_Audio.cpp" />
     <ClCompile Include="Common\globalStuff.cpp" />
     <ClCompile Include="Common\LoadGLFW.cpp" />
     <ClCompile Include="Common\pFindObjectByFriendlyName.cpp" />
@@ -198,6 +200,8 @@
   <ItemGroup>
     <ClInclude Include="AudioTest\test_Audio.h" />
     <ClInclude Include="AudioTest\test_AudioEngine.h" />
+    <ClInclude Include="Audio\Audio_Callback.h" />
+    <ClInclude Include="Audio\test_Audio.h" />
     <ClInclude Include="Common\globalStuff.h" />
     <ClInclude Include="Common\LoadGLFW.h" />
     <ClInclude Include="Common\pFindObjectByFriendlyName.h" />
@@ -219,6 +223,8 @@
     <ClInclude Include="Physics\test_Physics.h" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="..\assets\AudioLibrary(output).xml" />
+    <Xml Include="..\assets\AudioLibrary.xml" />
     <Xml Include="..\assets\GraphicsLibrary(output).xml" />
     <Xml Include="..\assets\GraphicsLibrary.xml" />
     <Xml Include="..\assets\PhysicsLibrary(output).xml" />

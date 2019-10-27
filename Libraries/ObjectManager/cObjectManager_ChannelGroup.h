@@ -15,7 +15,7 @@ private:
 	virtual iObjectManager::iObject_map* GetObjects(const std::string& name);
 
 	// Write an object to the XML file
-	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent) { assert(false); };
+	virtual void SaveObject(iObject* inObject, rapidxml::xml_node<>* parent);
 
 	// Resolve any aliases
 	virtual void ResolveAlias() final;

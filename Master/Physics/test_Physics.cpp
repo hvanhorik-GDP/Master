@@ -34,11 +34,11 @@
 #include "cPhysicsTilter.h"
 
 // Local stuff pulled out of main by Henry
-#include "Common/pFindObjectByFriendlyName.h"
 #include "Physics_Callback.h"
 #include "ObjectCreator.h"
 
 // Crap for now
+#include "Common/globalstuff.h"
 #include "GDP2019/HandleDebugBallPhysics.h"
 #include "GDP2019/HandleDebugLights.h"
 #include "GDP2019/LightDebugSheres.h"

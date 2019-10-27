@@ -88,6 +88,9 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 
 void cObjectManager_World::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
 {
+	// TODO - Allow a NULL parent
+	std::cout << "TODO - have a null parent for SaveObject" << std::endl;
+
 	assert(parent);
 	assert(inObject);
 	auto object = dynamic_cast<cObject_World*>(inObject);

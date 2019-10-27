@@ -30,6 +30,7 @@
 #include "AudioTest/test_AudioEngine.h"
 #include "Physics/test_Physics.h"
 #include "Graphics/test_Graphics.h"
+#include "Audio/test_Audio.h"
 
 int main(int arg, char** argv)
 {
@@ -67,8 +68,10 @@ int main(int arg, char** argv)
 
 	if (libraryName == "PhysicsLibrary.xml")
 		test_Physics(gameLib);
-	else if(libraryName == "GraphicsLibrary.xml")
+	else if (libraryName == "GraphicsLibrary.xml")
 		test_Graphics(gameLib);
+	else if (libraryName == "AudioLibrary.xml")
+		test_Audio(gameLib);
 	else
 	{
 		assert(false);
