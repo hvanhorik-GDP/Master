@@ -1,4 +1,5 @@
 #include "cObject_ChannelGroup.h"
+#include "MessageManager/cMessageManager.h"
 
 cObject_ChannelGroup::cObject_ChannelGroup(const std::string& type,
 	const std::string& name,
@@ -11,6 +12,7 @@ cObject_ChannelGroup::cObject_ChannelGroup(const std::string& type,
 	, cObject_Alias()							// This is a grouping
 {
 	LoadCommon(type, name, asset_id, node);
+
 }
 
 cObject_ChannelGroup::~cObject_ChannelGroup()

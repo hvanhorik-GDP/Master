@@ -3,6 +3,8 @@
 #include "GameLibrary/Objects.h"
 #include "GameLibrary/Object.h"
 #include "ObjectItems/cObject_Common.h"
+#include "AssetManager/cAssetManager.h"
+
 #include "Utilities/cFormat.h"
 
 #include <iostream>
@@ -107,16 +109,13 @@ iObject* cObjectManagerPart_Common::AddObjectToMap(
 void cObjectManagerPart_Common::AddToMap(
 	iObjectManager::iObject_map& theMap,
 	iObject* object,
-	const std::string& file,
-	const std::string& name,
-	const std::string& type,
-	const std::string& asset_id
+	const std::string& file
 )
 {
 	// Save all of these objects
 	if (theMap.find(object->GetName()) != theMap.end())
 	{
-		LogDuplicateEntry(file, name, type, asset_id);
+		LogDuplicateEntry(file, object->GetName(), object->GetType(), object->GetAssetID());
 	}
 	else
 		theMap[object->GetName()] = object;
@@ -151,3 +150,20 @@ void cObjectManagerPart_Common::LogInvalidProperty(
 
 }
 
+ void cObjectManagerPart_Common::LoadCommon(cObject_Common* in, rapidxml::xml_node<>* node)
+{
+	auto type = gamelibrary::Object_type(node).GetValue();
+	auto name = gamelibrary::Object_name(node).GetValue();
+	auto asset_id = gamelibrary::Object_asset_id(node).GetValue();
+
+	in->LoadCommon(type, name, asset_id, node);
+
+
+	// This needs to be moved to common
+	iAssetManager::iItems_map* assets = cAssetManager().GetItems("models");
+	auto asset = assets->find(asset_id);
+	if (asset != assets->end())
+	{
+		in->m_Item = asset->second;
+	}
+}

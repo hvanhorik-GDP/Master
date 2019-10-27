@@ -1,4 +1,6 @@
 #include "cObject_Common.h"
+#include "MessageManager/cMessageManager.h"
+
 #include <sstream>
 #include <algorithm>
 
@@ -19,6 +21,8 @@ void cObject_Common::LoadCommon(const std::string &type,
 	m_name = name;
 	m_assetID = asset_id;
 	m_node = node;
+	cMessageManager().Register(name, this);
+
 }
 
 void cObject_Common::Copy_iObject_Common(const iObject_Common& from)

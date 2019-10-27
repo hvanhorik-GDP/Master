@@ -170,6 +170,7 @@ void cObjectManager_Group::ResolveAlias()
 		for (auto alias : object->m_mapObjects)
 		{
 			iObject* theAlias = manager.FindObjectByName(alias.first);
+			assert(theAlias);
 			object->m_mapObjects[alias.first] = theAlias;
 			theAlias->SetParentObject(object);		// Point back to the parent group
 		}

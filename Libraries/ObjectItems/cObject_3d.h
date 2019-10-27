@@ -23,8 +23,10 @@ public:
 	virtual void IntegrationStep(float deltaTime) = 0;
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_3d& val);
-private:
+public:
 	friend class cObjectManagerPart_3d;
+	friend class cPhysics;
+	friend class cPhysics_Henky;
 
 	glm::vec3  positionXYZ;
 	glm::vec3  previousPosition;

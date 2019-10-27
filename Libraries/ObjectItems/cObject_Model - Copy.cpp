@@ -20,11 +20,19 @@
 // TODO - HACK
 extern GLFWwindow* window;
 
-cObject_Model::cObject_Model()
-	: cObject_Common()							// Need common items
-	, cObject_3d()								// This is a 3d Object
-	, cObject_Physics()							// and physics applies to it
+cObject_Model::cObject_Model(const std::string& type,
+	const std::string& name,
+	const std::string& asset_id,
+	rapidxml::xml_node<>* node)
+	: cObject_Common()
 {
+	// Hack for now
+	LoadCommon(type, name, asset_id, node);
+
+	matWorld = glm::mat4(1.0f);
+	// Global registry of myself that I may recieve messages
+	cMessageManager().Register(name, this);
+
 }
 
 cObject_Model::~cObject_Model()
@@ -52,9 +60,9 @@ void cObject_Model::IntegrationStep(float deltaTime)
 	{
 		previousVelocity = velocity;
 
-		velocity.x += acceleration.x * deltaTime;
-		velocity.y += acceleration.y * deltaTime;
-		velocity.z += acceleration.z * deltaTime;
+		velocity.x += accel.x * deltaTime;
+		velocity.y += accel.y * deltaTime;
+		velocity.z += accel.z * deltaTime;
 	
 		//		// Or you can do this...
 		//		CurObj.velocity += CurObj.accel * deltaTime;
@@ -88,7 +96,7 @@ void cObject_Model::IntegrationStep(float deltaTime)
 				positionXYZ = pos;
 			}
 			velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-			acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
+			accel = glm::vec3(0.0f, 0.0f, 0.0f);
 			int newscale = rand() % 5;
 			// hack - turn off scale
 //			scale = float(newscale);
@@ -125,6 +133,39 @@ std::ostream& operator<<(std::ostream& stream, const cObject_Model& val)
 	stream << "std::ostream& operator<<(std::ostream& stream, const cObject_Model& val)" << "Not Implemented" << std::endl;
 	return stream;
 }
+
+std::string cObject_Model::ShapeTypeToString(cObject_Model::eShapeTypes in)
+{
+	switch (in)
+	{
+	case eShapeTypes::AABB:
+		return "AABB";
+	case eShapeTypes::CAPSULE:
+		return "CAPSULE";
+	case eShapeTypes::MESH:
+		return "MESH";
+	case eShapeTypes::PLANE:
+		return "PLANE";
+	case eShapeTypes::SPHERE:
+		return "SPHERE";
+	}
+	return "UNKNOWN";
+}
+cObject_Model::eShapeTypes cObject_Model::StringToShapeType(std::string& in)
+{
+	if (in == "AABB")
+		return eShapeTypes::AABB;
+	if (in == "CAPSULE")
+		return eShapeTypes::CAPSULE;
+	if (in == "MESH")
+		return eShapeTypes::MESH;
+	if (in == "PLANE")
+		return eShapeTypes::PLANE;
+	if (in == "SPHERE")
+		return eShapeTypes::SPHERE;
+	return eShapeTypes::UNKNOWN;
+}
+
 iObject* cObject_Model::Clone(const std::string& newName)
 {
 	// Copy everything and change the name

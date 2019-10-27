@@ -2,6 +2,7 @@
 
 #include "iObjectManagerPart.h"
 #include "iObjectManager.h"
+#include "ObjectItems/cObject_Common.h"
 
 class cObjectManagerPart_Common : public iObjectManagerPart
 {
@@ -19,8 +20,8 @@ public:
 	virtual void SaveProperties(iObject* object,
 		rapidxml::xml_node<>* node) final;
 
-	// For debugging purposes - dumps the contents in human readable form
 
+	static void LoadCommon(cObject_Common* in, rapidxml::xml_node<>* node);
 
 	// Some helper methods
 	static void LogInvalidProperty(
@@ -40,10 +41,7 @@ public:
 	static void AddToMap(
 		iObjectManager::iObject_map& theMap,
 		iObject* object,
-		const std::string& file,
-		const std::string& name,
-		const std::string& type,
-		const std::string& asset_id
+		const std::string& file
 	);
 
 	static iObject* AddObjectToMap(

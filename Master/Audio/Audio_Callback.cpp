@@ -170,7 +170,7 @@ void Audio_mouse_button_callback(GLFWwindow* window, int button, int action, int
 //	pTheBall->scale = float(scale);
 //	pTheBall->SPHERE_radius = float(scale);
 	pTheBall->velocity = glm::vec3(0.0f, 1.0f, 0.0f);
-	pTheBall->accel = glm::vec3(0.0f, 0.0f, 0.0f);
+	pTheBall->acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
 	pTheBall->inverseMass = 1.0f;
 	return;
 }

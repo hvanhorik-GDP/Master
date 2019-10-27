@@ -70,7 +70,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 			// 20.0 units "to the right"
 			// 30.0 units "up"
 			pBall->velocity = glm::vec3(15.0f, 20.0f, 0.0f);
-			pBall->accel = glm::vec3(0.0f, 0.0f, 0.0f);
+			pBall->acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
 			pBall->diffuseColour = glm::vec4(1.0f, 0.0f, 0.0f, 0.0f);
 		}//if ( key == GLFW_KEY_B )
 
@@ -170,24 +170,24 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 		cObject_Model* pShip = pFindObjectByFriendlyName("PirateShip");
 		// Turn the ship around
-		if (key == GLFW_KEY_A)
-		{	// Left
-			pShip->HACK_AngleAroundYAxis -= SHIP_ANGLE_CHANGE;
-			pShip->rotationXYZ.y = pShip->HACK_AngleAroundYAxis;
-		}
-		if (key == GLFW_KEY_D)
-		{	// Right
-			pShip->HACK_AngleAroundYAxis += SHIP_ANGLE_CHANGE;
-			pShip->rotationXYZ.y = pShip->HACK_AngleAroundYAxis;
-		}
-		if (key == GLFW_KEY_W)
-		{	// Faster
-			pShip->HACK_speed += SHIP_SPEED_CHANGE;
-		}
-		if (key == GLFW_KEY_S)
-		{	// Slower
-			pShip->HACK_speed -= SHIP_SPEED_CHANGE;
-		}
+		//if (key == GLFW_KEY_A)
+		//{	// Left
+		//	pShip->HACK_AngleAroundYAxis -= SHIP_ANGLE_CHANGE;
+		//	pShip->rotationXYZ.y = pShip->HACK_AngleAroundYAxis;
+		//}
+		//if (key == GLFW_KEY_D)
+		//{	// Right
+		//	pShip->HACK_AngleAroundYAxis += SHIP_ANGLE_CHANGE;
+		//	pShip->rotationXYZ.y = pShip->HACK_AngleAroundYAxis;
+		//}
+		//if (key == GLFW_KEY_W)
+		//{	// Faster
+		//	pShip->HACK_speed += SHIP_SPEED_CHANGE;
+		//}
+		//if (key == GLFW_KEY_S)
+		//{	// Slower
+		//	pShip->HACK_speed -= SHIP_SPEED_CHANGE;
+		//}
 	}
 
 

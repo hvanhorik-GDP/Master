@@ -4,6 +4,13 @@
 #include "GameLibrary/Properties.h"
 #include "GameLibrary/Objects.h"
 #include "Utilities/cFormat.h"
+
+// We handle all of these properties
+#include "cObjectManagerPart_Common.h"
+#include "cObjectManagerPart_Physics.h"
+#include "cObjectManagerPart_3d.h"
+
+
 #include "AssetManager/cAssetManager.h"
 #include <rapidxml/rapidxml_ext.hpp>
 
@@ -21,177 +28,99 @@ cObjectManager_Model::~cObjectManager_Model()
 // Root Node of XML document which has assets
 void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 {
-	cAssetManager assetManager;
 
-	iAssetManager::iItems_map* assets = assetManager.GetItems("models");
+	//auto type = gamelibrary::Object_type(node).GetValue();
+	//auto name = gamelibrary::Object_name(node).GetValue();
+	//auto asset_id = gamelibrary::Object_asset_id(node).GetValue();
 
-	gamelibrary::Object_type objectType(node);
-	gamelibrary::Object_name objectName(node);
-	gamelibrary::Object_asset_id objectAssetID(node);
+	auto object = new cObject_Model();
+	cObjectManagerPart_Common::LoadCommon(object, node);
+
+	//object->LoadCommon(type, name, asset_id, node);
 
 
-	auto object = new cObject_Model(
-		objectType.GetValue(), 
-		objectName.GetValue(), 
-		objectAssetID.GetValue(), 
-		node);
+	//// This needs to be moved to common
+	//iAssetManager::iItems_map* assets = cAssetManager().GetItems("models");
+	//auto asset = assets->find(asset_id);
+	//if (asset != assets->end())
+	//{
+	//	object->m_Item = asset->second;
+	//}
 
-	auto asset = assets->find(objectAssetID.GetValue());
-	if (asset != assets->end())
-	{
-		object->m_Item = asset->second;
-	}
-		
 	// Read all of the properties
-
 	for (auto property = node->first_node("Property");
 		property;
 		property = property->next_sibling())
 	{
 		if (std::string(property->name()) == std::string("Property"))
 		{
-			gamelibrary::Property_type PropertyType(property);
-			gamelibrary::Property_name PropertyName(property);
-			gamelibrary::Property_value PropertyValue(property);
-			std::string type = PropertyType.GetValue();
-			std::string name = PropertyName.GetValue();
-			std::string value = PropertyValue.GetValue();
-			if (name == "positionXYZ")
-				object->positionXYZ = cFormat::LoadVec3(value);
-			else if (name == "rotationXYZ")
-				object->rotationXYZ = cFormat::LoadVec3(value);
-			else if (name == "scale")
-				object->scale = std::stof(value);
+			auto type = gamelibrary::Property_type(property).GetValue();
+			auto name = gamelibrary::Property_name(property).GetValue();
+			auto value = gamelibrary::Property_value(property).GetValue();
+
+			if (cObjectManagerPart_Common().HandleProperty(object, type, name, value))
+				continue;
+			if (cObjectManagerPart_3d().HandleProperty(object, type, name, value))
+				continue;
+			else if (cObjectManagerPart_Physics().HandleProperty(object, type, name, value))
+				continue;
+
 			else if (name == "objectColourRGBA")
 				object->objectColourRGBA = cFormat::LoadVec4(value);
 			else if (name == "diffuseColour")
 				object->diffuseColour = cFormat::LoadVec4(value);
 			else if (name == "specularColour")
 				object->specularColour = cFormat::LoadVec4(value);
-			// Should be in physics
-			else if (name == "bounce")
-				object->bounce = cFormat::LoadFloat(value);
-			else if (name == "inverseMass")
-				object->inverseMass = cFormat::LoadFloat(value);
-			else if (name == "physicsShapeType")
-				object->physicsShapeType = cObject_Model::StringToShapeType(value);
-			else if (name == "velocity")
-				object->velocity = cFormat::LoadVec3(value);
-			else if (name == "accel")
-				object->accel = cFormat::LoadVec3(value);
-			else if (name == "AABB_min")
-				object->AABB_min = cFormat::LoadVec3(value);
-			else if (name == "AABB_max")
-				object->AABB_max = cFormat::LoadVec3(value);
-			else if (name == "SPHERE_radius")
-				object->SPHERE_radius = cFormat::LoadFloat(value);
 
 			// Some debug stuff
 			else if (name == "isWireframe")
 				object->isWireframe = cFormat::LoadBool(value);
 			else if (name == "debugColour")
 				object->debugColour = cFormat::LoadVec4(value);
-			else if (name == "isVisible")
-				object->m_isVisable = cFormat::LoadBool(value);
 			else if (name == "disableDepthBufferTest")
 				object->disableDepthBufferTest = cFormat::LoadBool(value);
 			else if (name == "disableDepthBufferWrite")
 				object->disableDepthBufferWrite = cFormat::LoadBool(value);
 			else
 			{
-				std::cout
-					<< __FILE__
-					<< "Unkown property found: "
-					<< " Name = " << name
-					<< " Type = " << type
-					<< " Value = " << value << std::endl;
+				cObjectManagerPart_Common::LogInvalidProperty(__FILE__, name, type, value);
 			}
 		} // if (std::string(property->name()) == std::string("Property"))
 	} // for (auto property = node->first_node("Property");
 
-	// Save all of these objects
-	if (m_map_objects.find(objectName.GetValue()) != m_map_objects.end())
-	{
-		// Duplicate
-		std::cout << "duplicate object found: "
-			<< " Name : " << objectName.GetValue()
-			<< " Value: " << objectType.GetValue()
-			<< " AssetID: " << objectAssetID.GetValue() << std::endl;
-	}
-	else
-		m_map_objects[objectName.GetValue()] = object;
+	cObjectManagerPart_Common::AddToMap(m_map_objects, object, __FILE__);
 }
 
 void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* parent )
 {
-	assert(parent);
-	assert(inObject);
-	auto object = dynamic_cast<cObject_Model*>(inObject);
+	auto object = cObjectManagerPart_Common::AddObjectToMap(m_map_objects, inObject, parent);
 	assert(object);
 
-	auto writeObject = object;
-
-	// Insert it into the object array
-	// Check to see if the node already exits
-	if (m_map_objects.find(object->GetName()) != m_map_objects.end())
-	{
-		// Duplicate
-		std::cout << "duplicate object found: "
-			<< " Name : " << object->GetName()
-			<< " Type: " << object->GetType()
-			<< " AssetID: " << object->GetAssetID() << std::endl;
-
-		// Overwrite what we have - This will copy the new values into the old entries
-		writeObject = dynamic_cast<cObject_Model*>(m_map_objects[object->GetName()]);
-	}
-	else
-		m_map_objects[object->GetName()] = object;
+	cObject_Model* writeObject = dynamic_cast<cObject_Model*>(object);
+	assert(writeObject);
 
 	auto node = writeObject->GetNode();
-	if (!node)
+	if (node)
 	{
-		// If no node then create and insert one
-		gamelibrary::Objects parentObject(parent);
-		node = parentObject.Insert("Object", "");
-		writeObject->SetNode(node);
+		cObjectManagerPart_Common().SaveProperties(writeObject, node);
+		cObjectManagerPart_3d().SaveProperties(writeObject, node);
+		cObjectManagerPart_Physics().SaveProperties(writeObject, node);
+
+		gamelibrary::Object libObject(node);
+
+		// Write all of the properties
+
+		libObject.AddProperty("objectColourRGBA", "vec4", cFormat::PackVec4(writeObject->objectColourRGBA));
+		libObject.AddProperty("diffuseColour", "vec4", cFormat::PackVec4(writeObject->diffuseColour));
+		libObject.AddProperty("specularColour", "vec4", cFormat::PackVec4(writeObject->specularColour));
+
+		// Some debug stuff
+		libObject.AddProperty("isWireframe", "bool", cFormat::PackBool(writeObject->isWireframe));
+		libObject.AddProperty("debugColour", "vec4", cFormat::PackVec4(writeObject->debugColour));
+		libObject.AddProperty("isVisible", "bool", cFormat::PackBool(writeObject->m_isVisable));
+		libObject.AddProperty("disableDepthBufferTest", "bool", cFormat::PackBool(writeObject->disableDepthBufferTest));
+		libObject.AddProperty("disableDepthBufferWrite", "bool", cFormat::PackBool(writeObject->disableDepthBufferWrite));
 	}
-	
-	gamelibrary::Object libObject(node);
-	gamelibrary::Object_name objName(node);
-	objName.SetValue(writeObject->GetName());
-
-	gamelibrary::Object_type objType(node);
-	objType.SetValue(writeObject->GetType());
-
-	gamelibrary::Object_asset_id objAssetID(node);
-	objAssetID.SetValue(writeObject->GetAssetID());
-
-	// Write all of the properties
-
-	libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(object->positionXYZ));
-	libObject.AddProperty("rotationXYZ", "vec3", cFormat::PackVec3(object->rotationXYZ));
-	libObject.AddProperty("scale", "float", cFormat::PackFloat(object->scale));
-
-	libObject.AddProperty("objectColourRGBA", "vec4", cFormat::PackVec4(object->objectColourRGBA));
-	libObject.AddProperty("diffuseColour", "vec4", cFormat::PackVec4(object->diffuseColour));
-	libObject.AddProperty("specularColour", "vec4", cFormat::PackVec4(object->specularColour));
-	
-
-	libObject.AddProperty("bounce", "float", cFormat::PackFloat(object->bounce));
-	libObject.AddProperty("inverseMass", "float", cFormat::PackFloat(object->inverseMass));
-	libObject.AddProperty("physicsShapeType", "vec3", cObject_Model::ShapeTypeToString(object->physicsShapeType));
-	libObject.AddProperty("velocity", "vec3", cFormat::PackVec3(object->velocity));
-	libObject.AddProperty("accel", "vec3", cFormat::PackVec3(object->accel));
-	libObject.AddProperty("AABB_min", "vec3", cFormat::PackVec3(object->AABB_min));
-	libObject.AddProperty("AABB_max", "vec3", cFormat::PackVec3(object->AABB_max));
-	libObject.AddProperty("SPHERE_radius", "float", cFormat::PackFloat(object->SPHERE_radius));
-
-	// Some debug stuff
-	libObject.AddProperty("isWireframe", "bool", cFormat::PackBool(object->isWireframe));
-	libObject.AddProperty("debugColour", "vec4", cFormat::PackVec4(object->debugColour));
-	libObject.AddProperty("isVisible", "bool", cFormat::PackBool(object->m_isVisable));
-	libObject.AddProperty("disableDepthBufferTest", "bool", cFormat::PackBool(object->disableDepthBufferTest));
-	libObject.AddProperty("disableDepthBufferWrite", "bool", cFormat::PackBool(object->disableDepthBufferWrite));
 }
 
 // Retrieve the item information
@@ -205,32 +134,6 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_Model& val)
 {
 	return stream;
 }
-
-/*
-  <Property name = "position" type ="vec3" value="1,2,3"/>
-  <Property name = "rotation" type ="vec3" value="1,2,3"/>
-  <Property name = "scale" type ="float" value="1.0"/>
-  <Property name = "objectColourRGBA" type ="vec4" value="1,2,3,4"/>
-  <Property name = "diffuseColour" type ="vec4" value="1,2,3,4"/>
-  <Property name = "specularColour" type ="vec4" value="1,2,3,4"/>
-
-  <!-- Physics - should be moved -->
-  <Property name = "velocity" type ="vec3" value="1,2,3"/>
-  <Property name = "accel" type ="vec3" value="1,2,3"/>
-  <Property name = "physicsShapeType" type ="enum" value="UNKNOWN"/>
-  <Property name = "AABB_min" type ="vec3" value="1,2,3"/>
-  <Property name = "AABB_max" type ="vec3" value="1,2,3"/>
-  <Property name = "SPHERE_radius" type ="float" value="1.0"/>
-
-  <!-- Debug -->
-  <Property name = "isWireframe" type ="bool" value="false"/>
-  <Property name = "debugColour" type ="vec4" value="1,2,3,4"/>
-  <Property name = "isWireframe" type ="bool" value="false"/>
-  <Property name = "debugColour" type ="vec4" value="1,2,3,4"/>
-  <Property name = "isVisible" type ="bool" value="false"/>
-  <Property name = "disableDepthBufferTest" type ="bool" value="false"/>
-  <Property name = "disableDepthBufferTest" type ="bool" value="false"/>
-*/
 
 void cObjectManager_Model::ResolveAlias()
 {
@@ -248,4 +151,5 @@ void cObjectManager_Model::ResolveAlias()
 	////			theAlias->SetParentObject(object);		// Point back to the parent group
 	//		}
 	//	}
+	return;				// No Alias
 }

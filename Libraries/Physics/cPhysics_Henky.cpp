@@ -42,7 +42,7 @@ void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjec
 		assert(pCurObj);
 		// TODO - hack We still need to hack the gravity till we move this into
 		// it's own space. Probably the world
-		pCurObj->accel = this->m_Gravity;
+		pCurObj->acceleration = this->m_Gravity;
 		pCurObj->IntegrationStep(deltaTime);
 	}//for (unsigned int index = 0;
 

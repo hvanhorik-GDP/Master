@@ -24,12 +24,8 @@ cObjectManager_ChannelGroup::~cObjectManager_ChannelGroup()
 // Root Node of XML document which has assets
 void cObjectManager_ChannelGroup::LoadObjects(rapidxml::xml_node<>* node)
 {
-	auto type = gamelibrary::Object_type(node).GetValue();
-	auto name = gamelibrary::Object_name(node).GetValue();
-	auto asset_id = gamelibrary::Object_asset_id(node).GetValue();
-
 	auto object = new cObject_ChannelGroup();
-	object->LoadCommon(type, name, asset_id, node);
+	cObjectManagerPart_Common::LoadCommon(object, node);
 
 	// Read all of the properties
 	for (auto property = node->first_node("Property");
@@ -59,7 +55,7 @@ void cObjectManager_ChannelGroup::LoadObjects(rapidxml::xml_node<>* node)
 		} // if (std::string(property->name()) == std::string("Property"))
 	} // for (auto property = node->first_node("Property");
 
-	cObjectManagerPart_Common::AddToMap(m_map_objects, object, __FILE__, name, type, asset_id);
+	cObjectManagerPart_Common::AddToMap(m_map_objects, object, __FILE__);
 }
 
 void cObjectManager_ChannelGroup::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)

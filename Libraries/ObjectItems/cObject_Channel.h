@@ -17,12 +17,8 @@ public:
 	// This structure matches the file, so that our life is
 	//   simpler and happier, and we all get along.
 
-	cObject_Channel() {};				// Get's filled in by physics
+	cObject_Channel();				// Get's filled in by physics
 
-	cObject_Channel(const std::string& type,
-		const std::string& name,
-		const std::string& asset_id,
-		rapidxml::xml_node<>* node);
 	virtual ~cObject_Channel();
 
 	virtual iObject* Clone(const std::string& newName) final;

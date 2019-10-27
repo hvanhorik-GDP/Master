@@ -575,7 +575,7 @@
 		<Object type="group" name="ground_plane" asset_id="">
 			<Property name="low_cube" type="alias" value="low_cube"/>
 			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
-			<Property name="rotationXYZ" type="vec3" value="0.263 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0.727 0 0"/>
 			<Property name="scale" type="float" value="1.000000"/>
 			<Property name="velocity" type="vec3" value="0 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
@@ -619,27 +619,7 @@
 			<Property name="isVisible" type="bool" value="true"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
-		</Object>
-		<Object name="Drop_Ball_0" type="model" asset_id="Sphere_Radius_1_XYZ_n">
-			<Property name="positionXYZ" type="vec3" value="-24 51 20"/>
-			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
-			<Property name="scale" type="float" value="1.000000"/>
-			<Property name="objectColourRGBA" type="vec4" value="0.8 0.666667 0.811765 1"/>
-			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
-			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
-			<Property name="bounce" type="float" value="0.750000"/>
-			<Property name="inverseMass" type="float" value="1.000000"/>
-			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
-			<Property name="velocity" type="vec3" value="0 0 0"/>
-			<Property name="accel" type="vec3" value="0 0 0"/>
-			<Property name="AABB_min" type="vec3" value="0 0 0"/>
-			<Property name="AABB_max" type="vec3" value="0 0 0"/>
-			<Property name="SPHERE_radius" type="float" value="1.000000"/>
-			<Property name="isWireframe" type="bool" value="false"/>
-			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
-			<Property name="isVisible" type="bool" value="true"/>
-			<Property name="disableDepthBufferTest" type="bool" value="false"/>
-			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
 		</Object>
 		<Object name="AudioChannel" type="channel" asset_id="Auld Lang Syne">
 			<Property name="isVisible" type="bool" value="true"/>
@@ -668,6 +648,7 @@
 			<Property name="isVisible" type="bool" value="true"/>
 			<Property name="disableDepthBufferTest" type="bool" value="false"/>
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
 		</Object>
 		<Object name="AudioChannel_0" type="channel" asset_id="Auld Lang Syne">
 			<Property name="isVisible" type="bool" value="true"/>

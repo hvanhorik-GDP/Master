@@ -31,8 +31,10 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Physics& val);
 
-protected:
+public:			// TODO - hack
 	friend class cObjectManagerPart_Physics;
+	friend class cPhysics;
+	friend class cPhysics_Henky;
 
 	// Add some physics things
 	glm::vec3 velocity;

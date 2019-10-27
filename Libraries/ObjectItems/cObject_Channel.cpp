@@ -1,9 +1,6 @@
 #include "cObject_Channel.h"
 
-cObject_Channel::cObject_Channel(const std::string& type,
-	const std::string& name,
-	const std::string& asset_id,
-	rapidxml::xml_node<>* node)
+cObject_Channel::cObject_Channel()
 	: cObject_Common()							// Need common items
 	, cObject_ChannelControl()					// Full channel control
 	, cObject_3d()								// This is a 3d Object
