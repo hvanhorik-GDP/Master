@@ -18,6 +18,7 @@
 static bool isShiftKeyDownByAlone(int mods);
 static bool isCtrlKeyDownByAlone(int mods);
 
+extern bool g_lazerOn;		// HACK
 
 
 void Physics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -37,10 +38,11 @@ void Physics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancode
 	if (!isShiftKeyDownByAlone(mods) && !isCtrlKeyDownByAlone(mods))
 	{
 
-		//if (key == GLFW_KEY_T)
-		//{
-		//	gTilter->track();			// Turn on ball tracking
-		//}
+		if (key == GLFW_KEY_L)
+		{
+			g_lazerOn = !g_lazerOn;
+			std::cout << "Turning lazer: " << (g_lazerOn ? "on" : "off")  << std::endl;
+		}
 		//								// Move the camera (A & D for left and right, along the x axis)
 		if (key == GLFW_KEY_X)
 		{

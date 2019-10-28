@@ -285,6 +285,22 @@
       <Property name="isVisible" type="bool" value="true"/>
       <Property name="DebugSpheres" type="bool" value="false"/>
     </Object>
+    <Object type="light" name="light_5" asset_id="">
+      <Property name="shaderEntry" type="string" value="theLights[5]"/>
+      <Property name="lightType" type="enum" value="POINT"/>
+      <Property name="positionXYZ" type="vec3" value=" 6000 3000 -3000"/>
+      <Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
+      <Property name="specularColour" type="vec4" value="1 1 1 1"/>
+      <Property name="constantAttenuation" type="float" value="0.00000001"/>
+      <Property name="linearAttenuation" type="float" value="0.000002"/>
+      <Property name="quadradicAttenuation" type="float" value="0.0000001"/>
+      <Property name="distanceCutOff" type="float" value="1000000.0"/>
+      <Property name="spotInnerangle" type="float" value="0.0"/>
+      <Property name="spotOuterangle" type="float" value="0.0"/>
+      <Property name="direction" type="vec3" value="0 -1 0"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="DebugSpheres" type="bool" value="false"/>
+    </Object>
     <Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
       <Property name="positionXYZ" type="vec3" value="15 30 15"/>
       <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
@@ -319,7 +335,7 @@
       <Property name="AABB_min" type="vec3" value="0 0 0"/>
       <Property name="AABB_max" type="vec3" value="0 0 0"/>
       <Property name="SPHERE_radius" type="float" value="1.000000"/>
-      <Property name="objectColourRGBA" type="vec4" value="1.0 0 0 1"/>
+      <Property name="objectColourRGBA" type="vec4" value="1.0 1 1 1"/>
       <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
       <Property name="specularColour" type="vec4" value="0 0 0 0"/>
       <Property name="isWireframe" type="bool" value="false"/>

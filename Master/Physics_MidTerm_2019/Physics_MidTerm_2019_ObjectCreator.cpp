@@ -9,6 +9,7 @@
 #include <ostream>
 #include <iostream>
 #include <time.h>
+#include <map>
 
 static glm::vec3 g_whole_min;
 static glm::vec3 g_whole_max;
@@ -144,8 +145,9 @@ void Physics_MidTerm_2019_CalculateBounds(rapidxml::xml_node<>* parent)
 static time_t g_lastCreated = 0;
 
 static int g_lastName = 0;
-static const char* astroids[3] = { "Asteroid_011", "Asteroid_014", "Asteroid_015" };
+static const char* g_astroids[3] = { "Asteroid_011", "Asteroid_014", "Asteroid_015" };
 
+static std::vector<cObject_Model*> g_AsteroidObjects;
 
 void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>* parent)
 {
@@ -164,7 +166,7 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 
 		cObjectManager manager;
 		int astroidIndex = randInRange(0, 2);
-		std::string astroidName = astroids[astroidIndex];
+		std::string astroidName = g_astroids[astroidIndex];
 
 		auto temp = manager.FindObjectByName(astroidName);
 		cObject_Model* asteroid = dynamic_cast<cObject_Model*>(temp);
@@ -179,6 +181,7 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 
 		glm::vec3 startPosition;
 		startPosition.x = randInRange(g_whole_length.x, g_whole_length.x + 200);
+		// More hits this way for testing
 		//startPosition.y = randInRange(g_whole_min.y, g_whole_max.y);
 		//startPosition.z = randInRange(g_whole_min.z, g_whole_max.z );
 		startPosition.y = randInRange(g_whole_min.y * 2, g_whole_max.y * 2);
@@ -189,7 +192,6 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 		glm::vec3 startVelocity;
 
 		startVelocity.x = randInRange(-600.0f, -1000.0f);
-//		startVelocity.x = randInRange(200.0f, 400.0f);
 		startVelocity.y = 0.0f;
 		startVelocity.z = 0.0f;
 
@@ -201,6 +203,7 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 		newAstroid->inverseMass = 1.0f;
 		// Save the object to the object array
 		manager.SaveObject(newAstroid, parent);
+		g_AsteroidObjects.push_back(newAstroid);
 	}
 }
 
@@ -275,11 +278,15 @@ void Physics_MidTerm_2019_CreatePyramids(int number, cObjectManager& objectManag
 	}
 }
 
-void Physics_MidTerm_2019_CreateDropBalls(int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent)
+std::vector< cObject_Model* > g_laserBalls;
+bool g_lazerOn;
+bool g_lazerSimulationOn;
+float g_lazerScale = 0;
+
+void Physics_MidTerm_2019_LaserBalls(int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent)
 {
-	srand(unsigned int(time(NULL)));
-
-
+	g_lazerOn = false;
+	g_lazerSimulationOn = false;
 	// Make a bunch of balls
 	std::string name = "Drop_Sphere";
 	auto dropBall = objectManager.FindObjectByName(name);
@@ -292,31 +299,80 @@ void Physics_MidTerm_2019_CreateDropBalls(int number, cObjectManager& objectMana
 		assert(temp);
 		cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
 		assert(newBall);
-		// Add in but don't do the XML
-		{
-			int min = 50;
-			int max = 255;
-			int r = rand() % (max - min) + min;
-			int g = rand() % (max - min) + min;
-			int b = rand() % (max - min) + min;
-			glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
-			newBall->objectColourRGBA = rgb;
-		}
-		{
-			int min = -50;
-			int max = 50;
-			int x = rand() % (max - min) + min;
-			int y = rand() % 50 + gMaxHeightOfPyramid;		// Minimum 50 above pyramid
-			int z = rand() % (max - min) + min;
-			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
-			newBall->positionXYZ = pos;
-		}
-		int newscale = rand() % 5;
-
-		//TODO - HACK - turn off scale
-		newBall->scale = 1.0;// float(newscale);
-		newBall->SPHERE_radius = 1.0;// = float(newscale);
+		
+		glm::vec4 rgb = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
+		newBall->objectColourRGBA = rgb;
+		newBall->scale = 20.0;
+		newBall->SPHERE_radius = 20.0;// = float(newscale);
+		newBall->m_isVisable = false;
+		newBall->inverseMass = 0;
 		objectManager.SaveObject(newBall, parent);
+		g_laserBalls.push_back(newBall);
+	}
+}
+
+void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
+{
+	if (g_lazerSimulationOn)
+	{
+		const float scale = 0.05;
+		g_lazerScale -= scale;
+
+		for (auto balls : g_laserBalls)
+		{
+			balls->scale = g_lazerScale;
+			if (g_lazerScale <= 1.0)
+			{
+				balls->m_isVisable = false;
+				g_lazerSimulationOn = false;
+			}
+		}
+		return;
+	}
+
+	if (!g_lazerOn)
+		return;
+	// Find an asteroid within range
+	for (auto model : g_AsteroidObjects)
+	{
+		if (model->IsVisable() && model->velocity != glm::vec3(0.0f, 0.0f, 0.0f))
+		{
+			auto current_x = model->positionXYZ.x;
+			auto min_x = g_whole_max.x + 200;
+			auto max_x = g_whole_length.x / 2;
+			if (current_x > min_x && current_x < max_x)
+			{
+				auto temp = cObjectManager().FindObjectByName("Sphere#1");
+				assert(temp);
+				cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
+				assert(newBall);
+
+				model->inverseMass = 0;
+				model->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+				model->m_assetID = newBall->GetAssetID();
+				model->m_Item = newBall->m_Item;				// Chnage the item to a ball
+				model->scale = 120.0;							// scale it
+				glm::vec4 rgb = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+				model->objectColourRGBA = rgb;		// Red
+				model->debugColour = rgb;
+				model->isWireframe = true;
+				model->HACK_Physics_DebugBall_Damage = true;
+				model->HACK_Physics_Time_Of_Simulation = time(NULL);
+				model->HACK_Physics_DebugBall_Vanishes = true;
+				model->physicsShapeType = cObject_Physics::UNKNOWN;
+				model->SPHERE_radius = 120.0;
+//				model->isWireframe = true;
+				model->m_isVisable = true;
+				std::cout << "We are lazering an asteroid - time: " << " Time: "
+					<< model->HACK_Physics_Time_Of_Simulation
+					<< " Item: " << model->m_Item->GetAssetID() << std::endl;
+
+				// Now draw the line of balls to the object
+
+				// One at a time
+				break;
+			}
+		}
 	}
 }
 

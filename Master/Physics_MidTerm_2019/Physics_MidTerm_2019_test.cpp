@@ -111,7 +111,7 @@ int Physics_MidTerm_2019_test(gamelibrary::GameLibrary& gameLib)
 	}
 
 	Physics_MidTerm_2019_CalculateBounds(objectsLib.GetNode());
-
+	Physics_MidTerm_2019_LaserBalls(500, objectManager, objectsLib.GetNode());
 
 	iObjectManager::iObject_map& mapObjects = *objectManager.GetObjects("model");
 
@@ -175,6 +175,7 @@ int Physics_MidTerm_2019_test(gamelibrary::GameLibrary& gameLib)
 		glUniformMatrix4fv(matProj_UL, 1, GL_FALSE, glm::value_ptr(projection));
 
 		::Physics_MidTerm_2019_CreateNewAstroid(deltaTime, objectsLib.GetNode());
+		::Physics_MidTerm_2019_Shoot_Laser(deltaTime);
 
 		// Loop to draw everything in the scene
 		for (auto object: mapObjects)

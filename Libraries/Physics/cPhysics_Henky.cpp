@@ -71,6 +71,11 @@ void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjec
 				pCurObj->scale = 120.0;
 				pCurObj->HACK_Physics_DebugBall_Damage = false;
 				pCurObj->objectColourRGBA = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+				pCurObj->isWireframe = false;
+				if (pCurObj->HACK_Physics_DebugBall_Vanishes)
+				{
+					pCurObj->m_isVisable = false;
+				}
 
 				std::cout << "Hit Simulation Completed " << pCurObj->GetName() 
 					<< " Item: " << pCurObj->m_Item->GetAssetID()
@@ -694,18 +699,23 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 		assert(temp);
 		cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
 		assert(newBall);
-		auto dfdf = newBall->GetAssetID();
 
 		pSphere->m_assetID = newBall->GetAssetID();
 		pSphere->m_Item = newBall->m_Item;				// Chnage the item to a ball
 		pSphere->scale = 120.0;							// scale it
-		pSphere->objectColourRGBA = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);		// Red
+		glm::vec4 rgb = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+
+		pSphere->objectColourRGBA = rgb;		// Red
+		pSphere->debugColour = rgb;
+		pSphere->isWireframe = true;
+
 		pSphere->HACK_Physics_DebugBall_Damage = true;
 		pSphere->HACK_Physics_Time_Of_Simulation = time(NULL);
+		pSphere->HACK_Physics_DebugBall_Vanishes = false;
 		pSphere->physicsShapeType = cObject_Physics::UNKNOWN;
 		pSphere->SPHERE_radius = 120.0;
 		pSphere->m_isVisable = true;
-		std::cout << "We have a hit - name: " << pSphere->GetName() << " Time: " 
+		std::cout << "We have a hit - " << " Time: " 
 			<< pSphere->HACK_Physics_Time_Of_Simulation
 			<< " Item: " << pSphere->m_Item->GetAssetID() << std::endl;
 		return true;

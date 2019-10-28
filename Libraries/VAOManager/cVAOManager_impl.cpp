@@ -9,6 +9,7 @@
 #include <vector>
 
 #include <sstream>
+#include <iostream>
 
 sModelDrawInfo::sModelDrawInfo()
 {
