@@ -66,34 +66,40 @@ void cObject_Model::IntegrationStep(float deltaTime)
 		positionXYZ.y += velocity.y * deltaTime;
 		positionXYZ.z += velocity.z * deltaTime;
 
-		// See if we fell off the map
-		if (positionXYZ.y < -50.0f)
+		// TODO - Remove - if we are off the map then just make it vanish
+		if (positionXYZ.x < -8000)
 		{
-			{
-				int min = 50;
-				int max = 255;
-				int r = rand() % (max - min) + min;
-				int g = rand() % (max - min) + min;
-				int b = rand() % (max - min) + min;
-				glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
-				objectColourRGBA = rgb;
-			}
-			{
-				int min = -50;
-				int max = 50;
-				int x = rand() % (max - min) + min;
-				int y = rand() % (50) + 40;
-				int z = rand() % (max - min) + min;
-				glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
-				positionXYZ = pos;
-			}
-			velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-			acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
-			int newscale = rand() % 5;
-			// hack - turn off scale
-//			scale = float(newscale);
-//			SPHERE_radius = float(newscale);
+			m_isVisable = false;
+			inverseMass = 0.0f;
 		}
+		// See if we fell off the map
+//		if (positionXYZ.y < -50.0f)
+//		{
+//			{
+//				int min = 50;
+//				int max = 255;
+//				int r = rand() % (max - min) + min;
+//				int g = rand() % (max - min) + min;
+//				int b = rand() % (max - min) + min;
+//				glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
+//				objectColourRGBA = rgb;
+//			}
+//			{
+//				int min = -50;
+//				int max = 50;
+//				int x = rand() % (max - min) + min;
+//				int y = rand() % (50) + 40;
+//				int z = rand() % (max - min) + min;
+//				glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
+//				positionXYZ = pos;
+//			}
+//			velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+//			acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
+//			int newscale = rand() % 5;
+//			// hack - turn off scale
+////			scale = float(newscale);
+////			SPHERE_radius = float(newscale);
+//		}
 	}
 
 	if (debugHackTrackingMe)

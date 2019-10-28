@@ -41,6 +41,9 @@
     <Asset name="Large_Physics_Bunny_XYZ_n">
       <AssetFile>./Physics/Large_Physics_Bunny_XYZ_n.ply</AssetFile>
     </Asset>
+    <Asset name="surface_output_01">
+      <AssetFile>./Physics/surface_output_01.ply</AssetFile>
+    </Asset>
     <Asset name="pyramid_a">
       <AssetFile>./Physics/pyramid_a.ply</AssetFile>
     </Asset>
@@ -180,6 +183,28 @@
 		<AssetRoot>../assets/fonts/</AssetRoot>
 	</AssetGroup>
 	<Objects>
+    <Object name="surface_output_01" type="model" asset_id="surface_output_01">
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="0.000000"/>
+      <Property name="bounce" type="float" value="1.000000"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="0.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
     <Object type="light" name="light_0" asset_id="">
       <Property name="shaderEntry" type="string" value="theLights[0]"/>
       <Property name="lightType" type="enum" value="POINT"/>
@@ -238,7 +263,6 @@
 			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
 		</Object>
 	
-    
     <Object name="pyramid_1" type="model" asset_id="pyramid">
 			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
 			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
@@ -299,8 +323,6 @@
       <Property name="disableDepthBufferTest" type="bool" value="false"/>
       <Property name="disableDepthBufferWrite" type="bool" value="false"/>
     </Object>
-
-
 
     <Object name="pyramid_3" type="model" asset_id="pyramid_3">
 			<Property name="positionXYZ" type="vec3" value="0 0 0"/>

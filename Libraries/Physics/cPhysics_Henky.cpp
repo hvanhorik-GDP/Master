@@ -7,14 +7,19 @@
 // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
 #include <iostream>
-
+#include <vector>
+#include <time.h>
 
 cPhysics_Henky::cPhysics_Henky()
 {
 	// This is a typical Earth gravity value. 
 	// note that this doesn't mean that the simulation will "look good", though... 
 //	this->m_Gravity = glm::vec3(0.0f, -9.81f, 0.0f);
-	this->m_Gravity = glm::vec3(0.0f, -3.0f, 0.0f);
+
+	// TODO - Gravity is turned off
+	std::cout << "Turn off gravity " << std::endl;
+	this->m_Gravity = glm::vec3(0.0f, 0.0f, 0.0f);
+//	this->m_Gravity = glm::vec3(0.0f, -3.0f, 0.0f);
 	return;
 }
 
@@ -44,6 +49,38 @@ void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjec
 		// it's own space. Probably the world
 		pCurObj->acceleration = this->m_Gravity;
 		pCurObj->IntegrationStep(deltaTime);
+
+		// TODO - HACK FOR PHYSICS
+		if (pCurObj->HACK_Physics_DebugBall_Damage)
+		{
+			time_t now = time(NULL);
+			time_t previous = pCurObj->HACK_Physics_Time_Of_Simulation;
+			const float scale = 5.0f;
+			pCurObj->objectColourRGBA = glm::vec4(1.0f, 0, 0, 1.0f);
+			if (now < (previous + 5))
+			{
+				pCurObj->scale += scale;
+			}
+			else if (now < (previous + 10))
+			{
+				pCurObj->scale -= scale;
+			}
+			else
+			{
+				// turn off this simulation
+				pCurObj->scale = 120.0;
+				pCurObj->HACK_Physics_DebugBall_Damage = false;
+				pCurObj->objectColourRGBA = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+
+				std::cout << "Hit Simulation Completed " << pCurObj->GetName() 
+					<< " Item: " << pCurObj->m_Item->GetAssetID()
+					<< " Start Time: " << pCurObj->HACK_Physics_Time_Of_Simulation
+					<< " End Time: " << now 
+					<< std::endl;
+
+			}
+//			pCurObj->HACK_Physics_Time_Of_Simulation = now;
+		}
 	}//for (unsigned int index = 0;
 
 	return;
@@ -343,10 +380,12 @@ void cPhysics_Henky::GetClosestTriangleToPoint(
 	// We need to test world coordinates
 	auto matWorld = object.matWorld;
 
-	cItem_Model worldMesh;
-	CalculateTransformedMesh(*drawMesh, matWorld, worldMesh);
+	// TODO - Turned off world co-ordiates since they will be zero for this test
 
-	GetClosestTriangleToPoint(pointXYZ, worldMesh, closestPoint, closestTriangle);
+	//cItem_Model worldMesh;
+	//CalculateTransformedMesh(*drawMesh, matWorld, worldMesh);
+
+	GetClosestTriangleToPoint(pointXYZ, *drawMesh, closestPoint, closestTriangle);
 }
 
 // Returns all the triangles and the closest points
@@ -437,6 +476,27 @@ void cPhysics_Henky::GetClosestTriangleToPoint_Henry_save(
 void cPhysics_Henky::SetDebugRenderer(cDebugRenderer* pDebugRenderer)
 {
 	mDebugRenderer = pDebugRenderer;
+}
+
+
+// Compares two intervals according to staring times. 
+bool compareInterval(const glm::vec3 &i1, const glm::vec3& i2)
+{
+	return (i1.y < i2.y);
+}
+//sort(v.begin(), v.end(), compareInterval);
+
+void cPhysics_Henky::highPointsOfObject(cObject_Model& pObject, std::vector<glm::vec3> &maximums, int number)
+{
+	auto mesh = pObject.GetItem();
+	assert(mesh);
+	cItem_Model* objectItem = dynamic_cast<cItem_Model*>(mesh);
+	assert(objectItem);
+	float min = std::numeric_limits<float>::min();
+	float max = std::numeric_limits<float>::max();
+	glm::vec3 minSoFar(max, max, max);
+	glm::vec3 maxSoFar(min, min, min);
+
 }
 
 
@@ -622,6 +682,34 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 
 	if (distance <= worldSphere.r)
 	{
+
+		// TODO - We hit so lets stop the astroid
+		// TODO - HACK
+		pSphere->inverseMass = 0;
+		pSphere->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+		
+		cObjectManager manager;
+
+		auto temp = manager.FindObjectByName("Drop_Sphere");
+		assert(temp);
+		cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
+		assert(newBall);
+		auto dfdf = newBall->GetAssetID();
+
+		pSphere->m_assetID = newBall->GetAssetID();
+		pSphere->m_Item = newBall->m_Item;				// Chnage the item to a ball
+		pSphere->scale = 120.0;							// scale it
+		pSphere->objectColourRGBA = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);		// Red
+		pSphere->HACK_Physics_DebugBall_Damage = true;
+		pSphere->HACK_Physics_Time_Of_Simulation = time(NULL);
+		pSphere->physicsShapeType = cObject_Physics::UNKNOWN;
+		pSphere->SPHERE_radius = 120.0;
+		pSphere->m_isVisable = true;
+		std::cout << "We have a hit - name: " << pSphere->GetName() << " Time: " 
+			<< pSphere->HACK_Physics_Time_Of_Simulation
+			<< " Item: " << pSphere->m_Item->GetAssetID() << std::endl;
+		return true;
+		//TODO - HACK
 
 		// ************************************************************************
 

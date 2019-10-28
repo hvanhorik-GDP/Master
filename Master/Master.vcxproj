@@ -189,13 +189,18 @@
     <ClCompile Include="Graphics\Graphics_Callback.cpp" />
     <ClCompile Include="Graphics\test_Graphics.cpp" />
     <ClCompile Include="Master.cpp" />
+    <ClCompile Include="MidTerm_2018\MidTerm_2018_Callback.cpp" />
+    <ClCompile Include="MidTerm_2018\MidTerm_2018_test.cpp" />
     <ClCompile Include="OtherTest\test_filesystem.cpp" />
     <ClCompile Include="OtherTest\test_gl.cpp" />
-    <ClCompile Include="OtherTest\week7.cpp" />
+    <ClCompile Include="OtherTest\Audio - week7.cpp" />
     <ClCompile Include="Physics\cPhysicsTilter.cpp" />
     <ClCompile Include="Physics\ObjectCreator.cpp" />
     <ClCompile Include="Physics\Physics_Callback.cpp" />
     <ClCompile Include="Physics\test_Physics.cpp" />
+    <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_Callback.cpp" />
+    <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_ObjectCreator.cpp" />
+    <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioTest\test_Audio.h" />
@@ -215,20 +220,29 @@
     <ClInclude Include="Graphics\Graphics_Callback.h" />
     <ClInclude Include="Graphics\test_Graphics.h" />
     <ClInclude Include="Master.h" />
+    <ClInclude Include="MidTerm_2018\MidTerm_2018_Callback.h" />
+    <ClInclude Include="MidTerm_2018\MidTerm_2018_test.h" />
     <ClInclude Include="OtherTest\test_filesystem.h" />
     <ClInclude Include="OtherTest\test_gl.h" />
     <ClInclude Include="Physics\cPhysicsTilter.h" />
     <ClInclude Include="Physics\ObjectCreator.h" />
     <ClInclude Include="Physics\Physics_Callback.h" />
     <ClInclude Include="Physics\test_Physics.h" />
+    <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_Callback.h" />
+    <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_ObjectCreator.h" />
+    <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_test.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\AudioLibrary(output).xml" />
     <Xml Include="..\assets\AudioLibrary.xml" />
     <Xml Include="..\assets\GraphicsLibrary(output).xml" />
     <Xml Include="..\assets\GraphicsLibrary.xml" />
+    <Xml Include="..\assets\MidTerm_2018(output).xml" />
+    <Xml Include="..\assets\MidTerm_2018.xml" />
     <Xml Include="..\assets\PhysicsLibrary(output).xml" />
     <Xml Include="..\assets\PhysicsLibrary.xml" />
+    <Xml Include="..\assets\Physics_MidTerm_2019(output).xml" />
+    <Xml Include="..\assets\Physics_MidTerm_2019.xml" />
     <Xml Include="..\assets\test_GDP2019.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +279,12 @@
     <None Include="..\assets\models\Physics\pyramid.ply" />
     <None Include="..\assets\models\Physics\pyramid_3.ply" />
     <None Include="..\assets\models\Physics\Sphere_Radius_1_XYZ_n.ply" />
+    <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_011_xyz_n.ply" />
+    <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_014_xyz_n.ply" />
+    <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_015_xyz_n.ply" />
+    <None Include="..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n.ply" />
+    <None Include="..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n.ply" />
+    <None Include="..\assets\models\Physics_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply" />
     <None Include="..\assets\shaders\fragmentShader01.glsl" />
     <None Include="..\assets\shaders\vertexShader01.glsl" />
   </ItemGroup>

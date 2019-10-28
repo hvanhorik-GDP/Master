@@ -58,4 +58,6 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 	// TODO - HACK - This needs to be moved into a Camera Object
 	// TODO - I don't have time now to do it
 	bool debugHackTrackingMe = false;
+	bool HACK_Physics_DebugBall_Damage = false;
+	time_t HACK_Physics_Time_Of_Simulation;
 };

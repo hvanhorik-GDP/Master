@@ -10,12 +10,6 @@
     <Filter Include="Assets\shaders">
       <UniqueIdentifier>{ed592962-3f94-4b87-a466-6e6a4dfd0435}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Physics">
-      <UniqueIdentifier>{c9cd8538-17fe-4a5a-9a15-da94cb3ba479}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{88c606ae-72e6-451d-ba2c-cb8bb65d3373}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\models\Physics">
       <UniqueIdentifier>{f7276281-e5ef-4981-8db1-ac5ae78ad194}</UniqueIdentifier>
     </Filter>
@@ -37,8 +31,23 @@
     <Filter Include="_Exteral Reference\OtherTest">
       <UniqueIdentifier>{49c8020f-fa61-43a9-b058-7984683f98a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audio">
+    <Filter Include="Physics_MidTerm_2019">
+      <UniqueIdentifier>{e5262556-90d2-48d6-a35e-2a1c5808d541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\Physics_MidTerm_2018">
+      <UniqueIdentifier>{42dda4af-33c5-452b-957c-24ec5d5be27d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\Graphics">
+      <UniqueIdentifier>{88c606ae-72e6-451d-ba2c-cb8bb65d3373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\Physics">
+      <UniqueIdentifier>{c9cd8538-17fe-4a5a-9a15-da94cb3ba479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Exteral Reference\Audio">
       <UniqueIdentifier>{61fafbe6-5bd7-4bce-b119-5f5450e2e283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\models\Physics_MidTerm_2019">
+      <UniqueIdentifier>{afcde017-6284-4c7f-bb69-815c09d50183}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -83,35 +92,52 @@
       <Filter>_Exteral Reference\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="Physics\cPhysicsTilter.cpp">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\ObjectCreator.cpp">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Graphics_Callback.cpp">
-      <Filter>Graphics</Filter>
+      <Filter>_Exteral Reference\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\test_Graphics.cpp">
-      <Filter>Graphics</Filter>
+      <Filter>_Exteral Reference\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\cGraphicsToObject.cpp">
-      <Filter>Graphics</Filter>
+      <Filter>_Exteral Reference\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="OtherTest\week7.cpp" />
     <ClCompile Include="Physics\Physics_Callback.cpp">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\test_Physics.cpp">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Audio\Audio_Callback.cpp">
-      <Filter>Audio</Filter>
+      <Filter>_Exteral Reference\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Audio\test_Audio.cpp">
-      <Filter>Audio</Filter>
+      <Filter>_Exteral Reference\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Common\pFindObjectByFriendlyName.cpp">
       <Filter>_Exteral Reference\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherTest\Audio - week7.cpp">
+      <Filter>_Exteral Reference\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="MidTerm_2018\MidTerm_2018_Callback.cpp">
+      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+    </ClCompile>
+    <ClCompile Include="MidTerm_2018\MidTerm_2018_test.cpp">
+      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_Callback.cpp">
+      <Filter>Physics_MidTerm_2019</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_test.cpp">
+      <Filter>Physics_MidTerm_2019</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_ObjectCreator.cpp">
+      <Filter>Physics_MidTerm_2019</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -153,46 +179,81 @@
       <Filter>_Exteral Reference\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="Physics\cPhysicsTilter.h">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\ObjectCreator.h">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Graphics_Callback.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Exteral Reference\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\test_Graphics.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Exteral Reference\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\cGraphicsToObject.h">
-      <Filter>Graphics</Filter>
+      <Filter>_Exteral Reference\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\Physics_Callback.h">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\test_Physics.h">
-      <Filter>Physics</Filter>
+      <Filter>_Exteral Reference\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Audio\Audio_Callback.h">
-      <Filter>Audio</Filter>
+      <Filter>_Exteral Reference\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Audio\test_Audio.h">
-      <Filter>Audio</Filter>
+      <Filter>_Exteral Reference\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Common\pFindObjectByFriendlyName.h">
       <Filter>_Exteral Reference\Common</Filter>
     </ClInclude>
+    <ClInclude Include="MidTerm_2018\MidTerm_2018_Callback.h">
+      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+    </ClInclude>
+    <ClInclude Include="MidTerm_2018\MidTerm_2018_test.h">
+      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_Callback.h">
+      <Filter>Physics_MidTerm_2019</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_test.h">
+      <Filter>Physics_MidTerm_2019</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_ObjectCreator.h">
+      <Filter>Physics_MidTerm_2019</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\assets\GraphicsLibrary(output).xml" />
-    <Xml Include="..\assets\GraphicsLibrary.xml" />
-    <Xml Include="..\assets\PhysicsLibrary(output).xml" />
-    <Xml Include="..\assets\PhysicsLibrary.xml" />
     <Xml Include="..\assets\test_GDP2019.xml">
       <Filter>_Exteral Reference</Filter>
     </Xml>
-    <Xml Include="..\assets\AudioLibrary.xml" />
-    <Xml Include="..\assets\AudioLibrary(output).xml" />
+    <Xml Include="..\assets\AudioLibrary(output).xml">
+      <Filter>_Exteral Reference\Audio</Filter>
+    </Xml>
+    <Xml Include="..\assets\AudioLibrary.xml">
+      <Filter>_Exteral Reference\Audio</Filter>
+    </Xml>
+    <Xml Include="..\assets\GraphicsLibrary(output).xml">
+      <Filter>_Exteral Reference\Graphics</Filter>
+    </Xml>
+    <Xml Include="..\assets\GraphicsLibrary.xml">
+      <Filter>_Exteral Reference\Graphics</Filter>
+    </Xml>
+    <Xml Include="..\assets\PhysicsLibrary(output).xml">
+      <Filter>_Exteral Reference\Physics</Filter>
+    </Xml>
+    <Xml Include="..\assets\PhysicsLibrary.xml">
+      <Filter>_Exteral Reference\Physics</Filter>
+    </Xml>
+    <Xml Include="..\assets\MidTerm_2018.xml">
+      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+    </Xml>
+    <Xml Include="..\assets\MidTerm_2018(output).xml">
+      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+    </Xml>
+    <Xml Include="..\assets\Physics_MidTerm_2019.xml" />
+    <Xml Include="..\assets\Physics_MidTerm_2019(output).xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\shaders\vertexShader01.glsl">
@@ -300,12 +361,32 @@
     <None Include="..\assets\models\Graphics\torch.ply">
       <Filter>Assets\models\Graphics</Filter>
     </None>
+    <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_011_xyz_n.ply">
+      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_014_xyz_n.ply">
+      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_015_xyz_n.ply">
+      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n.ply">
+      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n.ply">
+      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Physics_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\assets\GraphicsKeys.txt" />
     <Text Include="..\assets\keys.txt">
       <Filter>_Exteral Reference</Filter>
     </Text>
     <Text Include="Readme.txt" />
+    <Text Include="..\assets\GraphicsKeys.txt">
+      <Filter>_Exteral Reference\Graphics</Filter>
+    </Text>
   </ItemGroup>
 </Project>

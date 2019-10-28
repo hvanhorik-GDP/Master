@@ -80,7 +80,8 @@ int test_Physics(gamelibrary::GameLibrary& gameLib)
 	mapLoaded["pyramid_3"] = NULL;
 	mapLoaded["pyramid_a"] = NULL;
 	mapLoaded["Sphere_Radius_1_XYZ_n"] = NULL;
-	
+//	mapLoaded["surface_output_01"] = NULL;
+
 	// Load up all of the mesh we need for this run
 	for (auto it : mapLoaded)
 	{

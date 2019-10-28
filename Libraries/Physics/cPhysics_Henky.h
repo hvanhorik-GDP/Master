@@ -76,6 +76,8 @@ public:
 	static glm::mat4 calculateWorldMatrix(iObject& pCurrentObject);
 
 	static void boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit, glm::vec3& maxLimit);
+
+	static void highPointsOfObject(cObject_Model& pObject, std::vector<glm::vec3>& maximums, int number);
 private:
 
 	// Does collision test and returns collision information

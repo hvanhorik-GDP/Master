@@ -68,7 +68,7 @@ public:
 	virtual void SetNode(rapidxml::xml_node<>* in);
 	virtual void SetVisable(bool to) final;
 
-protected:
+public:			// TODO - hack
 	friend class cObjectManagerPart_Common;
 	std::string m_type;
 	std::string m_name;

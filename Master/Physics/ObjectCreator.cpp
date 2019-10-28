@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <time.h>
 
-void highPointOfbox(glm::vec3& min, glm::vec3& max)
+static void highPointOfbox(glm::vec3& min, glm::vec3& max)
 {
 	auto temp = cObjectManager().FindObjectByName("low_cube");
 	cObject_Model* cubeObject = dynamic_cast<cObject_Model*>(temp);
@@ -16,7 +16,28 @@ void highPointOfbox(glm::vec3& min, glm::vec3& max)
 	cPhysics_Henky::boundsOfObject(*cubeObject, min, max);
 }
 
-float gMaxHeightOfPyramid = 0.0f;
+static void CreateBases(int number_high, int number_low)
+{
+
+	std::vector<std::string> surfaces;
+	surfaces.push_back("surface_output_01");
+	surfaces.push_back("surface_output_02");
+	surfaces.push_back("surface_output_03");
+	surfaces.push_back("surface_output_04");
+
+	cObjectManager objectManager();
+	for (auto surface : surfaces)
+	{
+		glm::vec3 min;
+		glm::vec3 max;
+		auto temp = cObjectManager().FindObjectByName(surface);
+		cObject_Model* cubeObject = dynamic_cast<cObject_Model*>(temp);
+		assert(cubeObject);
+		cPhysics_Henky::boundsOfObject(*cubeObject, min, max);
+	}
+}
+
+static float gMaxHeightOfPyramid = 0.0f;
 
 void CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent)
 {
