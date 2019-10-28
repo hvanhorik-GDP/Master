@@ -207,6 +207,9 @@ void cPhysics_Henky::TestForCollisions(iObjectManager::iObject_map& map_pGameObj
 			// Ignore invisible objects
 			if (!pA->IsVisable() || !pB->IsVisable())
 				continue;
+			// ignore debug balls
+			if (!pA->isWireframe || !pB->isWireframe)
+				continue;
 			// Calculate our current world coordinates
 			pA->matWorld = calculateWorldMatrix(*pA);
 			pB->matWorld = calculateWorldMatrix(*pB);
@@ -539,6 +542,9 @@ void cPhysics_Henky::boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit,
 bool cPhysics_Henky::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Model* pB,
 	sCollisionInfo& collisionInfo)
 {
+	// TODO - hack - turn off sphere sphere colision
+	return false;
+
 	glm::vec3 distance = pA->positionXYZ - pB->positionXYZ;
 	float size = glm::length(distance);
 	float radiusSum = pA->SPHERE_radius + pB->SPHERE_radius;

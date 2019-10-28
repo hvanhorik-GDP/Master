@@ -3,7 +3,6 @@
 #include "ObjectManager/cObjectManager.h"
 #include "rapidxml/rapidxml.hpp"
 
-void Physics_MidTerm_2019_CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent);
 void Physics_MidTerm_2019_LaserBalls (int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent);
 
 void Physics_MidTerm_2019_Shoot_Laser(float deltaTime);

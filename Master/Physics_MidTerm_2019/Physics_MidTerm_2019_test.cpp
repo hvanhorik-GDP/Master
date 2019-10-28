@@ -193,11 +193,9 @@ int Physics_MidTerm_2019_test(gamelibrary::GameLibrary& gameLib)
 		double averageDeltaTime = avgDeltaTimeThingy.getAverage();
 		pPhsyics->IntegrationStep(mapObjects, (float)averageDeltaTime);
 
-//		::HandleDebugBallPhysics(shaderProgID, pPhsyics, pTheVAOManager, pDebugRenderer,&mapLoaded);
 
 		// A more general 
 		pPhsyics->TestForCollisions(mapObjects);
-//		::LightDebugSheres(shaderProgID, pTheVAOManager);
 
 		pDebugRenderer->RenderDebugObjects( view, projection, 0.01f );
 

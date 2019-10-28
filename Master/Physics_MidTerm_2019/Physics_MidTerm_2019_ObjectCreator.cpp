@@ -184,8 +184,8 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 		// More hits this way for testing
 		//startPosition.y = randInRange(g_whole_min.y, g_whole_max.y);
 		//startPosition.z = randInRange(g_whole_min.z, g_whole_max.z );
-		startPosition.y = randInRange(g_whole_min.y * 2, g_whole_max.y * 2);
-		startPosition.z = randInRange(g_whole_min.z * 2, g_whole_max.z * 2);
+		startPosition.y = randInRange(g_whole_min.y * 1.5, g_whole_max.y * 1.5);
+		startPosition.z = randInRange(g_whole_min.z * 1.5, g_whole_max.z * 1.5);
 
 		newAstroid->positionXYZ = startPosition;
 
@@ -204,77 +204,6 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 		// Save the object to the object array
 		manager.SaveObject(newAstroid, parent);
 		g_AsteroidObjects.push_back(newAstroid);
-	}
-}
-
-void Physics_MidTerm_2019_CreatePyramids(int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent)
-{
-	srand(unsigned int(time(NULL)));
-
-	iObject* temp = objectManager.FindObjectByName("ground_plane");
-	assert(temp);
-	cObject_Group* groundGroup = dynamic_cast<cObject_Group*> (temp);
-	assert(groundGroup);
-
-	// See where to place the pyrmids
-	glm::vec3 minBox;
-	glm::vec3 maxBox;
-	highPointOfbox(minBox, maxBox);
-	float surface = maxBox.y;
-
-	// Make a bunch of pyramids
-	std::string name = "pyramid_a";
-	temp = objectManager.FindObjectByName(name);
-	cObject_Model* pyramid_a = dynamic_cast<cObject_Model*>(temp);
-
-
-	// How big is the pyramid
-	glm::vec3 minPyramid;
-	glm::vec3 maxPyramid;
-	cPhysics_Henky::boundsOfObject(*pyramid_a, minPyramid, maxPyramid);
-	float pyramidHeight = maxPyramid.y;
-
-	for (int i = 0; i < number; ++i)
-	{
-		std::string newName = name + "_" + std::to_string(i);
-		auto temp = pyramid_a->Clone(newName);
-		assert(temp);
-		cObject_Model* newPyramid = dynamic_cast<cObject_Model*>(temp);
-		assert(newPyramid);
-
-		float newscale = float((rand()) % 40 + 30);
-		newscale /= 120;
-		newPyramid->scale = newscale;
-		if (pyramidHeight * newscale > gMaxHeightOfPyramid)
-			gMaxHeightOfPyramid = pyramidHeight * newscale;
-		{
-			int min = 50;
-			int max = 255;
-			int r = rand() % (max - min) + min;
-			int g = rand() % (max - min) + min;
-			int b = rand() % (max - min) + min;
-			glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
-			newPyramid->objectColourRGBA = rgb;
-		}
-		{
-			int minx = ceil(minBox.x) + ceil(newscale * maxPyramid.x);
-			int maxx = floor(maxBox.x) + ceil(newscale * minPyramid.x);
-			int minz = ceil(minBox.z) + ceil(newscale * maxPyramid.z);
-			int maxz = floor(maxBox.z) + ceil(newscale * minPyramid.z);
-			int x = rand() % (maxx - minx) + minx;
-			int y = surface;
-			int z = rand() % (maxz - minz) + minz;
-			glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
-			newPyramid->positionXYZ = pos;
-		}
-		newPyramid->SetVisable(true);
-
-		// Save the object to the object array
-		objectManager.SaveObject(newPyramid, parent);
-
-		// parent/child pointers
-		newPyramid->SetParentObject(groundGroup);
-		groundGroup->AddChildObject(newPyramid);
 	}
 }
 
@@ -311,11 +240,32 @@ void Physics_MidTerm_2019_LaserBalls(int number, cObjectManager& objectManager, 
 	}
 }
 
+static bool inRange( cObject_Model* pModel)
+{
+	auto current_x = pModel->positionXYZ.x;
+	auto min_x = g_whole_max.x + 200;
+	auto max_x = g_whole_length.x / 2;
+	// Close enough
+	if (current_x < min_x || current_x > max_x)
+		return false;
+
+	// Check y/z bounds of the space station
+	if (pModel->positionXYZ.y > g_whole_max.y)
+		return false;
+	if (pModel->positionXYZ.y < g_whole_min.y)
+		return false;
+	if (pModel->positionXYZ.z > g_whole_max.z)
+		return false;
+	if (pModel->positionXYZ.z < g_whole_min.z)
+		return false;
+	return true;
+}
+
 void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 {
 	if (g_lazerSimulationOn)
 	{
-		const float scale = 0.05;
+		const float scale = 0.40;
 		g_lazerScale -= scale;
 
 		for (auto balls : g_laserBalls)
@@ -337,10 +287,11 @@ void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 	{
 		if (model->IsVisable() && model->velocity != glm::vec3(0.0f, 0.0f, 0.0f))
 		{
-			auto current_x = model->positionXYZ.x;
-			auto min_x = g_whole_max.x + 200;
-			auto max_x = g_whole_length.x / 2;
-			if (current_x > min_x && current_x < max_x)
+			//auto current_x = model->positionXYZ.x;
+			//auto min_x = g_whole_max.x + 200;
+			//auto max_x = g_whole_length.x / 2;
+			//if (current_x > min_x && current_x < max_x)
+			if (inRange(model))
 			{
 				auto temp = cObjectManager().FindObjectByName("Sphere#1");
 				assert(temp);
@@ -369,6 +320,30 @@ void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 
 				// Now draw the line of balls to the object
 
+				glm::vec3 startPosition = glm::vec3(g_whole_max.x + 30, 0.0f, 0.0f);
+				glm::vec3 endPositon = model->positionXYZ;
+
+				glm::vec3 laserLength = endPositon - startPosition;
+
+				
+
+				int totalBalls = 500;
+				glm::vec3 incrementVector = float(1.0f/ totalBalls)*laserLength;	// 500 balls
+				for (int i = 0; i < totalBalls; i++)
+				{
+					cObject_Model* item = g_laserBalls[i];
+					item->isWireframe = true;
+					item->m_isVisable = true;
+					item->debugColour = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);	// blue
+					item->positionXYZ = startPosition;
+					startPosition += incrementVector;
+					item->objectColourRGBA = item->debugColour;
+					item->inverseMass = 0.0f;
+					item->velocity = glm::vec3(0.0f);
+					item->scale = 5.0f;
+					g_lazerScale = item->scale;
+				}
+				g_lazerSimulationOn = true;
 				// One at a time
 				break;
 			}
