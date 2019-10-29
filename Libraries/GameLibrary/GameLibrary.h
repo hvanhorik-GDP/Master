@@ -7,7 +7,7 @@
 #pragma comment (lib, "GameLibrary.lib")
 
 
-// INFO6044 - Gamelibrary wraps the XML so it can easly be replace in the future
+// Gamelibrary wraps the XML so it can easly be replace in the future
 
 namespace gamelibrary
 {

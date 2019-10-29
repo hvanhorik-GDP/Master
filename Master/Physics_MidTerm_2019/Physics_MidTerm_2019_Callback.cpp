@@ -40,10 +40,12 @@ void Physics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancode
 
 		if (key == GLFW_KEY_L)
 		{
+			// INFO6019 - turn on laser
 			g_lazerOn = !g_lazerOn;
 			std::cout << "Turning lazer: " << (g_lazerOn ? "on" : "off")  << std::endl;
 		}
 		//								// Move the camera (A & D for left and right, along the x axis)
+		// INFO6019 - move around the camera
 		if (key == GLFW_KEY_X)
 		{
 			world->cameraEye.x += cameraSPEED;		// Move the camera +0.01f units
@@ -64,22 +66,6 @@ void Physics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancode
 		const int y = 1;
 		const int z = 2;
 
-		//if (key == GLFW_KEY_RIGHT)
-		//{
-		//	gTilter->tiltPlane(z, planeTilt);
-		//}
-		//if (key == GLFW_KEY_LEFT)
-		//{
-		//	gTilter->tiltPlane(z, -planeTilt);
-		//}
-		//if (key == GLFW_KEY_UP)
-		//{
-		//	gTilter->tiltPlane(x, planeTilt);
-		//}
-		//if (key == GLFW_KEY_DOWN)
-		//{
-		//	gTilter->tiltPlane(x, -planeTilt);
-		//}
 	}
 
 	if (isShiftKeyDownByAlone(mods))
@@ -136,39 +122,40 @@ bool isCtrlKeyDownByAlone(int mods)
 
 void Physics_MidTerm_2019_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
-	// Move the sphere to where the camera is and shoot the ball from there...
-	cObject_Model* pTheBall = pFindObjectByFriendlyName("Drop_Sphere");
-
-	// What's the velocity
-	// Target - eye = direction
-//	glm::vec3 direction = glm::normalize(cameraTarget - cameraEye);
-	//glm::vec3 position = glm::vec3(0.0f, 30.0, 0.0f);
-	//glm::vec3 direction = glm::vec3(0.0f, -1.0f, 0.0f);
-	{
-		int min = 50;
-		int max = 255;
-		int r = rand() % (max - min) + min;
-		int g = rand() % (max - min) + min;
-		int b = rand() % (max - min) + min;
-		glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
-		pTheBall->objectColourRGBA = rgb;
-	}
-	{
-		int min = -5;
-		int max = 5;
-		int x = rand() % (max - min) + min;
-		int y = rand() % (50) + 20;
-		int z = rand() % (max - min) + min;
-		glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
-		pTheBall->positionXYZ = pos;
-	}
-	// HACK - TODO - turn off scale
-//	int scale = rand() % 5;
-//	pTheBall->scale = float(scale);
-//	pTheBall->SPHERE_radius = float(scale);
-	pTheBall->velocity = glm::vec3(0.0f, 1.0f, 0.0f);
-	pTheBall->acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
-	pTheBall->inverseMass = 1.0f;
+//
+//	// Move the sphere to where the camera is and shoot the ball from there...
+//	cObject_Model* pTheBall = pFindObjectByFriendlyName("Drop_Sphere");
+//
+//	// What's the velocity
+//	// Target - eye = direction
+////	glm::vec3 direction = glm::normalize(cameraTarget - cameraEye);
+//	//glm::vec3 position = glm::vec3(0.0f, 30.0, 0.0f);
+//	//glm::vec3 direction = glm::vec3(0.0f, -1.0f, 0.0f);
+//	{
+//		int min = 50;
+//		int max = 255;
+//		int r = rand() % (max - min) + min;
+//		int g = rand() % (max - min) + min;
+//		int b = rand() % (max - min) + min;
+//		glm::vec4 rgb = glm::vec4(float(r) / max, float(g) / max, float(b) / max, 1);
+//		pTheBall->objectColourRGBA = rgb;
+//	}
+//	{
+//		int min = -5;
+//		int max = 5;
+//		int x = rand() % (max - min) + min;
+//		int y = rand() % (50) + 20;
+//		int z = rand() % (max - min) + min;
+//		glm::vec3 pos = glm::vec3(float(x), float(y), float(z));
+//		pTheBall->positionXYZ = pos;
+//	}
+//	// HACK - TODO - turn off scale
+////	int scale = rand() % 5;
+////	pTheBall->scale = float(scale);
+////	pTheBall->SPHERE_radius = float(scale);
+//	pTheBall->velocity = glm::vec3(0.0f, 1.0f, 0.0f);
+//	pTheBall->acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
+//	pTheBall->inverseMass = 1.0f;
 	return;
 }
 

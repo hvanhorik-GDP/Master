@@ -33,7 +33,7 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cItem_Model& val);
 
-private:
+public:			// TODO - hack
 
 	// Store the verticies
 	std::vector<cItem_Model::sPlyVertexXYZ> m_vecVertices;

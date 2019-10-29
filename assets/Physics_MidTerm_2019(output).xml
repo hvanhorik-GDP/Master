@@ -1,5 +1,5 @@
 <GameLibrary>
-	<GameName>Project 1 Phsysics Test</GameName>
+	<GameName>Project 1 Phsysics Midterm</GameName>
 	<AssetGroup type="shaders" open="none">
 		<AssetRoot>../assets/shaders/</AssetRoot>
 		<Asset name="fragmentShader01" type="fragment">
@@ -13021,6 +13021,358 @@
 			<Property name="inverseMass" type="float" value="1.000000"/>
 			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
 			<Property name="velocity" type="vec3" value="-938.829 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_70" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7992.98 1727.47 2758.83"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-605.872 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_71" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8015.18 913.03 -2201.29"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-626.38 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_72" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7998.42 -1239.38 -1407.54"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-747.026 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_73" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8034.08 2391.81 206.82"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-844.441 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_74" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8053.72 -2768.35 1014.6"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-760.967 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_75" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7900.91 2768.35 -3381.32"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-771.123 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_76" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7934.06 374.513 -2138.97"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-724.54 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_77" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8035.21 -2847.08 -1681.56"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-915.244 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_78" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8031.53 1900.15 898.045"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-744.45 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_79" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7919.3 2833.76 -2108.76"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-699.82 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_80" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8070.57 -3477.65 -3262.39"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-809.87 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_81" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7892.53 -1879.94 3051.64"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-693.106 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_82" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7898.62 3364.19 -3272.61"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-618.836 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_83" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7940.88 3232.18 -790.294"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-773.113 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="104.552155"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_014_84" type="model" asset_id="Asteroid_014_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8041.04 266.761 2666.31"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-877.413 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="45.900608"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Asteroid_011_85" type="model" asset_id="Asteroid_011_xyz_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="7925.43 -3863.22 199.447"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="-981.921 0 0"/>
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="AABB_min" type="vec3" value="0 0 0"/>
 			<Property name="AABB_max" type="vec3" value="0 0 0"/>

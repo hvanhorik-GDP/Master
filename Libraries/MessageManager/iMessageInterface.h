@@ -4,7 +4,7 @@
 
 class iMessage;
 
-// INFO6044 - iMessageInterface is a part of the iMessageManager
+// iMessageInterface is a part of the iMessageManager
 // This is what anyone using the interface inherit from
 
 class iMessageInterface

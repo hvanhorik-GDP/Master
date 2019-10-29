@@ -4,7 +4,7 @@
 #include "../../Libraries/ObjectItems/cObject_Model.h"
 
 
-// INFO6044 - cPhysicsTilter and example of using iMessageInterface
+// cPhysicsTilter and example of using iMessageInterface
 // This is used by the keyboard callback to handle manipluations of objects
 
 

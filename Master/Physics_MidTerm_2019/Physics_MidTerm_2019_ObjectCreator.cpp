@@ -33,8 +33,44 @@ static void highPointOfbox(glm::vec3& min, glm::vec3& max)
 	cPhysics_Henky::boundsOfObject(*cubeObject, min, max);
 }
 
-static float gMaxHeightOfPyramid = 0.0f;
+const int g_arraySize = 1000;
+bool g_vectorMap[g_arraySize][g_arraySize];
+const int g_divisor = 100;
 
+void Create2Dmatrix(cObject_Model* pObject)
+{
+//	const int minCube = 10;
+	double size_y = g_whole_max.y - g_whole_min.y;
+	double size_z = g_whole_max.z - g_whole_min.z;
+	double size_max = (size_y > size_z) ? size_y : size_z;
+	int dimentions = (int(size_max)) / g_divisor;
+	assert(dimentions < g_arraySize);
+
+	for (int i = 0; i < g_arraySize; i++)
+		for (int j = 0; j < g_arraySize; j++)
+			g_vectorMap[i][j] = false;
+
+	auto mesh = pObject->GetItem();
+	assert(mesh);
+	cItem_Model* objectItem = dynamic_cast<cItem_Model*>(mesh);
+	assert(objectItem);
+
+	for (auto vertice : objectItem->m_vecVertices)
+	{
+		// zero offset
+		float positionY = vertice.y - g_whole_min.y;
+		float positionZ = vertice.z - g_whole_min.z;
+
+		int intPosY = int(positionY) / g_divisor;
+		assert(intPosY < g_arraySize);
+		int intPosZ = int(positionZ) / g_divisor;
+		assert(intPosZ < g_arraySize);
+
+//		std::cout << intPosY << ", " << intPosZ << ", ";
+
+		g_vectorMap[intPosY][intPosZ] = true;
+	}
+}
 
 void Physics_MidTerm_2019_CalculateBounds(rapidxml::xml_node<>* parent)
 {
@@ -128,26 +164,16 @@ void Physics_MidTerm_2019_CalculateBounds(rapidxml::xml_node<>* parent)
 	Asteroid_015->SPHERE_radius = Asteroid_015_length / 2;
 	manager.SaveObject(Asteroid_015, parent);
 
-	//std::cout << " whole_length x,y,z: " << g_whole_length.x << " , " << g_whole_length.y << " , " << g_whole_length.z << std::endl;
-	//std::cout << " safe_length x,y,z: " << safe_length.x << " , " << safe_length.y << " , " << safe_length.z << std::endl;
-	//std::cout << " exposed_length x,y,z: " << exposed_length.x << " , " << exposed_length.y << " , " << exposed_length.z << std::endl;
-
-	//std::cout << " whole_min x,y,z: " << g_whole_min.x << " , " << g_whole_min.y << " , " << g_whole_min.z << std::endl;
-	//std::cout << " whole_max x,y,z: " << g_whole_max.x << " , " << g_whole_max.y << " , " << g_whole_max.z << std::endl;
-
-	//std::cout << " safe_min x,y,z: " << safe_min.x << " , " << safe_min.y << " , " << safe_min.z << std::endl;
-	//std::cout << " safe_max x,y,z: " << safe_max.x << " , " << safe_max.y << " , " << safe_max.z << std::endl;
-
-	//std::cout << " exposed_min x,y,z: " << exposed_min.x << " , " << exposed_min.y << " , " << exposed_min.z << std::endl;
-	//std::cout << " exposed_max x,y,z: " << exposed_max.x << " , " << exposed_max.y << " , " << exposed_max.z << std::endl;
+	Create2Dmatrix(exposed);
 }
 
 static time_t g_lastCreated = 0;
 
 static int g_lastName = 0;
 static const char* g_astroids[3] = { "Asteroid_011", "Asteroid_014", "Asteroid_015" };
-
 static std::vector<cObject_Model*> g_AsteroidObjects;
+
+// INFO6019 - Creates a new asteroid every second
 
 void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>* parent)
 {
@@ -155,7 +181,7 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 
 //	std::cout << "CurrentTime: " << g_lastCreated << " : " << currentTime << std::endl;
 
-	if ((currentTime - g_lastCreated) > 1)
+	if ((currentTime - g_lastCreated) > 0)
 	{
 	
 		time_t currentTime = time(NULL);
@@ -184,8 +210,8 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 		// More hits this way for testing
 		//startPosition.y = randInRange(g_whole_min.y, g_whole_max.y);
 		//startPosition.z = randInRange(g_whole_min.z, g_whole_max.z );
-		startPosition.y = randInRange(g_whole_min.y * 1.5, g_whole_max.y * 1.5);
-		startPosition.z = randInRange(g_whole_min.z * 1.5, g_whole_max.z * 1.5);
+		startPosition.y = randInRange(g_whole_min.y * 1.5f, g_whole_max.y * 1.5f);
+		startPosition.z = randInRange(g_whole_min.z * 1.5f, g_whole_max.z * 1.5f);
 
 		newAstroid->positionXYZ = startPosition;
 
@@ -211,6 +237,8 @@ std::vector< cObject_Model* > g_laserBalls;
 bool g_lazerOn;
 bool g_lazerSimulationOn;
 float g_lazerScale = 0;
+
+// INFO6019 - Preallocates all of the balls for the laser shots
 
 void Physics_MidTerm_2019_LaserBalls(int number, cObjectManager& objectManager, rapidxml::xml_node<>* parent)
 {
@@ -240,6 +268,8 @@ void Physics_MidTerm_2019_LaserBalls(int number, cObjectManager& objectManager, 
 	}
 }
 
+// INFO6019 - Checks to see if an asteroid is in range or will hit the space station
+
 static bool inRange( cObject_Model* pModel)
 {
 	auto current_x = pModel->positionXYZ.x;
@@ -258,16 +288,37 @@ static bool inRange( cObject_Model* pModel)
 		return false;
 	if (pModel->positionXYZ.z < g_whole_min.z)
 		return false;
+
+	// zero offset
+	float positionY = pModel->positionXYZ.y - g_whole_min.y;
+	float positionZ = pModel->positionXYZ.z - g_whole_min.z;
+
+	int intPosY = int(positionY) / g_divisor;
+	assert(intPosY < g_arraySize);
+	int intPosZ = int(positionZ) / g_divisor;
+	assert(intPosZ < g_arraySize);
+
+	if (g_vectorMap[intPosY][intPosZ])
+	{
+		std::cout << "We have a potential hit: y: " << intPosY << " z: " << intPosZ << std::endl;
+	}
+	// INFO6019 - failed attempt at detecting bounds of object
+	//    just use the bounding box
+
+//	return g_vectorMap[intPosY][intPosZ];
 	return true;
 }
+
+// INFO6019 - shoots the laser and runs the simulation of the laser blinking out
 
 void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 {
 	if (g_lazerSimulationOn)
 	{
-		const float scale = 0.40;
+		const float scale = 0.40f;
 		g_lazerScale -= scale;
 
+		// INFO6019 - slowly scale the laser balls till they vanish
 		for (auto balls : g_laserBalls)
 		{
 			balls->scale = g_lazerScale;
@@ -287,10 +338,6 @@ void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 	{
 		if (model->IsVisable() && model->velocity != glm::vec3(0.0f, 0.0f, 0.0f))
 		{
-			//auto current_x = model->positionXYZ.x;
-			//auto min_x = g_whole_max.x + 200;
-			//auto max_x = g_whole_length.x / 2;
-			//if (current_x > min_x && current_x < max_x)
 			if (inRange(model))
 			{
 				auto temp = cObjectManager().FindObjectByName("Sphere#1");
@@ -312,7 +359,6 @@ void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 				model->HACK_Physics_DebugBall_Vanishes = true;
 				model->physicsShapeType = cObject_Physics::UNKNOWN;
 				model->SPHERE_radius = 120.0;
-//				model->isWireframe = true;
 				model->m_isVisable = true;
 				std::cout << "We are lazering an asteroid - time: " << " Time: "
 					<< model->HACK_Physics_Time_Of_Simulation
@@ -325,8 +371,7 @@ void Physics_MidTerm_2019_Shoot_Laser(float deltatime)
 
 				glm::vec3 laserLength = endPositon - startPosition;
 
-				
-
+				// INFO6019 - 500 balls per laser shot
 				int totalBalls = 500;
 				glm::vec3 incrementVector = float(1.0f/ totalBalls)*laserLength;	// 500 balls
 				for (int i = 0; i < totalBalls; i++)

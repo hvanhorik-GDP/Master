@@ -4,7 +4,7 @@
 
 #pragma comment(lib, "MessageManager.lib")
 
-// INFO6044 - iMesssage is a part of the iMesageManager
+//  - iMesssage is a part of the iMesageManager
 
 class iMessage
 {

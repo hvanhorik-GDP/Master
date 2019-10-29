@@ -4,7 +4,7 @@
 #include "iMessageInterface.h"
 #include <string>
 
-// INFO6044 - iMessageManager is a mediator/singleton. It may become an abstract factory depending on
+// iMessageManager is a mediator/singleton. It may become an abstract factory depending on
 // future needs.
 // It is desgined to send messages between any object that inherit from the class
 // It will be using an XML version in the future, but due to time constraints I only implemented a 

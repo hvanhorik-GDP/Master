@@ -1,8 +1,7 @@
-This is a readme for all three projects 
-
-INFO6044 - Engine frameworks & patterns
-INFO6028 - Graphics
-INFO6019 - Physics and simulation
+Student: Henry Van Horik
+Student Number: 0966956
+Course: INFO6019 - Physics and simulation
+Project: MidTerm 2019
 
 To build:
 	Select Release/x64 target
@@ -11,14 +10,19 @@ To build:
  I have placed searches in the code so you can track down examples for what I am discussing
 
  Select Search: 
-	 Enter the project code. "INFO6044"
+	 Enter the project code. "INFO6019"
 	 Pulldown "Entire Solution"
 	 Pulldown "Find All"
 		- This will find all references to the code that is implmenting specific stuff
 
-You should start with "INFO6044 Engine frameworks & patterns" as it will give a good overview of the code
-Then "INFO6028 - Graphics" 
-Last "INFO6019 - Physics and simulation"
+Keyboard commands:
+Move the camera:
+
+X / Shift - X		- Adjust camera in the +/- X position
+Y / Shift - Y		- Adjust camera in the +/- Y position
+Z / Shift - Z		- Adjust camera in the +/- Z position
+
+L - Turn on/off Laser.
 
 The same code will run all projects. They just need a different external script/xml file.
 To change enter the following:

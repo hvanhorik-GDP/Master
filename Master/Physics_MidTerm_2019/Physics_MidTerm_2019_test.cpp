@@ -40,6 +40,7 @@
 #include "Physics_MidTerm_2019/Physics_MidTerm_2019_ObjectCreator.h"
 
 
+// INFO6019 - Main part of the program
 int Physics_MidTerm_2019_test(gamelibrary::GameLibrary& gameLib)
 {
 

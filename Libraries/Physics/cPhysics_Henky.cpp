@@ -51,6 +51,9 @@ void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjec
 		pCurObj->IntegrationStep(deltaTime);
 
 		// TODO - HACK FOR PHYSICS
+
+		// INFO6019 - Hack for exploding balls
+
 		if (pCurObj->HACK_Physics_DebugBall_Damage)
 		{
 			time_t now = time(NULL);
@@ -84,7 +87,6 @@ void cPhysics_Henky::IntegrationStep(iObjectManager::iObject_map& map_pGameObjec
 					<< std::endl;
 
 			}
-//			pCurObj->HACK_Physics_Time_Of_Simulation = now;
 		}
 	}//for (unsigned int index = 0;
 
@@ -208,7 +210,7 @@ void cPhysics_Henky::TestForCollisions(iObjectManager::iObject_map& map_pGameObj
 			if (!pA->IsVisable() || !pB->IsVisable())
 				continue;
 			// ignore debug balls
-			if (!pA->isWireframe || !pB->isWireframe)
+			if (pA->isWireframe || pB->isWireframe)
 				continue;
 			// Calculate our current world coordinates
 			pA->matWorld = calculateWorldMatrix(*pA);
@@ -696,6 +698,8 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 
 		// TODO - We hit so lets stop the astroid
 		// TODO - HACK
+		// INFO6019 - Hack for exploding balls
+		// just turn the astroid into a ball.
 		pSphere->inverseMass = 0;
 		pSphere->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
 		

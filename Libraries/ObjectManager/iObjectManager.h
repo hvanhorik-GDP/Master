@@ -6,7 +6,7 @@
 #include <map>
 
 
-// INFO6044 - iObjectManager reads in all of the for the object types from the xml file
+// iObjectManager reads in all of the for the object types from the xml file
 // It is a "singleton", "Pimpl",  "Abstract Factory", "Builder"
 // It reads all of it's information from the gamlibary XML file
 // See cObjectManage, cObjectManager_imple and each of the types and each of the different types

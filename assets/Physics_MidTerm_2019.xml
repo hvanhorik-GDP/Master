@@ -1,5 +1,6 @@
 <GameLibrary>
-  <GameName>Project 1 Phsysics Test</GameName>
+  <!-- INFO6019 - project file  -->
+  <GameName>Project 1 Phsysics Midterm</GameName>
   <AssetGroup type="shaders" open="none">
     <AssetRoot>../assets/shaders/</AssetRoot>
     <Asset name="fragmentShader01" type="fragment">
@@ -99,6 +100,7 @@
       <Property name="theLights[9].specular" type="Uniform" value="78"/>
     </Asset>
   </AssetGroup>
+  <!-- INFO6019 - models  -->
   <AssetGroup type="models" open="none">
     <AssetRoot>../assets/models/</AssetRoot>
     <Asset name="Asteroid_011_xyz_n">
@@ -205,6 +207,7 @@
     </Asset>
   </AssetGroup>
   <Objects>
+    <!-- INFO6019 - a bunch of light objects  -->
     <Object type="light" name="light_0" asset_id="">
       <Property name="shaderEntry" type="string" value="theLights[0]"/>
       <Property name="lightType" type="enum" value="POINT"/>
@@ -364,6 +367,7 @@
       <Property name="disableDepthBufferTest" type="bool" value="false"/>
       <Property name="disableDepthBufferWrite" type="bool" value="false"/>
     </Object>
+    <!-- INFO6019 - Main model  -->
     <Object name="Parts_Exposed" type="model" asset_id="Parts_Exposed_to_Asteroids_xyz_n">
       <Property name="isVisible" type="bool" value="true"/>
       <Property name="isObjectLocked" type="bool" value="true"/>
@@ -408,6 +412,7 @@
       <Property name="disableDepthBufferTest" type="bool" value="false"/>
       <Property name="disableDepthBufferWrite" type="bool" value="false"/>
     </Object>
+    <!-- INFO6019 - astroids  -->
     <Object name="Asteroid_011" type="model" asset_id="Asteroid_011_xyz_n">
       <Property name="isVisible" type="bool" value="false"/>
       <Property name="isObjectLocked" type="bool" value="false"/>

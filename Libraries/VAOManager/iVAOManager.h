@@ -8,7 +8,7 @@
 #include "sModelDrawInfo.h"
 
 
-// INFO6044 - iVAOManager - handles VAO
+// iVAOManager - handles VAO
 // It is a "singleton", "Pimpl", "Builder"
 // It will probably become an  "Abstract Factory" when we have multiple shaders
 

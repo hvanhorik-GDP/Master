@@ -1,7 +1,6 @@
 <GameLibrary>
 	<GameName>Project 1 Phsysics Test</GameName>
-  <!--INFO6044 - AssetGroups hold physical assets-->
-  <AssetGroup type="shaders" open="none">
+   <AssetGroup type="shaders" open="none">
 		<AssetRoot>../assets/shaders/</AssetRoot>
 		<Asset name="fragmentShader01" type="fragment">
 			<AssetFile>fragmentShader01.glsl</AssetFile>
@@ -12,7 +11,6 @@
 			<Property name="isValid" type="bool" value="true"/>
 		</Asset>
 	</AssetGroup>
-  <!--INFO6044 - AssetGroups all of the shaders and programs-->
   <AssetGroup type="programs" open="none">
 		<Asset name="main">
 			<AssetPart>fragmentShader01</AssetPart>
@@ -101,7 +99,6 @@
 			<Property name="theLights[9].param2" type="Uniform" value="73"/>
 		</Asset>
 	</AssetGroup>
-  <!--INFO6044 - AssetGroups all of the models-->
   <AssetGroup type="models" open="none">
 		<AssetRoot>../assets/models/</AssetRoot>
 		<Asset name="Chest">
@@ -445,7 +442,6 @@
 			<Property name="colours" type="bool" value="false"/>
 		</Asset>
 	</AssetGroup>
-  <!--INFO6044 - AssetGroups all of the Audio files-->
 
   <AssetGroup type="audios" open="all" subdir="true" subtype="music">
 		<AssetRoot>../assets/audios/</AssetRoot>
@@ -459,8 +455,7 @@
 	<AssetGroup type="fonts" open="none">
 		<AssetRoot>../assets/fonts/</AssetRoot>
 	</AssetGroup>
-  <!--INFO6044 - Objects  - with thier properties-->
-
+ 
   <Objects>
 		<Object type="light" name="light_0" asset_id="">
 			<Property name="shaderEntry" type="string" value="theLights[1]"/>
@@ -726,8 +721,7 @@
 			<Property name="isVisible" type="bool" value="true"/>
 			<Property name="DebugSpheres" type="bool" value="false"/>
 		</Object>
-    <!--INFO6044 - an object group which groups together a bunch of seperate objects -->
-    <!--They all move together -->
+     <!--They all move together -->
 
     <Object type="group" name="Sky_Pirate_group" asset_id="">
 			<Property name="Sky_Pirate" type="alias" value="Sky_Pirate"/>
@@ -1111,8 +1105,7 @@
 			<Property name="accel" type="vec3" value="0 0 0"/>
 			<Property name="isVisible" type="bool" value="true"/>
 		</Object>
-    <!--INFO6044 - world object. camera a such -->
-
+ 
 
     <Object type="window" name="window" asset_id="">
       <Property name="windowWidth" type="int" value="700"/>

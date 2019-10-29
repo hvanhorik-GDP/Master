@@ -44,7 +44,7 @@ void cPhysicsTilter::tiltPlane(int plane, float value)
 		// We want to hit the ball with the applied force
 
 
-		// INFO6044 - cPhysicsTilter and example of using iMessageInterface
+		// PhysicsTilter and example of using iMessageInterface
 		// This sends a message to an object saying I have "hit" it.
 
 		cMessage_XML msg(m_trackObject->GetName(), gTilterName);
@@ -68,7 +68,7 @@ void cPhysicsTilter::tiltPlane(int plane, float value)
 		if (howFar < maxplaneTilt)
 		{
 
-			// INFO6044 - cPhysicsTilter and example of using iMessageInterface
+			// cPhysicsTilter and example of using iMessageInterface
 			// This sends a message to the ground plane telling it to tilt.
 
 			cMessage_XML msg("ground_plane", gTilterName);
