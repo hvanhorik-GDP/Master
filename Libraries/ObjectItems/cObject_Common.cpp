@@ -3,6 +3,7 @@
 
 #include <sstream>
 #include <algorithm>
+#include <iostream>
 
 cObject_Common::cObject_Common()
 	: m_type()

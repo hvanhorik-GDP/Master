@@ -10,250 +10,283 @@
     <Filter Include="Assets\shaders">
       <UniqueIdentifier>{ed592962-3f94-4b87-a466-6e6a4dfd0435}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\models\Physics">
-      <UniqueIdentifier>{f7276281-e5ef-4981-8db1-ac5ae78ad194}</UniqueIdentifier>
+    <Filter Include="Graphics_MidTerm_2019">
+      <UniqueIdentifier>{1719ca21-be4b-46f1-ab77-bde989b8c2ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\models\Graphics">
-      <UniqueIdentifier>{7f67e0f2-b4de-48e7-97a6-83e6ed4931f5}</UniqueIdentifier>
+    <Filter Include="Assets\models\Graphics_MidTerm_2019">
+      <UniqueIdentifier>{7bb3bbbc-efd4-43d2-a703-638464a81b60}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference">
+    <Filter Include="Assets\models\_Others">
+      <UniqueIdentifier>{9467072c-4e03-4996-bd8f-d23728b0ff2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Others">
       <UniqueIdentifier>{0bdbf691-5c1a-44d6-80bc-f158e152d7a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\AudioTest">
+    <Filter Include="_Others\AudioTest">
       <UniqueIdentifier>{367be525-4c8f-4a4d-85fd-2a47cf3c3703}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\Common">
+    <Filter Include="_Others\Common">
       <UniqueIdentifier>{00ae2ebb-3b60-4c4b-a3f1-d5e2e8ad45ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\GDP2019">
+    <Filter Include="_Others\GDP2019">
       <UniqueIdentifier>{32b81305-143d-4239-b48c-99611c37ec06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\OtherTest">
+    <Filter Include="_Others\OtherTest">
       <UniqueIdentifier>{49c8020f-fa61-43a9-b058-7984683f98a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Physics_MidTerm_2019">
-      <UniqueIdentifier>{e5262556-90d2-48d6-a35e-2a1c5808d541}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_Exteral Reference\Physics_MidTerm_2018">
+    <Filter Include="_Others\Physics_MidTerm_2018">
       <UniqueIdentifier>{42dda4af-33c5-452b-957c-24ec5d5be27d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\Graphics">
+    <Filter Include="_Others\Graphics">
       <UniqueIdentifier>{88c606ae-72e6-451d-ba2c-cb8bb65d3373}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\Physics">
+    <Filter Include="_Others\Physics">
       <UniqueIdentifier>{c9cd8538-17fe-4a5a-9a15-da94cb3ba479}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_Exteral Reference\Audio">
+    <Filter Include="_Others\Audio">
       <UniqueIdentifier>{61fafbe6-5bd7-4bce-b119-5f5450e2e283}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\models\Physics_MidTerm_2019">
+    <Filter Include="_Others\Physics_MidTerm_2019">
+      <UniqueIdentifier>{e5262556-90d2-48d6-a35e-2a1c5808d541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\models\_Others\Graphics">
+      <UniqueIdentifier>{7f67e0f2-b4de-48e7-97a6-83e6ed4931f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\models\_Others\Physics">
+      <UniqueIdentifier>{f7276281-e5ef-4981-8db1-ac5ae78ad194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\models\_Others\Physics_MidTerm_2019">
       <UniqueIdentifier>{afcde017-6284-4c7f-bb69-815c09d50183}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Master.cpp" />
     <ClCompile Include="Common\globalStuff.cpp">
-      <Filter>_Exteral Reference\Common</Filter>
+      <Filter>_Others\Common</Filter>
     </ClCompile>
     <ClCompile Include="Common\LoadGLFW.cpp">
-      <Filter>_Exteral Reference\Common</Filter>
+      <Filter>_Others\Common</Filter>
     </ClCompile>
     <ClCompile Include="AudioTest\test_Audio.cpp">
-      <Filter>_Exteral Reference\AudioTest</Filter>
+      <Filter>_Others\AudioTest</Filter>
     </ClCompile>
     <ClCompile Include="AudioTest\test_AudioEngine.cpp">
-      <Filter>_Exteral Reference\AudioTest</Filter>
+      <Filter>_Others\AudioTest</Filter>
     </ClCompile>
     <ClCompile Include="OtherTest\test_filesystem.cpp">
-      <Filter>_Exteral Reference\OtherTest</Filter>
+      <Filter>_Others\OtherTest</Filter>
     </ClCompile>
     <ClCompile Include="OtherTest\test_gl.cpp">
-      <Filter>_Exteral Reference\OtherTest</Filter>
+      <Filter>_Others\OtherTest</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\GLFW_Callbacks.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\HandleDebugBallPhysics.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\HandleDebugLights.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\HandleDebugPirate.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\LightDebugSheres.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\save stuff.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="GDP2019\test_GDP2019.cpp">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClCompile>
     <ClCompile Include="Physics\cPhysicsTilter.cpp">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\ObjectCreator.cpp">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Graphics_Callback.cpp">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\test_Graphics.cpp">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\cGraphicsToObject.cpp">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\Physics_Callback.cpp">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Physics\test_Physics.cpp">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Audio\Audio_Callback.cpp">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Audio\test_Audio.cpp">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Common\pFindObjectByFriendlyName.cpp">
-      <Filter>_Exteral Reference\Common</Filter>
+      <Filter>_Others\Common</Filter>
     </ClCompile>
     <ClCompile Include="OtherTest\Audio - week7.cpp">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </ClCompile>
     <ClCompile Include="MidTerm_2018\MidTerm_2018_Callback.cpp">
-      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+      <Filter>_Others\Physics_MidTerm_2018</Filter>
     </ClCompile>
     <ClCompile Include="MidTerm_2018\MidTerm_2018_test.cpp">
-      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+      <Filter>_Others\Physics_MidTerm_2018</Filter>
     </ClCompile>
     <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_Callback.cpp">
-      <Filter>Physics_MidTerm_2019</Filter>
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
     </ClCompile>
     <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_test.cpp">
-      <Filter>Physics_MidTerm_2019</Filter>
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
     </ClCompile>
     <ClCompile Include="Physics_MidTerm_2019\Physics_MidTerm_2019_ObjectCreator.cpp">
-      <Filter>Physics_MidTerm_2019</Filter>
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_Callback.cpp">
+      <Filter>Graphics_MidTerm_2019</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_test.cpp">
+      <Filter>Graphics_MidTerm_2019</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_ToObject.cpp">
+      <Filter>Graphics_MidTerm_2019</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Master.h" />
     <ClInclude Include="Common\globalStuff.h">
-      <Filter>_Exteral Reference\Common</Filter>
+      <Filter>_Others\Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\LoadGLFW.h">
-      <Filter>_Exteral Reference\Common</Filter>
+      <Filter>_Others\Common</Filter>
     </ClInclude>
     <ClInclude Include="AudioTest\test_Audio.h">
-      <Filter>_Exteral Reference\AudioTest</Filter>
+      <Filter>_Others\AudioTest</Filter>
     </ClInclude>
     <ClInclude Include="AudioTest\test_AudioEngine.h">
-      <Filter>_Exteral Reference\AudioTest</Filter>
+      <Filter>_Others\AudioTest</Filter>
     </ClInclude>
     <ClInclude Include="OtherTest\test_filesystem.h">
-      <Filter>_Exteral Reference\OtherTest</Filter>
+      <Filter>_Others\OtherTest</Filter>
     </ClInclude>
     <ClInclude Include="OtherTest\test_gl.h">
-      <Filter>_Exteral Reference\OtherTest</Filter>
+      <Filter>_Others\OtherTest</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\GLFW_Callbacks.h">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\HandleDebugBallPhysics.h">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\HandleDebugLights.h">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\HandleDebugPirate.h">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\LightDebugSheres.h">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="GDP2019\test_GDP2019.h">
-      <Filter>_Exteral Reference\GDP2019</Filter>
+      <Filter>_Others\GDP2019</Filter>
     </ClInclude>
     <ClInclude Include="Physics\cPhysicsTilter.h">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\ObjectCreator.h">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Graphics_Callback.h">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\test_Graphics.h">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\cGraphicsToObject.h">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\Physics_Callback.h">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Physics\test_Physics.h">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Audio\Audio_Callback.h">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Audio\test_Audio.h">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Common\pFindObjectByFriendlyName.h">
-      <Filter>_Exteral Reference\Common</Filter>
+      <Filter>_Others\Common</Filter>
     </ClInclude>
     <ClInclude Include="MidTerm_2018\MidTerm_2018_Callback.h">
-      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+      <Filter>_Others\Physics_MidTerm_2018</Filter>
     </ClInclude>
     <ClInclude Include="MidTerm_2018\MidTerm_2018_test.h">
-      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+      <Filter>_Others\Physics_MidTerm_2018</Filter>
     </ClInclude>
     <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_Callback.h">
-      <Filter>Physics_MidTerm_2019</Filter>
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
     </ClInclude>
     <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_test.h">
-      <Filter>Physics_MidTerm_2019</Filter>
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
     </ClInclude>
     <ClInclude Include="Physics_MidTerm_2019\Physics_MidTerm_2019_ObjectCreator.h">
-      <Filter>Physics_MidTerm_2019</Filter>
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_Callback.h">
+      <Filter>Graphics_MidTerm_2019</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_test.h">
+      <Filter>Graphics_MidTerm_2019</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_ToObject.h">
+      <Filter>Graphics_MidTerm_2019</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\assets\test_GDP2019.xml">
-      <Filter>_Exteral Reference</Filter>
+      <Filter>_Others</Filter>
     </Xml>
     <Xml Include="..\assets\AudioLibrary(output).xml">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </Xml>
     <Xml Include="..\assets\AudioLibrary.xml">
-      <Filter>_Exteral Reference\Audio</Filter>
+      <Filter>_Others\Audio</Filter>
     </Xml>
     <Xml Include="..\assets\GraphicsLibrary(output).xml">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </Xml>
     <Xml Include="..\assets\GraphicsLibrary.xml">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </Xml>
     <Xml Include="..\assets\PhysicsLibrary(output).xml">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </Xml>
     <Xml Include="..\assets\PhysicsLibrary.xml">
-      <Filter>_Exteral Reference\Physics</Filter>
+      <Filter>_Others\Physics</Filter>
     </Xml>
     <Xml Include="..\assets\MidTerm_2018.xml">
-      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+      <Filter>_Others\Physics_MidTerm_2018</Filter>
     </Xml>
     <Xml Include="..\assets\MidTerm_2018(output).xml">
-      <Filter>_Exteral Reference\Physics_MidTerm_2018</Filter>
+      <Filter>_Others\Physics_MidTerm_2018</Filter>
     </Xml>
-    <Xml Include="..\assets\Physics_MidTerm_2019.xml" />
-    <Xml Include="..\assets\Physics_MidTerm_2019(output).xml" />
+    <Xml Include="..\assets\Physics_MidTerm_2019(output).xml">
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
+    </Xml>
+    <Xml Include="..\assets\Physics_MidTerm_2019.xml">
+      <Filter>_Others\Physics_MidTerm_2019</Filter>
+    </Xml>
+    <Xml Include="..\assets\Graphics_MidTerm_2019.xml" />
+    <Xml Include="..\assets\Graphics_MidTerm_2019(output).xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\shaders\vertexShader01.glsl">
@@ -263,130 +296,217 @@
       <Filter>Assets\shaders</Filter>
     </None>
     <None Include="..\assets\models\Graphics\barrel.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Bomb.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\canoe.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\coin_map.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\compass.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\De_Zeven_Provincien_large.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\foo.tmp">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Kerosene_lamp_large.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\lantern_obj.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\parrot.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Pirate_sword_low_poly.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\ship.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\SimpleRedShip.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\treasure_chest_assembled.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\tresure_chest_closed_lowpoly.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Physics\12953_ChocolateRabbit_v1.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\BigFlatTerrain_XYZ_n.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\Cube_1_Unit_from_origin_XYZ_n.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\cube_Hi_Res_xyz_n.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\cube_Low_Res_xyz_n - Copy.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\cube_Low_Res_xyz_n.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\Large_Physics_Bunny_XYZ_n.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\pyramid.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\pyramid_3.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Physics\Sphere_Radius_1_XYZ_n.ply">
-      <Filter>Assets\models\Physics</Filter>
+      <Filter>Assets\models\_Others\Physics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Chest.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Crate.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Crate2.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\cube_Low_Res_xyz_n.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Sky_Pirate_Combined_xyz_n.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Sphere_Radius_1_XYZ_n.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\Terrain_XYZ_n.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Graphics\torch.ply">
-      <Filter>Assets\models\Graphics</Filter>
+      <Filter>Assets\models\_Others\Graphics</Filter>
     </None>
     <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_011_xyz_n.ply">
-      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+      <Filter>Assets\models\_Others\Physics_MidTerm_2019</Filter>
     </None>
     <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_014_xyz_n.ply">
-      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+      <Filter>Assets\models\_Others\Physics_MidTerm_2019</Filter>
     </None>
     <None Include="..\assets\models\Physics_MidTerm_2019\Asteroid_015_xyz_n.ply">
-      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+      <Filter>Assets\models\_Others\Physics_MidTerm_2019</Filter>
     </None>
     <None Include="..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n.ply">
-      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+      <Filter>Assets\models\_Others\Physics_MidTerm_2019</Filter>
     </None>
     <None Include="..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n.ply">
-      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+      <Filter>Assets\models\_Others\Physics_MidTerm_2019</Filter>
     </None>
     <None Include="..\assets\models\Physics_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply">
-      <Filter>Assets\models\Physics_MidTerm_2019</Filter>
+      <Filter>Assets\models\_Others\Physics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\foo.tmp">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Background_Hills_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_02_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_03_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Arch_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_02_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_03_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_04_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_02_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_03_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_04_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_05_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_06_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_07_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_08_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_09_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_010_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_011_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Skull_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Base_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Base_02_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_01_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_02_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_03_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_04_xyz_n.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
+    </None>
+    <None Include="..\assets\models\Graphics_MidTerm_2019\surface_output_01.ply">
+      <Filter>Assets\models\Graphics_MidTerm_2019</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\assets\keys.txt">
-      <Filter>_Exteral Reference</Filter>
+      <Filter>_Others</Filter>
     </Text>
     <Text Include="Readme.txt" />
     <Text Include="..\assets\GraphicsKeys.txt">
-      <Filter>_Exteral Reference\Graphics</Filter>
+      <Filter>_Others\Graphics</Filter>
     </Text>
   </ItemGroup>
 </Project>

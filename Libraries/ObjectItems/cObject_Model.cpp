@@ -25,6 +25,8 @@ cObject_Model::cObject_Model()
 	, cObject_3d()								// This is a 3d Object
 	, cObject_Physics()							// and physics applies to it
 {
+	objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	debugColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 cObject_Model::~cObject_Model()

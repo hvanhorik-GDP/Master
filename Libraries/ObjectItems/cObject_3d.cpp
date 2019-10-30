@@ -5,6 +5,12 @@
 
 cObject_3d::cObject_3d()
 {
+	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+	previousPosition = positionXYZ;
+	rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+	scale = 1.0f;
+
+	matWorld = glm::mat4(1.0f);			// Calculated - Not loaded from XML
 }
 
 cObject_3d::~cObject_3d()

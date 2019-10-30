@@ -31,8 +31,8 @@
 #include "Physics/test_Physics.h"
 #include "Graphics/test_Graphics.h"
 #include "Audio/test_Audio.h"
-//#include "MidTerm_2018/MidTerm_2018_test.h"
 #include "Physics_MidTerm_2019/Physics_MidTerm_2019_test.h"
+#include "Graphics_MidTerm_2019/Graphics_MidTerm_2019_test.h"
 
 int main(int arg, char** argv)
 {
@@ -77,6 +77,8 @@ int main(int arg, char** argv)
 	// INFO6019 - Load the midterm file
 	else if (libraryName == "Physics_MidTerm_2019.xml")
 		Physics_MidTerm_2019_test(gameLib);
+	else if (libraryName == "Graphics_MidTerm_2019.xml")
+		Graphics_MidTerm_2019_test(gameLib);
 	else
 	{
 		assert(false);

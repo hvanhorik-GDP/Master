@@ -73,7 +73,7 @@ iObject* cObjectManagerPart_Common::AddObjectToMap(
 	else
 		theMap[commonObject->GetName()] = commonObject;
 
-	std::cout << "TODO - check for null parent" << std::endl;
+//	std::cout << "TODO - check for null parent" << std::endl;
 
 	auto node = writeObject->GetNode();
 	if (!node)

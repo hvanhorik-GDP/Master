@@ -16,9 +16,9 @@ bool cMessageManager_impl::Register(const std::string& interfaceName, iMessageIn
 	{
 		if (m_mapMessageInterfaces[interfaceName] == interface)
 		{
-			std::cout << "cMessageManager_impl - " 
-					  << "Double registration fo the same class: " 
-					  << interfaceName << " Ignored" << std::endl;
+			//std::cout << "cMessageManager_impl - " 
+			//		  << "Double registration fo the same class: " 
+			//		  << interfaceName << " Ignored" << std::endl;
 		}
 		else
 		{
