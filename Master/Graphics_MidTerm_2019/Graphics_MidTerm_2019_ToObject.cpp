@@ -23,6 +23,7 @@ static std::string gGraphicsObjectName("GraphicsObject");
 Graphics_MidTerm_2019_ToObject::Graphics_MidTerm_2019_ToObject()
 {
 	cMessageManager().Register(gGraphicsObjectName, this);
+	TargetWorld();
 }
 
 void Graphics_MidTerm_2019_ToObject::NextVisable()

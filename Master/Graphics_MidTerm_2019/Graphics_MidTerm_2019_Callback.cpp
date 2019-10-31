@@ -38,7 +38,8 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 	if (!gGraphicsToObject)
 		return;
 
-	const float cameraSPEED = 2.0f;
+	
+	const float cameraSPEED = 1.5f;
 	const float rgbAdjust = 0.01F;
 	const float moveAdjust = 0.01F;
 	const float scaleAdjust = 0.01f;
@@ -47,7 +48,7 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 
 	int modifier = (isShiftKeyDownByAlone(mods)) ? -speed : speed;
 
-	if (key == GLFW_KEY_F1)
+	if (key == GLFW_KEY_1)
 	{
 		// skull
 		glm::vec3 eye(-121.111, 184.748, -52.019);
@@ -57,7 +58,7 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 		//<Property name = "cameraTarget" type = "vec3" value = "-121.111 184.748 -64.019" / >
 			// Camera to look at skulls
 	}
-	if (key == GLFW_KEY_F2)
+	if (key == GLFW_KEY_2)
 	{
 		glm::vec3 eye(46.7409, 24.49, -164.579);
 		glm::vec3 target(20.7409, 24.49, -176.579);
@@ -68,7 +69,7 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 
 		// Camera to look at cave
 	}
-	if (key == GLFW_KEY_F3)
+	if (key == GLFW_KEY_3)
 	{
 		glm::vec3 eye(-121.111, 350, -52.019);
 		glm::vec3 target(-121.111, 184.748, -64.01);
@@ -76,7 +77,7 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 
 		// Camera looking down
 	}
-	if (key == GLFW_KEY_F4)
+	if (key == GLFW_KEY_4)
 	{
 		gFlyCamera = !gFlyCamera;
 	}
@@ -93,140 +94,140 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 		if (speed < 1)
 			speed = 1;
 	}
-	if (key == GLFW_KEY_F)
-	{
-		gGraphicsToObject->Focus();
-	}
-	else if (key == GLFW_KEY_W)
-	{
-		gGraphicsToObject->TargetWorld();
-		adjustSpeed = cameraSPEED;
-	}
-	else if (key == GLFW_KEY_L)
-	{
-		gGraphicsToObject->TargetLights();
-		adjustSpeed = moveAdjust;
-	}
-	else if (key == GLFW_KEY_M)
-	{
-		gGraphicsToObject->TargetModels();
-		adjustSpeed = moveAdjust;
-	}
-	else if (key == GLFW_KEY_A)
-	{
-		gGraphicsToObject->TargetGroups();
-		adjustSpeed = moveAdjust;
-	}
-	// Tab Key Shift to next visible object
-	else if (key == GLFW_KEY_TAB)
-	{
-		if (isShiftKeyDownByAlone(mods))
-			gGraphicsToObject->NextVisable();
-		else
-			gGraphicsToObject->NextVisable();
-	}
-	else if (key == GLFW_KEY_R)
-	{
-		gGraphicsToObject->AdjustColour(0, adjustSpeed * modifier);
-	}
-	else if (key == GLFW_KEY_G)
-	{
-		gGraphicsToObject->AdjustColour(1, adjustSpeed * modifier);
-	}
-	else if (key == GLFW_KEY_B)
-	{
-		gGraphicsToObject->AdjustColour(2, adjustSpeed * modifier);
-	}
+	//if (key == GLFW_KEY_F)
+	//{
+	//	gGraphicsToObject->Focus();
+	//}
+	//else if (key == GLFW_KEY_W)
+	//{
+	//	gGraphicsToObject->TargetWorld();
+	//	adjustSpeed = cameraSPEED;
+	//}
+	//else if (key == GLFW_KEY_L)
+	//{
+	//	gGraphicsToObject->TargetLights();
+	//	adjustSpeed = moveAdjust;
+	//}
+	//else if (key == GLFW_KEY_M)
+	//{
+	//	gGraphicsToObject->TargetModels();
+	//	adjustSpeed = moveAdjust;
+	//}
+	//else if (key == GLFW_KEY_A)
+	//{
+	//	gGraphicsToObject->TargetGroups();
+	//	adjustSpeed = moveAdjust;
+	//}
+	//// Tab Key Shift to next visible object
+	//else if (key == GLFW_KEY_TAB)
+	//{
+	//	if (isShiftKeyDownByAlone(mods))
+	//		gGraphicsToObject->NextVisable();
+	//	else
+	//		gGraphicsToObject->NextVisable();
+	//}
+	//else if (key == GLFW_KEY_R)
+	//{
+	//	gGraphicsToObject->AdjustColour(0, adjustSpeed * modifier);
+	//}
+	//else if (key == GLFW_KEY_G)
+	//{
+	//	gGraphicsToObject->AdjustColour(1, adjustSpeed * modifier);
+	//}
+	//else if (key == GLFW_KEY_B)
+	//{
+	//	gGraphicsToObject->AdjustColour(2, adjustSpeed * modifier);
+	//}
 
 	// Position
-	else if (key == GLFW_KEY_X)
+	if (key == GLFW_KEY_X)
 	{
-		gGraphicsToObject->Move(0, adjustSpeed * modifier);
+		gGraphicsToObject->Move(0, cameraSPEED * modifier);
 	}
 	else if (key == GLFW_KEY_Y)
 	{
-		gGraphicsToObject->Move(1, adjustSpeed * modifier);
+		gGraphicsToObject->Move(1, cameraSPEED * modifier);
 	}
 	else if (key == GLFW_KEY_Z)
 	{
-		gGraphicsToObject->Move(2, adjustSpeed * modifier);
+		gGraphicsToObject->Move(2, cameraSPEED* modifier);
 	}
 
-	// Rotate
-	else if (key == GLFW_KEY_LEFT)
-	{
-		gGraphicsToObject->Rotate(1, adjustSpeed);
-	}
-	else if (key == GLFW_KEY_RIGHT)
-	{
-		gGraphicsToObject->Rotate(1, -adjustSpeed);
-	}
-
-	// Scale
-	else if (key == GLFW_KEY_S)
-	{
-		gGraphicsToObject->Scale(adjustSpeed * modifier);
-	}
-
-	// Wireframe
-	else if (key == GLFW_KEY_T)
-	{
-		gGraphicsToObject->SetWireFrame(true);
-	}
-	
-	else if (key == GLFW_KEY_9)
-	{
-		gGraphicsToObject->SetDebug(false);
-	}
-	else if (key == GLFW_KEY_0)
-	{
-		gGraphicsToObject->SetDebug(true);
-	}
-
-	else if (key == GLFW_KEY_1)
-	{
-		gGraphicsToObject->Light(0, 0.99f);
-	}
-	else if (key == GLFW_KEY_2)
-	{
-		gGraphicsToObject->Light(0, 1.01f);
-	}
-	else if (key == GLFW_KEY_3)
-	{
-		gGraphicsToObject->Light(1, 0.99f);
-	}
-	else if (key == GLFW_KEY_4)
-	{
-		gGraphicsToObject->Light(1, 1.01f);
-	}
-	else if (key == GLFW_KEY_5)
-	{
-		gGraphicsToObject->Light(2, 0.99f);
-	}
-	else if (key == GLFW_KEY_6)
-	{
-		gGraphicsToObject->Light(2, 1.01f);
-	}
-	if (key == GLFW_KEY_V)
-	{
-//		sexyLightSpotInnerAngle -= 0.1f;
-	}
-	if (key == GLFW_KEY_B)
-	{
-//		sexyLightSpotInnerAngle += 0.1f;
-	}
-	if (key == GLFW_KEY_N)
-	{
-//		sexyLightSpotOuterAngle -= 0.1f;
-	}
-	if (key == GLFW_KEY_M)
-	{
-//		sexyLightSpotOuterAngle += 0.1f;
-	}
-
-	if (key == GLFW_KEY_D)
-	{
-	}
+//	// Rotate
+//	else if (key == GLFW_KEY_LEFT)
+//	{
+//		gGraphicsToObject->Rotate(1, adjustSpeed);
+//	}
+//	else if (key == GLFW_KEY_RIGHT)
+//	{
+//		gGraphicsToObject->Rotate(1, -adjustSpeed);
+//	}
+//
+//	// Scale
+//	else if (key == GLFW_KEY_S)
+//	{
+//		gGraphicsToObject->Scale(adjustSpeed * modifier);
+//	}
+//
+//	// Wireframe
+//	else if (key == GLFW_KEY_T)
+//	{
+//		gGraphicsToObject->SetWireFrame(true);
+//	}
+//	
+//	else if (key == GLFW_KEY_9)
+//	{
+//		gGraphicsToObject->SetDebug(false);
+//	}
+//	else if (key == GLFW_KEY_0)
+//	{
+//		gGraphicsToObject->SetDebug(true);
+//	}
+//
+//	else if (key == GLFW_KEY_1)
+//	{
+//		gGraphicsToObject->Light(0, 0.99f);
+//	}
+//	else if (key == GLFW_KEY_2)
+//	{
+//		gGraphicsToObject->Light(0, 1.01f);
+//	}
+//	else if (key == GLFW_KEY_3)
+//	{
+//		gGraphicsToObject->Light(1, 0.99f);
+//	}
+//	else if (key == GLFW_KEY_4)
+//	{
+//		gGraphicsToObject->Light(1, 1.01f);
+//	}
+//	else if (key == GLFW_KEY_5)
+//	{
+//		gGraphicsToObject->Light(2, 0.99f);
+//	}
+//	else if (key == GLFW_KEY_6)
+//	{
+//		gGraphicsToObject->Light(2, 1.01f);
+//	}
+//	if (key == GLFW_KEY_V)
+//	{
+////		sexyLightSpotInnerAngle -= 0.1f;
+//	}
+//	if (key == GLFW_KEY_B)
+//	{
+////		sexyLightSpotInnerAngle += 0.1f;
+//	}
+//	if (key == GLFW_KEY_N)
+//	{
+////		sexyLightSpotOuterAngle -= 0.1f;
+//	}
+//	if (key == GLFW_KEY_M)
+//	{
+////		sexyLightSpotOuterAngle += 0.1f;
+//	}
+//
+//	if (key == GLFW_KEY_D)
+//	{
+//	}
 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
@@ -299,19 +300,3 @@ void Graphics_MidTerm_2019_mouse_button_callback(GLFWwindow* window, int button,
 	return;
 }
 
-//
-//iObject* Graphics_MidTerm_2019_CloneObject(int number, const std::string& name, rapidxml::xml_node<>* parent)
-//{
-//	srand(unsigned int(time(NULL)));
-//	cObjectManager objectManager;
-//
-//	auto object = objectManager.FindObjectByName(name);
-//	for (int i = 0; i < number; ++i)
-//	{
-//		std::string newName = name + "_" + std::to_string(i);
-//		auto temp = object->Clone(newName);
-//		assert(temp);
-//		objectManager.SaveObject(temp, parent);
-//		return 
-//	}
-//}
