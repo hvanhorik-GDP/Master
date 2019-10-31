@@ -58,7 +58,7 @@ void cObjectManager_Group::LoadObjects(rapidxml::xml_node<>* node)
 
 			// Some debug stuff
 			else if (name == "isVisible")
-				object->isVisible = cFormat::LoadBool(value);
+				object->m_isVisable = cFormat::LoadBool(value);
 			else if (type == "alias")
 				object->m_mapObjects[name] = NULL;		// Just note the name (This gets filled in post processing)
 			else
@@ -140,7 +140,7 @@ void cObjectManager_Group::SaveObject(iObject* inObject, rapidxml::xml_node<>* p
 	libObject.AddProperty("accel", "vec3", cFormat::PackVec3(object->accel));
 
 	// Some debug stuff
-	libObject.AddProperty("isVisible", "bool", cFormat::PackBool(object->isVisible));
+	libObject.AddProperty("isVisible", "bool", cFormat::PackBool(object->m_isVisable));
 	for (auto alias : object->m_mapObjects)
 	{
 		libObject.AddProperty(alias.first, "alias", alias.first);

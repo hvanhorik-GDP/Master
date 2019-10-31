@@ -151,6 +151,23 @@ bool cObject_Light::RecieveMessage(const iMessage& message)
 	{
 		int plane = cFormat::LoadInt(tokens[1]);
 		float value = cFormat::LoadFloat(tokens[2]);
+
+	/*	{
+			direction[plane] += value;
+			if (node)
+				libObject.AddProperty("direction", "vec3", cFormat::PackVec3(direction));
+
+			std::stringstream ssTitle;
+			ssTitle << std::fixed << std::setprecision(4)
+				<< "Light : "
+				<< "Move: "
+				<< "Object: " << GetName().substr(0, 8)
+				<< " x: " << direction.x
+				<< " y: " << direction.y
+				<< " z: " << direction.z;
+			glfwSetWindowTitle(window, ssTitle.str().c_str());
+		}*/
+
 		positionXYZ[plane] += value;
 		if (node)
 			libObject.AddProperty("positionXYZ", "vec3", cFormat::PackVec3(positionXYZ));

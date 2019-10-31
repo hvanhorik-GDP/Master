@@ -34,6 +34,8 @@ public:
 	void Focus();
 
 	void Duplicate();
+	void SetCamera(glm::vec3 target, glm::vec3 eye);
+
 
 	std::vector<iObject *> m_Objects;
 	iObject* m_CurrentObject;
@@ -44,3 +46,6 @@ public:
 
 void Graphics_MidTerm_2019_CalculateBounds(rapidxml::xml_node<>* parent);
 void Graphics_MidTerm_2019_ShiftAllObjects(rapidxml::xml_node<>* parent);
+
+void Graphics_MidTerm_2019_Flicker();
+void Graphics_MidTerm_2019_FlyCamera();

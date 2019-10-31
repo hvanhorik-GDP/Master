@@ -156,6 +156,9 @@ int Graphics_MidTerm_2019_test(gamelibrary::GameLibrary& gameLib)
 //		::HandleDebugLights(shaderProgID);
 		//::HandleDebugPirate(pDebugRenderer);
 
+		::Graphics_MidTerm_2019_Flicker();
+		::Graphics_MidTerm_2019_FlyCamera();
+
 		// Lightmanager handles all lighting
 		cLightManager lightManager(shaderProgID);
 		lightManager.ApplyLights();

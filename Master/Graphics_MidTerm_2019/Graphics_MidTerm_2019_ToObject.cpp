@@ -12,6 +12,7 @@
 #include "GLCommon.h"
 #include <sstream>
 #include <iomanip>
+#include <iostream>
 
 // TODO - HACK
 extern GLFWwindow* window;
@@ -270,11 +271,14 @@ void Graphics_MidTerm_2019_ToObject::Focus()
 		m = cPhysics_Henky::calculateWorldMatrix(*parent);
 	targetPos = m * glm::vec4(targetPos, 1.0f);
 
-	auto camerposition = glm::vec3(targetPos.x - 15, targetPos.y, targetPos.z );
+	auto camerposition = glm::vec3(targetPos.x + 30, targetPos.y, targetPos.z );
 //	auto cameradirection = glm::vec3(0, 0, 10);
 
 	world->cameraEye = camerposition;
 	world->cameraTarget = targetPos;
+
+	auto parentNode = world->GetNode()->parent();
+	cObjectManager().SaveObject(world, parentNode);
 }
 
 const std::string& Graphics_MidTerm_2019_ToObject::GetMyUID() const
@@ -308,6 +312,27 @@ void Graphics_MidTerm_2019_ToObject::TargetModels()
 	NextVisable();
 
 }
+
+void Graphics_MidTerm_2019_ToObject::SetCamera(glm::vec3 target, glm::vec3 eye)
+{
+	cObjectManager objectManager;
+
+	auto object = objectManager.FindObjectByName("world");
+	assert(object);
+	cObject_World* world = dynamic_cast<cObject_World*>(object);
+
+	glm::vec3 targetPos;
+	auto camera = world->cameraEye;
+	iObject* parent = NULL;
+	world->cameraTarget = target;
+	world->cameraEye = eye;
+	auto parentNode = world->GetNode()->parent();
+	cObjectManager().SaveObject(world, parentNode);
+
+//	<Property name = "cameraEye" type = "vec3" value = "-123.111 184.748 -50.029" / >
+}
+
+//< Property name = "positionXYZ" type = "vec3" value = "-121.701 182.15 -65.0992" / >
 
 void Graphics_MidTerm_2019_ToObject::TargetLights()
 {
@@ -432,4 +457,65 @@ void Graphics_MidTerm_2019_CalculateBounds(rapidxml::xml_node<>* parent)
 
 		manager.SaveObject(object_model, parent);
 	}
+}
+
+
+static const int interval = 45;		// every 10 seconds
+static int g_count = 0;
+
+void Graphics_MidTerm_2019_Flicker()
+{
+	if (g_count++ > interval)
+		return;
+	g_count = 0;
+	cObjectManager manager;
+	std::vector<std::string> names;
+	names.push_back("cave_light");
+	names.push_back("light_skull_01");
+	names.push_back("light_skull_02");
+
+	for (auto it : names)
+	{ 
+		auto temp = manager.FindObjectByName(it);
+		cObject_Light* light = dynamic_cast<cObject_Light*>(temp);
+		light->constantAttenuation = randInRange(0.08f, 0.1f);
+		light->linearAttenuation = randInRange(1.0f, 1.9f);
+		light->quadradicAttenuation = randInRange(0.01f, 0.15f);
+	}
+
+}
+
+bool gFlyCamera = false;
+
+float g_xPosition = 250;
+float g_xCount = -1;
+float g_zPosition = 210;
+float g_zCount = -1;
+
+void Graphics_MidTerm_2019_FlyCamera()
+{
+	if (gFlyCamera)
+	{
+		cObjectManager objectManager;
+
+		auto object = objectManager.FindObjectByName("world");
+		assert(object);
+		cObject_World* world = dynamic_cast<cObject_World*>(object);
+
+		auto newxPos = g_xPosition;
+		auto newzPos = g_zPosition;
+//		std::cout << "Position : " << newxPos << " , " << newzPos << std::endl;
+		glm::vec3 eye(newxPos, 350, newzPos);
+		g_xPosition += g_xCount;
+		if (abs(g_xPosition) > 250)
+			g_xCount = -g_xCount;
+		g_zPosition += g_zCount;
+		if (abs(g_zPosition) > 210)
+			g_zCount = -g_zCount;
+
+		glm::vec3 target(-121.111, 184.748, -64.01);
+		world->cameraEye = eye;
+		world->cameraTarget = target;
+	}
+
 }

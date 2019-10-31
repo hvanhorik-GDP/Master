@@ -45,7 +45,7 @@ public:			// TODO - hack
 	// Add some physics things
 	glm::vec3 velocity;
 	glm::vec3 accel;
-	bool isVisible;
+//	bool isVisible;
 
 	mapObjectsInGroup m_mapObjects;
 };

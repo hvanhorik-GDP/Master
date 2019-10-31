@@ -22,6 +22,7 @@ static bool isCtrlKeyDownByAlone(int mods);
 static bool gHasGraphicsObject = false;
 static Graphics_MidTerm_2019_ToObject* gGraphicsToObject = NULL;
 static float adjustSpeed = 0.01f;
+extern bool gFlyCamera;
 
 void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -42,9 +43,56 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 	const float moveAdjust = 0.01F;
 	const float scaleAdjust = 0.01f;
 	const float rotateAdjust = 0.01f;
+	static float speed = 1;
 
-	int modifier = (isShiftKeyDownByAlone(mods)) ? -1 : 1;
+	int modifier = (isShiftKeyDownByAlone(mods)) ? -speed : speed;
 
+	if (key == GLFW_KEY_F1)
+	{
+		// skull
+		glm::vec3 eye(-121.111, 184.748, -52.019);
+		glm::vec3 target(-121.111, 184.748, -64.01);
+		gGraphicsToObject->SetCamera(target, eye);
+		//<Property name = "cameraEye" type = "vec3" value = "-121.111 184.748 -52.019" / >
+		//<Property name = "cameraTarget" type = "vec3" value = "-121.111 184.748 -64.019" / >
+			// Camera to look at skulls
+	}
+	if (key == GLFW_KEY_F2)
+	{
+		glm::vec3 eye(46.7409, 24.49, -164.579);
+		glm::vec3 target(20.7409, 24.49, -176.579);
+		gGraphicsToObject->SetCamera(target, eye);
+
+		//<Property name = "cameraEye" type = "vec3" value = "46.7409, 24.49, -164.579" / >
+		//	<Property name = "cameraTarget" type = "vec3" value = "20.7409, 24.49, -176.579" / >
+
+		// Camera to look at cave
+	}
+	if (key == GLFW_KEY_F3)
+	{
+		glm::vec3 eye(-121.111, 350, -52.019);
+		glm::vec3 target(-121.111, 184.748, -64.01);
+		gGraphicsToObject->SetCamera(target, eye);
+
+		// Camera looking down
+	}
+	if (key == GLFW_KEY_F4)
+	{
+		gFlyCamera = !gFlyCamera;
+	}
+	
+	if (key == GLFW_KEY_EQUAL)
+	{
+		speed *= 1.10f;
+		if (speed < 1)
+			speed = 1;
+	}
+	if (key == GLFW_KEY_MINUS)
+	{
+		speed *= 0.90f;
+		if (speed < 1)
+			speed = 1;
+	}
 	if (key == GLFW_KEY_F)
 	{
 		gGraphicsToObject->Focus();
@@ -107,11 +155,11 @@ void Graphics_MidTerm_2019_key_callback(GLFWwindow* window, int key, int scancod
 	// Rotate
 	else if (key == GLFW_KEY_LEFT)
 	{
-		gGraphicsToObject->Rotate(0, adjustSpeed);
+		gGraphicsToObject->Rotate(1, adjustSpeed);
 	}
 	else if (key == GLFW_KEY_RIGHT)
 	{
-		gGraphicsToObject->Rotate(0, -adjustSpeed);
+		gGraphicsToObject->Rotate(1, -adjustSpeed);
 	}
 
 	// Scale
