@@ -97,6 +97,76 @@
 			<Property name="theLights[7].param2" type="Uniform" value="62"/>
 			<Property name="theLights[8].param2" type="Uniform" value="69"/>
 			<Property name="theLights[9].param2" type="Uniform" value="76"/>
+			<Property name="theLights[10].atten" type="Uniform" value="79"/>
+			<Property name="theLights[10].diffuse" type="Uniform" value="80"/>
+			<Property name="theLights[10].direction" type="Uniform" value="81"/>
+			<Property name="theLights[10].param1" type="Uniform" value="82"/>
+			<Property name="theLights[10].param2" type="Uniform" value="83"/>
+			<Property name="theLights[10].position" type="Uniform" value="84"/>
+			<Property name="theLights[10].specular" type="Uniform" value="85"/>
+			<Property name="theLights[11].atten" type="Uniform" value="86"/>
+			<Property name="theLights[11].diffuse" type="Uniform" value="87"/>
+			<Property name="theLights[11].direction" type="Uniform" value="88"/>
+			<Property name="theLights[11].param1" type="Uniform" value="89"/>
+			<Property name="theLights[11].param2" type="Uniform" value="90"/>
+			<Property name="theLights[11].position" type="Uniform" value="91"/>
+			<Property name="theLights[11].specular" type="Uniform" value="92"/>
+			<Property name="theLights[12].atten" type="Uniform" value="93"/>
+			<Property name="theLights[12].diffuse" type="Uniform" value="94"/>
+			<Property name="theLights[12].direction" type="Uniform" value="95"/>
+			<Property name="theLights[12].param1" type="Uniform" value="96"/>
+			<Property name="theLights[12].param2" type="Uniform" value="97"/>
+			<Property name="theLights[12].position" type="Uniform" value="98"/>
+			<Property name="theLights[12].specular" type="Uniform" value="99"/>
+			<Property name="theLights[13].atten" type="Uniform" value="100"/>
+			<Property name="theLights[13].diffuse" type="Uniform" value="101"/>
+			<Property name="theLights[13].direction" type="Uniform" value="102"/>
+			<Property name="theLights[13].param1" type="Uniform" value="103"/>
+			<Property name="theLights[13].param2" type="Uniform" value="104"/>
+			<Property name="theLights[13].position" type="Uniform" value="105"/>
+			<Property name="theLights[13].specular" type="Uniform" value="106"/>
+			<Property name="theLights[14].atten" type="Uniform" value="107"/>
+			<Property name="theLights[14].diffuse" type="Uniform" value="108"/>
+			<Property name="theLights[14].direction" type="Uniform" value="109"/>
+			<Property name="theLights[14].param1" type="Uniform" value="110"/>
+			<Property name="theLights[14].param2" type="Uniform" value="111"/>
+			<Property name="theLights[14].position" type="Uniform" value="112"/>
+			<Property name="theLights[14].specular" type="Uniform" value="113"/>
+			<Property name="theLights[15].atten" type="Uniform" value="114"/>
+			<Property name="theLights[15].diffuse" type="Uniform" value="115"/>
+			<Property name="theLights[15].direction" type="Uniform" value="116"/>
+			<Property name="theLights[15].param1" type="Uniform" value="117"/>
+			<Property name="theLights[15].param2" type="Uniform" value="118"/>
+			<Property name="theLights[15].position" type="Uniform" value="119"/>
+			<Property name="theLights[15].specular" type="Uniform" value="120"/>
+			<Property name="theLights[16].atten" type="Uniform" value="121"/>
+			<Property name="theLights[16].diffuse" type="Uniform" value="122"/>
+			<Property name="theLights[16].direction" type="Uniform" value="123"/>
+			<Property name="theLights[16].param1" type="Uniform" value="124"/>
+			<Property name="theLights[16].param2" type="Uniform" value="125"/>
+			<Property name="theLights[16].position" type="Uniform" value="126"/>
+			<Property name="theLights[16].specular" type="Uniform" value="127"/>
+			<Property name="theLights[17].atten" type="Uniform" value="128"/>
+			<Property name="theLights[17].diffuse" type="Uniform" value="129"/>
+			<Property name="theLights[17].direction" type="Uniform" value="130"/>
+			<Property name="theLights[17].param1" type="Uniform" value="131"/>
+			<Property name="theLights[17].param2" type="Uniform" value="132"/>
+			<Property name="theLights[17].position" type="Uniform" value="133"/>
+			<Property name="theLights[17].specular" type="Uniform" value="134"/>
+			<Property name="theLights[18].atten" type="Uniform" value="135"/>
+			<Property name="theLights[18].diffuse" type="Uniform" value="136"/>
+			<Property name="theLights[18].direction" type="Uniform" value="137"/>
+			<Property name="theLights[18].param1" type="Uniform" value="138"/>
+			<Property name="theLights[18].param2" type="Uniform" value="139"/>
+			<Property name="theLights[18].position" type="Uniform" value="140"/>
+			<Property name="theLights[18].specular" type="Uniform" value="141"/>
+			<Property name="theLights[19].atten" type="Uniform" value="142"/>
+			<Property name="theLights[19].diffuse" type="Uniform" value="143"/>
+			<Property name="theLights[19].direction" type="Uniform" value="144"/>
+			<Property name="theLights[19].param1" type="Uniform" value="145"/>
+			<Property name="theLights[19].param2" type="Uniform" value="146"/>
+			<Property name="theLights[19].position" type="Uniform" value="147"/>
+			<Property name="theLights[19].specular" type="Uniform" value="148"/>
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="models" open="none">
@@ -1098,12 +1168,12 @@
 			<Property name="upVector" type="vec3" value="0 1 0"/>
 		</Object>
 		<Object type="world" name="world" asset_id="">
-			<Property name="cameraEye" type="vec3" value="-121.111 350 -52.019"/>
-			<Property name="cameraTarget" type="vec3" value="-121.111 184.748 -64.01"/>
+			<Property name="cameraEye" type="vec3" value="-121.111 184.748 -52.019"/>
+			<Property name="cameraTarget" type="vec3" value="-121.111 184.748 -64.019"/>
 			<Property name="upVector" type="vec3" value="0 1 0"/>
 			<Property name="debugRenderer" type="bool" value="false"/>
-			<Property name="windowWidth" type="float" value="700"/>
-			<Property name="windowHeight" type="float" value="500"/>
+			<Property name="windowWidth" type="int" value="700"/>
+			<Property name="windowHeight" type="int" value="500"/>
 		</Object>
 		<Object name="SM_Env_Rock_Skull_01" type="model" asset_id="SM_Env_Rock_Skull_01_xyz_n">
 			<Property name="isVisible" type="bool" value="1"/>

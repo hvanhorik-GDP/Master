@@ -506,7 +506,7 @@ void Graphics_MidTerm_2019_FlyCamera()
 		auto newxPos = g_xPosition;
 		auto newzPos = g_zPosition;
 //		std::cout << "Position : " << newxPos << " , " << newzPos << std::endl;
-		glm::vec3 eye(newxPos, 350, newzPos);
+		glm::vec3 eye(newxPos, 200, newzPos);
 		g_xPosition += g_xCount;
 		if (abs(g_xPosition) > 250)
 			g_xCount = -g_xCount;
@@ -514,9 +514,14 @@ void Graphics_MidTerm_2019_FlyCamera()
 		if (abs(g_zPosition) > 210)
 			g_zCount = -g_zCount;
 
-		glm::vec3 target(-121.111, 184.748, -64.01);
+		glm::vec3 target(-121.111, 184.748-40, -64.01);
 		world->cameraEye = eye;
 		world->cameraTarget = target;
 	}
+
+}
+
+void Graphics_MidTerm_2019_create_Fireflies()
+{
 
 }
