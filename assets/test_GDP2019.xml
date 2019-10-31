@@ -1,7 +1,7 @@
 <GameLibrary>
 	<GameName>Project 1 Audio Test</GameName>
 	<AssetGroup type="shaders" open="none">
-		<AssetRoot>../assets/shaders/</AssetRoot>
+		<AssetRoot>./assets/shaders/</AssetRoot>
 		<Asset name="NonExistant Shader" type="fragment">
 			<AssetFile>NonExistant2.glsl</AssetFile>
 		</Asset>
@@ -42,7 +42,7 @@
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="models" open="none">
-		<AssetRoot>../assets/models/</AssetRoot>
+		<AssetRoot>./assets/models/</AssetRoot>
 		<Asset name="NonExistant File">
 			<AssetFile>NonExistant.ply</AssetFile>
 			<Property name="exists" type="bool" value="false"/>
@@ -490,7 +490,7 @@
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
-		<AssetRoot>../assets/audios/</AssetRoot>
+		<AssetRoot>./assets/audios/</AssetRoot>
 		<Asset name="NonExistant File2">
 			<AssetFile>NonExistant2.mp3</AssetFile>
 			<Property name="exists" type="bool" value="0"/>
@@ -572,7 +572,7 @@
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="audios" open="all" subdir="true" subtype="effects">
-		<AssetRoot>../assets/audios/</AssetRoot>
+		<AssetRoot>./assets/audios/</AssetRoot>
 		<Asset name="let me guess">
 			<AssetFile>effects/A man says don-t tell me- let me guess -southern accent- ol.mpeg</AssetFile>
 			<Property name="exists" type="bool" value="true"/>
@@ -737,13 +737,13 @@
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="videos" open="none">
-		<AssetRoot>../assets/videos/</AssetRoot>
+		<AssetRoot>./assets/videos/</AssetRoot>
 	</AssetGroup>
 	<AssetGroup type="images" open="none">
-		<AssetRoot>../assets/images/</AssetRoot>
+		<AssetRoot>./assets/images/</AssetRoot>
 	</AssetGroup>
 	<AssetGroup type="fonts" open="none">
-		<AssetRoot>../assets/fonts/</AssetRoot>
+		<AssetRoot>./assets/fonts/</AssetRoot>
 	</AssetGroup>
 	<Objects>
 		<Object type="light" name="spotlight" asset_id="">

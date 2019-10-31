@@ -10,9 +10,6 @@
     <Filter Include="Assets\shaders">
       <UniqueIdentifier>{ed592962-3f94-4b87-a466-6e6a4dfd0435}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics_MidTerm_2019">
-      <UniqueIdentifier>{1719ca21-be4b-46f1-ab77-bde989b8c2ac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\models\Graphics_MidTerm_2019">
       <UniqueIdentifier>{7bb3bbbc-efd4-43d2-a703-638464a81b60}</UniqueIdentifier>
     </Filter>
@@ -57,6 +54,9 @@
     </Filter>
     <Filter Include="Assets\models\_Others\Physics_MidTerm_2019">
       <UniqueIdentifier>{afcde017-6284-4c7f-bb69-815c09d50183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Others\Graphics_MidTerm_2019">
+      <UniqueIdentifier>{1719ca21-be4b-46f1-ab77-bde989b8c2ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -149,13 +149,13 @@
       <Filter>_Others\Physics_MidTerm_2019</Filter>
     </ClCompile>
     <ClCompile Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_Callback.cpp">
-      <Filter>Graphics_MidTerm_2019</Filter>
+      <Filter>_Others\Graphics_MidTerm_2019</Filter>
     </ClCompile>
     <ClCompile Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_test.cpp">
-      <Filter>Graphics_MidTerm_2019</Filter>
+      <Filter>_Others\Graphics_MidTerm_2019</Filter>
     </ClCompile>
     <ClCompile Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_ToObject.cpp">
-      <Filter>Graphics_MidTerm_2019</Filter>
+      <Filter>_Others\Graphics_MidTerm_2019</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,13 +242,13 @@
       <Filter>_Others\Physics_MidTerm_2019</Filter>
     </ClInclude>
     <ClInclude Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_Callback.h">
-      <Filter>Graphics_MidTerm_2019</Filter>
+      <Filter>_Others\Graphics_MidTerm_2019</Filter>
     </ClInclude>
     <ClInclude Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_test.h">
-      <Filter>Graphics_MidTerm_2019</Filter>
+      <Filter>_Others\Graphics_MidTerm_2019</Filter>
     </ClInclude>
     <ClInclude Include="Graphics_MidTerm_2019\Graphics_MidTerm_2019_ToObject.h">
-      <Filter>Graphics_MidTerm_2019</Filter>
+      <Filter>_Others\Graphics_MidTerm_2019</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -508,5 +508,6 @@
     <Text Include="..\assets\GraphicsKeys.txt">
       <Filter>_Others\Graphics</Filter>
     </Text>
+    <Text Include="Text.txt" />
   </ItemGroup>
 </Project>

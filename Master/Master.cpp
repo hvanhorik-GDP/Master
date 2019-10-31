@@ -36,7 +36,7 @@
 
 int main(int arg, char** argv)
 {
-	std::string root("../assets/");
+	std::string root("./assets/");
 	std::string libraryName("GameLibrary.xml");
 	if (arg > 1)
 	{

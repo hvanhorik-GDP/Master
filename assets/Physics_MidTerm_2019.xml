@@ -2,7 +2,7 @@
   <!-- INFO6019 - project file  -->
   <GameName>Project 1 Phsysics Midterm</GameName>
   <AssetGroup type="shaders" open="none">
-    <AssetRoot>../assets/shaders/</AssetRoot>
+    <AssetRoot>./assets/shaders/</AssetRoot>
     <Asset name="fragmentShader01" type="fragment">
       <AssetFile>fragmentShader01.glsl</AssetFile>
       <Property name="isValid" type="bool" value="true"/>
@@ -102,7 +102,7 @@
   </AssetGroup>
   <!-- INFO6019 - models  -->
   <AssetGroup type="models" open="none">
-    <AssetRoot>../assets/models/</AssetRoot>
+    <AssetRoot>./assets/models/</AssetRoot>
     <Asset name="Asteroid_011_xyz_n">
       <AssetFile>./Physics_MidTerm_2019/Asteroid_011_xyz_n.ply</AssetFile>
       <Property name="exists" type="bool" value="true"/>

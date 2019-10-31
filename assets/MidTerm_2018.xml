@@ -1,7 +1,7 @@
 <GameLibrary>
   <GameName>Project 1 Phsysics Test</GameName>
   <AssetGroup type="shaders" open="none">
-    <AssetRoot>../assets/shaders/</AssetRoot>
+    <AssetRoot>./assets/shaders/</AssetRoot>
     <Asset name="fragmentShader01" type="fragment">
       <AssetFile>fragmentShader01.glsl</AssetFile>
       <Property name="isValid" type="bool" value="true"/>
@@ -100,7 +100,7 @@
     </Asset>
   </AssetGroup>
   <AssetGroup type="models" open="none">
-    <AssetRoot>../assets/models/</AssetRoot>
+    <AssetRoot>./assets/models/</AssetRoot>
     <Asset name="Surface_01">
       <AssetFile>./MidTerm_2018/Surface_01.ply</AssetFile>
       <Property name="exists" type="bool" value="false"/>

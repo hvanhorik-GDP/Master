@@ -76,7 +76,7 @@ bool cModelLoader::LoadPlyModel(
 	for (unsigned int index = 0; index != numberOfVertices; index++)
 	{
 		// -0.0312216 0.126304 0.00514924
-		sPlyVertexXYZ_N tempVertex;
+		sPlyVertexXYZ_N_UV tempVertex;
 
 		// -0.0312216 0.126304 0.00514924
 		theFile >> tempVertex.x >> tempVertex.y >> tempVertex.z;
@@ -88,6 +88,10 @@ bool cModelLoader::LoadPlyModel(
 		tempVertex.nx = normal.x; 
 		tempVertex.ny = normal.y; 
 		tempVertex.nz = normal.z;
+
+		// Also load the texture coordinates
+		theFile >> tempVertex.u >> tempVertex.v;
+
 
 		// Add this temp vertex to the vector of vertices
 		// (cMesh &theMesh)

@@ -25,3 +25,7 @@ extern float sexyLightSpotOuterAngle;
 extern glm::vec3 sexyLightSpotDirection;
 
 extern bool bLightDebugSheresOn;
+
+// HACK:
+extern cGameObject* g_pDebugSphere;
+

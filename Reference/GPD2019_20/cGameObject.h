@@ -76,6 +76,11 @@ public:
 	bool disableDepthBufferTest;
 	bool disableDepthBufferWrite;
 
+	std::string texture01Name;
+	std::string texture02Name;
+
+
+
 	unsigned int getUniqueID(void);
 
 	void setDebugRenderer(iDebugRenderer* pDebugRenderer);

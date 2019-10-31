@@ -41,8 +41,19 @@
 // Used to visualize the attenuation of the lights...
 #include "LightManager/cLightHelper.h"
 
+#include "cParticleEmitter.h"
+
+#include "cFlyCamera.h"
+
+#include "cAABB.h"
+
+#include "cBasicTextureManager.h"
+
 // Keyboard, error, mouse, etc. are now here
 #include "GFLW_callbacks.h"
+
+// Is needed inside the DrawObject() call
+cBasicTextureManager* g_pTextureManager = NULL;
 
 
 void DrawObject(glm::mat4 m,
@@ -53,15 +64,25 @@ void DrawObject(glm::mat4 m,
 // This is JUST the transformation lines from the DrawObject call
 glm::mat4 calculateWorldMatrix( cGameObject* pCurrentObject );
 
+void LoadModelsIntoScene(cVAOManager* pTheVAOManager, cModelLoader* pTheModelLoader,
+						 GLuint shaderProgID, iDebugRenderer* pDebugRenderer,
+						 std::vector<cGameObject*>& vec_pGameObjects);
 
-glm::vec3 cameraEye = glm::vec3(0.0, 80.0, -80.0);
-glm::vec3 cameraTarget = glm::vec3(0.0f, 10.0, 0.0f);
-glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
+void CalcAABBsForMeshModel( cMesh &theMesh );
 
-glm::vec3 sexyLightPosition = glm::vec3(-25.0f,30.0f,0.0f);
+// This is in the PhysicsAABBStuff.cpp file
+extern std::map<unsigned long long /*ID*/, cAABB*> g_mapAABBs_World;
+
+
+
+//glm::vec3 cameraEye = glm::vec3(0.0, 80.0, -80.0);
+//glm::vec3 cameraTarget = glm::vec3(0.0f, 10.0, 0.0f);
+//glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
+
+glm::vec3 sexyLightPosition = glm::vec3(-25.0f, 300.0f, -52.0f);
 float sexyLightConstAtten = 0.0000001f;			// not really used (can turn off and on the light)
-float sexyLightLinearAtten = 0.03f;  
-float sexyLightQuadraticAtten = 0.0000001f;
+float sexyLightLinearAtten = 0.00534943538;
+float sexyLightQuadraticAtten = 1.00000001e-07;
 
 float sexyLightSpotInnerAngle = 5.0f;
 float sexyLightSpotOuterAngle = 7.5f;
@@ -76,30 +97,34 @@ bool bLightDebugSheresOn = true;
 std::vector<cGameObject*> g_vec_pGameObjects;
 std::map<std::string /*FriendlyName*/, cGameObject*> g_map_GameObjectsByFriendlyName;
 
+cFlyCamera* g_pFlyCamera = NULL;
 
+
+// HACK 
+extern std::map<unsigned long long /*ID*/, cAABB*> g_vecAABBs_World;
 
 
 //bool g_BallCollided = false;
 
 
 
-void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
-{
-	// Move the sphere to where the camera is and shoot the ball from there...
-
-	cGameObject* pTheBall = pFindObjectByFriendlyName("Sphere#1");
-
-	// What's the velocity
-	// Target - eye = direction
-	glm::vec3 direction = glm::normalize( cameraTarget - cameraEye ); 
-
-	float speed = 20.0f; 
-
-	pTheBall->velocity = direction * speed;
-	pTheBall->positionXYZ = cameraEye;
-
-	return;
-}
+//void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+//{
+//	// Move the sphere to where the camera is and shoot the ball from there...
+//
+////	cGameObject* pTheBall = pFindObjectByFriendlyName("Sphere#1");
+////
+////	// What's the velocity
+////	// Target - eye = direction
+////	glm::vec3 direction = glm::normalize( cameraTarget - cameraEye ); 
+////
+////	float speed = 5.0f; 
+////
+////	pTheBall->velocity = direction * speed;
+////	pTheBall->positionXYZ = cameraEye;
+//
+//	return;
+//}
 
 // Make a class with a vector of doubles. 
 // Set this vector to all zeros. 
@@ -191,13 +216,23 @@ int main(void)
 	}
 
 	glfwSetKeyCallback(window, key_callback);
-	// Set the mouse button callback
-	glfwSetMouseButtonCallback(window, mouse_button_callback);
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glfwSwapInterval(1);
 
+	// Mouse callbacks
+	glfwSetCursorPosCallback(window, cursor_position_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
+	glfwSetCursorEnterCallback(window, cursor_enter_callback);
+	glfwSetScrollCallback(window, scroll_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
 
+	void ProcessAsyncMouse(GLFWwindow * window);
+	void ProcessAsyncKeys(GLFWwindow * window);
+
+
+
+	//glfwSetJoystickCallback(joystick_callback);
 
 	cDebugRenderer* pDebugRenderer = new cDebugRenderer();
 	pDebugRenderer->initialize();
@@ -212,41 +247,6 @@ int main(void)
 
 	cModelLoader* pTheModelLoader = new cModelLoader();	// Heap
 
-	cMesh bunnyMesh;		// This is stack based
-//	if ( ! pTheModelLoader->LoadPlyModel("assets/models/Sky_Pirate_Combined_xyz.ply", bunnyMesh) )
-//	if ( ! pTheModelLoader->LoadPlyModel("assets/models/bun_zipper_res4_XYZ_N.ply", bunnyMesh) )
-	if ( ! pTheModelLoader->LoadPlyModel("assets/models/bun_zipper_XYZ_n.ply", bunnyMesh) )
-	{
-		std::cout << "Didn't find the file" << std::endl;
-	}
-
-	cMesh largeBunnyMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Large_Physics_Bunny_XYZ_N.ply", largeBunnyMesh);
-
-	cMesh pirateMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Sky_Pirate_Combined_xyz_n.ply", pirateMesh);
-
-	cMesh terrainMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Terrain_XYZ_n.ply", terrainMesh);
-//	pTheModelLoader->LoadPlyModel("assets/models/BigFlatTerrain_XYZ_n.ply", terrainMesh);
-
-	cMesh cubeMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Cube_1_Unit_from_origin_XYZ_n.ply", cubeMesh);
-
-	cMesh sphereMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Sphere_Radius_1_XYZ_n.ply", sphereMesh);
-
-	// Example for mesh vs model you are testing in the physics engine
-	cMesh hirescubeMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/cube_Low_Hi_xyz_n.ply", hirescubeMesh);
-	cMesh lowrescubeMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/cube_Low_Res_xyz_n.ply", lowrescubeMesh);
-	
-	cMesh spaceStationMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Entire_Babbage_Space_Station_xyz_n.ply", spaceStationMesh);
-
-	cMesh singleTriangleMesh;
-	pTheModelLoader->LoadPlyModel("assets/models/Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply", singleTriangleMesh);
 
 
 	cShaderManager* pTheShaderManager = new cShaderManager();
@@ -266,307 +266,42 @@ int main(void)
 
 	GLuint shaderProgID = pTheShaderManager->getIDFromFriendlyName("SimpleShader");
 
-
-	//	float x, y, z;		vPosition			"attribute vec3 vPosition;\n"
-	//	float r, g, b;		vColour				"attribute vec3 vColour;\n"
-//	
-//	mvp_location = glGetUniformLocation(program, "MVP");
-//	mvp_location = glGetUniformLocation(shaderProgID, "MVP");
-	//vpos_location = glGetAttribLocation(program, "vPosition");
-	//vcol_location = glGetAttribLocation(program, "vColour");
-//
-	//glEnableVertexAttribArray(vpos_location);
-	//glVertexAttribPointer(vpos_location, 
-	//					  3, 
-	//					  GL_FLOAT, 
-	//					  GL_FALSE,
-	//					  sizeof(sVertex),	// sizeof(vertices[0]),
-	//					  (void*)0);
-//
-	//glEnableVertexAttribArray(vcol_location);
-	//glVertexAttribPointer(vcol_location, 3, 
-	//					  GL_FLOAT, 
-	//					  GL_FALSE,
-	//					  sizeof(sVertex),	// sizeof(vertices[0]),
-	//					  (void*)(sizeof(float) * 3));
-
-
 	// Create a VAO Manager...
 	// #include "cVAOManager.h"  (at the top of your file)
 	cVAOManager* pTheVAOManager = new cVAOManager();
 
-	// Note, the "filename" here is really the "model name" 
-	//  that we can look up later (i.e. it doesn't have to be the file name)
-	sModelDrawInfo drawInfo;
-	pTheVAOManager->LoadModelIntoVAO("bunny", 
-									 bunnyMesh, 
-									 drawInfo, 
-									 shaderProgID);
-
-	sModelDrawInfo drawInfoPirate;
-	pTheVAOManager->LoadModelIntoVAO("pirate", 
-									 pirateMesh,
-									 drawInfoPirate, 
-									 shaderProgID);
-
-	sModelDrawInfo drawInfoTerrain;
-	pTheVAOManager->LoadModelIntoVAO("terrain", 
-									 terrainMesh,
-									 drawInfoTerrain,
-									 shaderProgID);
-
-	sModelDrawInfo cubeMeshInfo;
-	pTheVAOManager->LoadModelIntoVAO("cube", 
-									 cubeMesh,			// Cube mesh info
-									 cubeMeshInfo,
-									 shaderProgID);
-
-	sModelDrawInfo sphereMeshInfo;
-	pTheVAOManager->LoadModelIntoVAO("sphere", 
-									 sphereMesh,		// Sphere mesh info
-									 sphereMeshInfo,
-									 shaderProgID);
-
-	sModelDrawInfo largeBunnyDrawInfo;
-	pTheVAOManager->LoadModelIntoVAO("large_bunny", 
-									 largeBunnyMesh,		// Sphere mesh info
-									 largeBunnyDrawInfo,
-									 shaderProgID);
-
-	
-	sModelDrawInfo hirescubeDrawInfo;
-	pTheVAOManager->LoadModelIntoVAO("hi_res_cube", 
-									 hirescubeMesh,			// The one we draw
-									 hirescubeDrawInfo,
-									 shaderProgID);
-	sModelDrawInfo lowrescubeDrawInfo;
-	pTheVAOManager->LoadModelIntoVAO("low_res_cube", 
-									 lowrescubeMesh,		// the one we test in the physics engine
-									 lowrescubeDrawInfo,
-									 shaderProgID);
-
-	sModelDrawInfo spaceStationDrawInfo;
-	pTheVAOManager->LoadModelIntoVAO("space_station", 
-									 spaceStationMesh,		// the one we test in the physics engine
-									 spaceStationDrawInfo,
-									 shaderProgID);
-
-	sModelDrawInfo singleTriangleDrawInfo;
-	pTheVAOManager->LoadModelIntoVAO("single_triangle", 
-									 singleTriangleMesh,		// the one we test in the physics engine
-									 singleTriangleDrawInfo,
-									 shaderProgID);
+	LoadModelsIntoScene(pTheVAOManager, pTheModelLoader, shaderProgID, pDebugRenderer, 
+						::g_vec_pGameObjects);
 
 
-	// At this point, the model is loaded into the GPU
+	// Texture stuff
+	::g_pTextureManager = new cBasicTextureManager();
+	::g_pTextureManager->SetBasePath("assets/textures");
+
+	if (!::g_pTextureManager->Create2DTextureFromBMPFile("AlienBluray_512x512.bmp", true))
+	{
+		std::cout << "Didn't load texture" << std::endl;
+	}
+
+	GLint ID = ::g_pTextureManager->getTextureIDFromName("AlienBluray_512x512.bmp");
 
 
-	//// Load up my "scene" 
-	//std::vector<cGameObject*> vec_pGameObjects;
-
-	cGameObject* pPirate = new cGameObject();
-	pPirate->meshName = "pirate";
-	pPirate->friendlyName = "PirateShip";	// Friendly name
-	pPirate->positionXYZ = glm::vec3(-30.0f, 20.0f, 10.0f);
-	pPirate->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pPirate->scale = 0.75f;
-	pPirate->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	pPirate->inverseMass = 0.0f;
-	pPirate->HACK_AngleAroundYAxis = 0.0f;
-	pPirate->HACK_speed = 0.0f;
-	// Add a debug renderer to this object
-	pPirate->setDebugRenderer( pDebugRenderer );
-
-//
-	cGameObject* pBunny = new cGameObject();
-	pBunny->meshName = "bunny";
-	pBunny->friendlyName = "Bugs";	// Famous bunny
-	pBunny->positionXYZ = glm::vec3(50.0f, 20.0f, -2.0f);		// -4 on z
-	pBunny->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pBunny->scale = 250.0f;
-	pBunny->objectColourRGBA = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-	pBunny->inverseMass = 0.0f;
-//
-	//cGameObject bunny2;
-	//bunny2.meshName = "bunny";
-	//bunny2.positionXYZ = glm::vec3(0.0f,0.0f,0.0f);
-	//bunny2.rotationXYZ = glm::vec3(0.0f,1.0f,0.0f);
-	//bunny2.scale = 3.5f;
-	//bunny2.objectColourRGBA = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
-//
-	//cGameObject terrain;
-	//terrain.meshName = "terrain";
-	//terrain.positionXYZ = glm::vec3(0.0f,-10.0f,0.0f);
-	//terrain.rotationXYZ = glm::vec3(0.0f,0.0f,0.0f);
-	//terrain.scale = 0.5f;
-	//terrain.objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-
-	// Sphere and cube
-	cGameObject* pShpere = new cGameObject();
-
-	//cGameObject A; 
-	//cGameObject B;
-	//A = B;
+	::g_pTextureManager->Create2DTextureFromBMPFile("Pizza.bmp", true);
 
 
-	pShpere->meshName = "sphere";
-	pShpere->friendlyName = "Sphere#1";	// We use to search 
-	pShpere->positionXYZ = glm::vec3(0.0f, 30.0, 0.0f);
-	pShpere->rotationXYZ = glm::vec3(0.0f,0.0f,0.0f);
-	pShpere->scale = 1.0f;
-	pShpere->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	// Set the sphere's initial velocity, etc.
-	pShpere->velocity = glm::vec3(0.0f,0.0f,0.0f);
-	pShpere->accel = glm::vec3(0.0f,0.0f,0.0f);
-	pShpere->physicsShapeType = SPHERE;
-	pShpere->SPHERE_radius = 1.0f;
-	pShpere->inverseMass = 1.0f;
-//	pShpere->inverseMass = 0.0f;			// Sphere won't move
+	cParticleEmitter* pMyPartcles = new cParticleEmitter();
+	pMyPartcles->location = glm::vec3(0.0f, 3.0f, 0.0f);
+	// TODO:
+	pMyPartcles->acceleration = glm::vec3(5.0f, 0.0f, 0.0f);
 
-		// Sphere and cube
-	cGameObject* pShpere2 = new cGameObject();
-	pShpere2->meshName = "sphere";
-	pShpere2->friendlyName = "Sphere#2";
-//	pShpere2->positionXYZ = glm::vec3(25.0f, 20.0f, 1.0f);
-	pShpere2->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pShpere2->scale = 1.0f;
-	pShpere2->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	// Set the sphere's initial velocity, etc.
-//	pShpere2->velocity = glm::vec3(6.0f, -15.0f, 0.0f);
-	pShpere2->accel = glm::vec3(0.0f, 0.0f, 0.0f);
-	pShpere2->physicsShapeType = SPHERE;
-	pShpere2->inverseMass = 0.0f;
-	//	pShpere->inverseMass = 0.0f;			// Sphere won't move
-
-
-	cGameObject* pCube = new cGameObject();			// HEAP
-	pCube->meshName = "cube";
-	pCube->positionXYZ = glm::vec3(0.0f, -1.0f, 0.0f);
-	pCube->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pCube->scale = 1.0f;
-	//pCube->objectColourRGBA = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-	pCube->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-	pCube->isWireframe = true;
-	// Set the sphere's initial velocity, etc.
-	//sphere.velocity = glm::vec3(0.0f,0.0f,0.0f);
-	//sphere.accel = glm::vec3(0.0f,0.0f,0.0f);
-	pCube->inverseMass = 0.0f;	// Ignored during update
-
-
-	cGameObject* pTerrain = new cGameObject();			// HEAP
-	pTerrain->meshName = "terrain";
-	pTerrain->friendlyName = "TheGround";
-	pTerrain->positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pTerrain->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pTerrain->scale = 1.0f;
-	pTerrain->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	pTerrain->physicsShapeType = MESH;
-//	pTerrain->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-//	pTerrain->isWireframe = true;
-	pTerrain->inverseMass = 0.0f;	// Ignored during update
-	pTerrain->isVisible = false;
-
-	cGameObject* pLargeBunny = new cGameObject();			// HEAP
-	pLargeBunny->meshName = "large_bunny";
-	pLargeBunny->friendlyName = "largeBunny";
-	pLargeBunny->positionXYZ = glm::vec3(30.0f, 0.0f, 0.0f);
-	pLargeBunny->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pLargeBunny->scale = 1.0f;	//***** SCALE = 1.0f *****/
-	pLargeBunny->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	pLargeBunny->physicsShapeType = MESH;
-//	pTerrain->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-//	pTerrain->isWireframe = true;
-	pLargeBunny->inverseMass = 0.0f;	// Ignored during update
-
-
-	// Same orientation and position for BOTH the high resolution AND low resultion objects
-	glm::vec3 cubesPosition = glm::vec3(0.0f, -50.0f, 0.0f);
-	glm::vec3 cubesRotation = glm::vec3(glm::radians(15.0f), 0.0f, glm::radians(35.0f) );
-	
-
-	cGameObject* pHiResCube = new cGameObject();			// HEAP
-	pHiResCube->meshName = "hi_res_cube";
-	pHiResCube->friendlyName = "hi_cube";
-	pHiResCube->positionXYZ = cubesPosition;
-	pHiResCube->rotationXYZ = cubesRotation;
-	pHiResCube->scale = 1.0f;	//***** SCALE = 1.0f *****/
-	pHiResCube->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	pHiResCube->physicsShapeType = MESH;
-	//pHiResCube->isWireframe = true;
-	//pHiResCube->debugColour = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);		// Yellow
-	pHiResCube->inverseMass = 0.0f;	// Ignored during update
-
-	cGameObject* pLowResCube = new cGameObject();			// HEAP
-	pLowResCube->meshName = "low_res_cube";
-	pLowResCube->friendlyName = "low_cube";
-	pLowResCube->positionXYZ = cubesPosition;
-	pLowResCube->rotationXYZ = cubesRotation;
-	pLowResCube->scale = 1.0f;	//***** SCALE = 1.0f *****/
-	pLowResCube->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	pLowResCube->physicsShapeType = MESH;
-	pLowResCube->isWireframe = true;
-	pLowResCube->debugColour = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);		// Yellow
-	pLowResCube->inverseMass = 0.0f;	// Ignored during update
-
-	cGameObject* pSpaceStation = new cGameObject();			// HEAP
-	pSpaceStation->meshName = "space_station";
-	pSpaceStation->friendlyName = "space station";
-	pSpaceStation->positionXYZ = glm::vec3(100.0f, 0.0f, 0.0f);
-	pSpaceStation->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pSpaceStation->scale = 1.0f;	//***** SCALE = 1.0f *****/
-	pSpaceStation->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	//pSpaceStation->physicsShapeType = MESH;
-	//pSpaceStation->isWireframe = true;
-	pSpaceStation->debugColour = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);		// Yellow
-	pSpaceStation->inverseMass = 0.0f;	// Ignored during update
-
-	cGameObject* pSingleTriangle = new cGameObject();			// HEAP
-	pSingleTriangle->meshName = "single_triangle";
-	pSingleTriangle->friendlyName = "single triangle";
-	pSingleTriangle->positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pSingleTriangle->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pSingleTriangle->scale = 1.0f;	//***** SCALE = 1.0f *****/
-	pSingleTriangle->objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	pSingleTriangle->physicsShapeType = MESH;
-	//pSingleTriangle->isWireframe = true;
-	//pSingleTriangle->debugColour = glm::vec4(1.0f, 1.0f, 0.5f, 1.0f);		// Yellow
-	pSingleTriangle->inverseMass = 0.0f;	// Ignored during update
-
-
-	::g_vec_pGameObjects.push_back(pShpere);
-	::g_vec_pGameObjects.push_back(pShpere2);
-	::g_vec_pGameObjects.push_back(pCube);
-//	::g_vec_pGameObjects.push_back(pTerrain);
-	::g_vec_pGameObjects.push_back(pPirate);
-	::g_vec_pGameObjects.push_back(pBunny);
-	::g_vec_pGameObjects.push_back(pLargeBunny);
-//	::g_vec_pGameObjects.push_back(pSpaceStation);
-	::g_vec_pGameObjects.push_back(pSingleTriangle);
-
-	::g_vec_pGameObjects.push_back(pHiResCube);
-	::g_vec_pGameObjects.push_back(pLowResCube);
-
-
-
-
-	::g_map_GameObjectsByFriendlyName[pShpere2->friendlyName] = pShpere;
-	::g_map_GameObjectsByFriendlyName[pTerrain->friendlyName] = pTerrain;
-	::g_map_GameObjectsByFriendlyName[pPirate->friendlyName] = pPirate;
-	::g_map_GameObjectsByFriendlyName[pBunny->friendlyName] = pBunny;
-
-
-	// Will be moved placed around the scene
-	cGameObject* pDebugSphere = new cGameObject();
-	pDebugSphere->meshName = "sphere";
-	pDebugSphere->friendlyName = "debug_sphere";
-	pDebugSphere->positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pDebugSphere->rotationXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-	pDebugSphere->scale = 0.1f;
-//	pDebugSphere->objectColourRGBA = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-	pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-	pDebugSphere->isWireframe = true;
-	pDebugSphere->inverseMass = 0.0f;			// Sphere won't move
-
+	pMyPartcles->Initialize( glm::vec3( -10.0f, -10.0f, -10.0f),	// Min Vel
+							 glm::vec3(  10.0f,  10.0f,  10.0f), // Max Vel
+							 glm::vec3(0.0f,0.0f,0.0f),		// Min Delta Position
+							 glm::vec3(0.0f,0.0f,0.0f),		// Max delta Position
+							 5.0f, // Min life
+							 10.0f, // Max life
+							 10,		// Min # of particles per frame
+							 60 );	// Max # of particles per frame
 
 
 
@@ -576,6 +311,11 @@ int main(void)
 //	vecGameObjects.push_back(terrain);
 
 	//mat4x4_ortho(p, -ratio, ratio, -1.f, 1.f, 1.f, -1.f);
+
+
+	::g_pFlyCamera = new cFlyCamera();
+	::g_pFlyCamera->eye = glm::vec3( 0.0f, 80.0, -80.0 );
+	
 
 
 	glEnable(GL_DEPTH);			// Write to the depth buffer
@@ -615,6 +355,10 @@ int main(void)
 		avgDeltaTimeThingy.addValue(deltaTime);
 
 
+		ProcessAsyncKeys(window);
+		ProcessAsyncMouse(window);
+
+
 		glUseProgram(shaderProgID);
 
 		float ratio;
@@ -639,10 +383,13 @@ int main(void)
 		//glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
 		//glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
 
-		v = glm::lookAt(cameraEye,
-						cameraTarget,
-						upVector);
-
+//		v = glm::lookAt(cameraEye,
+//						cameraTarget,
+//						upVector);
+		v = glm::lookAt( ::g_pFlyCamera->eye, 
+						 ::g_pFlyCamera->getAtInWorldSpace(), 
+						 ::g_pFlyCamera->getUpVector() );
+		 
 
 		glViewport(0, 0, width, height);
 
@@ -714,6 +461,18 @@ int main(void)
 		// Update the pirate ship
 		pPirate->positionXYZ += newSpeedOfShipIN_THE_DIRECTION_WE_WANT_TO_GO;
 
+		
+		// See which AABB the pirate ship is inside of... 
+		unsigned long long pID = cAABB::get_ID_of_AABB_I_Might_Be_In(pPirate->positionXYZ);
+
+		std::cout << "The pirate ship is at: "
+			<< pPirate->positionXYZ.x << ", "
+			<< pPirate->positionXYZ.y << ", " 
+			<< pPirate->positionXYZ.z 
+			<< "   and is inside AABB: " << pID 
+			<< " which has " << ::g_mapAABBs_World[pID]->vecTriangles.size() << std::endl;
+
+
 
 		//pDebugRenderer->addTriangle( pPirate->positionXYZ, 
 		//							 glm::vec3(0.0f,0.0f,0.0f), 
@@ -767,8 +526,12 @@ int main(void)
 		//uniform vec4 eyeLocation;
 		GLint eyeLocation_UL = glGetUniformLocation( shaderProgID, "eyeLocation");
 
+		//glUniform4f( eyeLocation_UL, 
+		//			 cameraEye.x, cameraEye.y, cameraEye.z, 1.0f );
 		glUniform4f( eyeLocation_UL, 
-					 cameraEye.x, cameraEye.y, cameraEye.z, 1.0f );
+					 ::g_pFlyCamera->eye.x, 
+					 ::g_pFlyCamera->eye.y, 
+					 ::g_pFlyCamera->eye.z, 1.0f );
 
 
 		std::stringstream ssTitle;
@@ -830,6 +593,12 @@ int main(void)
 		glm::vec3 closestPoint = glm::vec3(0.0f,0.0f,0.0f);
 		cPhysics::sPhysicsTriangle closestTriangle;
 
+		// HACK: These are in the LoadModelsIntoScene.cpp file
+		extern cGameObject* pHiResCube;
+		extern cMesh lowrescubeMesh;
+		extern cMesh singleTriangleMesh;
+		extern cGameObject* pShpere;
+
 
 		// Update the mesh to match it's world position
 		// 
@@ -846,10 +615,10 @@ int main(void)
 		//pPhsyics->CalculateTransformedMesh(spaceStationMesh, matSpaceStation, lowResCubeMesh_TRANSFORMED_WorldSpace);
 
 		// NOTE that I'm using the LOW RESOLUTION "cube" mesh, but DRAWING the high resolution mesh
-		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
+//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, largeBunnyMesh, closestPoint, closestTriangle);
 //		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowrescubeMesh, closestPoint, closestTriangle);
 //		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, lowResCubeMesh_TRANSFORMED_WorldSpace, closestPoint, closestTriangle);
-//		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, singleTriangleMesh, closestPoint, closestTriangle);
+		pPhsyics->GetClosestTriangleToPoint(pShpere->positionXYZ, singleTriangleMesh, closestPoint, closestTriangle);
 
 
 		// Highlight the triangle that I'm closest to
@@ -1006,11 +775,11 @@ int main(void)
 
 		{// Draw closest point
 			glm::mat4 matModel = glm::mat4(1.0f);
-			pDebugSphere->positionXYZ = closestPoint;
-			pDebugSphere->scale = 1.0f;
-			pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
-			pDebugSphere->isWireframe = true;
-			DrawObject(matModel, pDebugSphere,
+			::g_pDebugSphere->positionXYZ = closestPoint;
+			::g_pDebugSphere->scale = 1.0f;
+			::g_pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
+			::g_pDebugSphere->isWireframe = true;
+			DrawObject(matModel, ::g_pDebugSphere,
 					   shaderProgID, pTheVAOManager);
 		}
 
@@ -1052,11 +821,11 @@ int main(void)
 //		}
 
 
-		std::cout 
-			<< pShpere->velocity.x << ", "
-			<< pShpere->velocity.y << ", "
-			<< pShpere->velocity.z << "   dist = "
-			<< distanceToClosestPoint << std::endl;
+		//std::cout 
+		//	<< pShpere->velocity.x << ", "
+		//	<< pShpere->velocity.y << ", "
+		//	<< pShpere->velocity.z << "   dist = "
+		//	<< distanceToClosestPoint << std::endl;
 
 		//howMuchToMoveItBack = 1.0 - lenthOfThatVector
 
@@ -1067,18 +836,18 @@ int main(void)
 		{
 			{// Draw where the light is at
 				glm::mat4 matModel = glm::mat4(1.0f);
-				pDebugSphere->positionXYZ = sexyLightPosition;
-				pDebugSphere->scale = 0.5f;
-				pDebugSphere->debugColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-				pDebugSphere->isWireframe = true;
-				DrawObject(matModel, pDebugSphere,
+				::g_pDebugSphere->positionXYZ = sexyLightPosition;
+				::g_pDebugSphere->scale = 0.5f;
+				::g_pDebugSphere->debugColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+				::g_pDebugSphere->isWireframe = true;
+				DrawObject(matModel, ::g_pDebugSphere,
 						   shaderProgID, pTheVAOManager);
 			}
 
 			// Draw spheres to represent the attenuation...
 			{   // Draw a sphere at 1% brightness
 				glm::mat4 matModel = glm::mat4(1.0f);
-				pDebugSphere->positionXYZ = sexyLightPosition;
+				::g_pDebugSphere->positionXYZ = sexyLightPosition;
 				float sphereSize = pLightHelper->calcApproxDistFromAtten( 
 													   0.01f,		// 1% brightness (essentially black)
 													   0.001f,		// Within 0.1%  
@@ -1086,15 +855,15 @@ int main(void)
 													   sexyLightConstAtten,
 													   sexyLightLinearAtten,
 													   sexyLightQuadraticAtten );
-				pDebugSphere->scale = sphereSize;
-				pDebugSphere->debugColour = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
-				pDebugSphere->isWireframe = true;
-				DrawObject(matModel, pDebugSphere,
+				::g_pDebugSphere->scale = sphereSize;
+				::g_pDebugSphere->debugColour = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
+				::g_pDebugSphere->isWireframe = true;
+				DrawObject(matModel, ::g_pDebugSphere,
 						   shaderProgID, pTheVAOManager);
 			}
 			{   // Draw a sphere at 25% brightness
 				glm::mat4 matModel = glm::mat4(1.0f);
-				pDebugSphere->positionXYZ = sexyLightPosition;
+				::g_pDebugSphere->positionXYZ = sexyLightPosition;
 				float sphereSize = pLightHelper->calcApproxDistFromAtten( 
 													   0.25f,		// 1% brightness (essentially black)
 													   0.001f,		// Within 0.1%  
@@ -1102,15 +871,15 @@ int main(void)
 													   sexyLightConstAtten,
 													   sexyLightLinearAtten,
 													   sexyLightQuadraticAtten );
-				pDebugSphere->scale = sphereSize;
-				pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-				pDebugSphere->isWireframe = true;
-				DrawObject(matModel, pDebugSphere,
+				::g_pDebugSphere->scale = sphereSize;
+				::g_pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+				::g_pDebugSphere->isWireframe = true;
+				DrawObject(matModel, ::g_pDebugSphere,
 						   shaderProgID, pTheVAOManager);
 			}
 			{   // Draw a sphere at 50% brightness
 				glm::mat4 matModel = glm::mat4(1.0f);
-				pDebugSphere->positionXYZ = sexyLightPosition;
+				::g_pDebugSphere->positionXYZ = sexyLightPosition;
 				float sphereSize = pLightHelper->calcApproxDistFromAtten( 
 													   0.50f,		// 1% brightness (essentially black)
 													   0.001f,		// Within 0.1%  
@@ -1118,15 +887,15 @@ int main(void)
 													   sexyLightConstAtten,
 													   sexyLightLinearAtten,
 													   sexyLightQuadraticAtten );
-				pDebugSphere->scale = sphereSize;
-				pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
-				pDebugSphere->isWireframe = true;
-				DrawObject(matModel, pDebugSphere,
+				::g_pDebugSphere->scale = sphereSize;
+				::g_pDebugSphere->debugColour = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
+				::g_pDebugSphere->isWireframe = true;
+				DrawObject(matModel, ::g_pDebugSphere,
 						   shaderProgID, pTheVAOManager);
 			}
 			{   // Draw a sphere at 75% brightness
 				glm::mat4 matModel = glm::mat4(1.0f);
-				pDebugSphere->positionXYZ = sexyLightPosition;
+				::g_pDebugSphere->positionXYZ = sexyLightPosition;
 				float sphereSize = pLightHelper->calcApproxDistFromAtten( 
 													   0.75f,		// 1% brightness (essentially black)
 													   0.001f,		// Within 0.1%  
@@ -1134,15 +903,15 @@ int main(void)
 													   sexyLightConstAtten,
 													   sexyLightLinearAtten,
 													   sexyLightQuadraticAtten );
-				pDebugSphere->scale = sphereSize;
-				pDebugSphere->debugColour = glm::vec4(1.0f, 1.0f, 0.0f, 1.0f);
-				pDebugSphere->isWireframe = true;
-				DrawObject(matModel, pDebugSphere,
+				::g_pDebugSphere->scale = sphereSize;
+				::g_pDebugSphere->debugColour = glm::vec4(1.0f, 1.0f, 0.0f, 1.0f);
+				::g_pDebugSphere->isWireframe = true;
+				DrawObject(matModel, ::g_pDebugSphere,
 						   shaderProgID, pTheVAOManager);
 			}
 			{   // Draw a sphere at 95% brightness
 				glm::mat4 matModel = glm::mat4(1.0f);
-				pDebugSphere->positionXYZ = sexyLightPosition;
+				::g_pDebugSphere->positionXYZ = sexyLightPosition;
 				float sphereSize = pLightHelper->calcApproxDistFromAtten( 
 													   0.95f,		// 1% brightness (essentially black)
 													   0.001f,		// Within 0.1%  
@@ -1150,10 +919,10 @@ int main(void)
 													   sexyLightConstAtten,
 													   sexyLightLinearAtten,
 													   sexyLightQuadraticAtten );
-				pDebugSphere->scale = sphereSize;
-				pDebugSphere->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-				pDebugSphere->isWireframe = true;
-				DrawObject(matModel, pDebugSphere,
+				::g_pDebugSphere->scale = sphereSize;
+				::g_pDebugSphere->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+				::g_pDebugSphere->isWireframe = true;
+				DrawObject(matModel, ::g_pDebugSphere,
 						   shaderProgID, pTheVAOManager);
 			}
 		}// if (bLightDebugSheresOn) 
@@ -1162,8 +931,45 @@ int main(void)
 		// **************************************************
 
 		
-		
-		pDebugRenderer->RenderDebugObjects( v, p, 0.01f );
+
+		// ************************************************************
+		::g_pDebugSphere->scale = 0.05f;
+		::g_pDebugSphere->debugColour = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+		::g_pDebugSphere->isWireframe = true;
+		glm::mat4 matModel = glm::mat4(1.0f);
+
+		// Move emitter to where the pirate ship is...
+		cGameObject* pPirateShip = pFindObjectByFriendlyName("PirateShip");
+
+		cGameObject* pBunny =  pFindObjectByFriendlyName("Bugs");
+		pBunny->scale = 5.0f;
+//		pPirate->isVisible = false;
+
+		pMyPartcles->location = pPirateShip->positionXYZ;
+
+		pMyPartcles->Step( static_cast<float>(deltaTime) );
+
+		// Draw objects at the location of the particles...
+		std::vector<cParticle*> vecParticles;
+		pMyPartcles->getParticles( vecParticles );
+		for (std::vector<cParticle*>::iterator itPart = vecParticles.begin();
+			 itPart != vecParticles.end(); itPart++)
+		{
+			// This is a little odd, because of the iterator syntax
+			//pDebugSphere->positionXYZ = (*itPart)->location;
+			//DrawObject(matModel, pDebugSphere,
+			//		   shaderProgID, pTheVAOManager);
+
+			pBunny->positionXYZ = (*itPart)->location;
+			DrawObject(matModel, pBunny,
+					   shaderProgID, pTheVAOManager);
+		}
+		// ************************************************************
+
+
+
+
+		pDebugRenderer->RenderDebugObjects(v, p, 0.01f);
 
 
 
@@ -1177,6 +983,7 @@ int main(void)
 	// Delete everything
 	delete pTheModelLoader;
 //	delete pTheVAOManager;
+	delete ::g_pFlyCamera;
 
 	// Watch out!!
 	// sVertex* pVertices = new sVertex[numberOfVertsOnGPU];
@@ -1194,68 +1001,43 @@ void DrawObject(glm::mat4 m,
 	// 
 				//         mat4x4_identity(m);
 
+	if ( pCurrentObject->isVisible == false )
+	{
+		return;
+	}
 
 	// This block of code, where I generate the world matrix from the 
 	// position, scale, and rotation (orientation) of the object
 	// has been placed into calculateWorldMatrix()
 
+
+	// ************ 
+	// Set the texture bindings and samplers
+
+	// Tie the texture to the texture unit
+	GLuint alienTexID =	::g_pTextureManager->getTextureIDFromName("AlienBluray_512x512.bmp");
+	glActiveTexture(GL_TEXTURE0);				// Texture Unit 0
+	glBindTexture(GL_TEXTURE_2D, alienTexID);	// Texture now assoc with texture unit 0
+
+	GLuint PizzaTexID =	::g_pTextureManager->getTextureIDFromName("Pizza.bmp");
+	glActiveTexture(GL_TEXTURE5);				// Texture Unit 5
+	glBindTexture(GL_TEXTURE_2D, PizzaTexID);	// Texture now assoc with texture unit 0
+
+
+	// Tie the texture units to the samplers in the shader
+	GLint textSamp01_UL = glGetUniformLocation( shaderProgID, "textSamp01" );
+	glUniform1i(textSamp01_UL, 0);	// Texture unit 0
+
+	GLint textSamp02_UL = glGetUniformLocation( shaderProgID, "textSamp02" );
+	glUniform1i(textSamp02_UL, 5);	// Texture unit 5
+	// ************
+
+
+
+
 	m = calculateWorldMatrix( pCurrentObject );
 
-//	m = glm::mat4(1.0f);
-//	
-//	
-//	
-//	// ******* TRANSLATION TRANSFORM *********
-//	glm::mat4 matTrans
-//	= glm::translate(glm::mat4(1.0f),
-//					 glm::vec3(pCurrentObject->positionXYZ.x,
-//							   pCurrentObject->positionXYZ.y,
-//							   pCurrentObject->positionXYZ.z));
-//	m = m * matTrans;
-//	// ******* TRANSLATION TRANSFORM *********
-//	
-//	
-//	
-//	// ******* ROTATION TRANSFORM *********
-//	//mat4x4_rotate_Z(m, m, (float) glfwGetTime());
-//	glm::mat4 rotateZ = glm::rotate(glm::mat4(1.0f),
-//									pCurrentObject->rotationXYZ.z,					// Angle 
-//									glm::vec3(0.0f, 0.0f, 1.0f));
-//	m = m * rotateZ;
-//	
-//	glm::mat4 rotateY = glm::rotate(glm::mat4(1.0f),
-//									pCurrentObject->rotationXYZ.y,	//(float)glfwGetTime(),					// Angle 
-//									glm::vec3(0.0f, 1.0f, 0.0f));
-//	m = m * rotateY;
-//	
-//	glm::mat4 rotateX = glm::rotate(glm::mat4(1.0f),
-//									pCurrentObject->rotationXYZ.x,	// (float)glfwGetTime(),					// Angle 
-//									glm::vec3(1.0f, 0.0f, 0.0f));
-//	m = m * rotateX;
-//	// ******* ROTATION TRANSFORM *********
-//	
-//	
-//	
-//	// ******* SCALE TRANSFORM *********
-//	glm::mat4 scale = glm::scale(glm::mat4(1.0f),
-//								 glm::vec3(pCurrentObject->scale,
-//										   pCurrentObject->scale,
-//										   pCurrentObject->scale));
-//	m = m * scale;
-//	// ******* SCALE TRANSFORM *********
 
-
-
-	//mat4x4_mul(mvp, p, m);
-	//mvp = p * v * m;
-
-	// Choose which shader to use
-	//glUseProgram(program);
-	//glUseProgram(shaderProgID);
-
-
-	//glUniformMatrix4fv(mvp_location, 1, GL_FALSE, (const GLfloat*) mvp);
-	//glUniformMatrix4fv(mvp_location, 1, GL_FALSE, glm::value_ptr(mvp));
 
 	//uniform mat4 matModel;		// Model or World 
 	//uniform mat4 matView; 		// View or camera

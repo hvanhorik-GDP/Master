@@ -14,6 +14,11 @@ uniform bool bDoNotLight;
 
 uniform vec4 eyeLocation;
 
+// Texture samplers
+uniform sampler2D textSamp01;
+uniform sampler2D textSamp02;
+
+
 out vec4 pixelColour;			// RGB A   (0 to 1) 
 
 // Fragment shader
@@ -65,19 +70,31 @@ void main()
 //	vec4 materialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 //	vec4 specColour = vec4(0.0f,0.0f,0.0f,1.0f);// materialColour;
 	
-
-	vec4 outColour = calcualteLightContrib( materialColour.rgb, fNormal.xyz, 
+	vec3 tex1_RGB = texture( textSamp01, fUVx2.st ).rgb;
+	vec3 tex2_RGB = texture( textSamp02, fUVx2.st ).rgb;
+	
+	float tex1_ratio = 0.5f;
+	float tex2_ratio = 0.5f; 
+	
+	vec3 texRGB =   ( tex1_ratio * tex1_RGB ) 
+				  + ( tex2_ratio * tex2_RGB );
+	
+	
+	vec4 outColour = calcualteLightContrib( texRGB.rgb, fNormal.xyz, 
 	                                        fVertWorldLocation.xyz, specularColour );
+//	vec4 outColour = calcualteLightContrib( materialColour.rgb, fNormal.xyz, 
+//	                                        fVertWorldLocation.xyz, specularColour );
 
 											
 	pixelColour = outColour;
 	
-//	pixelColour.rgb += vec3(0.5f, 0.5f, 0.5f);
+
+//	pixelColour.rgb *= 0.001f;		// BLACK
 	
-//	pixelColour.rgb += fNormal.xyz;
-//	pixelColour.rgb += fVertWorldLocation.xyz;
+//	pixelColour.rgb += texture( textSamp02, fUVx2.st ).rgb;
 	
-}	// Ooops
+
+}	
 
 
 vec4 calcualteLightContrib( vec3 vertexMaterialColour, vec3 vertexNormal, 

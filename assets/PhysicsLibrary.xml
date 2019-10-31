@@ -1,7 +1,7 @@
 <GameLibrary>
 	<GameName>Project 1 Phsysics Test</GameName>
 	<AssetGroup type="shaders" open="none">
-		<AssetRoot>../assets/shaders/</AssetRoot>
+		<AssetRoot>./assets/shaders/</AssetRoot>
 		<Asset name="fragmentShader01" type="fragment">
 			<AssetFile>fragmentShader01.glsl</AssetFile>
 			<Property name="isValid" type="bool" value="true"/>
@@ -37,7 +37,7 @@
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="models" open="none">
-		<AssetRoot>../assets/models/</AssetRoot>
+		<AssetRoot>./assets/models/</AssetRoot>
     <Asset name="Large_Physics_Bunny_XYZ_n">
       <AssetFile>./Physics/Large_Physics_Bunny_XYZ_n.ply</AssetFile>
     </Asset>
@@ -171,16 +171,16 @@
 		</Asset>
 	</AssetGroup>
 	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
-		<AssetRoot>../assets/audios/</AssetRoot>
+		<AssetRoot>./assets/audios/</AssetRoot>
 	</AssetGroup>
 	<AssetGroup type="videos" open="none">
-		<AssetRoot>../assets/videos/</AssetRoot>
+		<AssetRoot>./assets/videos/</AssetRoot>
 	</AssetGroup>
 	<AssetGroup type="images" open="none">
-		<AssetRoot>../assets/images/</AssetRoot>
+		<AssetRoot>./assets/images/</AssetRoot>
 	</AssetGroup>
 	<AssetGroup type="fonts" open="none">
-		<AssetRoot>../assets/fonts/</AssetRoot>
+		<AssetRoot>./assets/fonts/</AssetRoot>
 	</AssetGroup>
 	<Objects>
     <Object name="surface_output_01" type="model" asset_id="surface_output_01">
