@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="cGraphicsToObject.cpp" />
+    <ClCompile Include="Graphics_Callback.cpp" />
+    <ClCompile Include="test_Graphics.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cGraphicsToObject.h" />
+    <ClInclude Include="Graphics_Callback.h" />
+    <ClInclude Include="test_Graphics.h" />
+  </ItemGroup>
+</Project>

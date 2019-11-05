@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C24BitBMPpixel.cpp" />
+    <ClCompile Include="cBasicTextureManager.cpp" />
+    <ClCompile Include="cFlyCamera.cpp" />
+    <ClCompile Include="cGLColourHelper.cpp" />
+    <ClCompile Include="cParticleEmitter.cpp" />
+    <ClCompile Include="CTextureFromBMP.cpp" />
+    <ClCompile Include="GLFW_Callbacks.cpp" />
+    <ClCompile Include="HandleDebugBallPhysics.cpp" />
+    <ClCompile Include="HandleDebugLights.cpp" />
+    <ClCompile Include="HandleDebugPirate.cpp" />
+    <ClCompile Include="LightDebugSheres.cpp" />
+    <ClCompile Include="LoadModelsIntoScene.cpp" />
+    <ClCompile Include="PhysicsAABBStuff.cpp" />
+    <ClCompile Include="save stuff.cpp" />
+    <ClCompile Include="test_GDP2019.cpp" />
+    <ClCompile Include="globalStuff.cpp" />
+    <ClCompile Include="pFindObjectByFriendlyName.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C24BitBMPpixel.h" />
+    <ClInclude Include="cAABB.h" />
+    <ClInclude Include="cBasicTextureManager.h" />
+    <ClInclude Include="cFlyCamera.h" />
+    <ClInclude Include="cGLColourHelper.h" />
+    <ClInclude Include="cParticleEmitter.h" />
+    <ClInclude Include="CTextureFromBMP.h" />
+    <ClInclude Include="GLFW_Callbacks.h" />
+    <ClInclude Include="HandleDebugBallPhysics.h" />
+    <ClInclude Include="HandleDebugLights.h" />
+    <ClInclude Include="HandleDebugPirate.h" />
+    <ClInclude Include="LightDebugSheres.h" />
+    <ClInclude Include="linmath.h" />
+    <ClInclude Include="test_GDP2019.h" />
+    <ClInclude Include="globalStuff.h" />
+    <ClInclude Include="pFindObjectByFriendlyName.h" />
+  </ItemGroup>
+</Project>

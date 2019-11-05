@@ -1,6 +1,6 @@
 #include "cDebugRenderer.h"
 
-#include "../GLCommon.h"
+#include "gl/GLCommon.h"
 
 #include "COpenGLError.h"
 

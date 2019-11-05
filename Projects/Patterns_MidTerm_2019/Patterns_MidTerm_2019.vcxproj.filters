@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{63f16030-9cfe-4257-b8ef-7b641ca6e71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Robot">
+      <UniqueIdentifier>{dac3b3b5-03dc-46a7-9726-8fe800c69acb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon">
+      <UniqueIdentifier>{9cb94040-0a08-431a-8f8d-5f91a2f8de67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{694e16dc-eae6-423b-9868-b5e5b233c930}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Patterns_MidTerm_2019_ObjectCreator.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns_MidTerm_2019_test.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns_MidTerm_2019_Tilter.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_World_impl.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="iPatterns_MidTerm_2019_World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="iPatterns_MidTerm_2019_Weapon.cpp">
+      <Filter>Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="iPatterns_MidTerm_2019_Robot.cpp">
+      <Filter>Robot</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_Weapon.cpp">
+      <Filter>Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_Weapon_Balistic.cpp">
+      <Filter>Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_Weapon_LineOfSight.cpp">
+      <Filter>Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_Weapon_Rocket.cpp">
+      <Filter>Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_Robot.cpp">
+      <Filter>Robot</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns_MidTerm_2019_Callback.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Patterns_MidTerm_2019_ObjectCreator.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns_MidTerm_2019_test.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns_MidTerm_2019_Tilter.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns_MidTerm_2019_Callback.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_World_impl.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="iPatterns_MidTerm_2019_World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="iPatterns_MidTerm_2019_Weapon.h">
+      <Filter>Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="iPatterns_MidTerm_2019_Robot.h">
+      <Filter>Robot</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_Weapon_Rocket.h">
+      <Filter>Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_Weapon.h">
+      <Filter>Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_Weapon_Balistic.h">
+      <Filter>Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_Weapon_LineOfSight.h">
+      <Filter>Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_Robot.h">
+      <Filter>Robot</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

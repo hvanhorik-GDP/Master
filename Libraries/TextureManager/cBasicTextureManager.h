@@ -5,9 +5,6 @@
 #include <map>
 #include "CTextureFromBMP.h"
 
-
-#pragma comment (lib, "TextureManager.lib")
-
 class cBasicTextureManager
 {
 public:

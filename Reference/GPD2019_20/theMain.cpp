@@ -41,13 +41,13 @@
 // Used to visualize the attenuation of the lights...
 #include "LightManager/cLightHelper.h"
 
-#include "cParticleEmitter.h"
+#include "ObjectItems/Reference/cParticleEmitter.h"
 
-#include "cFlyCamera.h"
+#include "FlyCamera/cFlyCamera.h"
 
-#include "cAABB.h"
+#include "Physics/cAABB.h"
 
-#include "cBasicTextureManager.h"
+#include "TextureManager/cBasicTextureManager.h"
 
 // Keyboard, error, mouse, etc. are now here
 #include "GFLW_callbacks.h"

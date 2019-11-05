@@ -9,6 +9,7 @@
 #include "cObjectManagerPart_Common.h"
 #include "cObjectManagerPart_Physics.h"
 #include "cObjectManagerPart_3d.h"
+#include "cObjectManagerPart_Alias.h"
 
 
 #include "AssetManager/cAssetManager.h"
@@ -64,6 +65,8 @@ void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 				continue;
 			else if (cObjectManagerPart_Physics().HandleProperty(object, type, name, value))
 				continue;
+			else if (cObjectManagerPart_Alias().HandleProperty(object, type, name, value))
+				continue;
 
 			else if (name == "objectColourRGBA")
 				object->objectColourRGBA = cFormat::LoadVec4(value);
@@ -105,6 +108,7 @@ void cObjectManager_Model::SaveObject( iObject* inObject, rapidxml::xml_node<>* 
 		cObjectManagerPart_Common().SaveProperties(writeObject, node);
 		cObjectManagerPart_3d().SaveProperties(writeObject, node);
 		cObjectManagerPart_Physics().SaveProperties(writeObject, node);
+		cObjectManagerPart_Alias().SaveProperties(writeObject, node);
 
 		gamelibrary::Object libObject(node);
 

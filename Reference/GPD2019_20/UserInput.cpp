@@ -9,7 +9,7 @@
 #include <stdio.h>		// for fprintf()
 #include <iostream>
 
-#include "cFlyCamera.h"
+#include "FlyCamera/cFlyCamera.h"
 
 bool isOnlyShiftKeyDown(int mods);
 bool isOnlyCtrlKeyDown(int mods);

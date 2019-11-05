@@ -1,6 +1,9 @@
 #include "LoadGLFW.h"
-#include "globalStuff.h"
-#include "GDP2019/GLFW_Callbacks.h"
+#include "gl/GLCommon.h"
+#include <cstdio>
+#include <cstdlib>
+
+GLFWwindow* window;
 
 int loadGFLW(void)
 {

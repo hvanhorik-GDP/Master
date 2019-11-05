@@ -11,7 +11,7 @@
 #include "ObjectManager/cObjectManager.h"
 #include "cObject_World.h"
 
-#include "GLCommon.h"
+#include "gl/GLCommon.h"
 #include <sstream>
 #include <iomanip>
 #include <iostream>
@@ -24,6 +24,7 @@ cObject_Model::cObject_Model()
 	: cObject_Common()							// Need common items
 	, cObject_3d()								// This is a 3d Object
 	, cObject_Physics()							// and physics applies to it
+	, cObject_Alias()							// Allow models to contain other objects
 {
 	objectColourRGBA = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	debugColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);

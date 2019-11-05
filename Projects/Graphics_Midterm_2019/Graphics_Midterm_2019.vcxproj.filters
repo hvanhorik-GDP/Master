@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Graphics_MidTerm_2019_Callback.cpp" />
+    <ClCompile Include="Graphics_MidTerm_2019_test.cpp" />
+    <ClCompile Include="Graphics_MidTerm_2019_ToObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Graphics_MidTerm_2019_Callback.h" />
+    <ClInclude Include="Graphics_MidTerm_2019_test.h" />
+    <ClInclude Include="Graphics_MidTerm_2019_ToObject.h" />
+  </ItemGroup>
+</Project>

@@ -5,8 +5,7 @@
 #include "Utilities/cFormat.h"
 #include "GameLibrary/Object.h"
 
-#include "GLCommon.h"
-#include "GLCommon.h"
+#include "gl/GLCommon.h"
 #include <sstream>
 #include <iomanip>
 #include <iostream>

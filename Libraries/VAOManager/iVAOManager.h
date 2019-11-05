@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GLCommon.h"
+#include "gl/GLCommon.h"
 #include <glm/glm.hpp>
 
 #include "AssetItems/cItem_Model.h"

@@ -3,6 +3,7 @@
 #include "cObject_Common.h"
 #include "cObject_3d.h"
 #include "cObject_Physics.h"
+#include "cObject_Alias.h"
 
 #include <glm/glm.hpp>
 
@@ -13,6 +14,7 @@ class cObject_Model
 	: public cObject_Common							// Need common items
 	, public cObject_3d								// This is a 3d Object
 	, public cObject_Physics						// and physics applies to it
+	, public cObject_Alias							// Allow models to contain other objects
 {
 public:
 

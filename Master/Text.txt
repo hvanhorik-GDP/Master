@@ -8,3 +8,4 @@ globalstuff.h
 theMain.cpp
 UserInput.cpp - new input
 c24BitBMPpixel.cpp
+GameObject.cpp

@@ -16,10 +16,8 @@ cPhysics_Henky::cPhysics_Henky()
 	// note that this doesn't mean that the simulation will "look good", though... 
 //	this->m_Gravity = glm::vec3(0.0f, -9.81f, 0.0f);
 
-	// TODO - Gravity is turned off
-	std::cout << "Turn off gravity " << std::endl;
-	this->m_Gravity = glm::vec3(0.0f, 0.0f, 0.0f);
-//	this->m_Gravity = glm::vec3(0.0f, -3.0f, 0.0f);
+//	this->m_Gravity = glm::vec3(0.0f, 0.0f, 0.0f);
+	this->m_Gravity = glm::vec3(0.0f, -3.0f, 0.0f);
 	return;
 }
 

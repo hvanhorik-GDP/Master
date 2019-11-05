@@ -78,7 +78,7 @@ public:
 	static void boundsOfObject(cObject_Model& pObject, glm::vec3& minLimit, glm::vec3& maxLimit);
 
 	static void highPointsOfObject(cObject_Model& pObject, std::vector<glm::vec3>& maximums, int number);
-private:
+public:
 
 	// Does collision test and returns collision information
 	// Returns true if collision, and will load collisionInfo struct

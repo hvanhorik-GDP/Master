@@ -1,6 +1,8 @@
 #include "cObjectManagerPart_Alias.h"
 #include "ObjectItems/cObject_Alias.h"
+#include "ObjectItems/cObject_Common.h"
 #include "GameLibrary/Object.h"
+#include "cObjectManager.h"
 
 cObjectManagerPart_Alias::cObjectManagerPart_Alias()
 {
@@ -43,4 +45,25 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManagerPart_Alias& v
 {
 	stream << "Got to cObjectManagerPart_Alias by accident" << std::endl;
 	return stream;
+}
+
+
+
+void cObjectManagerPart_Alias::ResolveAlias(iObjectManager::iObject_map& objects, bool pointToParent)
+{
+	cObjectManager manager;
+	for (auto group : objects)
+	{
+		auto object = dynamic_cast<cObject_Alias*>(group.second);
+		assert(object);
+
+		for (auto alias : object->m_mapObjects)
+		{
+			iObject* theAlias = manager.FindObjectByName(alias.first);
+			assert(theAlias);
+			object->m_mapObjects[alias.first] = theAlias;
+			if (pointToParent)
+				theAlias->SetParentObject(group.second);		// Point back to the parent group
+		}
+	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "iObjectManagerPart.h"
+#include "iObjectManager.h"
 
 class cObjectManagerPart_Alias: public iObjectManagerPart
 {
@@ -19,5 +20,7 @@ public:
 
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManagerPart_Alias& val);
+
+	virtual void ResolveAlias(iObjectManager::iObject_map& objects, bool pointToParent);
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 #pragma once
 
-#include "GLCommon.h"
+#include "gl/GLCommon.h"
 #include "ObjectItems/cObject_Light.h"
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
