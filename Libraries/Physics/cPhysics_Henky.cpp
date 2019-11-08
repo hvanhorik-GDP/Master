@@ -388,12 +388,17 @@ void cPhysics_Henky::GetClosestTriangleToPoint(
 	// We need to test world coordinates
 	auto matWorld = object.matWorld;
 
-	// TODO - Turned off world co-ordiates since they will be zero for this test
+	if (matWorld != glm::mat4(1.0f))
+	{
+		cItem_Model worldMesh;
+		CalculateTransformedMesh(*drawMesh, matWorld, worldMesh);
 
-	//cItem_Model worldMesh;
-	//CalculateTransformedMesh(*drawMesh, matWorld, worldMesh);
-
-	GetClosestTriangleToPoint(pointXYZ, *drawMesh, closestPoint, closestTriangle);
+		GetClosestTriangleToPoint(pointXYZ, worldMesh, closestPoint, closestTriangle);
+	}
+	else
+	{
+		GetClosestTriangleToPoint(pointXYZ, *drawMesh, closestPoint, closestTriangle);
+	}
 }
 
 // Returns all the triangles and the closest points
@@ -543,7 +548,8 @@ bool cPhysics_Henky::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Mode
 	sCollisionInfo& collisionInfo)
 {
 	// TODO - hack - turn off sphere sphere colision
-	return false;
+	if (pA->HACK_Exploding_Simulation)
+		return false;
 
 	glm::vec3 distance = pA->positionXYZ - pB->positionXYZ;
 	float size = glm::length(distance);
@@ -694,39 +700,42 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 	if (distance <= worldSphere.r)
 	{
 
-		// TODO - We hit so lets stop the astroid
-		// TODO - HACK
-		// INFO6019 - Hack for exploding balls
-		// just turn the astroid into a ball.
-		pSphere->inverseMass = 0;
-		pSphere->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-		
-		cObjectManager manager;
+		if (pSphere->HACK_Exploding_Simulation)
+		{
+			// INFO6019 - Hack for exploding balls
+			// just turn the astroid into a ball.
+			// TODO - We hit so lets stop the astroid
+			// TODO - HACK
+			pSphere->inverseMass = 0;
+			pSphere->velocity = glm::vec3(0.0f, 0.0f, 0.0f);
 
-		auto temp = manager.FindObjectByName("Drop_Sphere");
-		assert(temp);
-		cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
-		assert(newBall);
+			cObjectManager manager;
 
-		pSphere->m_assetID = newBall->GetAssetID();
-		pSphere->m_Item = newBall->m_Item;				// Chnage the item to a ball
-		pSphere->scale = 120.0;							// scale it
-		glm::vec4 rgb = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+			auto temp = manager.FindObjectByName("Drop_Sphere");
+			assert(temp);
+			cObject_Model* newBall = dynamic_cast<cObject_Model*>(temp);
+			assert(newBall);
 
-		pSphere->objectColourRGBA = rgb;		// Red
-		pSphere->debugColour = rgb;
-		pSphere->isWireframe = true;
+			pSphere->m_assetID = newBall->GetAssetID();
+			pSphere->m_Item = newBall->m_Item;				// Chnage the item to a ball
+			pSphere->scale = 120.0;							// scale it
+			glm::vec4 rgb = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
 
-		pSphere->HACK_Physics_DebugBall_Damage = true;
-		pSphere->HACK_Physics_Time_Of_Simulation = time(NULL);
-		pSphere->HACK_Physics_DebugBall_Vanishes = false;
-		pSphere->physicsShapeType = cObject_Physics::UNKNOWN;
-		pSphere->SPHERE_radius = 120.0;
-		pSphere->m_isVisable = true;
-		std::cout << "We have a hit - " << " Time: " 
-			<< pSphere->HACK_Physics_Time_Of_Simulation
-			<< " Item: " << pSphere->m_Item->GetAssetID() << std::endl;
-		return true;
+			pSphere->objectColourRGBA = rgb;		// Red
+			pSphere->debugColour = rgb;
+			pSphere->isWireframe = true;
+
+			pSphere->HACK_Physics_DebugBall_Damage = true;
+			pSphere->HACK_Physics_Time_Of_Simulation = time(NULL);
+			pSphere->HACK_Physics_DebugBall_Vanishes = false;
+			pSphere->physicsShapeType = cObject_Physics::UNKNOWN;
+			pSphere->SPHERE_radius = 120.0;
+			pSphere->m_isVisable = true;
+			std::cout << "We have a hit - " << " Time: "
+				<< pSphere->HACK_Physics_Time_Of_Simulation
+				<< " Item: " << pSphere->m_Item->GetAssetID() << std::endl;
+			return true;
+		}
 		//TODO - HACK
 
 		// ************************************************************************

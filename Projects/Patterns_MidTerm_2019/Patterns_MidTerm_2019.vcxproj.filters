@@ -13,12 +13,15 @@
     <Filter Include="World">
       <UniqueIdentifier>{694e16dc-eae6-423b-9868-b5e5b233c930}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{88df8ddd-cf79-41e6-beba-3c9abe782cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\models">
+      <UniqueIdentifier>{9546ffae-e45e-4e9c-bc09-5c88f987f9a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Patterns_MidTerm_2019_ObjectCreator.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Patterns_MidTerm_2019_test.cpp">
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="Patterns_MidTerm_2019_Tilter.cpp">
@@ -57,12 +60,12 @@
     <ClCompile Include="Patterns_MidTerm_2019_Callback.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="cPatterns_MidTerm_2019_Init.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Patterns_MidTerm_2019_ObjectCreator.h">
-      <Filter>Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Patterns_MidTerm_2019_test.h">
       <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="Patterns_MidTerm_2019_Tilter.h">
@@ -101,5 +104,26 @@
     <ClInclude Include="cPatterns_MidTerm_2019_Robot.h">
       <Filter>Robot</Filter>
     </ClInclude>
+    <ClInclude Include="cPatterns_MidTerm_2019_Init.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Patterns_MidTerm_2019.xml" />
+    <Xml Include="..\..\assets\Physics_MidTerm_2019(output).xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\cube_Low_Res_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\Large_Physics_Bunny_XYZ_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\terrain.ply">
+      <Filter>assets\models</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 <GameLibrary>
-  <GameName>Project 1 Phsysics Test</GameName>
+  <GameName>Midterm Graphics</GameName>
   <AssetGroup type="shaders" open="none">
     <AssetRoot>./assets/shaders/</AssetRoot>
     <Asset name="fragmentShader01" type="fragment">
@@ -1098,12 +1098,18 @@
       <Property name="upVector" type="vec3" value="0 1 0"/>
     </Object>
     <Object type="world" name="world" asset_id="">
-      <Property name="cameraEye" type="vec3" value="-121.111 184.748 -52.019"/>
-      <Property name="cameraTarget" type="vec3" value="-121.111 184.748 -64.019"/>
+      <Property name="cameraEye" type="vec3" value="-121.111 350 -52.019"/>
+      <Property name="cameraTarget" type="vec3" value="-121.111 184.748 -64.01"/>
       <Property name="upVector" type="vec3" value="0 1 0"/>
       <Property name="debugRenderer" type="bool" value="false"/>
-      <Property name="windowWidth" type="int" value="700"/>
-      <Property name="windowHeight" type="int" value="500"/>
+      <Property name="windowWidth" type="float" value="700"/>
+      <Property name="windowHeight" type="float" value="500"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="cameraNearClipping" type="float" value="1.00"/>
+      <Property name="cameraFarClipping" type="float" value="1000000.0"/>
+      <Property name="physicsStepOn" type="bool" value="false"/>
+      <Property name="physicsCollisionOn" type="bool" value="false"/>
     </Object>
     <Object name="SM_Env_Rock_Skull_01" type="model" asset_id="SM_Env_Rock_Skull_01_xyz_n">
       <Property name="isVisible" type="bool" value="1"/>

@@ -11,24 +11,27 @@
 #include "ObjectItems/cObject_Group.h"
 #include "ObjectItems/cObject_World.h"
 
-#include "../Physics_Project_01/cPhysicsTilter.h"
+#include "cMedia_Project_02_Tilter.h"
 #include <iostream>
 
 static bool isShiftKeyDownByAlone(int mods);
 static bool isCtrlKeyDownByAlone(int mods);
 
+extern cMedia_Project_02_Tilter* gMedia_Project_02_Tilter;
 
-extern cPhysicsTilter* gTilter;
+void Media_Project_02_Init()
+{
 
+}
 
-void Audio_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+void Media_Project_02_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	// Ignore key up (double hit)
 	if (action == 0)
 		return;
 
-	if (!gTilter)
-		gTilter = new cPhysicsTilter();
+	if (!gMedia_Project_02_Tilter)
+		gMedia_Project_02_Tilter = new cMedia_Project_02_Tilter();
 
 	const float cameraSPEED = 2.0f;
 
@@ -43,7 +46,7 @@ void Audio_key_callback(GLFWwindow* window, int key, int scancode, int action, i
 
 		if (key == GLFW_KEY_T)
 		{
-			gTilter->track();			// Turn on ball tracking
+			gMedia_Project_02_Tilter->track();			// Turn on ball tracking
 		}
 										// Move the camera (A & D for left and right, along the x axis)
 		if (key == GLFW_KEY_X)
@@ -68,19 +71,19 @@ void Audio_key_callback(GLFWwindow* window, int key, int scancode, int action, i
 
 		if (key == GLFW_KEY_RIGHT)
 		{
-			gTilter->tiltPlane(z, planeTilt);
+			gMedia_Project_02_Tilter->tiltPlane(z, planeTilt);
 		}
 		if (key == GLFW_KEY_LEFT)
 		{
-			gTilter->tiltPlane(z, -planeTilt);
+			gMedia_Project_02_Tilter->tiltPlane(z, -planeTilt);
 		}
 		if (key == GLFW_KEY_UP)
 		{
-			gTilter->tiltPlane(x, planeTilt);
+			gMedia_Project_02_Tilter->tiltPlane(x, planeTilt);
 		}
 		if (key == GLFW_KEY_DOWN)
 		{
-			gTilter->tiltPlane(x, -planeTilt);
+			gMedia_Project_02_Tilter->tiltPlane(x, -planeTilt);
 		}
 	}
 
@@ -136,7 +139,7 @@ bool isCtrlKeyDownByAlone(int mods)
 }
 
 
-void Audio_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+void Media_Project_02_mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	// Move the sphere to where the camera is and shoot the ball from there...
 	cObjectManager objectManager;

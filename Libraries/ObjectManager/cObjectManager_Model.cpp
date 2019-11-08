@@ -29,24 +29,8 @@ cObjectManager_Model::~cObjectManager_Model()
 // Root Node of XML document which has assets
 void cObjectManager_Model::LoadObjects(rapidxml::xml_node<>* node)
 {
-
-	//auto type = gamelibrary::Object_type(node).GetValue();
-	//auto name = gamelibrary::Object_name(node).GetValue();
-	//auto asset_id = gamelibrary::Object_asset_id(node).GetValue();
-
 	auto object = new cObject_Model();
 	cObjectManagerPart_Common::LoadCommon(object, node);
-
-	//object->LoadCommon(type, name, asset_id, node);
-
-
-	//// This needs to be moved to common
-	//iAssetManager::iItems_map* assets = cAssetManager().GetItems("models");
-	//auto asset = assets->find(asset_id);
-	//if (asset != assets->end())
-	//{
-	//	object->m_Item = asset->second;
-	//}
 
 	// Read all of the properties
 	for (auto property = node->first_node("Property");
@@ -141,19 +125,5 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_Model& val)
 
 void cObjectManager_Model::ResolveAlias()
 {
-	//	cObjectManager manager;
-	//	for (auto group : m_map_objects)
-	//	{
-	//		auto object = dynamic_cast<cObject_World*>(group.second);
-	//		assert(object);
-	//
-	//		for (auto alias : object->m_mapObjects)
-	//		{
-	//			iObject* theAlias = manager.FindObjectByName(alias.first);
-	//			object->m_mapObjects[alias.first] = theAlias;
-	//			// TODO - No backpointer to world for now.
-	////			theAlias->SetParentObject(object);		// Point back to the parent group
-	//		}
-	//	}
 	return;				// No Alias
 }

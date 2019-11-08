@@ -20,13 +20,49 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graphics_MidTerm_2019_Callback.cpp" />
-    <ClCompile Include="Graphics_MidTerm_2019_test.cpp" />
+    <ClCompile Include="cGraphics_Midterm_2019_Init.cpp" />
     <ClCompile Include="Graphics_MidTerm_2019_ToObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics_MidTerm_2019_Callback.h" />
-    <ClInclude Include="Graphics_MidTerm_2019_test.h" />
+    <ClInclude Include="cGraphics_Midterm_2019_Init.h" />
     <ClInclude Include="Graphics_MidTerm_2019_ToObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Graphics_MidTerm_2019(output).xml" />
+    <Xml Include="..\..\assets\Graphics_MidTerm_2019.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Background_Hills_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_02_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_03_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Arch_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_02_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_03_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Huge_04_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_010_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_011_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_02_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_03_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_04_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_05_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_06_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_07_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_08_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Large_09_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Rock_Skull_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Base_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Base_02_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_01_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_02_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_03_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\SM_Env_Tree_Canopy_04_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\surface_output_01(old).ply" />
+    <None Include="..\..\assets\models\Graphics_MidTerm_2019\surface_output_01.ply" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

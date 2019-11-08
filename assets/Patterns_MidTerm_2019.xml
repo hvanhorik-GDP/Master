@@ -402,14 +402,21 @@
     </Object>
 
     <Object type="world" name="world" asset_id="">
-      <Property name="cameraEye" type="vec3" value="-90 278 -128"/>
-      <Property name="cameraTarget" type="vec3" value="128, 55, -128"/>
+      <Property name="ground_plane" type="alias" value="ground"/>
+      <Property name="cameraEye" type="vec3" value="84 32 22"/>
+      <Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
       <Property name="upVector" type="vec3" value="0 1 0"/>
       <Property name="debugRenderer" type="bool" value="false"/>
       <Property name="windowWidth" type="int" value="700"/>
       <Property name="windowHeight" type="int" value="500"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="cameraNearClipping" type="float" value="1.00"/>
+      <Property name="cameraFarClipping" type="float" value="10000000.0"/>
+      <Property name="physicsStepOn" type="bool" value="true"/>
+      <Property name="physicsCollisionOn" type="bool" value="true"/>
     </Object>
-    
+
   </Objects>
 </GameLibrary>
 

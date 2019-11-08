@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Physics_MidTerm_2019_Callback.cpp" />
+    <ClCompile Include="Physics_MidTerm_2019_ObjectCreator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Physics_MidTerm_2019_Callback.h" />
+    <ClInclude Include="Physics_MidTerm_2019_ObjectCreator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="assets">
+      <UniqueIdentifier>{082b8e30-bf80-4bc7-9f6f-74c391b9fc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\models">
+      <UniqueIdentifier>{ee537aa7-65e7-4149-8977-3d52dc9931ac}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Arms Small_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Arms_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Asteroid_011_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Asteroid_014_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Asteroid_015_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n_rotated.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n_rotated.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Physics_MidTerm_2019(output).xml" />
+    <Xml Include="..\..\assets\Physics_MidTerm_2019.xml" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3016 @@
+<GameLibrary>
+	<GameName>Project 1 Phsysics Test</GameName>
+	<AssetGroup type="shaders" open="none">
+		<AssetRoot>./assets/shaders/</AssetRoot>
+		<Asset name="fragmentShader01" type="fragment">
+			<AssetFile>fragmentShader01.glsl</AssetFile>
+			<Property name="isValid" type="bool" value="true"/>
+		</Asset>
+		<Asset name="vertexShader01" type="vertex">
+			<AssetFile>vertexShader01.glsl</AssetFile>
+			<Property name="isValid" type="bool" value="true"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="programs" open="none">
+		<Asset name="main">
+			<AssetPart>fragmentShader01</AssetPart>
+			<AssetPart>vertexShader01</AssetPart>
+			<Property name="isValid" type="bool" value="true"/>
+			<Property name="vNormal" type="Attribute" value="2"/>
+			<Property name="vPosition" type="Attribute" value="1"/>
+			<Property name="matModel" type="Uniform" value="4"/>
+			<Property name="matModelInverseTranspose" type="Uniform" value="5"/>
+			<Property name="matProj" type="Uniform" value="6"/>
+			<Property name="matView" type="Uniform" value="7"/>
+			<Property name="bDoNotLight" type="Uniform" value="0"/>
+			<Property name="debugColour" type="Uniform" value="1"/>
+			<Property name="diffuseColour" type="Uniform" value="2"/>
+			<Property name="eyeLocation" type="Uniform" value="3"/>
+			<Property name="specularColour" type="Uniform" value="8"/>
+			<Property name="theLights[0].position" type="Uniform" value="14"/>
+			<Property name="theLights[0].diffuse" type="Uniform" value="10"/>
+			<Property name="theLights[0].specular" type="Uniform" value="15"/>
+			<Property name="theLights[0].atten" type="Uniform" value="9"/>
+			<Property name="theLights[0].direction" type="Uniform" value="11"/>
+			<Property name="theLights[0].param1" type="Uniform" value="12"/>
+			<Property name="theLights[0].param2" type="Uniform" value="13"/>
+			<Property name="theLights[1].atten" type="Uniform" value="16"/>
+			<Property name="theLights[1].diffuse" type="Uniform" value="17"/>
+			<Property name="theLights[1].direction" type="Uniform" value="18"/>
+			<Property name="theLights[1].param1" type="Uniform" value="19"/>
+			<Property name="theLights[1].param2" type="Uniform" value="20"/>
+			<Property name="theLights[1].position" type="Uniform" value="21"/>
+			<Property name="theLights[1].specular" type="Uniform" value="22"/>
+			<Property name="theLights[2].atten" type="Uniform" value="23"/>
+			<Property name="theLights[2].diffuse" type="Uniform" value="24"/>
+			<Property name="theLights[2].direction" type="Uniform" value="25"/>
+			<Property name="theLights[2].param1" type="Uniform" value="26"/>
+			<Property name="theLights[2].param2" type="Uniform" value="27"/>
+			<Property name="theLights[2].position" type="Uniform" value="28"/>
+			<Property name="theLights[2].specular" type="Uniform" value="29"/>
+			<Property name="theLights[3].atten" type="Uniform" value="30"/>
+			<Property name="theLights[3].diffuse" type="Uniform" value="31"/>
+			<Property name="theLights[3].direction" type="Uniform" value="32"/>
+			<Property name="theLights[3].param1" type="Uniform" value="33"/>
+			<Property name="theLights[3].param2" type="Uniform" value="34"/>
+			<Property name="theLights[3].position" type="Uniform" value="35"/>
+			<Property name="theLights[3].specular" type="Uniform" value="36"/>
+			<Property name="theLights[4].atten" type="Uniform" value="37"/>
+			<Property name="theLights[4].diffuse" type="Uniform" value="38"/>
+			<Property name="theLights[4].direction" type="Uniform" value="39"/>
+			<Property name="theLights[4].param1" type="Uniform" value="40"/>
+			<Property name="theLights[4].param2" type="Uniform" value="41"/>
+			<Property name="theLights[4].position" type="Uniform" value="42"/>
+			<Property name="theLights[4].specular" type="Uniform" value="43"/>
+			<Property name="theLights[5].atten" type="Uniform" value="44"/>
+			<Property name="theLights[5].diffuse" type="Uniform" value="45"/>
+			<Property name="theLights[5].direction" type="Uniform" value="46"/>
+			<Property name="theLights[5].param1" type="Uniform" value="47"/>
+			<Property name="theLights[5].param2" type="Uniform" value="48"/>
+			<Property name="theLights[5].position" type="Uniform" value="49"/>
+			<Property name="theLights[5].specular" type="Uniform" value="50"/>
+			<Property name="theLights[6].atten" type="Uniform" value="51"/>
+			<Property name="theLights[6].diffuse" type="Uniform" value="52"/>
+			<Property name="theLights[6].direction" type="Uniform" value="53"/>
+			<Property name="theLights[6].param1" type="Uniform" value="54"/>
+			<Property name="theLights[6].param2" type="Uniform" value="55"/>
+			<Property name="theLights[6].position" type="Uniform" value="56"/>
+			<Property name="theLights[6].specular" type="Uniform" value="57"/>
+			<Property name="theLights[7].atten" type="Uniform" value="58"/>
+			<Property name="theLights[7].diffuse" type="Uniform" value="59"/>
+			<Property name="theLights[7].direction" type="Uniform" value="60"/>
+			<Property name="theLights[7].param1" type="Uniform" value="61"/>
+			<Property name="theLights[7].param2" type="Uniform" value="62"/>
+			<Property name="theLights[7].position" type="Uniform" value="63"/>
+			<Property name="theLights[7].specular" type="Uniform" value="64"/>
+			<Property name="theLights[8].atten" type="Uniform" value="65"/>
+			<Property name="theLights[8].diffuse" type="Uniform" value="66"/>
+			<Property name="theLights[8].direction" type="Uniform" value="67"/>
+			<Property name="theLights[8].param1" type="Uniform" value="68"/>
+			<Property name="theLights[8].param2" type="Uniform" value="69"/>
+			<Property name="theLights[8].position" type="Uniform" value="70"/>
+			<Property name="theLights[8].specular" type="Uniform" value="71"/>
+			<Property name="theLights[9].atten" type="Uniform" value="72"/>
+			<Property name="theLights[9].diffuse" type="Uniform" value="73"/>
+			<Property name="theLights[9].direction" type="Uniform" value="74"/>
+			<Property name="theLights[9].param1" type="Uniform" value="75"/>
+			<Property name="theLights[9].param2" type="Uniform" value="76"/>
+			<Property name="theLights[9].position" type="Uniform" value="77"/>
+			<Property name="theLights[9].specular" type="Uniform" value="78"/>
+			<Property name="theLights[10].atten" type="Uniform" value="79"/>
+			<Property name="theLights[10].diffuse" type="Uniform" value="80"/>
+			<Property name="theLights[10].direction" type="Uniform" value="81"/>
+			<Property name="theLights[10].param1" type="Uniform" value="82"/>
+			<Property name="theLights[10].param2" type="Uniform" value="83"/>
+			<Property name="theLights[10].position" type="Uniform" value="84"/>
+			<Property name="theLights[10].specular" type="Uniform" value="85"/>
+			<Property name="theLights[11].atten" type="Uniform" value="86"/>
+			<Property name="theLights[11].diffuse" type="Uniform" value="87"/>
+			<Property name="theLights[11].direction" type="Uniform" value="88"/>
+			<Property name="theLights[11].param1" type="Uniform" value="89"/>
+			<Property name="theLights[11].param2" type="Uniform" value="90"/>
+			<Property name="theLights[11].position" type="Uniform" value="91"/>
+			<Property name="theLights[11].specular" type="Uniform" value="92"/>
+			<Property name="theLights[12].atten" type="Uniform" value="93"/>
+			<Property name="theLights[12].diffuse" type="Uniform" value="94"/>
+			<Property name="theLights[12].direction" type="Uniform" value="95"/>
+			<Property name="theLights[12].param1" type="Uniform" value="96"/>
+			<Property name="theLights[12].param2" type="Uniform" value="97"/>
+			<Property name="theLights[12].position" type="Uniform" value="98"/>
+			<Property name="theLights[12].specular" type="Uniform" value="99"/>
+			<Property name="theLights[13].atten" type="Uniform" value="100"/>
+			<Property name="theLights[13].diffuse" type="Uniform" value="101"/>
+			<Property name="theLights[13].direction" type="Uniform" value="102"/>
+			<Property name="theLights[13].param1" type="Uniform" value="103"/>
+			<Property name="theLights[13].param2" type="Uniform" value="104"/>
+			<Property name="theLights[13].position" type="Uniform" value="105"/>
+			<Property name="theLights[13].specular" type="Uniform" value="106"/>
+			<Property name="theLights[14].atten" type="Uniform" value="107"/>
+			<Property name="theLights[14].diffuse" type="Uniform" value="108"/>
+			<Property name="theLights[14].direction" type="Uniform" value="109"/>
+			<Property name="theLights[14].param1" type="Uniform" value="110"/>
+			<Property name="theLights[14].param2" type="Uniform" value="111"/>
+			<Property name="theLights[14].position" type="Uniform" value="112"/>
+			<Property name="theLights[14].specular" type="Uniform" value="113"/>
+			<Property name="theLights[15].atten" type="Uniform" value="114"/>
+			<Property name="theLights[15].diffuse" type="Uniform" value="115"/>
+			<Property name="theLights[15].direction" type="Uniform" value="116"/>
+			<Property name="theLights[15].param1" type="Uniform" value="117"/>
+			<Property name="theLights[15].param2" type="Uniform" value="118"/>
+			<Property name="theLights[15].position" type="Uniform" value="119"/>
+			<Property name="theLights[15].specular" type="Uniform" value="120"/>
+			<Property name="theLights[16].atten" type="Uniform" value="121"/>
+			<Property name="theLights[16].diffuse" type="Uniform" value="122"/>
+			<Property name="theLights[16].direction" type="Uniform" value="123"/>
+			<Property name="theLights[16].param1" type="Uniform" value="124"/>
+			<Property name="theLights[16].param2" type="Uniform" value="125"/>
+			<Property name="theLights[16].position" type="Uniform" value="126"/>
+			<Property name="theLights[16].specular" type="Uniform" value="127"/>
+			<Property name="theLights[17].atten" type="Uniform" value="128"/>
+			<Property name="theLights[17].diffuse" type="Uniform" value="129"/>
+			<Property name="theLights[17].direction" type="Uniform" value="130"/>
+			<Property name="theLights[17].param1" type="Uniform" value="131"/>
+			<Property name="theLights[17].param2" type="Uniform" value="132"/>
+			<Property name="theLights[17].position" type="Uniform" value="133"/>
+			<Property name="theLights[17].specular" type="Uniform" value="134"/>
+			<Property name="theLights[18].atten" type="Uniform" value="135"/>
+			<Property name="theLights[18].diffuse" type="Uniform" value="136"/>
+			<Property name="theLights[18].direction" type="Uniform" value="137"/>
+			<Property name="theLights[18].param1" type="Uniform" value="138"/>
+			<Property name="theLights[18].param2" type="Uniform" value="139"/>
+			<Property name="theLights[18].position" type="Uniform" value="140"/>
+			<Property name="theLights[18].specular" type="Uniform" value="141"/>
+			<Property name="theLights[19].atten" type="Uniform" value="142"/>
+			<Property name="theLights[19].diffuse" type="Uniform" value="143"/>
+			<Property name="theLights[19].direction" type="Uniform" value="144"/>
+			<Property name="theLights[19].param1" type="Uniform" value="145"/>
+			<Property name="theLights[19].param2" type="Uniform" value="146"/>
+			<Property name="theLights[19].position" type="Uniform" value="147"/>
+			<Property name="theLights[19].specular" type="Uniform" value="148"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="models" open="none">
+		<AssetRoot>./assets/models/Physics_Project_01/</AssetRoot>
+		<Asset name="surface_output_01">
+			<AssetFile>surface_output_01.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="66049"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="131072"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="pyramid_a">
+			<AssetFile>pyramid_a.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="81"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="200"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="pyramid_b">
+			<AssetFile>pyramid_b.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="8367"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="15041"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="pyramid">
+			<AssetFile>pyramid.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="5"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="6"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="pyramid_3">
+			<AssetFile>pyramid_3.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="5"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="6"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Cube_1_Unit_from_origin_XYZ_n">
+			<AssetFile>Cube_1_Unit_from_origin_XYZ_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="26"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="12"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="cube_Hi_Res_xyz_n">
+			<AssetFile>cube_Hi_Res_xyz_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="2311"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="3072"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="cube_Low_Res_xyz_n">
+			<AssetFile>cube_Low_Res_xyz_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="26"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="12"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+		<Asset name="Sphere_Radius_1_XYZ_n">
+			<AssetFile>Sphere_Radius_1_XYZ_n.ply</AssetFile>
+			<Property name="exists" type="bool" value="true"/>
+			<Property name="valid" type="bool" value="true"/>
+			<Property name="type" type="enum" value="ply"/>
+			<Property name="format" type="string" value="ascii"/>
+			<Property name="vertex" type="int" value="642"/>
+			<Property name="x" type="float" value=""/>
+			<Property name="y" type="float" value=""/>
+			<Property name="z" type="float" value=""/>
+			<Property name="nx" type="float" value=""/>
+			<Property name="ny" type="float" value=""/>
+			<Property name="nz" type="float" value=""/>
+			<Property name="face" type="int" value="1280"/>
+			<Property name="normals" type="bool" value="true"/>
+			<Property name="colours" type="bool" value="false"/>
+		</Asset>
+	</AssetGroup>
+	<AssetGroup type="audios" open="all" subdir="true" subtype="music">
+		<AssetRoot>./assets/audios/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="videos" open="none">
+		<AssetRoot>./assets/videos/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="images" open="none">
+		<AssetRoot>./assets/images/</AssetRoot>
+	</AssetGroup>
+	<AssetGroup type="fonts" open="none">
+		<AssetRoot>./assets/fonts/</AssetRoot>
+	</AssetGroup>
+	<Objects>
+		<Object name="surface_output_01" type="model" asset_id="surface_output_01">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.000000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object type="light" name="light_0" asset_id="">
+			<Property name="shaderEntry" type="string" value="theLights[0]"/>
+			<Property name="lightType" type="enum" value="POINT"/>
+			<Property name="positionXYZ" type="vec3" value="-25.0 200.0 0.0"/>
+			<Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
+			<Property name="specularColour" type="vec4" value="1 1 1 1"/>
+			<Property name="constantAttenuation" type="float" value="0.0000001"/>
+			<Property name="linearAttenuation" type="float" value="0.005"/>
+			<Property name="quadradicAttenuation" type="float" value="0.0000001"/>
+			<Property name="distanceCutOff" type="float" value="1000000.0"/>
+			<Property name="spotInnerangle" type="float" value="0.0"/>
+			<Property name="spotOuterangle" type="float" value="0.0"/>
+			<Property name="direction" type="vec3" value="0 -1 0"/>
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="DebugSpheres" type="bool" value="false"/>
+		</Object>
+		<Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="15 30 15"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="0 30 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="bounce" type="float" value=".75"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_1" type="model" asset_id="pyramid">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.00000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 0.5 0.5 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a" type="model" asset_id="pyramid_a">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.00000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 0.5 0.5 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_b" type="model" asset_id="pyramid_b">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.00000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 0.5 0.5 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_3" type="model" asset_id="pyramid_3">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.05 0.5 1 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="hi_cube" type="model" asset_id="cube_Hi_Res_xyz_n">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 1 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="low_cube" type="model" asset_id="cube_Low_Res_xyz_n">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="1 1 0.5 1"/>
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="debug_sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.00000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0 0 0 0"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="isWireframe" type="bool" value="true"/>
+			<Property name="debugColour" type="vec4" value="0 1 0 1"/>
+			<Property name="bounce" type="float" value=".75"/>
+			<Property name="isVisible" type="bool" value="false"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object type="group" name="ground_plane" asset_id="">
+			<Property name="low_cube" type="alias" value="low_cube"/>
+			<Property name="positionXYZ" type="vec3" value="0 0 0"/>
+			<Property name="rotationXYZ" type="vec3" value="0.4445 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="isVisible" type="bool" value="true"/>
+		</Object>
+		<Object type="window" name="window" asset_id="">
+			<Property name="windowWidth" type="int" value="700"/>
+			<Property name="windowHeight" type="int" value="500"/>
+		</Object>
+		<Object type="camera" name="camera" asset_id="">
+			<Property name="cameraEye" type="vec3" value="84 32 22"/>
+			<Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
+			<Property name="upVector" type="vec3" value="0 1 0"/>
+		</Object>
+		<Object type="world" name="world" asset_id="">
+			<Property name="ground_plane" type="alias" value="ground"/>
+			<Property name="cameraEye" type="vec3" value="84 32 22"/>
+			<Property name="cameraTarget" type="vec3" value="0.0f, 10.0, 0.0"/>
+			<Property name="upVector" type="vec3" value="0 1 0"/>
+			<Property name="debugRenderer" type="bool" value="false"/>
+			<Property name="windowWidth" type="float" value="700"/>
+			<Property name="windowHeight" type="float" value="500"/>
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="cameraNearClipping" type="float" value="1.00"/>
+			<Property name="cameraFarClipping" type="float" value="1000000.0"/>
+			<Property name="physicsStepOn" type="bool" value="true"/>
+			<Property name="physicsCollisionOn" type="bool" value="true"/>
+		</Object>
+		<Object name="pyramid_a_0" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="50 5 32"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.275000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.384314 0.329412 0.729412 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_1" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-6 5 24"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.358333"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.705882 0.372549 0.298039 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_2" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="41 5 19"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.516667"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.2 0.772549 0.690196 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_3" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-36 5 32"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.550000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.239216 0.807843 0.466667 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_4" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="6 5 40"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.358333"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.627451 0.709804 0.929412 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_5" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-17 5 -25"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.550000"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.737255 0.952941 0.866667 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_6" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="5 5 -12"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.366667"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.933333 0.635294 0.819608 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_7" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="35 5 11"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.333333"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.454902 0.360784 0.952941 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_8" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="13 5 -15"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.466667"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.635294 0.929412 0.34902 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="pyramid_a_9" type="model" asset_id="pyramid_a">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="30 5 33"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="0.566667"/>
+			<Property name="bounce" type="float" value="1.000000"/>
+			<Property name="inverseMass" type="float" value="0.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="MESH"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="0.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.262745 0.447059 0.909804 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_0" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="46 41 38"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.541176 0.384314 0.329412 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-7 26 -18"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.705882 0.372549 0.298039 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_2" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="36 35 36"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.772549 0.690196 0.419608 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_3" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-17 24 -39"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.466667 0.894118 0.858824 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_4" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-17 47 46"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.356863 0.988235 0.219608 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_5" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-38 53 -37"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.909804 0.603922 0.933333 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_6" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-42 30 -7"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.843137 0.454902 0.360784 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_7" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="18 39 48"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.635294 0.929412 0.34902 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_8" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-30 24 20"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.447059 0.909804 0.490196 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_9" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-11 55 22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.745098 0.513726 0.32549 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_10" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8 10 36"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.823529 0.929412 0.976471 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_11" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="34 16 32"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.878431 0.458824 0.517647 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_12" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-38 15 20"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.596078 0.556863 0.34902 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_13" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="28 18 -8"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.270588 0.580392 0.588235 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_14" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="42 46 28"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.815686 0.901961 0.854902 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_15" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-24 31 -10"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.345098 0.945098 0.509804 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_16" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-15 56 34"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.643137 0.2 0.992157 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_17" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-4 21 27"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.443137 0.882353 0.678431 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_18" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="20 24 -26"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.964706 0.670588 0.933333 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_19" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="41 48 19"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.231373 0.235294 0.721569 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_20" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="46 41 48"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.972549 0.905882 0.247059 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_21" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="10 36 -39"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.235294 0.729412 0.219608 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_22" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8 9 24"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.819608 0.203922 0.717647 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_23" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="10 15 -27"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.352941 0.223529 0.286275 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_24" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="31 9 19"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.588235 0.741176 0.745098 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_25" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="44 55 42"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.713726 0.207843 0.905882 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_26" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-28 13 22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.509804 0.639216 0.313726 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_27" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-10 10 22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.984314 0.815686 0.466667 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_28" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-44 20 -23"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.333333 0.701961 0.733333 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_29" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="43 22 -11"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.752941 0.615686 0.992157 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_30" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="33 49 36"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.447059 0.592157 0.847059 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_31" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="35 41 31"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.356863 0.92549 0.862745 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_32" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="47 55 -4"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.796078 0.921569 0.65098 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_33" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-20 27 39"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.407843 0.576471 0.776471 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_34" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-39 23 28"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.764706 0.254902 0.560784 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_35" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-29 54 34"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.866667 0.847059 0.643137 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_36" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="17 39 31"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.831373 0.521569 0.878431 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_37" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-45 42 8"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.823529 0.262745 0.203922 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_38" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="30 34 15"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.470588 0.792157 0.85098 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_39" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="36 11 -9"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.313726 0.619608 0.823529 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_40" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="32 27 43"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.878431 0.501961 0.352941 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_41" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="3 56 -10"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.8 0.337255 0.984314 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_42" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="30 41 -2"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.431373 0.27451 0.223529 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_43" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="21 20 17"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.686275 0.337255 0.223529 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_44" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-10 19 40"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.721569 0.305882 0.498039 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_45" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-5 17 18"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.733333 0.772549 0.968627 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_46" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="17 53 -21"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.65098 0.654902 0.415686 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_47" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="43 46 -24"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.45098 0.686275 0.788235 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_48" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-41 21 -3"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.882353 0.301961 0.819608 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_49" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="4 48 25"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.615686 0.619608 0.623529 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_50" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="21 10 44"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.490196 0.815686 0.368627 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_51" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-28 52 -22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.27451 0.219608 0.337255 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_52" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-22 44 -48"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.360784 0.356863 0.980392 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_53" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-1 25 7"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.439216 0.396078 0.701961 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_54" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="14 23 -17"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.478431 0.258824 0.921569 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_55" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-37 32 -2"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.419608 0.776471 0.937255 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_56" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="25 18 -6"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.784314 0.639216 0.537255 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_57" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-15 57 -45"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.309804 0.905882 0.423529 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_58" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-26 11 -22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.756863 0.619608 0.854902 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_59" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-20 31 12"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.745098 0.470588 0.368627 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_60" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-27 40 -49"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.470588 0.2 0.584314 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_61" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-3 35 -45"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.662745 0.411765 0.654902 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_62" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="21 50 -2"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.466667 0.490196 0.517647 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_63" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="4 17 -10"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.87451 0.917647 0.666667 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_64" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-45 45 -4"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.235294 0.552941 0.752941 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_65" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="2 12 -11"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.207843 0.568627 0.996078 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_66" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="33 54 23"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.839216 0.67451 0.784314 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_67" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="36 38 -38"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.780392 0.662745 0.992157 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_68" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-3 31 -28"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.972549 0.713726 0.721569 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_69" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-26 47 -46"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.776471 0.603922 0.647059 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_70" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="19 51 -31"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.337255 0.517647 0.384314 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_71" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="30 26 1"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.219608 0.266667 0.47451 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_72" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="48 14 -48"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.396078 0.309804 0.266667 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_73" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="2 10 -11"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.623529 0.682353 0.392157 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_74" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-50 32 2"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.67451 0.482353 0.8 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_75" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-16 36 -9"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.976471 0.266667 0.388235 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_76" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="40 45 -22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.294118 0.866667 0.760784 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_77" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="38 56 31"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.607843 0.74902 0.67451 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_78" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-31 42 46"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.34902 0.439216 0.329412 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_79" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="21 57 -25"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.792157 0.560784 0.545098 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_80" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-36 10 26"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.670588 0.658824 0.803922 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_81" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-46 17 37"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.639216 0.298039 0.921569 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_82" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="42 47 2"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.427451 0.290196 0.643137 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_83" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="20 22 -31"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.521569 0.380392 0.764706 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_84" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="49 54 24"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.231373 0.486275 0.596078 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_85" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-30 33 -33"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.843137 0.984314 0.435294 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_86" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-35 16 5"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.294118 0.760784 0.262745 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_87" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-21 54 6"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.764706 0.505882 0.541176 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_88" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="41 26 -28"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.329412 0.215686 0.831373 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_89" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-9 12 -49"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.588235 0.678431 0.501961 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_90" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-47 22 28"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.407843 0.352941 0.517647 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_91" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="13 35 -4"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.839216 0.4 0.627451 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_92" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="8 48 -42"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.360784 0.545098 0.631373 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_93" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-12 23 -27"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.290196 0.8 0.760784 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_94" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-29 38 37"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.262745 0.203922 0.890196 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_95" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="12 50 -22"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.988235 0.788235 0.337255 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_96" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-4 33 -45"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.333333 0.878431 0.996078 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_97" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-44 15 45"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.541176 0.823529 0.878431 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_98" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="-28 27 -50"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.27451 0.607843 0.458824 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+		<Object name="Drop_Sphere_99" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+			<Property name="isVisible" type="bool" value="true"/>
+			<Property name="isObjectLocked" type="bool" value="false"/>
+			<Property name="positionXYZ" type="vec3" value="49 39 -42"/>
+			<Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+			<Property name="scale" type="float" value="1.000000"/>
+			<Property name="bounce" type="float" value="0.750000"/>
+			<Property name="inverseMass" type="float" value="1.000000"/>
+			<Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+			<Property name="velocity" type="vec3" value="0 0 0"/>
+			<Property name="accel" type="vec3" value="0 0 0"/>
+			<Property name="AABB_min" type="vec3" value="0 0 0"/>
+			<Property name="AABB_max" type="vec3" value="0 0 0"/>
+			<Property name="SPHERE_radius" type="float" value="1.000000"/>
+			<Property name="objectColourRGBA" type="vec4" value="0.976471 0.933333 0.427451 1"/>
+			<Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+			<Property name="specularColour" type="vec4" value="0 0 0 0"/>
+			<Property name="isWireframe" type="bool" value="false"/>
+			<Property name="debugColour" type="vec4" value="0 0 0 0"/>
+			<Property name="disableDepthBufferTest" type="bool" value="false"/>
+			<Property name="disableDepthBufferWrite" type="bool" value="false"/>
+		</Object>
+	</Objects>
+</GameLibrary>
+

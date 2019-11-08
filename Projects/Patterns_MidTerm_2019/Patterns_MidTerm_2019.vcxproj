@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cPatterns_MidTerm_2019_Init.cpp" />
     <ClCompile Include="cPatterns_MidTerm_2019_Robot.cpp" />
     <ClCompile Include="cPatterns_MidTerm_2019_Weapon.cpp" />
     <ClCompile Include="cPatterns_MidTerm_2019_Weapon_Balistic.cpp" />
@@ -31,10 +32,10 @@
     <ClCompile Include="iPatterns_MidTerm_2019_World.cpp" />
     <ClCompile Include="Patterns_MidTerm_2019_Callback.cpp" />
     <ClCompile Include="Patterns_MidTerm_2019_ObjectCreator.cpp" />
-    <ClCompile Include="Patterns_MidTerm_2019_test.cpp" />
     <ClCompile Include="Patterns_MidTerm_2019_Tilter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cPatterns_MidTerm_2019_Init.h" />
     <ClInclude Include="cPatterns_MidTerm_2019_Robot.h" />
     <ClInclude Include="cPatterns_MidTerm_2019_Weapon.h" />
     <ClInclude Include="cPatterns_MidTerm_2019_Weapon_Balistic.h" />
@@ -47,8 +48,17 @@
     <ClInclude Include="iPatterns_MidTerm_2019_World.h" />
     <ClInclude Include="Patterns_MidTerm_2019_Callback.h" />
     <ClInclude Include="Patterns_MidTerm_2019_ObjectCreator.h" />
-    <ClInclude Include="Patterns_MidTerm_2019_test.h" />
     <ClInclude Include="Patterns_MidTerm_2019_Tilter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Patterns_MidTerm_2019.xml" />
+    <Xml Include="..\..\assets\Physics_MidTerm_2019(output).xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\cube_Low_Res_xyz_n.ply" />
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\Large_Physics_Bunny_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Patterns_MidTerm_2019\terrain.ply" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

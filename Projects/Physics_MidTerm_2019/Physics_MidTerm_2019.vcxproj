@@ -19,14 +19,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cPhysics_MidTerm_2019_Init.cpp" />
     <ClCompile Include="Physics_MidTerm_2019_Callback.cpp" />
     <ClCompile Include="Physics_MidTerm_2019_ObjectCreator.cpp" />
-    <ClCompile Include="Physics_MidTerm_2019_test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cPhysics_MidTerm_2019_Init.h" />
     <ClInclude Include="Physics_MidTerm_2019_Callback.h" />
     <ClInclude Include="Physics_MidTerm_2019_ObjectCreator.h" />
-    <ClInclude Include="Physics_MidTerm_2019_test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Arms Small_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Arms_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Asteroid_011_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Asteroid_014_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Asteroid_015_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Exposed_to_Asteroids_xyz_n_rotated.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Parts_Safe_from_Asteroids_xyz_n_rotated.ply" />
+    <None Include="..\..\assets\models\Physics_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Physics_MidTerm_2019(output).xml" />
+    <Xml Include="..\..\assets\Physics_MidTerm_2019.xml" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

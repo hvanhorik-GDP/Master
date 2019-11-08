@@ -19,16 +19,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cPhysicsTilter.cpp" />
-    <ClCompile Include="ObjectCreator.cpp" />
-    <ClCompile Include="Physics_Callback.cpp" />
-    <ClCompile Include="test_Physics.cpp" />
+    <ClCompile Include="cPhysics_Project_01_Tilter.cpp" />
+    <ClCompile Include="cPhysics_Project_01_Init.cpp" />
+    <ClCompile Include="Physics_Project_01_ObjectCreator.cpp" />
+    <ClCompile Include="Physics_Project_01_Callback.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cPhysicsTilter.h" />
-    <ClInclude Include="ObjectCreator.h" />
-    <ClInclude Include="Physics_Callback.h" />
-    <ClInclude Include="test_Physics.h" />
+    <ClInclude Include="cPhysics_Project_01_Tilter.h" />
+    <ClInclude Include="cPhysics_Project_01_Init.h" />
+    <ClInclude Include="Physics_Project_01_ObjectCreator.h" />
+    <ClInclude Include="Physics_Project_01_Callback.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Physics_Project_01%28output%29.xml" />
+    <Xml Include="..\..\assets\Physics_Project_01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Physics_Project_01\BigFlatTerrain_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\Cube_1_Unit_from_origin_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\cube_Hi_Res_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\cube_Low_Res_xyz_n.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\pyramid.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\pyramid_3.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\pyramid_a.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\pyramid_b.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\Sphere_Radius_1_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Physics_Project_01\surface_output_01.ply" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

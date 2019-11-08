@@ -5,6 +5,8 @@
 #include "GameLibrary/Properties.h"
 #include "Utilities/cFormat.h"
 #include "ObjectManager/cObjectManager.h"
+#include "cObjectManagerPart_Common.h"
+#include "cObjectManagerPart_Alias.h"
 
 #include <iostream>
 
@@ -20,16 +22,8 @@ cObjectManager_World::~cObjectManager_World()
 void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 {
 
-	gamelibrary::Object_type objectType(node);
-	gamelibrary::Object_name objectName(node);
-	gamelibrary::Object_asset_id objectAssetID(node);
-
-
-	auto object = new cObject_World(
-		objectType.GetValue(),
-		objectName.GetValue(),
-		objectAssetID.GetValue(),
-		node);
+	auto object = new cObject_World();
+	cObjectManagerPart_Common::LoadCommon(object, node);
 
 	// Read all of the properties
 	for (auto property = node->first_node("Property");
@@ -45,6 +39,11 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 			std::string name = PropertyName.GetValue();
 			std::string value = PropertyValue.GetValue();
 
+			if (cObjectManagerPart_Common().HandleProperty(object, type, name, value))
+				continue;
+			else if (cObjectManagerPart_Alias().HandleProperty(object, type, name, value))
+				continue;
+
 			if (name == "cameraEye")
 				object->cameraEye = cFormat::LoadVec3(value);
 			else if (name == "cameraTarget")
@@ -55,8 +54,16 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 				object->windowWidth = cFormat::LoadInt(value);
 			else if (name == "windowHeight")
 				object->windowHeight = cFormat::LoadInt(value);
+			else if (name == "cameraNearClipping")
+				object->cameraNearClipping = cFormat::LoadFloat(value);
+			else if (name == "cameraFarClipping")
+				object->cameraFarClipping = cFormat::LoadFloat(value);
 
 			// Some debug stuff
+			else if (name == "physicsStepOn")
+				object->physicsStepOn = cFormat::LoadBool(value);
+			else if (name == "physicsCollisionOn")
+				object->physicsCollisionOn = cFormat::LoadBool(value);
 			else if (name == "debugRenderer")
 				object->debugRenderer = cFormat::LoadBool(value);
 			else if (type == "alias")
@@ -73,79 +80,40 @@ void cObjectManager_World::LoadObjects(rapidxml::xml_node<>* node)
 		} // if (std::string(property->name()) == std::string("Property"))
 	} // for (auto property = node->first_node("Property");
 
-	// Save all of these objects
-	if (m_map_objects.find(objectName.GetValue()) != m_map_objects.end())
-	{
-		// Duplicate
-		std::cout << "duplicate object found: "
-			<< " Name : " << objectName.GetValue()
-			<< " Value: " << objectType.GetValue()
-			<< " AssetID: " << objectAssetID.GetValue() << std::endl;
-	}
-	else
-		m_map_objects[objectName.GetValue()] = object;
+	cObjectManagerPart_Common::AddToMap(m_map_objects, object, __FILE__);
 }
 
 void cObjectManager_World::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
 {
-	// TODO - Allow a NULL parent
-	std::cout << "TODO - have a null parent for SaveObject" << std::endl;
-
-	assert(parent);
-	assert(inObject);
-	auto object = dynamic_cast<cObject_World*>(inObject);
+	auto object = cObjectManagerPart_Common::AddObjectToMap(m_map_objects, inObject, parent);
 	assert(object);
 
-	auto writeObject = object;
-
-	// Insert it into the object array
-	// Check to see if the node already exits
-	if (m_map_objects.find(object->GetName()) != m_map_objects.end())
-	{
-		// Duplicate
-		std::cout << "duplicate object found: "
-			<< " Name : " << object->GetName()
-			<< " Type: " << object->GetType()
-			<< " AssetID: " << object->GetAssetID() << std::endl;
-
-		// Overwrite what we have - This will copy the new values into the old entries
-		writeObject = dynamic_cast<cObject_World*>(m_map_objects[object->GetName()]);
-	}
-	else
-		m_map_objects[object->GetName()] = object;
+	cObject_World* writeObject = dynamic_cast<cObject_World*>(object);
+	assert(writeObject);
 
 	auto node = writeObject->GetNode();
-	if (!node)
+	if (node)
 	{
-		// If no node then create and insert one
-		gamelibrary::Objects parentObject(parent);
-		node = parentObject.Insert("Object", "");
-		writeObject->SetNode(node);
+		cObjectManagerPart_Common().SaveProperties(writeObject, node);
+		cObjectManagerPart_Alias().SaveProperties(writeObject, node);
+
+		gamelibrary::Object libObject(node);
+
+		// Write all of the properties
+		libObject.AddProperty("cameraEye", "vec3", cFormat::PackVec3(writeObject->cameraEye));
+		libObject.AddProperty("cameraTarget", "vec3", cFormat::PackVec3(writeObject->cameraTarget));
+		libObject.AddProperty("upVector", "vec3", cFormat::PackVec3(writeObject->upVector));
+		libObject.AddProperty("windowWidth", "float", cFormat::PackInt(writeObject->windowWidth));
+		libObject.AddProperty("windowHeight", "float", cFormat::PackInt(writeObject->windowHeight));
+		libObject.AddProperty("cameraNearClipping", "float", cFormat::PackFloat(writeObject->cameraNearClipping));
+		libObject.AddProperty("cameraFarClipping", "float", cFormat::PackFloat(writeObject->cameraFarClipping));
+		libObject.AddProperty("physicsStepOn", "bool", cFormat::PackBool(writeObject->physicsStepOn));
+		libObject.AddProperty("physicsCollisionOn", "bool", cFormat::PackBool(writeObject->physicsCollisionOn));
+
+		// Some debug stuff
+		libObject.AddProperty("debugRenderer", "bool", cFormat::PackBool(writeObject->debugRenderer));
 	}
 
-	gamelibrary::Object libObject(node);
-	gamelibrary::Object_name objName(node);
-	objName.SetValue(writeObject->GetName());
-
-	gamelibrary::Object_type objType(node);
-	objType.SetValue(writeObject->GetType());
-
-	gamelibrary::Object_asset_id objAssetID(node);
-	objAssetID.SetValue(writeObject->GetAssetID());
-
-	// Write all of the properties
-	libObject.AddProperty("cameraEye", "vec3", cFormat::PackVec3(object->cameraEye));
-	libObject.AddProperty("cameraTarget", "vec3", cFormat::PackVec3(object->cameraTarget));
-	libObject.AddProperty("upVector", "vec3", cFormat::PackVec3(object->upVector));
-	libObject.AddProperty("windowWidth", "float", cFormat::PackInt(object->windowWidth));
-	libObject.AddProperty("windowHeight", "float", cFormat::PackInt(object->windowHeight));
-
-	// Some debug stuff
-	libObject.AddProperty("debugRenderer", "bool", cFormat::PackBool(object->debugRenderer));
-	for (auto alias : object->m_mapObjects)
-	{
-		libObject.AddProperty(alias.first, "alias", alias.first);
-	}
 }
 
 // Retrieve the item information

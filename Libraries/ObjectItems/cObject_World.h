@@ -1,9 +1,15 @@
 #pragma once
 #include "cObject_Common.h"
+#include "cObject_Alias.h"
+#include "gl/GLCommon.h"
 
 #include <map>
 
-class cObject_World : public cObject_Common			// The world is just like a group
+typedef void (*cObject_World_Init)();
+
+class cObject_World 
+	: public cObject_Common			// The world is just like a group
+	, public cObject_Alias
 {
 public:
 	typedef std::map<std::string, iObject*> mapObjectsInWorld;
@@ -40,11 +46,21 @@ public:
 	glm::vec3 cameraEye;
 	glm::vec3 cameraTarget;
 	glm::vec3 upVector;
-	bool debugRenderer;
+	float cameraNearClipping = 1.0f;
+	float cameraFarClipping = 1000000.0f;
+
+	bool debugRenderer = false;
 	int windowWidth;
 	int windowHeight;
 
+	bool physicsStepOn;
+	bool physicsCollisionOn;
 
 	mapObjectsInWorld m_mapObjects;
+
+	// Non perminant storage
+	GLFWkeyfun keyCallback = NULL;
+	GLFWmousebuttonfun mouseCallback = NULL;
+	GLFWwindow* window = NULL;
 };
 

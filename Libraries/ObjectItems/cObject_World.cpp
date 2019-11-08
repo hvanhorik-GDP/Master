@@ -17,6 +17,10 @@ cObject_World::cObject_World(const std::string& type,
 	const std::string& asset_id,
 	rapidxml::xml_node<>* node)
 	: cObject_Common()
+	, cameraNearClipping(1.0f)
+	, cameraFarClipping(1000000.0f)
+	, physicsStepOn(true)
+	, physicsCollisionOn(true)
 {
 	cMessageManager().Register(name, this);
 	// Hack for now

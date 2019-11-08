@@ -1,6 +1,5 @@
 #include "Physics_MidTerm_2019_ObjectCreator.h"
 
-#include "../../Master/Common/pFindObjectByFriendlyName.h"
 #include "AssetItems/cItem_Model.h"
 #include "Physics/cPhysics_Henky.h"
 #include "ObjectItems/cObject_Group.h"
@@ -227,6 +226,7 @@ void Physics_MidTerm_2019_CreateNewAstroid(float deltatime, rapidxml::xml_node<>
 		newAstroid->acceleration = glm::vec3(0.0f, 0.0f, 0.0f);
 
 		newAstroid->inverseMass = 1.0f;
+		newAstroid->HACK_Exploding_Simulation = true;
 		// Save the object to the object array
 		manager.SaveObject(newAstroid, parent);
 		g_AsteroidObjects.push_back(newAstroid);

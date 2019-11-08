@@ -13,7 +13,8 @@ public:
 	{
 		float x, y, z;
 		float nx, ny, nz;		// NOW with NORMALS!!
-		unsigned char red, green, blue, alpha;
+//		unsigned char red, green, blue, alpha;
+		float u, v;				// Texture coordinates
 	};
 
 	struct sPlyTriangle
@@ -49,6 +50,7 @@ public:			// TODO - hack
 
 	bool m_hasNormals = false;
 	bool m_hasColor = false;
+	bool m_hasTextureCoordinates = false;
 	bool m_isValid = false;
 	bool m_fileExists = false;
 	std::string m_type;

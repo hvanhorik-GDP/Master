@@ -68,6 +68,11 @@ bool cPlyLoader::LoadThePlyHeader(std::istream& theFile, cItem_Model& theMesh)
 			theMesh.m_hasColor = true;
 			total += 4;
 		}
+		if ((prop.name == "texture_u") || (prop.name == "s"))
+		{
+			theMesh.m_hasTextureCoordinates = true;
+			total += 2;
+		}
 		if (prop.type == "last")
 		{
 			total++;
@@ -96,7 +101,15 @@ bool cPlyLoader::LoadThePlyBody(std::istream& theFile, cItem_Model& theMesh)
 
 		// Also load the colours if they are there
 		if (theMesh.m_hasColor)
-			theFile >> tempVertex.red >> tempVertex.green >> tempVertex.blue >> tempVertex.alpha;
+		{
+			std::string ignore;
+			theFile >> ignore >> ignore >> ignore >> ignore;
+//			theFile >> tempVertex.red >> tempVertex.green >> tempVertex.blue >> tempVertex.alpha;
+		}
+
+		// Also load in the texture coordinates
+		if (theMesh.m_hasTextureCoordinates)
+			theFile >> tempVertex.u >> tempVertex.v;
 
 		// Add this temp vertex to the vector of vertices
 		// (cMesh &theMesh)

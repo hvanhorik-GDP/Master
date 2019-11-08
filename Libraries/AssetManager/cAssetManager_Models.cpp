@@ -64,6 +64,7 @@ void cAssetManager_Models::LoadAssets(rapidxml::xml_node<>* parent)
 							file.AddProperty("face", "int", cFormat::PackInt(item->m_faces));
 							file.AddProperty("normals", "bool", cFormat::PackBool(item->m_hasNormals));
 							file.AddProperty("colours", "bool", cFormat::PackBool(item->m_hasColor));
+							file.AddProperty("textureCoordinates", "bool", cFormat::PackBool(item->m_hasTextureCoordinates));
 						}
 					}
 				}

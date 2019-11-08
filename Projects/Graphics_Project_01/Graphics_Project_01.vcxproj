@@ -19,14 +19,40 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cGraphicsToObject.cpp" />
-    <ClCompile Include="Graphics_Callback.cpp" />
-    <ClCompile Include="test_Graphics.cpp" />
+    <ClCompile Include="cGraphics_Project_01_ToObject.cpp" />
+    <ClCompile Include="cGraphics_Project_01_Init.cpp" />
+    <ClCompile Include="Graphics_Project_01_Callback.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cGraphicsToObject.h" />
-    <ClInclude Include="Graphics_Callback.h" />
-    <ClInclude Include="test_Graphics.h" />
+    <ClInclude Include="cGraphics_Project_01_ToObject.h" />
+    <ClInclude Include="cGraphics_Project_01_Init.h" />
+    <ClInclude Include="Graphics_Project_01_Callback.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Graphics_Project_01%28output%29.xml" />
+    <Xml Include="..\..\assets\Graphics_Project_01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Graphics_Project_01\barrel.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Bomb.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\canoe.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Chest.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\coin_map.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\compass.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Crate.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Crate2.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\cube_Low_Res_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\lantern_obj.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\parrot.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Pirate_sword_low_poly.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\ship.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\SimpleRedShip.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Sky_Pirate_Combined_xyz_n.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Sphere_Radius_1_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\Terrain_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\torch.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\treasure_chest_assembled.ply" />
+    <None Include="..\..\assets\models\Graphics_Project_01\tresure_chest_closed_lowpoly.ply" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

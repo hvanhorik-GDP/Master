@@ -1,0 +1,421 @@
+<GameLibrary>
+  <GameName>Patterns Midterm</GameName>
+  <AssetGroup type="shaders" open="none">
+    <AssetRoot>./assets/shaders/</AssetRoot>
+    <Asset name="fragmentShader01" type="fragment">
+      <AssetFile>fragmentShader01.glsl</AssetFile>
+      <Property name="isValid" type="bool" value="true"/>
+    </Asset>
+    <Asset name="vertexShader01" type="vertex">
+      <AssetFile>vertexShader01.glsl</AssetFile>
+      <Property name="isValid" type="bool" value="true"/>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type="programs" open="none">
+    <Asset name="main">
+      <AssetPart>fragmentShader01</AssetPart>
+      <AssetPart>vertexShader01</AssetPart>
+      <Property name="isValid" type="bool" value="true"/>
+      <Property name="vNormal" type="Attribute" value="2"/>
+      <Property name="vPosition" type="Attribute" value="1"/>
+      <Property name="matModel" type="Uniform" value="4"/>
+      <Property name="matModelInverseTranspose" type="Uniform" value="5"/>
+      <Property name="matProj" type="Uniform" value="6"/>
+      <Property name="matView" type="Uniform" value="7"/>
+      <Property name="bDoNotLight" type="Uniform" value="0"/>
+      <Property name="debugColour" type="Uniform" value="1"/>
+      <Property name="diffuseColour" type="Uniform" value="2"/>
+      <Property name="eyeLocation" type="Uniform" value="3"/>
+      <Property name="specularColour" type="Uniform" value="8"/>
+      <Property name="theLights[0].position" type="Uniform" value="14"/>
+      <Property name="theLights[0].diffuse" type="Uniform" value="10"/>
+      <Property name="theLights[0].specular" type="Uniform" value="15"/>
+      <Property name="theLights[0].atten" type="Uniform" value="9"/>
+      <Property name="theLights[0].direction" type="Uniform" value="11"/>
+      <Property name="theLights[0].param1" type="Uniform" value="12"/>
+      <Property name="theLights[0].param2" type="Uniform" value="13"/>
+      <Property name="theLights[1].atten" type="Uniform" value="16"/>
+      <Property name="theLights[1].diffuse" type="Uniform" value="17"/>
+      <Property name="theLights[1].direction" type="Uniform" value="18"/>
+      <Property name="theLights[1].param1" type="Uniform" value="19"/>
+      <Property name="theLights[1].param2" type="Uniform" value="20"/>
+      <Property name="theLights[1].position" type="Uniform" value="21"/>
+      <Property name="theLights[1].specular" type="Uniform" value="22"/>
+      <Property name="theLights[2].atten" type="Uniform" value="23"/>
+      <Property name="theLights[2].diffuse" type="Uniform" value="24"/>
+      <Property name="theLights[2].direction" type="Uniform" value="25"/>
+      <Property name="theLights[2].param1" type="Uniform" value="26"/>
+      <Property name="theLights[2].param2" type="Uniform" value="27"/>
+      <Property name="theLights[2].position" type="Uniform" value="28"/>
+      <Property name="theLights[2].specular" type="Uniform" value="29"/>
+      <Property name="theLights[3].atten" type="Uniform" value="30"/>
+      <Property name="theLights[3].diffuse" type="Uniform" value="31"/>
+      <Property name="theLights[3].direction" type="Uniform" value="32"/>
+      <Property name="theLights[3].param1" type="Uniform" value="33"/>
+      <Property name="theLights[3].param2" type="Uniform" value="34"/>
+      <Property name="theLights[3].position" type="Uniform" value="35"/>
+      <Property name="theLights[3].specular" type="Uniform" value="36"/>
+      <Property name="theLights[4].atten" type="Uniform" value="37"/>
+      <Property name="theLights[4].diffuse" type="Uniform" value="38"/>
+      <Property name="theLights[4].direction" type="Uniform" value="39"/>
+      <Property name="theLights[4].param1" type="Uniform" value="40"/>
+      <Property name="theLights[4].param2" type="Uniform" value="41"/>
+      <Property name="theLights[4].position" type="Uniform" value="42"/>
+      <Property name="theLights[4].specular" type="Uniform" value="43"/>
+      <Property name="theLights[5].atten" type="Uniform" value="44"/>
+      <Property name="theLights[5].diffuse" type="Uniform" value="45"/>
+      <Property name="theLights[5].direction" type="Uniform" value="46"/>
+      <Property name="theLights[5].param1" type="Uniform" value="47"/>
+      <Property name="theLights[5].param2" type="Uniform" value="48"/>
+      <Property name="theLights[5].position" type="Uniform" value="49"/>
+      <Property name="theLights[5].specular" type="Uniform" value="50"/>
+      <Property name="theLights[6].atten" type="Uniform" value="51"/>
+      <Property name="theLights[6].diffuse" type="Uniform" value="52"/>
+      <Property name="theLights[6].direction" type="Uniform" value="53"/>
+      <Property name="theLights[6].param1" type="Uniform" value="54"/>
+      <Property name="theLights[6].param2" type="Uniform" value="55"/>
+      <Property name="theLights[6].position" type="Uniform" value="56"/>
+      <Property name="theLights[6].specular" type="Uniform" value="57"/>
+      <Property name="theLights[7].atten" type="Uniform" value="58"/>
+      <Property name="theLights[7].diffuse" type="Uniform" value="59"/>
+      <Property name="theLights[7].direction" type="Uniform" value="60"/>
+      <Property name="theLights[7].param1" type="Uniform" value="61"/>
+      <Property name="theLights[7].param2" type="Uniform" value="62"/>
+      <Property name="theLights[7].position" type="Uniform" value="63"/>
+      <Property name="theLights[7].specular" type="Uniform" value="64"/>
+      <Property name="theLights[8].atten" type="Uniform" value="65"/>
+      <Property name="theLights[8].diffuse" type="Uniform" value="66"/>
+      <Property name="theLights[8].direction" type="Uniform" value="67"/>
+      <Property name="theLights[8].param1" type="Uniform" value="68"/>
+      <Property name="theLights[8].param2" type="Uniform" value="69"/>
+      <Property name="theLights[8].position" type="Uniform" value="70"/>
+      <Property name="theLights[8].specular" type="Uniform" value="71"/>
+      <Property name="theLights[9].atten" type="Uniform" value="72"/>
+      <Property name="theLights[9].diffuse" type="Uniform" value="73"/>
+      <Property name="theLights[9].direction" type="Uniform" value="74"/>
+      <Property name="theLights[9].param1" type="Uniform" value="75"/>
+      <Property name="theLights[9].param2" type="Uniform" value="76"/>
+      <Property name="theLights[9].position" type="Uniform" value="77"/>
+      <Property name="theLights[9].specular" type="Uniform" value="78"/>
+      <Property name="theLights[10].atten" type="Uniform" value="79"/>
+      <Property name="theLights[10].diffuse" type="Uniform" value="80"/>
+      <Property name="theLights[10].direction" type="Uniform" value="81"/>
+      <Property name="theLights[10].param1" type="Uniform" value="82"/>
+      <Property name="theLights[10].param2" type="Uniform" value="83"/>
+      <Property name="theLights[10].position" type="Uniform" value="84"/>
+      <Property name="theLights[10].specular" type="Uniform" value="85"/>
+      <Property name="theLights[11].atten" type="Uniform" value="86"/>
+      <Property name="theLights[11].diffuse" type="Uniform" value="87"/>
+      <Property name="theLights[11].direction" type="Uniform" value="88"/>
+      <Property name="theLights[11].param1" type="Uniform" value="89"/>
+      <Property name="theLights[11].param2" type="Uniform" value="90"/>
+      <Property name="theLights[11].position" type="Uniform" value="91"/>
+      <Property name="theLights[11].specular" type="Uniform" value="92"/>
+      <Property name="theLights[12].atten" type="Uniform" value="93"/>
+      <Property name="theLights[12].diffuse" type="Uniform" value="94"/>
+      <Property name="theLights[12].direction" type="Uniform" value="95"/>
+      <Property name="theLights[12].param1" type="Uniform" value="96"/>
+      <Property name="theLights[12].param2" type="Uniform" value="97"/>
+      <Property name="theLights[12].position" type="Uniform" value="98"/>
+      <Property name="theLights[12].specular" type="Uniform" value="99"/>
+      <Property name="theLights[13].atten" type="Uniform" value="100"/>
+      <Property name="theLights[13].diffuse" type="Uniform" value="101"/>
+      <Property name="theLights[13].direction" type="Uniform" value="102"/>
+      <Property name="theLights[13].param1" type="Uniform" value="103"/>
+      <Property name="theLights[13].param2" type="Uniform" value="104"/>
+      <Property name="theLights[13].position" type="Uniform" value="105"/>
+      <Property name="theLights[13].specular" type="Uniform" value="106"/>
+      <Property name="theLights[14].atten" type="Uniform" value="107"/>
+      <Property name="theLights[14].diffuse" type="Uniform" value="108"/>
+      <Property name="theLights[14].direction" type="Uniform" value="109"/>
+      <Property name="theLights[14].param1" type="Uniform" value="110"/>
+      <Property name="theLights[14].param2" type="Uniform" value="111"/>
+      <Property name="theLights[14].position" type="Uniform" value="112"/>
+      <Property name="theLights[14].specular" type="Uniform" value="113"/>
+      <Property name="theLights[15].atten" type="Uniform" value="114"/>
+      <Property name="theLights[15].diffuse" type="Uniform" value="115"/>
+      <Property name="theLights[15].direction" type="Uniform" value="116"/>
+      <Property name="theLights[15].param1" type="Uniform" value="117"/>
+      <Property name="theLights[15].param2" type="Uniform" value="118"/>
+      <Property name="theLights[15].position" type="Uniform" value="119"/>
+      <Property name="theLights[15].specular" type="Uniform" value="120"/>
+      <Property name="theLights[16].atten" type="Uniform" value="121"/>
+      <Property name="theLights[16].diffuse" type="Uniform" value="122"/>
+      <Property name="theLights[16].direction" type="Uniform" value="123"/>
+      <Property name="theLights[16].param1" type="Uniform" value="124"/>
+      <Property name="theLights[16].param2" type="Uniform" value="125"/>
+      <Property name="theLights[16].position" type="Uniform" value="126"/>
+      <Property name="theLights[16].specular" type="Uniform" value="127"/>
+      <Property name="theLights[17].atten" type="Uniform" value="128"/>
+      <Property name="theLights[17].diffuse" type="Uniform" value="129"/>
+      <Property name="theLights[17].direction" type="Uniform" value="130"/>
+      <Property name="theLights[17].param1" type="Uniform" value="131"/>
+      <Property name="theLights[17].param2" type="Uniform" value="132"/>
+      <Property name="theLights[17].position" type="Uniform" value="133"/>
+      <Property name="theLights[17].specular" type="Uniform" value="134"/>
+      <Property name="theLights[18].atten" type="Uniform" value="135"/>
+      <Property name="theLights[18].diffuse" type="Uniform" value="136"/>
+      <Property name="theLights[18].direction" type="Uniform" value="137"/>
+      <Property name="theLights[18].param1" type="Uniform" value="138"/>
+      <Property name="theLights[18].param2" type="Uniform" value="139"/>
+      <Property name="theLights[18].position" type="Uniform" value="140"/>
+      <Property name="theLights[18].specular" type="Uniform" value="141"/>
+      <Property name="theLights[19].atten" type="Uniform" value="142"/>
+      <Property name="theLights[19].diffuse" type="Uniform" value="143"/>
+      <Property name="theLights[19].direction" type="Uniform" value="144"/>
+      <Property name="theLights[19].param1" type="Uniform" value="145"/>
+      <Property name="theLights[19].param2" type="Uniform" value="146"/>
+      <Property name="theLights[19].position" type="Uniform" value="147"/>
+      <Property name="theLights[19].specular" type="Uniform" value="148"/>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type="models" open="none">
+    <AssetRoot>./assets/models/</AssetRoot>
+    <Asset name="1x1_Star_1_Quad_2_Sided_xyz_n_uv">
+      <AssetFile>1x1_Star_1_Quad_2_Sided_xyz_n_uv.ply</AssetFile>
+      <Property name="exists" type="bool" value="true"/>
+      <Property name="valid" type="bool" value="true"/>
+      <Property name="type" type="enum" value="ply"/>
+      <Property name="format" type="string" value="ascii"/>
+      <Property name="vertex" type="int" value="453"/>
+      <Property name="x" type="float" value=""/>
+      <Property name="y" type="float" value=""/>
+      <Property name="z" type="float" value=""/>
+      <Property name="nx" type="float" value=""/>
+      <Property name="ny" type="float" value=""/>
+      <Property name="nz" type="float" value=""/>
+      <Property name="face" type="int" value="948"/>
+      <Property name="normals" type="bool" value="true"/>
+      <Property name="colours" type="bool" value="false"/>
+    </Asset>
+    <Asset name="Large_Physics_Bunny_XYZ_N_UV">
+      <AssetFile>Large_Physics_Bunny_XYZ_N_UV.ply</AssetFile>
+      <Property name="exists" type="bool" value="true"/>
+      <Property name="valid" type="bool" value="true"/>
+      <Property name="type" type="enum" value="ply"/>
+      <Property name="format" type="string" value="ascii"/>
+      <Property name="vertex" type="int" value="26"/>
+      <Property name="x" type="float" value=""/>
+      <Property name="y" type="float" value=""/>
+      <Property name="z" type="float" value=""/>
+      <Property name="nx" type="float" value=""/>
+      <Property name="ny" type="float" value=""/>
+      <Property name="nz" type="float" value=""/>
+      <Property name="face" type="int" value="12"/>
+      <Property name="normals" type="bool" value="true"/>
+      <Property name="colours" type="bool" value="false"/>
+    </Asset>
+    <Asset name="Sphere_Radius_1_XYZ_n">
+      <AssetFile>Sphere_Radius_1_XYZ_n.ply</AssetFile>
+      <Property name="exists" type="bool" value="true"/>
+      <Property name="valid" type="bool" value="true"/>
+      <Property name="type" type="enum" value="ply"/>
+      <Property name="format" type="string" value="ascii"/>
+      <Property name="vertex" type="int" value="642"/>
+      <Property name="x" type="float" value=""/>
+      <Property name="y" type="float" value=""/>
+      <Property name="z" type="float" value=""/>
+      <Property name="nx" type="float" value=""/>
+      <Property name="ny" type="float" value=""/>
+      <Property name="nz" type="float" value=""/>
+      <Property name="face" type="int" value="1280"/>
+      <Property name="normals" type="bool" value="true"/>
+      <Property name="colours" type="bool" value="false"/>
+    </Asset>
+    <Asset name="terrain">
+      <AssetFile>Patterns_MidTerm_2019/terrain.ply</AssetFile>
+      <Property name="exists" type="bool" value="true"/>
+      <Property name="valid" type="bool" value="true"/>
+      <Property name="type" type="enum" value="ply"/>
+      <Property name="format" type="string" value="ascii"/>
+      <Property name="vertex" type="int" value="66049"/>
+      <Property name="x" type="float" value=""/>
+      <Property name="y" type="float" value=""/>
+      <Property name="z" type="float" value=""/>
+      <Property name="nx" type="float" value=""/>
+      <Property name="ny" type="float" value=""/>
+      <Property name="nz" type="float" value=""/>
+      <Property name="face" type="int" value="131072"/>
+      <Property name="normals" type="bool" value="true"/>
+      <Property name="colours" type="bool" value="false"/>
+    </Asset>
+  </AssetGroup>
+  <AssetGroup type="audios" open="all" subdir="true" subtype="music">
+    <AssetRoot>./assets/audios/</AssetRoot>
+  </AssetGroup>
+  <AssetGroup type="videos" open="none">
+    <AssetRoot>./assets/videos/</AssetRoot>
+  </AssetGroup>
+  <AssetGroup type="images" open="none">
+    <AssetRoot>./assets/images/</AssetRoot>
+  </AssetGroup>
+  <AssetGroup type="fonts" open="none">
+    <AssetRoot>./assets/fonts/</AssetRoot>
+  </AssetGroup>
+  <Objects>
+    <Object type="light" name="light_0" asset_id="">
+      <Property name="shaderEntry" type="string" value="theLights[1]"/>
+      <Property name="lightType" type="enum" value="POINT"/>
+      <Property name="positionXYZ" type="vec3" value="0.0 1000.0 0.0"/>
+      <Property name="diffuseColour" type="vec4" value="1 1 1 1"/>
+      <Property name="specularColour" type="vec4" value="1 1 1 1"/>
+      <Property name="constantAttenuation" type="float" value="0.000120"/>
+      <Property name="linearAttenuation" type="float" value="0.000007"/>
+      <Property name="quadradicAttenuation" type="float" value="0.000002"/>
+      <Property name="distanceCutOff" type="float" value="1000000.0"/>
+      <Property name="spotInnerangle" type="float" value="0.0"/>
+      <Property name="spotOuterangle" type="float" value="0.0"/>
+      <Property name="direction" type="vec3" value="0 -1 0"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="DebugSpheres" type="bool" value="false"/>
+    </Object>
+    <Object name="terrain" type="model" asset_id="terrain">
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="bounce" type="float" value="1.000000"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 18.5462 -256"/>
+      <Property name="AABB_max" type="vec3" value="256 128.5 1.17549e-38"/>
+      <Property name="SPHERE_radius" type="float" value="0.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="0.5 0.5f 0.5f 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+    <Object name="bunny" type="model" asset_id="Large_Physics_Bunny_XYZ_N_UV">
+      <Property name="positionXYZ" type="vec3" value="30 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="-22.6959 -22.2415 -17.1667"/>
+      <Property name="AABB_max" type="vec3" value="22.6959 22.2415 17.1667"/>
+      <Property name="SPHERE_radius" type="float" value="0.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="bounce" type="float" value="1.000000"/>
+    </Object>
+    <Object name="cube" type="model" asset_id="cube_Low_Res_xyz_n">
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 0 0 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="MESH"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="-4.5 -5 -4.5"/>
+      <Property name="AABB_max" type="vec3" value="4.5 5 4.5"/>
+      <Property name="SPHERE_radius" type="float" value="0.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="1 1 0.5 1"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="bounce" type="float" value="1.000000"/>
+    </Object>
+    <Object name="debug_sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="0 0 0 0"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="1.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="UNKNOWN"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="-1 -1 -1"/>
+      <Property name="AABB_max" type="vec3" value="1 1 1"/>
+      <Property name="SPHERE_radius" type="float" value="0.000000"/>
+      <Property name="isWireframe" type="bool" value="true"/>
+      <Property name="debugColour" type="vec4" value="0 1 0 1"/>
+      <Property name="bounce" type="float" value="0.750000"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+    </Object>
+    <Object name="Sphere#1" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+      <Property name="positionXYZ" type="vec3" value="15 30 15"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="1 1 1 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="inverseMass" type="float" value="0.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="1.000000"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+    <Object name="Drop_Sphere" type="model" asset_id="Sphere_Radius_1_XYZ_n">
+      <Property name="isVisible" type="bool" value="false"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="positionXYZ" type="vec3" value="0 0 0"/>
+      <Property name="rotationXYZ" type="vec3" value="0 0 0"/>
+      <Property name="scale" type="float" value="1.000000"/>
+      <Property name="bounce" type="float" value="0.750000"/>
+      <Property name="inverseMass" type="float" value="1.000000"/>
+      <Property name="physicsShapeType" type="vec3" value="SPHERE"/>
+      <Property name="velocity" type="vec3" value="0 0 0"/>
+      <Property name="accel" type="vec3" value="0 0 0"/>
+      <Property name="AABB_min" type="vec3" value="0 0 0"/>
+      <Property name="AABB_max" type="vec3" value="0 0 0"/>
+      <Property name="SPHERE_radius" type="float" value="1.000000"/>
+      <Property name="objectColourRGBA" type="vec4" value="1.0 1 1 1"/>
+      <Property name="diffuseColour" type="vec4" value="0 0 0 0"/>
+      <Property name="specularColour" type="vec4" value="0 0 0 0"/>
+      <Property name="isWireframe" type="bool" value="false"/>
+      <Property name="debugColour" type="vec4" value="0 0 0 0"/>
+      <Property name="disableDepthBufferTest" type="bool" value="false"/>
+      <Property name="disableDepthBufferWrite" type="bool" value="false"/>
+    </Object>
+
+    <Object type="world" name="world" asset_id="">
+      <Property name="ground_plane" type="alias" value="ground"/>
+      <Property name="cameraEye" type="vec3" value="100 10 100"/>
+      <Property name="cameraTarget" type="vec3" value="0.0f, 30.0, 0.0"/>
+      <Property name="upVector" type="vec3" value="0 1 0"/>
+      <Property name="debugRenderer" type="bool" value="false"/>
+      <Property name="windowWidth" type="int" value="700"/>
+      <Property name="windowHeight" type="int" value="500"/>
+      <Property name="isVisible" type="bool" value="true"/>
+      <Property name="isObjectLocked" type="bool" value="false"/>
+      <Property name="cameraNearClipping" type="float" value="1.00"/>
+      <Property name="cameraFarClipping" type="float" value="10000000.0"/>
+      <Property name="physicsStepOn" type="bool" value="true"/>
+      <Property name="physicsCollisionOn" type="bool" value="true"/>
+    </Object>
+
+  </Objects>
+</GameLibrary>
+

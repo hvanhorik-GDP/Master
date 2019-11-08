@@ -19,12 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cMedia_Project_02_Init.cpp" />
+    <ClCompile Include="cMedia_Project_02_Tilter.cpp" />
     <ClCompile Include="Media_Project_02_Callback.cpp" />
-    <ClCompile Include="Media_Project_02_test.cpp" />
+    <ClCompile Include="Media_Project_02_ObjectCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cMedia_Project_02_Init.h" />
+    <ClInclude Include="cMedia_Project_02_Tilter.h" />
     <ClInclude Include="Media_Project_02_Callback.h" />
-    <ClInclude Include="Media_Project_02_test.h" />
+    <ClInclude Include="Media_Project_02_ObjectCreator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Media_Project_02(output).xml" />
+    <Xml Include="..\..\assets\Media_Project_02.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Media_Project_02\BigFlatTerrain_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Media_Project_02\Cube_1_Unit_from_origin_XYZ_n.ply" />
+    <None Include="..\..\assets\models\Media_Project_02\cube_Hi_Res_xyz_n.ply" />
+    <None Include="..\..\assets\models\Media_Project_02\cube_Low_Res_xyz_n.ply" />
+    <None Include="..\..\assets\models\Media_Project_02\pyramid_a.ply" />
+    <None Include="..\..\assets\models\Media_Project_02\Sphere_Radius_1_XYZ_n.ply" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

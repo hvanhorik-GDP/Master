@@ -2,10 +2,49 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Media_Project_02_Callback.cpp" />
-    <ClCompile Include="Media_Project_02_test.cpp" />
+    <ClCompile Include="cMedia_Project_02_Init.cpp" />
+    <ClCompile Include="cMedia_Project_02_Tilter.cpp" />
+    <ClCompile Include="Media_Project_02_ObjectCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Media_Project_02_Callback.h" />
-    <ClInclude Include="Media_Project_02_test.h" />
+    <ClInclude Include="cMedia_Project_02_Init.h" />
+    <ClInclude Include="cMedia_Project_02_Tilter.h" />
+    <ClInclude Include="Media_Project_02_ObjectCreator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\assets\Media_Project_02(output).xml" />
+    <Xml Include="..\..\assets\Media_Project_02.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="assets">
+      <UniqueIdentifier>{a1ff9114-e7c5-4267-8a24-fd3efe589ac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\models">
+      <UniqueIdentifier>{740228db-4b0d-43e1-a99c-f38f327fe39d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\audio">
+      <UniqueIdentifier>{2e32bd9d-4918-4d5b-8657-8ddedce72029}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\assets\models\Media_Project_02\BigFlatTerrain_XYZ_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Media_Project_02\Cube_1_Unit_from_origin_XYZ_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Media_Project_02\cube_Hi_Res_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Media_Project_02\cube_Low_Res_xyz_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Media_Project_02\pyramid_a.ply">
+      <Filter>assets\models</Filter>
+    </None>
+    <None Include="..\..\assets\models\Media_Project_02\Sphere_Radius_1_XYZ_n.ply">
+      <Filter>assets\models</Filter>
+    </None>
   </ItemGroup>
 </Project>
