@@ -17,7 +17,9 @@ public:
 private:
 	cItem_Image();				// Bad Consructor
 
-	friend class cAssetManager_Audios;
+	friend class cAssetManager_Images;
+	bool m_isValid = false;
+	bool m_fileExists = false;
 
 };
 

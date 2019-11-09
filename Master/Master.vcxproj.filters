@@ -13,11 +13,11 @@
     <Filter Include="_Others">
       <UniqueIdentifier>{0bdbf691-5c1a-44d6-80bc-f158e152d7a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\models\Patterns_MidTerm_2019">
-      <UniqueIdentifier>{d398eaf2-8239-40af-8a08-2f0e9a5d0958}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\models\GDP2019">
       <UniqueIdentifier>{33f634cc-4a6c-4b00-a63d-fdef90b2beac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\textures">
+      <UniqueIdentifier>{806ebd04-c1e2-4377-989b-13487d212ad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,18 +42,6 @@
     </None>
     <None Include="..\assets\shaders\fragmentShader01.glsl">
       <Filter>Assets\shaders</Filter>
-    </None>
-    <None Include="..\assets\models\Patterns_MidTerm_2019\bun_zipper_res2_XYZ_n_UV.ply">
-      <Filter>Assets\models\Patterns_MidTerm_2019</Filter>
-    </None>
-    <None Include="..\assets\models\Patterns_MidTerm_2019\cube_Low_Res_xyz_n.ply">
-      <Filter>Assets\models\Patterns_MidTerm_2019</Filter>
-    </None>
-    <None Include="..\assets\models\Patterns_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply">
-      <Filter>Assets\models\Patterns_MidTerm_2019</Filter>
-    </None>
-    <None Include="..\assets\models\Patterns_MidTerm_2019\terrain.ply">
-      <Filter>Assets\models\Patterns_MidTerm_2019</Filter>
     </None>
     <None Include="..\assets\models\1x1_2Tri_Quad_2_Sided_xyz_n_uv.ply">
       <Filter>Assets\models\GDP2019</Filter>
@@ -149,5 +137,58 @@
     </Xml>
     <Xml Include="..\assets\test.xml" />
     <Xml Include="..\assets\test(output).xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\assets\textures\AlienBluray_512x512.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\AlienBluray_2048x2048.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\EmmaWatson.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\FenceTexture.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\fx3_Panels_Color.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\fx3_Panels_Color.jpg">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\fx3_Panels_Shiny2 - original.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\fx3_Panels_Shiny2.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\fx3_Panels_Shiny2.jpg">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\Grass.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\HotPink.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\pebbles-beach-textures.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\pebbles-beach-textures.jpg">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\Pizza.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\PowerPlant.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\WhatTheWhat.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
+    <Image Include="..\assets\textures\White.bmp">
+      <Filter>Assets\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

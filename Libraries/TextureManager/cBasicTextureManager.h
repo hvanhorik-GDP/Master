@@ -5,10 +5,12 @@
 #include <map>
 #include "CTextureFromBMP.h"
 
+#pragma comment(lib, "TextureManager.lib")
+
 class cBasicTextureManager
 {
 public:
-	bool Create2DTextureFromBMPFile( std::string textureFileName, bool bGenerateMIPMap );
+	CTextureFromBMP* Create2DTextureFromBMPFile( std::string textureFileName, bool bGenerateMIPMap);
 
 	// Picks a random texture from the textures loaded
 	std::string PickRandomTexture(void);

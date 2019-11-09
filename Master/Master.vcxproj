@@ -204,10 +204,6 @@
     <None Include="..\assets\models\Entire_Babbage_Space_Station_xyz_n_uv(trivial).ply" />
     <None Include="..\assets\models\Large_Physics_Bunny_XYZ_n.ply" />
     <None Include="..\assets\models\Large_Physics_Bunny_XYZ_N_UV.ply" />
-    <None Include="..\assets\models\Patterns_MidTerm_2019\bun_zipper_res2_XYZ_n_UV.ply" />
-    <None Include="..\assets\models\Patterns_MidTerm_2019\cube_Low_Res_xyz_n.ply" />
-    <None Include="..\assets\models\Patterns_MidTerm_2019\Sphere_Radius_1_XYZ_n.ply" />
-    <None Include="..\assets\models\Patterns_MidTerm_2019\terrain.ply" />
     <None Include="..\assets\models\Quad_1.ply" />
     <None Include="..\assets\models\Single_Triangle_XYZ_n_(XZ_Plane_facing_+ve_Y).ply" />
     <None Include="..\assets\models\Sky_Pirate_Combined_xyz_n.ply" />
@@ -229,6 +225,25 @@
     <Xml Include="..\assets\Media_Project_02.xml" />
     <Xml Include="..\assets\test(output).xml" />
     <Xml Include="..\assets\test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\assets\textures\AlienBluray_2048x2048.bmp" />
+    <Image Include="..\assets\textures\AlienBluray_512x512.bmp" />
+    <Image Include="..\assets\textures\EmmaWatson.bmp" />
+    <Image Include="..\assets\textures\FenceTexture.bmp" />
+    <Image Include="..\assets\textures\fx3_Panels_Color.bmp" />
+    <Image Include="..\assets\textures\fx3_Panels_Color.jpg" />
+    <Image Include="..\assets\textures\fx3_Panels_Shiny2 - original.bmp" />
+    <Image Include="..\assets\textures\fx3_Panels_Shiny2.bmp" />
+    <Image Include="..\assets\textures\fx3_Panels_Shiny2.jpg" />
+    <Image Include="..\assets\textures\Grass.bmp" />
+    <Image Include="..\assets\textures\HotPink.bmp" />
+    <Image Include="..\assets\textures\pebbles-beach-textures.bmp" />
+    <Image Include="..\assets\textures\pebbles-beach-textures.jpg" />
+    <Image Include="..\assets\textures\Pizza.bmp" />
+    <Image Include="..\assets\textures\PowerPlant.bmp" />
+    <Image Include="..\assets\textures\WhatTheWhat.bmp" />
+    <Image Include="..\assets\textures\White.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

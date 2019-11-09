@@ -1,6 +1,10 @@
 #include "cAssetManager_Images.h"
 
 #include "GAmeLibrary/AssetGroups.h"
+#include "AssetItems/cItem_Image.h"
+#include "TextureManager/cBasicTextureManager.h"
+#include "Utilities/cFormat.h"
+
 #include <iostream>
 #include <sstream>
 
@@ -38,18 +42,41 @@ void cAssetManager_Images::LoadAssets(rapidxml::xml_node<>* parent)
 						Assets_name assetName(file.GetNode());
 						AssetFile fileName = file.GetAssetFile();
 						std::string fullPath = rootPath + fileName.GetValue();
-						std::cout << fullPath << std::endl;
-						std::cout << __FILE__ << __LINE__ << "Found an asset TODO" << std::endl;
+
+						std::string id = assetName.GetValue();
+						auto parent = file.GetParent();
+						cItem_Image* item = new cItem_Image(id, fullPath, parent, i);
+						auto val = subtype.GetValue();
+						m_map_items[item->GetAssetID()] = item;
+
+						cBasicTextureManager textureManager;
+						textureManager.SetBasePath(rootPath);
+						
+						CTextureFromBMP* bmp =  textureManager.Create2DTextureFromBMPFile(fileName.GetValue(), true);
+						if (!bmp)
+							std::cout << "Didn't load texture" << fullPath << std::endl;
+
+						item->m_fileExists = (bmp != NULL);
+						item->m_isValid = (bmp != NULL);
+						// Just load the header for speed
+						file.AddProperty("exists", "bool", cFormat::PackBool(item->m_fileExists));
+						file.AddProperty("valid", "bool", cFormat::PackBool(item->m_isValid));
+						if (bmp)
+						{
+							// Write the properties to the xml file
+							file.AddProperty("fileSize", "int", cFormat::PackInt(bmp->GetFileSize()));
+							file.AddProperty("bitsPerPixel", "int", cFormat::PackInt(bmp->GetBitsPerPixel()));
+							file.AddProperty("height", "int", cFormat::PackInt(bmp->GetHeightInRows()));
+							file.AddProperty("width", "int", cFormat::PackInt(bmp->GetWidthInColumns()));
+							file.AddProperty("compressionMode", "int", cFormat::PackInt(bmp->GetCompressionMode()));
+						}
 					}
 				}
-			}
-			else
-			{
-//				std::cout << "cAssetManager_Images - Ignoring: " << type.GetValue() << std::endl;
 			}
 		}
 	}
 }
+
 
 iAssetManager::iItems_map* cAssetManager_Images::GetItems(const std::string& name)
 {
