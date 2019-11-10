@@ -95,5 +95,6 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_ChannelGroup
 
 void cObjectManager_ChannelGroup::ResolveAlias()
 {
-	return;					// No Alias
+	cObjectManagerPart_Alias::ResolveAlias(m_map_objects, false);
 }
+

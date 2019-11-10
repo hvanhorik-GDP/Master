@@ -558,6 +558,9 @@ bool cPhysics_Henky::DoSphereSphereCollisionTest(cObject_Model* pA, cObject_Mode
 
 	if (colide)
 	{
+		// Hack to note a colision
+		pA->HACK_Hit_Sphere = true;
+		pB->HACK_Hit_Sphere = true;
 		sphereCollisionResponse(pA, pB);
 		return true;
 	}
@@ -699,6 +702,7 @@ bool cPhysics_Henky::DoShphereMeshCollisionTest(cObject_Model* pSphere, cObject_
 
 	if (distance <= worldSphere.r)
 	{
+		pSphere->HACK_Hit_Sphere = true;
 
 		if (pSphere->HACK_Exploding_Simulation)
 		{

@@ -22,7 +22,6 @@ void cObjectManager::SaveObject(iObject* inObject, rapidxml::xml_node<>* parent)
 {
 	assert(m_cObjectManager_impl);
 	m_cObjectManager_impl->SaveObject(inObject, parent);
-
 }
 
 std::ostream& operator<<(std::ostream& stream, const cObjectManager& val)

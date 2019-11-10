@@ -14,7 +14,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& stream, const cAudio_SoundGroup_FMOD& val);
 
 private:
-	FMOD::SoundGroup* m_soundGroup;
+	FMOD::SoundGroup* m_soundGroup = NULL;
 	mutable FMOD_RESULT m_result;
 	friend class cAudio_System_FMOD;
 };

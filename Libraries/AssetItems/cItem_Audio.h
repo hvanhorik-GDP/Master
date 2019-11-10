@@ -45,7 +45,7 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cItem_Audio& val);
 
-private:
+public:
 
 	cItem_Audio();				// Bad Consructor
 	cAudio_Sound_FMOD* m_sound;
@@ -54,6 +54,7 @@ private:
 	subtype m_subtype;
 	format m_format;
 	unsigned int m_length;		// MS
+	std::string m_fullPath;
 	friend class cAssetManager_Audios;
 };
 

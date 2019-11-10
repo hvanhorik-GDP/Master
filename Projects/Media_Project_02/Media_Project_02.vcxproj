@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="cMedia_Project_02_Init.cpp" />
     <ClCompile Include="cMedia_Project_02_Tilter.cpp" />
+    <ClCompile Include="cObjectWatcher.cpp" />
     <ClCompile Include="Media_Project_02_Callback.cpp" />
     <ClCompile Include="Media_Project_02_ObjectCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cMedia_Project_02_Init.h" />
     <ClInclude Include="cMedia_Project_02_Tilter.h" />
+    <ClInclude Include="cObjectWatcher.h" />
     <ClInclude Include="Media_Project_02_Callback.h" />
     <ClInclude Include="Media_Project_02_ObjectCreator.h" />
   </ItemGroup>
@@ -35,12 +37,29 @@
     <Xml Include="..\..\assets\Media_Project_02.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\assets\audios\Project2\foo.tmp" />
     <None Include="..\..\assets\models\Media_Project_02\BigFlatTerrain_XYZ_n.ply" />
     <None Include="..\..\assets\models\Media_Project_02\Cube_1_Unit_from_origin_XYZ_n.ply" />
     <None Include="..\..\assets\models\Media_Project_02\cube_Hi_Res_xyz_n.ply" />
     <None Include="..\..\assets\models\Media_Project_02\cube_Low_Res_xyz_n.ply" />
     <None Include="..\..\assets\models\Media_Project_02\pyramid_a.ply" />
     <None Include="..\..\assets\models\Media_Project_02\Sphere_Radius_1_XYZ_n.ply" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\assets\audios\Project2\balls_01.wav" />
+    <Media Include="..\..\assets\audios\Project2\balls_02.mp3" />
+    <Media Include="..\..\assets\audios\Project2\balls_03.mp3" />
+    <Media Include="..\..\assets\audios\Project2\ball_rolling_01.mp3" />
+    <Media Include="..\..\assets\audios\Project2\ball_rolling_02.mp3" />
+    <Media Include="..\..\assets\audios\Project2\boing_01.wav" />
+    <Media Include="..\..\assets\audios\Project2\boing_02.wav" />
+    <Media Include="..\..\assets\audios\Project2\boing_03.wav" />
+    <Media Include="..\..\assets\audios\Project2\boing_04.mp3" />
+    <Media Include="..\..\assets\audios\Project2\bomb_dropping_01.mp3" />
+    <Media Include="..\..\assets\audios\Project2\bomb_dropping_02.wav" />
+    <Media Include="..\..\assets\audios\Project2\bomb_dropping_03.wav" />
+    <Media Include="..\..\assets\audios\Project2\ouch_01.mp3" />
+    <Media Include="..\..\assets\audios\Project2\ouch_02.wav" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

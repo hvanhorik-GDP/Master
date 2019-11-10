@@ -2,18 +2,20 @@
 #include "Media_Project_02_Callback.h"
 #include "cMedia_Project_02_Tilter.h"
 #include "Media_Project_02_ObjectCreator.h"
+#include "ObjectItems/cObject_ChannelGroup.h"
 
 cMedia_Project_02_Tilter* gMedia_Project_02_Tilter;	
+cObjectWatcher* gObjectWatcher = NULL;
+extern cAudio_System_FMOD* g_implFMOD;
+
 
 void cMedia_Project_02_Init::Init(gamelibrary::GameLibrary& gameLib)
 {
+	gObjectWatcher = new cObjectWatcher();
 	cObjectManager objectManager;
 	gamelibrary::Objects objectsLib = gameLib.GetObjects();
-	CreatePyramids(1, objectManager, objectsLib.GetNode());
+	CreatePyramids(5, objectManager, objectsLib.GetNode());
 	CreateDropBalls(1, objectManager, objectsLib.GetNode());
-
-	CloneObject(1, "AudioChannel", objectsLib.GetNode());
-	CloneObject(1, "AudioChannelGroup", objectsLib.GetNode());
 
 	// Do an initial tilter
 	gMedia_Project_02_Tilter = new cMedia_Project_02_Tilter();
@@ -26,7 +28,8 @@ void cMedia_Project_02_Init::Init(gamelibrary::GameLibrary& gameLib)
 
 void cMedia_Project_02_Init::Step(float deltaTime)
 {
-
+	gObjectWatcher->Watch(deltaTime);
+	g_implFMOD->Update();
 }
 
 GLFWkeyfun cMedia_Project_02_Init::GetKeyCallback()

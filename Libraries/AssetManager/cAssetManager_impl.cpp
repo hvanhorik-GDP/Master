@@ -41,6 +41,28 @@ cAssetManager_impl::iItems_map* cAssetManager_impl::GetItems(const std::string& 
 // Root Node of XML document which has assets
 void cAssetManager_impl::LoadAssets(rapidxml::xml_node<>* parent)
 {
+	m_AssetManagers["audios"] = new cAssetManager_Audios();
+	m_AssetManagers["audios"]->LoadAssets(parent);
+
+	m_AssetManagers["videos"] = new cAssetManager_Videos();
+	m_AssetManagers["videos"]->LoadAssets(parent);
+
+	m_AssetManagers["images"] = new cAssetManager_Images();
+	m_AssetManagers["images"]->LoadAssets(parent);
+
+	m_AssetManagers["shaders"] = new cAssetManager_Shaders();
+	m_AssetManagers["shaders"]->LoadAssets(parent);
+
+	m_AssetManagers["programs"] = new cAssetManager_Programs();
+	m_AssetManagers["programs"]->LoadAssets(parent);
+
+	m_AssetManagers["models"] = new cAssetManager_Models();
+	m_AssetManagers["models"]->LoadAssets(parent);
+
+	m_AssetManagers["fonts"]  = new cAssetManager_Fonts();
+	m_AssetManagers["fonts"]->LoadAssets(parent);
+
+#if 0
 	gamelibrary::AssetGroups groups(parent);
 	for (size_t i = 0; i < groups.GetSize(); ++i)
 	{
@@ -125,6 +147,7 @@ void cAssetManager_impl::LoadAssets(rapidxml::xml_node<>* parent)
 			}
 		}
 	}
+#endif
 
 }
 

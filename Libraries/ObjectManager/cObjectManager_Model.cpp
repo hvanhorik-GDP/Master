@@ -125,5 +125,5 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_Model& val)
 
 void cObjectManager_Model::ResolveAlias()
 {
-	return;				// No Alias
+	cObjectManagerPart_Alias::ResolveAlias(m_map_objects, false);
 }

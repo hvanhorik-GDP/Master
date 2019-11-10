@@ -4,6 +4,7 @@
 #include <exception>
 #include <sstream>
 #include <cassert>
+#include <iostream>
 
 
 cAudio_System_FMOD::cAudio_System_FMOD()
@@ -77,20 +78,29 @@ void cAudio_System_FMOD::Init(int maxchannels, iAudio_System::InitFlags flags)
 	 assert(m_system);
 	 if (m_system)
 	 {
-		 m_result = m_system->createSound(path.c_str(), mode, 0, &sound.m_sound);
-		 cAudio_Exception_FMOD::throwIfError(m_result);
+		 if (sound.m_sound == NULL)
+		 {
+			 m_result = m_system->createSound(path.c_str(), mode, 0, &sound.m_sound);
+			 cAudio_Exception_FMOD::throwIfError(m_result);
+		 }
 	 }
  }
 
- void cAudio_System_FMOD::PlaySound(const cAudio_Sound_FMOD& sound, cAudio_Channel_FMOD& channel)
+ void cAudio_System_FMOD::PlaySound(const cAudio_Sound_FMOD& sound, cAudio_ChannelGroup_FMOD* channelGroup, bool paused, cAudio_Channel_FMOD& channel)
  {
 	 assert(m_system);
 	 if (m_system)
 	 {
-		 // TODO ChannelGroup
+
 		 FMOD::ChannelGroup* group = NULL;
-		 m_result = m_system->playSound(sound.m_sound, group, channel.isPaused(), &channel.m_channel);
-		 cAudio_Exception_FMOD::throwIfError(m_result);
+		 if (channelGroup)
+			 group = channelGroup->m_channelGroup;
+		
+		 if (channel.m_channel == NULL)
+		 {
+			 m_result = m_system->playSound(sound.m_sound, group, paused, &channel.m_channel);
+			 cAudio_Exception_FMOD::throwIfError(m_result);
+		 }
 	 }
  }
 
@@ -113,7 +123,6 @@ void cAudio_System_FMOD::Init(int maxchannels, iAudio_System::InitFlags flags)
 		 m_result = m_system->createChannelGroup(name.c_str(), &group.m_channelGroup);
 		 cAudio_Exception_FMOD::throwIfError(m_result);
 	 }
-
  }
 
  //FMOD_RESULT F_API createSoundGroup(const char* name, SoundGroup** soundgroup);
@@ -165,7 +174,6 @@ void cAudio_System_FMOD::Init(int maxchannels, iAudio_System::InitFlags flags)
 		 m_result = m_system->getMasterChannelGroup(&out.m_channelGroup);
 		 cAudio_Exception_FMOD::throwIfError(m_result);
 	 }
-
  }
 
  //FMOD_RESULT F_API getMasterSoundGroup(SoundGroup** soundgroup);

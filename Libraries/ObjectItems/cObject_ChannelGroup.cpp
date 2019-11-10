@@ -12,7 +12,6 @@ cObject_ChannelGroup::cObject_ChannelGroup(const std::string& type,
 	, cObject_Alias()							// This is a grouping
 {
 	LoadCommon(type, name, asset_id, node);
-
 }
 
 cObject_ChannelGroup::~cObject_ChannelGroup()
@@ -30,6 +29,10 @@ iObject* cObject_ChannelGroup::Clone(const std::string& newName)
 	return ret;
 }
 
+void cObject_ChannelGroup::playSound(bool paused)
+{
+	assert(false);				// TODO implement
+}
 
 void cObject_ChannelGroup::IntegrationStep(float deltaTime)
 {

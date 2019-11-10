@@ -75,6 +75,7 @@ public:			// TODO - hack
 	std::string m_assetID;
 	bool m_isVisable = true;
 	bool m_isObjectLocked = false;
+	bool m_isAClone = false;
 
 	// Point to original XML parent node and Index
 	rapidxml::xml_node<>* m_node;

@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Master/iMaster_InitTest.h"
+#include "cObjectWatcher.h"
 
 #pragma comment (lib, "Media_Project_02.lib")
 
@@ -17,5 +18,6 @@ public:
 
 	virtual GLFWkeyfun GetKeyCallback();
 	virtual GLFWmousebuttonfun GetMouseCallback();
+	cObjectWatcher* m_objectWatcher;
 };
 

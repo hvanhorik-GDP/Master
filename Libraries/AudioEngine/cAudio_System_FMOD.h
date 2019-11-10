@@ -36,7 +36,8 @@ public:
 
 	typedef FMOD_MODE Mode;
 	void CreateSound(cAudio_Sound_FMOD& sound, const std::string path, FMOD_MODE mode);
-	void PlaySound(const cAudio_Sound_FMOD& sound, cAudio_Channel_FMOD &channel);
+
+	void PlaySound(const cAudio_Sound_FMOD& sound, cAudio_ChannelGroup_FMOD* channelGroup, bool paused, cAudio_Channel_FMOD &channel);
 
 	void CreateDSP(cAudio_DSP_FMOD& dsp, const std::string path, FMOD_MODE mode);
 
@@ -69,7 +70,7 @@ private:
 	friend class cAudio_System;
 	cAudio_System_FMOD();				// Private constructor 
 
-	FMOD::System* m_system;
+	FMOD::System* m_system = NULL;
 	mutable FMOD_RESULT m_result;
 	bool m_isInit = false;
 };

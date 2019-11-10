@@ -159,11 +159,18 @@ void cObjectManagerPart_Common::LogInvalidProperty(
 	in->LoadCommon(type, name, asset_id, node);
 
 
-	// This needs to be moved to common
-	iAssetManager::iItems_map* assets = cAssetManager().GetItems("models");
-	auto asset = assets->find(asset_id);
-	if (asset != assets->end())
-	{
-		in->m_Item = asset->second;
+	// TODO - HACK - MAKE A GLOBAL ROUTINE
+	std::vector<std::string> names;
+	//names.push_back("audios");
+	names.push_back("models");
+
+	for (auto name : names)
+	{	// This needs to be moved to common
+		iAssetManager::iItems_map* assets = cAssetManager().GetItems(name);
+		auto asset = assets->find(asset_id);
+		if (asset != assets->end())
+		{
+			in->m_Item = asset->second;
+		}
 	}
 }

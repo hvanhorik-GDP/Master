@@ -27,6 +27,8 @@ public:
 		rapidxml::xml_node<>* node);
 	virtual ~cObject_ChannelGroup();
 
+	virtual void playSound(bool paused) final;
+
 	virtual iObject* Clone(const std::string& newName) final;
 
 	// Recieve a message

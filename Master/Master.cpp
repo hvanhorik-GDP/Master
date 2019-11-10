@@ -1,4 +1,5 @@
 #include <rapidxml/rapidxml.hpp>
+#include <fmod/fmod.hpp>
 
 #include "GameLibrary/GameLibrary.h"
 #include "GameLibrary/AssetGroups.h"
@@ -35,8 +36,16 @@
 #include "../Projects/Graphics_Midterm_2019/cGraphics_Midterm_2019_Init.h"
 #include "../Projects/Patterns_MidTerm_2019/cPatterns_MidTerm_2019_Init.h"
 
+cAudio_System_FMOD* g_implFMOD = NULL;
+
 int main(int arg, char** argv)
 {
+	cAudio_System audio;
+	iAudio_System* impl = audio.Get_impl();
+	g_implFMOD = dynamic_cast<cAudio_System_FMOD*>(impl);
+	assert(g_implFMOD);
+	g_implFMOD->Init(200, FMOD_INIT_NORMAL);
+
 	std::cout << "starting up" << std::endl;
 	std::string root("./assets/");
 	std::string libraryName("test.xml");
@@ -93,6 +102,8 @@ int main(int arg, char** argv)
 
 	Master_RunTest(gameLib, init);
 	document.Write(outputLibrary);
+
+	g_implFMOD->Close();
 
 	return 0;
 }

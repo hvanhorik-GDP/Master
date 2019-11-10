@@ -21,6 +21,6 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObjectManagerPart_Alias& val);
 
-	virtual void ResolveAlias(iObjectManager::iObject_map& objects, bool pointToParent);
+	static void ResolveAlias(iObjectManager::iObject_map& objects, bool pointToParent);
 };
 

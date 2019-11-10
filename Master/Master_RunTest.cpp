@@ -31,8 +31,6 @@
 #include "DebugRenderer/cDebugRenderer.h"
 #include "LightManager/cLightManager.h"
 
-// Local stuff pulled out of main by Henry
-
 cDebugRenderer* gDebugRenderer;
 
 extern GLFWwindow* window;

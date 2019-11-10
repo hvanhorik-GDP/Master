@@ -4,8 +4,10 @@
 #include "cObject_3d.h"
 #include "cObject_Physics.h"
 #include "cObject_Alias.h"
+#include "../AudioEngine/cAudio_ChannelGroup_FMOD.h"
 
 #include <glm/glm.hpp>
+#include <fmod/fmod.hpp>
 
 #include <string>
 #include <map>
@@ -66,4 +68,8 @@ public:			// TODO - Hack - We need this public for old code since it replaces cG
 	time_t HACK_Physics_Time_Of_Simulation;
 	bool HACK_Physics_DebugBall_Vanishes = false;
 	bool HACK_Tracking_Position = false;
+	bool HACK_Hit_Sphere = false;
+	bool HACK_Hit_plane = false;
+
+	cAudio_ChannelGroup_FMOD m_channelGroup;
 };

@@ -17,6 +17,8 @@ public:
 	float GetPitch() const;
 
 	bool isPlaying() const;
+	
+	void stop();
 
 	unsigned int GetPosition(FMOD_TIMEUNIT units = FMOD_TIMEUNIT_MS) const;
 	void SetPosition(unsigned int pos, FMOD_TIMEUNIT units = FMOD_TIMEUNIT_MS);
@@ -24,8 +26,8 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cAudio_Channel_FMOD& val);
 
-private:
-	FMOD::Channel* m_channel;
+public:
+	FMOD::Channel* m_channel = NULL;
 	mutable FMOD_RESULT m_result;
 
 	friend class cAudio_System_FMOD;

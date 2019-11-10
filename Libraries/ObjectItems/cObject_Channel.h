@@ -4,6 +4,10 @@
 #include "cObject_ChannelControl.h"
 #include "cObject_3d.h"
 #include "cObject_Physics.h"
+#include "AudioEngine/cAudio_System_FMOD.h"
+#include "AudioEngine/cAudio_Channel_FMOD.h"
+#include "AudioEngine/cAudio_Sound_FMOD.h"
+
 
 #include <vector>
 
@@ -21,6 +25,10 @@ public:
 
 	virtual ~cObject_Channel();
 
+	virtual void playSound(bool paused) final;
+
+
+
 	virtual iObject* Clone(const std::string& newName) final;
 
 	virtual void IntegrationStep(float deltaTime) final;
@@ -34,7 +42,11 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cObject_Channel& val);
 
-private:
+public:
+	cAudio_System_FMOD* m_system;
+	cAudio_Channel_FMOD* m_channel;
+	cAudio_Sound_FMOD* m_sound;
+	cAudio_ChannelGroup_FMOD* m_channel_group;
 	friend class cObjectManager_Channel;
 };
 

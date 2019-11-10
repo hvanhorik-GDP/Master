@@ -6,7 +6,7 @@
 #include "Utilities/cFormat.h"
 #include "cGameObject.h"
 #include "cObjectManager.h"
-
+#include "cObjectManagerPart_Alias.h"
 #include <iostream>
 
 cObjectManager_Group::cObjectManager_Group()
@@ -161,6 +161,8 @@ std::ostream& operator<<(std::ostream& stream, const cObjectManager_Group& val)
 
 void cObjectManager_Group::ResolveAlias()
 {
+//	cObjectManagerPart_Alias::ResolveAlias(m_map_objects, false);
+
 	cObjectManager manager;
 	for (auto group : m_map_objects)
 	{

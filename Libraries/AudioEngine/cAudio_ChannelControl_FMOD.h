@@ -25,7 +25,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& stream, const cAudio_ChannelControl_FMOD& val);
 
 private:
-	FMOD::Channel* m_channel;
+	FMOD::Channel* m_channel = NULL;
 	mutable FMOD_RESULT m_result;
 
 	friend class cAudio_System_FMOD;

@@ -112,19 +112,20 @@ void cObjectManager_impl::LoadObjects(rapidxml::xml_node<>* parent)
 			manager->LoadObjects(trans);
 		}
 	}
-	// After loaded we need to resolve all aliases
-	auto temp = m_ObjectManagers["group"];
-	assert(temp);
-	cObjectManager_Group* groupManager = dynamic_cast<cObjectManager_Group*>(temp);
-	assert(groupManager);
-	groupManager->ResolveAlias();
+	ResolveAlias();
+	//// After loaded we need to resolve all aliases
+	//auto temp = m_ObjectManagers["group"];
+	//assert(temp);
+	//cObjectManager_Group* groupManager = dynamic_cast<cObjectManager_Group*>(temp);
+	//assert(groupManager);
+	//groupManager->ResolveAlias();
 
-	// After loaded we need to resolve all aliases
-	temp = m_ObjectManagers["world"];
-	assert(temp);
-	cObjectManager_World* worldManager = dynamic_cast<cObjectManager_World*>(temp);
-	assert(worldManager);
-	worldManager->ResolveAlias();
+	//// After loaded we need to resolve all aliases
+	//temp = m_ObjectManagers["world"];
+	//assert(temp);
+	//cObjectManager_World* worldManager = dynamic_cast<cObjectManager_World*>(temp);
+	//assert(worldManager);
+	//worldManager->ResolveAlias();
 }
 
 void cObjectManager_impl::ResolveAlias()

@@ -11,6 +11,8 @@ public:
 	iObject_ChannelControl() {};				// Get's filled in by physics
 	virtual ~iObject_ChannelControl() {}
 
+	virtual void playSound(bool paused) = 0;
+
 	//FMOD_RESULT F_API stop();
 	//FMOD_RESULT F_API setPaused(bool paused);
 	virtual bool getPaused() = 0;

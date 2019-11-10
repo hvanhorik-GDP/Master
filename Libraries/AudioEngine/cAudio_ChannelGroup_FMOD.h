@@ -9,11 +9,12 @@ public:
 	virtual ~cAudio_ChannelGroup_FMOD();
 
 	void Release();
+
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cAudio_ChannelGroup_FMOD& val);
 
 private:
-	FMOD::ChannelGroup* m_channelGroup;
+	FMOD::ChannelGroup* m_channelGroup = NULL;
 	mutable FMOD_RESULT m_result;
 
 	friend class cAudio_System_FMOD;

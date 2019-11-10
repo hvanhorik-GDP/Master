@@ -2,12 +2,13 @@
 #include "cAudio_System_impl.h"
 #include <cassert>
 
-cAudio_System_impl* g_Audio_System_impl;		// The one and only
+static cAudio_System_impl* g_Audio_System_impl;		// The one and only
 
 
 cAudio_System::cAudio_System()
 {
-	g_Audio_System_impl = new cAudio_System_impl();
+	if (!g_Audio_System_impl)
+		g_Audio_System_impl = new cAudio_System_impl();
 }
 
 cAudio_System::~cAudio_System()

@@ -11,6 +11,7 @@ public:
 
 	virtual void IntegrationStep(float deltaTime) = 0;
 
+	virtual void playSound(bool paused) = 0;
 	//FMOD_RESULT F_API stop();
 	//FMOD_RESULT F_API setPaused(bool paused);
 	virtual bool getPaused() final;

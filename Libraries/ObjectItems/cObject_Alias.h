@@ -23,14 +23,7 @@ public:
 public:	
 	friend class cObjectManager_Alias;
 
-	//glm::vec3  positionXYZ;
-	//glm::vec3  rotationXYZ;
-	//float scale;
-	//// Add some physics things
-	//glm::vec3 velocity;
-	//glm::vec3 accel;
-	//bool isVisible;
-
 	mapObjectsInAlias m_mapObjects;
+	size_t m_originalSize;
 };
 

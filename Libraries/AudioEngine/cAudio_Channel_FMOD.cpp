@@ -2,6 +2,7 @@
 #include "cAudio_Exception_FMOD.h"
 
 cAudio_Channel_FMOD::cAudio_Channel_FMOD()
+	: m_channel(NULL)
 {
 
 }
@@ -38,6 +39,16 @@ bool cAudio_Channel_FMOD::isPlaying() const
 		cAudio_Exception_FMOD::throwIfError(m_result);
 	}
 	return playing;
+}
+
+void cAudio_Channel_FMOD::stop()
+{
+	if (m_channel)
+	{
+		m_result = m_channel->stop();
+		cAudio_Exception_FMOD::throwIfError(m_result);
+		m_channel = NULL;
+	}
 }
 
 unsigned int cAudio_Channel_FMOD::GetPosition(FMOD_TIMEUNIT units) const

@@ -84,13 +84,16 @@ void cAssetManager_Audios::LoadAssets(rapidxml::xml_node<>* parent)
 								item->m_format.format = format.format;
 								item->m_format.type = format.type;
 
+								item->m_fullPath = fullPath;
 								// Write the properties to the xml file
 //								Properties prop = file.GetProperties();
 								file.AddProperty("exists", "bool", cFormat::PackBool(true));
+								file.AddProperty("error", "string", "");
 								file.AddProperty("bits", "int", cFormat::PackInt(format.bits));
 								file.AddProperty("channels", "int", cFormat::PackInt(format.channels));
 								file.AddProperty("format", "string", cAudio_Sound_FMOD::get_format_string(format.format));
 								file.AddProperty("type", "string", cAudio_Sound_FMOD::get_type_string(format.type));
+								file.AddProperty("fullPath", "string", fullPath);
 
 								unsigned int length = sound.GetLength();
 								file.AddProperty("length", "int", cFormat::PackInt(length));

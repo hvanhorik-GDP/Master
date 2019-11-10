@@ -28,8 +28,8 @@ public:
 	// For debugging purposes - dumps the contents in human readable form
 	friend std::ostream& operator<<(std::ostream& stream, const cAudio_Sound_FMOD& val);
 
-private:
-	FMOD::Sound* m_sound;
+public:
+	FMOD::Sound* m_sound = NULL;
 	mutable FMOD_RESULT m_result;
 	friend class cAudio_System_FMOD;
 };
